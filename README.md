@@ -1,2 +1,2 @@
 # fhe-toolkit-linux
-IBM Homomorphic Encryption Toolkit For Linux
+IBM Fully Homomorphic Encryption Toolkit For Linux
