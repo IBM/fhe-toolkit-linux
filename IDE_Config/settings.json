@@ -1,0 +1,6 @@
+{
+    "terminal.integrated.shell.linux": "/usr/bin/bash",
+    "cmake.sourceDirectory": "${workspaceFolder}/examples/BGV_country_db_lookup",
+    "cmake.configureOnOpen": true,
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
+}

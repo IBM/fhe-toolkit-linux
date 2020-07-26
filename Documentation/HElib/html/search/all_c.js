@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['named_389',['named',['../classhelib_1_1_arg_map.html#ac06dd5e3726ecd5d8e688d665c2c9e50',1,'helib::ArgMap']]],
+  ['nativedimension_390',['nativeDimension',['../classhelib_1_1_encrypted_array_base.html#a368c21a272921966da3a7793145bf5d2',1,'helib::EncryptedArrayBase']]],
+  ['naturalprimeset_391',['naturalPrimeSet',['../classhelib_1_1_ctxt.html#a8438ce2e01ffef412729f699f37065a9',1,'helib::Ctxt']]],
+  ['negate_392',['negate',['../classhelib_1_1_poly_mod.html#a97baf864ed5ebb0cd0710f22de74a9d1',1,'helib::PolyMod::negate()'],['../classhelib_1_1_ptxt.html#aa244b723b8202496b3916b8a16f6273c',1,'helib::Ptxt::negate()']]],
+  ['negate_5fpa_5fimpl_393',['negate_pa_impl',['../classhelib_1_1negate__pa__impl.html',1,'helib']]],
+  ['negatebinary_394',['negateBinary',['../binary_arith_8h.html#aaff515cbc7e22db14c0b22c910f4cee2',1,'helib']]],
+  ['next_395',['next',['../classhelib_1_1_index_set.html#a5690665e0de625096ca1091ea3c39f74',1,'helib::IndexSet']]],
+  ['nextexpvector_396',['nextExpVector',['../classhelib_1_1_p_algebra.html#a9b134922f5863ccdaa130a491cad0070',1,'helib::PAlgebra']]],
+  ['noiseboundforgaussian_397',['noiseBoundForGaussian',['../classhelib_1_1_context.html#ac2b4477cbc59e744b735544b60bb4f87',1,'helib::Context']]],
+  ['noiseboundforhwt_398',['noiseBoundForHWt',['../classhelib_1_1_context.html#aca4f48776f48a323315928889c64f0d1',1,'helib::Context']]],
+  ['noiseboundformod_399',['noiseBoundForMod',['../classhelib_1_1_context.html#a93ce4564b2ec97c85c50e732c04a1b22',1,'helib::Context']]],
+  ['noiseboundforsmall_400',['noiseBoundForSmall',['../classhelib_1_1_context.html#a1eae4b3032d34226da9b04897b414179',1,'helib::Context']]],
+  ['noiseboundforuniform_401',['noiseBoundForUniform',['../classhelib_1_1_context.html#ab79e1f941d6043131a14404c68bf538c',1,'helib::Context']]],
+  ['norms_2ecpp_402',['norms.cpp',['../norms_8cpp.html',1,'']]],
+  ['norms_2eh_403',['norms.h',['../norms_8h.html',1,'']]],
+  ['note_404',['note',['../classhelib_1_1_arg_map.html#a7bcbfcccc0c9fcc9f3eba06067fcd97f',1,'helib::ArgMap']]],
+  ['numbth_2eh_405',['NumbTh.h',['../_numb_th_8h.html',1,'']]],
+  ['numcols_406',['numCols',['../classhelib_1_1_cube_signature.html#a40d654d1f59cf7c85acc69dae9b22e5a',1,'helib::CubeSignature::numCols()'],['../classhelib_1_1_hyper_cube.html#afe571f26858da4a0ee94908b20497e8b',1,'helib::HyperCube::numCols()'],['../classhelib_1_1_const_cube_slice.html#afdf82fe6ccc0ad79784725212fd9b1c2',1,'helib::ConstCubeSlice::numCols()']]],
+  ['numofgens_407',['numOfGens',['../classhelib_1_1_p_algebra.html#a5e4b044f71ca8edcfa4426cb199461f0',1,'helib::PAlgebra']]],
+  ['numprimes_408',['numPrimes',['../classhelib_1_1_context.html#a552e300656dfae6eaacace769c03655a',1,'helib::Context']]],
+  ['numslices_409',['numSlices',['../classhelib_1_1_cube_signature.html#ae3b3e6e4fdefec7e372ecbefca124b44',1,'helib::CubeSignature::numSlices()'],['../classhelib_1_1_hyper_cube.html#a55bd39c9c1967976ddc46feb070c57bf',1,'helib::HyperCube::numSlices()'],['../classhelib_1_1_const_cube_slice.html#a40a482b543e07df30aea4b46529416fd',1,'helib::ConstCubeSlice::numSlices()']]]
+];

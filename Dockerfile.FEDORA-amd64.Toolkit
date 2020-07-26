@@ -1,0 +1,47 @@
+ARG HElib_tag
+FROM $HElib_tag
+ENV container docker
+LABEL maintainer="Flavio Bergamaschi <flavio@uk.ibm.com>"
+
+# Docker Container for Fedora FHE IDE and Example Code Toolkit
+
+# The  code-server runs on HTTPS port 8443 so expose it
+EXPOSE 8443/tcp
+
+# Set root user for installation
+USER root
+WORKDIR /root
+
+# Install code-server so we can access the IDE from a container context...
+RUN curl -fsSL https://code-server.dev/install.sh | sh 2>&1
+
+# Create a directory to hold the VSCode user data
+RUN mkdir -p /opt/IBM/IDE-Data
+RUN chown -R fhe:fhe /opt/IBM/IDE-Data
+
+# Create a directory to hold the user's FHE workspace to contain project/sample code
+RUN mkdir -p /opt/IBM/FHE-Workspace
+RUN chown -R fhe:fhe /opt/IBM/FHE-Workspace
+
+# Set fhe user for the remaining of the installation
+USER fhe
+WORKDIR /home/fhe
+
+RUN mkdir /opt/IBM/FHE-Workspace/.vscode
+COPY --chown=fhe:fhe ./IDE_Config /opt/IBM/FHE-Workspace/.vscode 
+RUN mkdir -p /opt/IBM/FHE-Workspace/examples
+RUN cp -rp /opt/IBM/FHE-distro/HElib/examples /opt/IBM/FHE-Workspace
+
+# Copy over additional examples into the FHE-Workspace from the github checkout on this host
+COPY --chown=fhe:fhe ./samples/ /opt/IBM/FHE-Workspace/examples/
+
+# Install code-server extensions
+RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension ms-vscode.cpptools --force
+RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension ms-vscode.cmake-tools --force
+# set code-server to create a self signed cert
+RUN sed -i.bak 's/cert: false/cert: true/' ~/.config/code-server/config.yaml
+# Update code-server user settings
+RUN echo "{\"extensions.autoUpdate\": false}" > /opt/IBM/IDE-Data/User/settings.json
+
+# Set the default command to launch the code-server project as a web application
+CMD ["code-server",  "--bind-addr", "0.0.0.0:8443", "--user-data-dir", "/opt/IBM/IDE-Data/", "/opt/IBM/FHE-Workspace", "--auth", "none", "--disable-telemetry"]

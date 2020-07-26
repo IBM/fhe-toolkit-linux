@@ -1,0 +1,22 @@
+/**
+@mainpage ML-HElib Documentation (Beta version)
+
+Simplified ML library using HElib. API is subject to rapid change.
+
+This API is designed to provide high level access to homomorphic encryption tools,
+especially for AI related applications.
+
+In particular it currently offers the following:
+
+- High level wrappers for HE initialization and I/O.
+- Simple tools to support neural network I/O and inference for a specific architecture:
+  3 fully connected layers. 
+
+Here are some top level classes, refer to their documentation for more information:
+
+HelibCkksContext 
+HelibConfig 
+SimpleNeuralNetPlain
+SimpleNeuralNet
+
+**/

@@ -1,0 +1,56 @@
+# User settings and user workspace
+*.code-workspace
+FHE-Toolkit-Workspace/*
+
+## Build generated
+build/
+DerivedData/
+
+# Block from accidentally contirbuting a FHE-Workspace
+FHE-Workspace
+
+# Block dependencies that are automatically fetched in the build script
+DEPENDENCIES/NTL
+DEPENDENCIES/ntl-11.4.3.tar.gz
+
+DEPENDENCIES/HElib
+DEPENDENCIES/HElib-v1.0.2.tar.gz
+
+DEPENDENCIES/boost*
+DEPENDENCIES/boost-1.72.0.tar.gz
+
+# Ignore examples folder
+samples/*
+
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
