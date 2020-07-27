@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
         <meta name="generator" content="Doxygen 1.8.18"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <title>HElib: include/helib/clonedPtr.h Source File</title>
+        <title>HElib: /HElib/include/helib/clonedPtr.h Source File</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
         <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -127,26 +127,26 @@ $(function() {
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">/* For ANSI-challenged compilers, you may want to</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"> * #define NO_MEMBER_TEMPLATES or explicit */</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">namespace </span>helib {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacehelib.html">helib</a> {</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> X&gt;</div>
 <div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classhelib_1_1deep__clone.html">   62</a></span>&#160;<span class="keyword">class </span><a class="code" href="classhelib_1_1deep__clone.html">deep_clone</a></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keyword">static</span> X* apply(<span class="keyword">const</span> X* x) { <span class="keywordflow">return</span> x-&gt;clone(); }</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classhelib_1_1deep__clone.html#a28f2cc80ade879d28fa8611528e495dc">   65</a></span>&#160;  <span class="keyword">static</span> X* <a class="code" href="classhelib_1_1deep__clone.html#a28f2cc80ade879d28fa8611528e495dc">apply</a>(<span class="keyword">const</span> X* x) { <span class="keywordflow">return</span> x-&gt;clone(); }</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> X&gt;</div>
 <div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classhelib_1_1shallow__clone.html">   74</a></span>&#160;<span class="keyword">class </span><a class="code" href="classhelib_1_1shallow__clone.html">shallow_clone</a></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keyword">static</span> X* apply(<span class="keyword">const</span> X* x) { <span class="keywordflow">return</span> <span class="keyword">new</span> X(*x); }</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classhelib_1_1shallow__clone.html#a4bf705cfdbfc722608b250c0bc70a7b7">   77</a></span>&#160;  <span class="keyword">static</span> X* <a class="code" href="classhelib_1_1shallow__clone.html#a4bf705cfdbfc722608b250c0bc70a7b7">apply</a>(<span class="keyword">const</span> X* x) { <span class="keywordflow">return</span> <span class="keyword">new</span> X(*x); }</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;};</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#ifndef NO_MEMBER_TEMPLATES</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#define CLONED_PTR_TEMPLATE_MEMBERS(CLONED_PTR_TYPE)                           \</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">                                                                               \</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="cloned_ptr_8h.html#a62f04b4d34efc98d98a5bb0b2543d8ae">   83</a></span>&#160;<span class="preprocessor">                                                                               \</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">  template &lt;typename Y&gt;                                                        \</span></div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">  CLONED_PTR_TYPE(const CLONED_PTR_TYPE&lt;Y&gt;&amp; r)                                 \</span></div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">  {                                                                            \</span></div>
@@ -169,7 +169,7 @@ $(function() {
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#define CLONED_PTR_DECLARE(CLONED_PTR_TYPE, CLONED_PTR_INIT)                   \</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">                                                                               \</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="cloned_ptr_8h.html#adde44bb18a3a4de6820e1a3b92004615">  106</a></span>&#160;<span class="preprocessor">                                                                               \</span></div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor">  template &lt;typename X, typename Cloner = CLONED_PTR_INIT&lt;X&gt;&gt;                  \</span></div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">  class CLONED_PTR_TYPE                                                        \</span></div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">  {                                                                            \</span></div>
@@ -225,21 +225,21 @@ $(function() {
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="preprocessor">  };</span></div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="comment">// declare the template class cloned_ptr&lt;X&gt;</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;CLONED_PTR_DECLARE(cloned_ptr, <a class="code" href="classhelib_1_1deep__clone.html">deep_clone</a>)</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<a class="code" href="cloned_ptr_8h.html#adde44bb18a3a4de6820e1a3b92004615">CLONED_PTR_DECLARE</a>(cloned_ptr, deep_clone)</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="comment">// declare the template class copied_ptr&lt;X&gt;</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;CLONED_PTR_DECLARE(copied_ptr, <a class="code" href="classhelib_1_1shallow__clone.html">shallow_clone</a>)</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<a class="code" href="cloned_ptr_8h.html#adde44bb18a3a4de6820e1a3b92004615">CLONED_PTR_DECLARE</a>(copied_ptr, shallow_clone)</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="comment">// template &lt;class X&gt; using copied_ptr = cloned_ptr&lt;X, noclone&lt;X&gt; &gt;;</span></div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> X, <span class="keyword">typename</span> Cloner&gt;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="keywordtype">void</span> swap(cloned_ptr&lt;X, Cloner&gt;&amp; x, cloned_ptr&lt;X, Cloner&gt;&amp; y)</div>
+<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="namespacehelib.html#a16a28125fbbf867ea3394513923a6abb">  170</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacehelib.html#a16a28125fbbf867ea3394513923a6abb">swap</a>(cloned_ptr&lt;X, Cloner&gt;&amp; x, cloned_ptr&lt;X, Cloner&gt;&amp; y)</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;{</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  x.swap(y);</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;}</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> X, <span class="keyword">typename</span> Cloner&gt;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="keywordtype">void</span> swap(copied_ptr&lt;X, Cloner&gt;&amp; x, copied_ptr&lt;X, Cloner&gt;&amp; y)</div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="namespacehelib.html#ad420c276576021ed7278823e82771b6b">  176</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacehelib.html#a16a28125fbbf867ea3394513923a6abb">swap</a>(copied_ptr&lt;X, Cloner&gt;&amp; x, copied_ptr&lt;X, Cloner&gt;&amp; y)</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;{</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  x.swap(y);</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;}</div>
@@ -248,8 +248,13 @@ $(function() {
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="preprocessor">#endif // ifndef HELIB_CLONEDPTR_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclasshelib_1_1deep__clone_html_a28f2cc80ade879d28fa8611528e495dc"><div class="ttname"><a href="classhelib_1_1deep__clone.html#a28f2cc80ade879d28fa8611528e495dc">helib::deep_clone::apply</a></div><div class="ttdeci">static X * apply(const X *x)</div><div class="ttdef"><b>Definition:</b> clonedPtr.h:65</div></div>
+<div class="ttc" id="anamespacehelib_html"><div class="ttname"><a href="namespacehelib.html">helib</a></div><div class="ttdef"><b>Definition:</b> apiAttributes.h:21</div></div>
 <div class="ttc" id="aclasshelib_1_1deep__clone_html"><div class="ttname"><a href="classhelib_1_1deep__clone.html">helib::deep_clone</a></div><div class="ttdoc">Deep copy: initialize with clone.</div><div class="ttdef"><b>Definition:</b> clonedPtr.h:63</div></div>
+<div class="ttc" id="aclasshelib_1_1shallow__clone_html_a4bf705cfdbfc722608b250c0bc70a7b7"><div class="ttname"><a href="classhelib_1_1shallow__clone.html#a4bf705cfdbfc722608b250c0bc70a7b7">helib::shallow_clone::apply</a></div><div class="ttdeci">static X * apply(const X *x)</div><div class="ttdef"><b>Definition:</b> clonedPtr.h:77</div></div>
 <div class="ttc" id="aclasshelib_1_1shallow__clone_html"><div class="ttname"><a href="classhelib_1_1shallow__clone.html">helib::shallow_clone</a></div><div class="ttdoc">Shallow copy: initialize with copy constructor.</div><div class="ttdef"><b>Definition:</b> clonedPtr.h:75</div></div>
+<div class="ttc" id="acloned_ptr_8h_html_adde44bb18a3a4de6820e1a3b92004615"><div class="ttname"><a href="cloned_ptr_8h.html#adde44bb18a3a4de6820e1a3b92004615">CLONED_PTR_DECLARE</a></div><div class="ttdeci">#define CLONED_PTR_DECLARE(CLONED_PTR_TYPE, CLONED_PTR_INIT)</div><div class="ttdef"><b>Definition:</b> clonedPtr.h:105</div></div>
+<div class="ttc" id="anamespacehelib_html_a16a28125fbbf867ea3394513923a6abb"><div class="ttname"><a href="namespacehelib.html#a16a28125fbbf867ea3394513923a6abb">helib::swap</a></div><div class="ttdeci">void swap(cloned_ptr&lt; X, Cloner &gt; &amp;x, cloned_ptr&lt; X, Cloner &gt; &amp;y)</div><div class="ttdef"><b>Definition:</b> clonedPtr.h:170</div></div>
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->
 </div>

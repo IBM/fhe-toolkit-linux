@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
         <meta name="generator" content="Doxygen 1.8.18"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <title>HElib: include/helib/permutations.h File Reference</title>
+        <title>HElib: /HElib/include/helib/permutations.h File Reference</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
         <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -79,6 +79,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -91,7 +92,7 @@ $(function() {
 <div class="textblock"><code>#include &lt;<a class="el" href="_p_algebra_8h_source.html">helib/PAlgebra.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="matching_8h_source.html">helib/matching.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="hypercube_8h_source.html">helib/hypercube.h</a>&gt;</code><br />
-<code>#include &lt;helib/apiAttributes.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="api_attributes_8h_source.html">helib/apiAttributes.h</a>&gt;</code><br />
 </div>
 <p><a href="permutations_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -128,46 +129,42 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A full permutation network.  <a href="classhelib_1_1_perm_network.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacehelib"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html">helib</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ae0769a209e14d5e1bfd8579072397867"><td class="memItemLeft" align="right" valign="top"><a id="ae0769a209e14d5e1bfd8579072397867"></a>
-typedef NTL::Vec&lt; long &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="permutations_8h.html#ae0769a209e14d5e1bfd8579072397867">helib::Permut</a></td></tr>
-<tr class="memdesc:ae0769a209e14d5e1bfd8579072397867"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple permutation is just a vector with p[i]=\pi_i. <br /></td></tr>
+<tr class="memitem:ae0769a209e14d5e1bfd8579072397867"><td class="memItemLeft" align="right" valign="top">typedef NTL::Vec&lt; long &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ae0769a209e14d5e1bfd8579072397867">helib::Permut</a></td></tr>
+<tr class="memdesc:ae0769a209e14d5e1bfd8579072397867"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple permutation is just a vector with p[i]=\pi_i.  <a href="namespacehelib.html#ae0769a209e14d5e1bfd8579072397867">More...</a><br /></td></tr>
 <tr class="separator:ae0769a209e14d5e1bfd8579072397867"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22b83b7df1af539c07c804d7888448ce"><td class="memItemLeft" align="right" valign="top"><a id="a22b83b7df1af539c07c804d7888448ce"></a>
-typedef FullBinaryTree&lt; SubDimension &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>helib::OneGeneratorTree</b></td></tr>
+<tr class="memitem:a22b83b7df1af539c07c804d7888448ce"><td class="memItemLeft" align="right" valign="top">typedef FullBinaryTree&lt; SubDimension &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a22b83b7df1af539c07c804d7888448ce">helib::OneGeneratorTree</a></td></tr>
 <tr class="separator:a22b83b7df1af539c07c804d7888448ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0cf8627539f6c1c46e6ae9287058f7cc"><td class="memTemplParams" colspan="2"><a id="a0cf8627539f6c1c46e6ae9287058f7cc"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a0cf8627539f6c1c46e6ae9287058f7cc"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="permutations_8h.html#a0cf8627539f6c1c46e6ae9287058f7cc">helib::applyPermToVec</a> (NTL::Vec&lt; T &gt; &amp;out, const NTL::Vec&lt; T &gt; &amp;in, const Permut &amp;p1)</td></tr>
-<tr class="memdesc:a0cf8627539f6c1c46e6ae9287058f7cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a permutation to a std::vector, out[i]=in[p1[i]] (NOT in-place) <br /></td></tr>
+<tr class="memitem:a0cf8627539f6c1c46e6ae9287058f7cc"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a0cf8627539f6c1c46e6ae9287058f7cc"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a0cf8627539f6c1c46e6ae9287058f7cc">helib::applyPermToVec</a> (NTL::Vec&lt; T &gt; &amp;out, const NTL::Vec&lt; T &gt; &amp;in, const Permut &amp;p1)</td></tr>
+<tr class="memdesc:a0cf8627539f6c1c46e6ae9287058f7cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a permutation to a std::vector, out[i]=in[p1[i]] (NOT in-place)  <a href="namespacehelib.html#a0cf8627539f6c1c46e6ae9287058f7cc">More...</a><br /></td></tr>
 <tr class="separator:a0cf8627539f6c1c46e6ae9287058f7cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abae99af99454c783bed9cbde7cd72058"><td class="memTemplParams" colspan="2"><a id="abae99af99454c783bed9cbde7cd72058"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:abae99af99454c783bed9cbde7cd72058"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::applyPermToVec</b> (std::vector&lt; T &gt; &amp;out, const std::vector&lt; T &gt; &amp;in, const Permut &amp;p1)</td></tr>
+<tr class="memitem:abae99af99454c783bed9cbde7cd72058"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:abae99af99454c783bed9cbde7cd72058"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#abae99af99454c783bed9cbde7cd72058">helib::applyPermToVec</a> (std::vector&lt; T &gt; &amp;out, const std::vector&lt; T &gt; &amp;in, const Permut &amp;p1)</td></tr>
 <tr class="separator:abae99af99454c783bed9cbde7cd72058"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ae17bbc28a578112d0fe28b99f5e204"><td class="memTemplParams" colspan="2"><a id="a0ae17bbc28a578112d0fe28b99f5e204"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a0ae17bbc28a578112d0fe28b99f5e204"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="permutations_8h.html#a0ae17bbc28a578112d0fe28b99f5e204">helib::applyPermsToVec</a> (NTL::Vec&lt; T &gt; &amp;out, const NTL::Vec&lt; T &gt; &amp;in, const Permut &amp;p2, const Permut &amp;p1)</td></tr>
-<tr class="memdesc:a0ae17bbc28a578112d0fe28b99f5e204"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply two permutations to a std::vector out[i]=in[p2[p1[i]]] (NOT in-place) <br /></td></tr>
+<tr class="memitem:a0ae17bbc28a578112d0fe28b99f5e204"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a0ae17bbc28a578112d0fe28b99f5e204"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a0ae17bbc28a578112d0fe28b99f5e204">helib::applyPermsToVec</a> (NTL::Vec&lt; T &gt; &amp;out, const NTL::Vec&lt; T &gt; &amp;in, const Permut &amp;p2, const Permut &amp;p1)</td></tr>
+<tr class="memdesc:a0ae17bbc28a578112d0fe28b99f5e204"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply two permutations to a std::vector out[i]=in[p2[p1[i]]] (NOT in-place)  <a href="namespacehelib.html#a0ae17bbc28a578112d0fe28b99f5e204">More...</a><br /></td></tr>
 <tr class="separator:a0ae17bbc28a578112d0fe28b99f5e204"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c6d61d4ac69597feb9beedc26bf93cc"><td class="memTemplParams" colspan="2"><a id="a6c6d61d4ac69597feb9beedc26bf93cc"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a6c6d61d4ac69597feb9beedc26bf93cc"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::applyPermsToVec</b> (std::vector&lt; T &gt; &amp;out, const std::vector&lt; T &gt; &amp;in, const Permut &amp;p2, const Permut &amp;p1)</td></tr>
+<tr class="memitem:a6c6d61d4ac69597feb9beedc26bf93cc"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a6c6d61d4ac69597feb9beedc26bf93cc"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a6c6d61d4ac69597feb9beedc26bf93cc">helib::applyPermsToVec</a> (std::vector&lt; T &gt; &amp;out, const std::vector&lt; T &gt; &amp;in, const Permut &amp;p2, const Permut &amp;p1)</td></tr>
 <tr class="separator:a6c6d61d4ac69597feb9beedc26bf93cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa74c29f86e466570325f829fe4ea74b0"><td class="memItemLeft" align="right" valign="top"><a id="aa74c29f86e466570325f829fe4ea74b0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="permutations_8h.html#aa74c29f86e466570325f829fe4ea74b0">helib::randomPerm</a> (Permut &amp;perm, long n)</td></tr>
-<tr class="memdesc:aa74c29f86e466570325f829fe4ea74b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">A random size-n permutation. <br /></td></tr>
+<tr class="memitem:aa74c29f86e466570325f829fe4ea74b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#aa74c29f86e466570325f829fe4ea74b0">helib::randomPerm</a> (Permut &amp;perm, long n)</td></tr>
+<tr class="memdesc:aa74c29f86e466570325f829fe4ea74b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">A random size-n permutation.  <a href="namespacehelib.html#aa74c29f86e466570325f829fe4ea74b0">More...</a><br /></td></tr>
 <tr class="separator:aa74c29f86e466570325f829fe4ea74b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6b38e2bdf2734a792b5f11fe5f293be"><td class="memItemLeft" align="right" valign="top"><a id="ac6b38e2bdf2734a792b5f11fe5f293be"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>helib::operator&lt;&lt;</b> (std::ostream &amp;s, const ColPerm &amp;p)</td></tr>
+<tr class="memitem:ac6b38e2bdf2734a792b5f11fe5f293be"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ac6b38e2bdf2734a792b5f11fe5f293be">helib::operator&lt;&lt;</a> (std::ostream &amp;s, const ColPerm &amp;p)</td></tr>
 <tr class="separator:ac6b38e2bdf2734a792b5f11fe5f293be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11554e25622d14682edfa2be22ed6df6"><td class="memItemLeft" align="right" valign="top"><a id="a11554e25622d14682edfa2be22ed6df6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="permutations_8h.html#a11554e25622d14682edfa2be22ed6df6">helib::breakPermByDim</a> (std::vector&lt; ColPerm &gt; &amp;out, const Permut &amp;pi, const CubeSignature &amp;sig)</td></tr>
-<tr class="memdesc:a11554e25622d14682edfa2be22ed6df6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes a permutation pi over m-dimensional cube C=Z_{n1} x...x Z_{nm} and expresses pi as a product pi = rho_{2m-1} o ... o rho_2 o rho_1 where each rho_i is a column permutation along one dimension. Specifically for i&lt;m, the permutations rho_i and rho_{2(m-1)-i} permute the i'th dimension. <br /></td></tr>
+<tr class="memitem:a11554e25622d14682edfa2be22ed6df6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a11554e25622d14682edfa2be22ed6df6">helib::breakPermByDim</a> (std::vector&lt; ColPerm &gt; &amp;out, const Permut &amp;pi, const CubeSignature &amp;sig)</td></tr>
+<tr class="memdesc:a11554e25622d14682edfa2be22ed6df6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes a permutation pi over m-dimensional cube C=Z_{n1} x...x Z_{nm} and expresses pi as a product pi = rho_{2m-1} o ... o rho_2 o rho_1 where each rho_i is a column permutation along one dimension. Specifically for i&lt;m, the permutations rho_i and rho_{2(m-1)-i} permute the i'th dimension.  <a href="namespacehelib.html#a11554e25622d14682edfa2be22ed6df6">More...</a><br /></td></tr>
 <tr class="separator:a11554e25622d14682edfa2be22ed6df6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

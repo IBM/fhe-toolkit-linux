@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
         <meta name="generator" content="Doxygen 1.8.18"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <title>HElib: include/helib/zzX.h Source File</title>
+        <title>HElib: /HElib/include/helib/zzX.h Source File</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
         <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -99,82 +99,102 @@ $(function() {
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;NTL/lzz_pX.h&gt;</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;NTL/GF2X.h&gt;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span>helib {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacehelib.html">helib</a> {</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">class </span>PAlgebra;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">typedef</span> NTL::Vec&lt;long&gt; zzX;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">   25</a></span>&#160;<span class="keyword">typedef</span> NTL::Vec&lt;long&gt; <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span> IsZero(<span class="keyword">const</span> zzX&amp; a) { <span class="keywordflow">return</span> a.length() == 0; }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> clear(zzX&amp; a) { a.SetLength(0); }</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="namespacehelib.html#adaf92545afe42e1f4810b40c9e455af2">   27</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="namespacehelib.html#adaf92545afe42e1f4810b40c9e455af2">IsZero</a>(<span class="keyword">const</span> <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; a) { <span class="keywordflow">return</span> a.length() == 0; }</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="namespacehelib.html#ada22455ae91e6bacc49e719536a8c5da">   28</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespacehelib.html#ada22455ae91e6bacc49e719536a8c5da">clear</a>(<a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; a) { a.SetLength(0); }</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> convert(NTL::zz_pX&amp; x, <span class="keyword">const</span> zzX&amp; a)</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="namespacehelib.html#a4d6406c9fda9c55cde649bc033ad7317">   30</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespacehelib.html#a877d5bbaf6ad7ef25042c6711e6a6aa2">convert</a>(NTL::zz_pX&amp; x, <span class="keyword">const</span> <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; a)</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  NTL::conv(x.rep, a);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="namespacehelib.html#af5a79c25bb9e1285c93b486ce07c4d52">NTL::conv</a>(x.rep, a);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  x.normalize();</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">void</span> add(zzX&amp; res, <span class="keyword">const</span> zzX&amp; a, <span class="keyword">const</span> zzX&amp; b);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">inline</span> zzX operator+(<span class="keyword">const</span> zzX&amp; a, <span class="keyword">const</span> zzX&amp; b)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacehelib.html#a42185bbb249368e34f515e09e90bc7b0">add</a>(<a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; res, <span class="keyword">const</span> <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; a, <span class="keyword">const</span> <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; b);</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="namespacehelib.html#a0efa98b2b2f5303eee2c106240c17b11">   37</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a> <a class="code" href="namespacehelib.html#a0efa98b2b2f5303eee2c106240c17b11">operator+</a>(<span class="keyword">const</span> <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; a, <span class="keyword">const</span> <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; b)</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  zzX tmp;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  add(tmp, a, b);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a> tmp;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <a class="code" href="namespacehelib.html#a42185bbb249368e34f515e09e90bc7b0">add</a>(tmp, a, b);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordflow">return</span> tmp;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">inline</span> zzX&amp; operator+=(zzX&amp; a, <span class="keyword">const</span> zzX&amp; b)</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="namespacehelib.html#ac1a8de3a0f340ce6a600fa1da2233191">   43</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; <a class="code" href="namespacehelib.html#ac1a8de3a0f340ce6a600fa1da2233191">operator+=</a>(<a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; a, <span class="keyword">const</span> <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; b)</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  add(a, a, b);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <a class="code" href="namespacehelib.html#a42185bbb249368e34f515e09e90bc7b0">add</a>(a, a, b);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordflow">return</span> a;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">void</span> div(zzX&amp; res, <span class="keyword">const</span> zzX&amp; a, <span class="keywordtype">long</span> b);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">inline</span> zzX <a class="code" href="_index_set_8h.html#a32e627abcebb74bf780514be8d6c744c">operator/</a>(<span class="keyword">const</span> zzX&amp; a, <span class="keywordtype">long</span> b)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacehelib.html#a9965244b44a7884f3e08999f6adec16f">div</a>(<a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; res, <span class="keyword">const</span> <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; a, <span class="keywordtype">long</span> b);</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="namespacehelib.html#a70e5cb71e5ab89ad99c81b175ed126cd">   50</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a> <a class="code" href="namespacehelib.html#a32e627abcebb74bf780514be8d6c744c">operator/</a>(<span class="keyword">const</span> <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; a, <span class="keywordtype">long</span> b)</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  zzX tmp;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  div(tmp, a, b);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a> tmp;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <a class="code" href="namespacehelib.html#a9965244b44a7884f3e08999f6adec16f">div</a>(tmp, a, b);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordflow">return</span> tmp;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">inline</span> zzX&amp; operator/=(zzX&amp; a, <span class="keywordtype">long</span> b)</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="namespacehelib.html#a7dbb01a7d1b26b95c0abff58d28bdb0e">   56</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; <a class="code" href="namespacehelib.html#a7dbb01a7d1b26b95c0abff58d28bdb0e">operator/=</a>(<a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; a, <span class="keywordtype">long</span> b)</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  div(a, a, b);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <a class="code" href="namespacehelib.html#a9965244b44a7884f3e08999f6adec16f">div</a>(a, a, b);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordflow">return</span> a;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordtype">void</span> mul(zzX&amp; res, <span class="keyword">const</span> zzX&amp; a, <span class="keywordtype">long</span> b);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">inline</span> zzX operator*(<span class="keyword">const</span> zzX&amp; a, <span class="keywordtype">long</span> b)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacehelib.html#a0cfe07d1b0c2f0e6385f2b6525e0a69b">mul</a>(<a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; res, <span class="keyword">const</span> <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; a, <span class="keywordtype">long</span> b);</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="namespacehelib.html#a426440bf36745c2e46ae9826ca70724c">   63</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a> <a class="code" href="namespacehelib.html#a426440bf36745c2e46ae9826ca70724c">operator*</a>(<span class="keyword">const</span> <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; a, <span class="keywordtype">long</span> b)</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  zzX tmp;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  mul(tmp, a, b);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a> tmp;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <a class="code" href="namespacehelib.html#a0cfe07d1b0c2f0e6385f2b6525e0a69b">mul</a>(tmp, a, b);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordflow">return</span> tmp;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">inline</span> zzX&amp; operator*=(zzX&amp; a, <span class="keywordtype">long</span> b)</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="namespacehelib.html#a2526335487a72bde255cc7a916f9736f">   69</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; <a class="code" href="namespacehelib.html#a2526335487a72bde255cc7a916f9736f">operator*=</a>(<a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; a, <span class="keywordtype">long</span> b)</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  mul(a, a, b);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <a class="code" href="namespacehelib.html#a0cfe07d1b0c2f0e6385f2b6525e0a69b">mul</a>(a, a, b);</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keywordflow">return</span> a;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordtype">void</span> normalize(zzX&amp; f);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacehelib.html#ac285b2405b33a6bf1d27953c5bb89e61">normalize</a>(<a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; f);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">const</span> NTL::zz_pXModulus&amp; getPhimXMod(<span class="keyword">const</span> PAlgebra&amp; palg);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordtype">void</span> reduceModPhimX(zzX&amp; poly, <span class="keyword">const</span> PAlgebra&amp; palg);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">const</span> NTL::zz_pXModulus&amp; <a class="code" href="namespacehelib.html#ab0fdf54d28eb816a5a395b7e1e1efe51">getPhimXMod</a>(<span class="keyword">const</span> PAlgebra&amp; palg);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacehelib.html#a7afc81441c478d7cd4749a69cbccc984">reduceModPhimX</a>(<a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; poly, <span class="keyword">const</span> PAlgebra&amp; palg);</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keywordtype">void</span> MulMod(zzX&amp; res, <span class="keyword">const</span> zzX&amp; a, <span class="keyword">const</span> zzX&amp; b, <span class="keyword">const</span> PAlgebra&amp; palg);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">inline</span> zzX MulMod(<span class="keyword">const</span> zzX&amp; a, <span class="keyword">const</span> zzX&amp; b, <span class="keyword">const</span> PAlgebra&amp; palg)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacehelib.html#a8fc507c5ea1850c348a7c2d743b59a57">MulMod</a>(<a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; res, <span class="keyword">const</span> <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; a, <span class="keyword">const</span> <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; b, <span class="keyword">const</span> PAlgebra&amp; palg);</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="namespacehelib.html#ab7f0968146827a1378c640d201604a02">   81</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a> <a class="code" href="namespacehelib.html#a8fc507c5ea1850c348a7c2d743b59a57">MulMod</a>(<span class="keyword">const</span> <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; a, <span class="keyword">const</span> <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a>&amp; b, <span class="keyword">const</span> <a class="code" href="classhelib_1_1_p_algebra.html">PAlgebra</a>&amp; palg)</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;{</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  zzX tmp;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  MulMod(tmp, a, b, palg);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a> tmp;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <a class="code" href="namespacehelib.html#a8fc507c5ea1850c348a7c2d743b59a57">MulMod</a>(tmp, a, b, palg);</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordflow">return</span> tmp;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">// these produce properly balanced residues, with randomization</span></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">// if necessary</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;zzX balanced_zzX(<span class="keyword">const</span> NTL::zz_pX&amp; f);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;zzX balanced_zzX(<span class="keyword">const</span> NTL::GF2X&amp; f);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a> <a class="code" href="namespacehelib.html#a7b1aa9d391c181e780742a2117e9af78">balanced_zzX</a>(<span class="keyword">const</span> NTL::zz_pX&amp; f);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<a class="code" href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">zzX</a> <a class="code" href="namespacehelib.html#a7b1aa9d391c181e780742a2117e9af78">balanced_zzX</a>(<span class="keyword">const</span> NTL::GF2X&amp; f);</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;} <span class="comment">// namespace helib</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif // ifndef HELIB_ZZX_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="a_index_set_8h_html_a32e627abcebb74bf780514be8d6c744c"><div class="ttname"><a href="_index_set_8h.html#a32e627abcebb74bf780514be8d6c744c">helib::operator/</a></div><div class="ttdeci">IndexSet operator/(const IndexSet &amp;s, const IndexSet &amp;t)</div><div class="ttdoc">set minus</div><div class="ttdef"><b>Definition:</b> IndexSet.cpp:256</div></div>
+<div class="ttc" id="anamespacehelib_html_a0cfe07d1b0c2f0e6385f2b6525e0a69b"><div class="ttname"><a href="namespacehelib.html#a0cfe07d1b0c2f0e6385f2b6525e0a69b">helib::mul</a></div><div class="ttdeci">void mul(const EncryptedArray &amp;ea, PlaintextArray &amp;pa, const PlaintextArray &amp;other)</div><div class="ttdef"><b>Definition:</b> EncryptedArray.cpp:1064</div></div>
+<div class="ttc" id="anamespacehelib_html_a7b1aa9d391c181e780742a2117e9af78"><div class="ttname"><a href="namespacehelib.html#a7b1aa9d391c181e780742a2117e9af78">helib::balanced_zzX</a></div><div class="ttdeci">zzX balanced_zzX(const NTL::zz_pX &amp;f)</div><div class="ttdef"><b>Definition:</b> zzX.cpp:120</div></div>
+<div class="ttc" id="anamespacehelib_html_a4d6002f36f1a61982fded09adf1331ca"><div class="ttname"><a href="namespacehelib.html#a4d6002f36f1a61982fded09adf1331ca">helib::zzX</a></div><div class="ttdeci">NTL::Vec&lt; long &gt; zzX</div><div class="ttdef"><b>Definition:</b> zzX.h:24</div></div>
+<div class="ttc" id="anamespacehelib_html_a426440bf36745c2e46ae9826ca70724c"><div class="ttname"><a href="namespacehelib.html#a426440bf36745c2e46ae9826ca70724c">helib::operator*</a></div><div class="ttdeci">zzX operator*(const zzX &amp;a, long b)</div><div class="ttdef"><b>Definition:</b> zzX.h:63</div></div>
+<div class="ttc" id="anamespacehelib_html_adaf92545afe42e1f4810b40c9e455af2"><div class="ttname"><a href="namespacehelib.html#adaf92545afe42e1f4810b40c9e455af2">helib::IsZero</a></div><div class="ttdeci">bool IsZero(const zzX &amp;a)</div><div class="ttdef"><b>Definition:</b> zzX.h:27</div></div>
+<div class="ttc" id="anamespacehelib_html_ac285b2405b33a6bf1d27953c5bb89e61"><div class="ttname"><a href="namespacehelib.html#ac285b2405b33a6bf1d27953c5bb89e61">helib::normalize</a></div><div class="ttdeci">void normalize(zzX &amp;f)</div><div class="ttdef"><b>Definition:</b> zzX.cpp:63</div></div>
+<div class="ttc" id="anamespacehelib_html_a2526335487a72bde255cc7a916f9736f"><div class="ttname"><a href="namespacehelib.html#a2526335487a72bde255cc7a916f9736f">helib::operator*=</a></div><div class="ttdeci">zzX &amp; operator*=(zzX &amp;a, long b)</div><div class="ttdef"><b>Definition:</b> zzX.h:69</div></div>
+<div class="ttc" id="anamespacehelib_html_a32e627abcebb74bf780514be8d6c744c"><div class="ttname"><a href="namespacehelib.html#a32e627abcebb74bf780514be8d6c744c">helib::operator/</a></div><div class="ttdeci">IndexSet operator/(const IndexSet &amp;s, const IndexSet &amp;t)</div><div class="ttdoc">set minus</div><div class="ttdef"><b>Definition:</b> IndexSet.cpp:256</div></div>
+<div class="ttc" id="anamespacehelib_html_a7dbb01a7d1b26b95c0abff58d28bdb0e"><div class="ttname"><a href="namespacehelib.html#a7dbb01a7d1b26b95c0abff58d28bdb0e">helib::operator/=</a></div><div class="ttdeci">zzX &amp; operator/=(zzX &amp;a, long b)</div><div class="ttdef"><b>Definition:</b> zzX.h:56</div></div>
+<div class="ttc" id="aclasshelib_1_1_p_algebra_html"><div class="ttname"><a href="classhelib_1_1_p_algebra.html">helib::PAlgebra</a></div><div class="ttdoc">The structure of (Z/mZ)* /(p)</div><div class="ttdef"><b>Definition:</b> PAlgebra.h:77</div></div>
+<div class="ttc" id="anamespacehelib_html_a9965244b44a7884f3e08999f6adec16f"><div class="ttname"><a href="namespacehelib.html#a9965244b44a7884f3e08999f6adec16f">helib::div</a></div><div class="ttdeci">void div(std::vector&lt; NTL::ZZX &gt; &amp;x, const std::vector&lt; NTL::ZZX &gt; &amp;a, long b)</div><div class="ttdef"><b>Definition:</b> NumbTh.cpp:1202</div></div>
+<div class="ttc" id="anamespacehelib_html_ada22455ae91e6bacc49e719536a8c5da"><div class="ttname"><a href="namespacehelib.html#ada22455ae91e6bacc49e719536a8c5da">helib::clear</a></div><div class="ttdeci">void clear(zzX &amp;a)</div><div class="ttdef"><b>Definition:</b> zzX.h:28</div></div>
+<div class="ttc" id="anamespacehelib_html_a8fc507c5ea1850c348a7c2d743b59a57"><div class="ttname"><a href="namespacehelib.html#a8fc507c5ea1850c348a7c2d743b59a57">helib::MulMod</a></div><div class="ttdeci">void MulMod(NTL::ZZX &amp;out, const NTL::ZZX &amp;f, long a, long q, bool abs)</div><div class="ttdef"><b>Definition:</b> NumbTh.cpp:829</div></div>
+<div class="ttc" id="anamespacehelib_html_a7afc81441c478d7cd4749a69cbccc984"><div class="ttname"><a href="namespacehelib.html#a7afc81441c478d7cd4749a69cbccc984">helib::reduceModPhimX</a></div><div class="ttdeci">void reduceModPhimX(zzX &amp;poly, const PAlgebra &amp;palg)</div><div class="ttdef"><b>Definition:</b> zzX.cpp:109</div></div>
+<div class="ttc" id="anamespacehelib_html"><div class="ttname"><a href="namespacehelib.html">helib</a></div><div class="ttdef"><b>Definition:</b> apiAttributes.h:21</div></div>
+<div class="ttc" id="anamespacehelib_html_a42185bbb249368e34f515e09e90bc7b0"><div class="ttname"><a href="namespacehelib.html#a42185bbb249368e34f515e09e90bc7b0">helib::add</a></div><div class="ttdeci">void add(const EncryptedArray &amp;ea, PlaintextArray &amp;pa, const PlaintextArray &amp;other)</div><div class="ttdef"><b>Definition:</b> EncryptedArray.cpp:1008</div></div>
+<div class="ttc" id="anamespacehelib_html_af5a79c25bb9e1285c93b486ce07c4d52"><div class="ttname"><a href="namespacehelib.html#af5a79c25bb9e1285c93b486ce07c4d52">helib::conv</a></div><div class="ttdeci">void conv(DoubleCRT &amp;d, const NTL::ZZX &amp;p)</div><div class="ttdef"><b>Definition:</b> DoubleCRT.h:403</div></div>
+<div class="ttc" id="anamespacehelib_html_a877d5bbaf6ad7ef25042c6711e6a6aa2"><div class="ttname"><a href="namespacehelib.html#a877d5bbaf6ad7ef25042c6711e6a6aa2">helib::convert</a></div><div class="ttdeci">void convert(long &amp;x1, const NTL::GF2X &amp;x2)</div><div class="ttdef"><b>Definition:</b> NumbTh.h:358</div></div>
+<div class="ttc" id="anamespacehelib_html_ac1a8de3a0f340ce6a600fa1da2233191"><div class="ttname"><a href="namespacehelib.html#ac1a8de3a0f340ce6a600fa1da2233191">helib::operator+=</a></div><div class="ttdeci">zzX &amp; operator+=(zzX &amp;a, const zzX &amp;b)</div><div class="ttdef"><b>Definition:</b> zzX.h:43</div></div>
+<div class="ttc" id="anamespacehelib_html_a0efa98b2b2f5303eee2c106240c17b11"><div class="ttname"><a href="namespacehelib.html#a0efa98b2b2f5303eee2c106240c17b11">helib::operator+</a></div><div class="ttdeci">zzX operator+(const zzX &amp;a, const zzX &amp;b)</div><div class="ttdef"><b>Definition:</b> zzX.h:37</div></div>
+<div class="ttc" id="anamespacehelib_html_ab0fdf54d28eb816a5a395b7e1e1efe51"><div class="ttname"><a href="namespacehelib.html#ab0fdf54d28eb816a5a395b7e1e1efe51">helib::getPhimXMod</a></div><div class="ttdeci">const NTL::zz_pXModulus &amp; getPhimXMod(const PAlgebra &amp;palg)</div><div class="ttdef"><b>Definition:</b> zzX.cpp:77</div></div>
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->
 </div>

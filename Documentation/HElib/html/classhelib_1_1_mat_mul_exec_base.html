@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -73,7 +73,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>helib</b></li><li class="navelem"><a class="el" href="classhelib_1_1_mat_mul_exec_base.html">MatMulExecBase</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacehelib.html">helib</a></li><li class="navelem"><a class="el" href="classhelib_1_1_mat_mul_exec_base.html">MatMulExecBase</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -84,6 +84,8 @@ $(function() {
 <div class="title">helib::MatMulExecBase Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="matmul_8h_source.html">matmul.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for helib::MatMulExecBase:</div>
 <div class="dyncontent">
@@ -99,18 +101,126 @@ Inheritance diagram for helib::MatMulExecBase:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1613d880499539fb020365db3e458987"><td class="memItemLeft" align="right" valign="top"><a id="a1613d880499539fb020365db3e458987"></a>
-virtual const <a class="el" href="classhelib_1_1_encrypted_array.html">EncryptedArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getEA</b> () const =0</td></tr>
+<tr class="memitem:ab52bafc5c6e5a9cc54a5bb9db677be25"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_mat_mul_exec_base.html#ab52bafc5c6e5a9cc54a5bb9db677be25">~MatMulExecBase</a> ()</td></tr>
+<tr class="separator:ab52bafc5c6e5a9cc54a5bb9db677be25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1613d880499539fb020365db3e458987"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classhelib_1_1_encrypted_array.html">EncryptedArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_mat_mul_exec_base.html#a1613d880499539fb020365db3e458987">getEA</a> () const =0</td></tr>
 <tr class="separator:a1613d880499539fb020365db3e458987"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7a43b1384b9c188ab228ea052351d2d"><td class="memItemLeft" align="right" valign="top"><a id="af7a43b1384b9c188ab228ea052351d2d"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>upgrade</b> ()=0</td></tr>
+<tr class="memitem:af7a43b1384b9c188ab228ea052351d2d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_mat_mul_exec_base.html#af7a43b1384b9c188ab228ea052351d2d">upgrade</a> ()=0</td></tr>
 <tr class="separator:af7a43b1384b9c188ab228ea052351d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68ecfac912aec8f5b6e6645998471e3a"><td class="memItemLeft" align="right" valign="top"><a id="a68ecfac912aec8f5b6e6645998471e3a"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>mul</b> (<a class="el" href="classhelib_1_1_ctxt.html">Ctxt</a> &amp;ctxt) const =0</td></tr>
+<tr class="memitem:a68ecfac912aec8f5b6e6645998471e3a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_mat_mul_exec_base.html#a68ecfac912aec8f5b6e6645998471e3a">mul</a> (<a class="el" href="classhelib_1_1_ctxt.html">Ctxt</a> &amp;ctxt) const =0</td></tr>
 <tr class="separator:a68ecfac912aec8f5b6e6645998471e3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab52bafc5c6e5a9cc54a5bb9db677be25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab52bafc5c6e5a9cc54a5bb9db677be25">&#9670;&nbsp;</a></span>~MatMulExecBase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual helib::MatMulExecBase::~MatMulExecBase </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1613d880499539fb020365db3e458987"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1613d880499539fb020365db3e458987">&#9670;&nbsp;</a></span>getEA()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const <a class="el" href="classhelib_1_1_encrypted_array.html">EncryptedArray</a>&amp; helib::MatMulExecBase::getEA </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classhelib_1_1_block_mat_mul_full_exec.html#abf77a300df1a404bb932e03936762635">helib::BlockMatMulFullExec</a>, <a class="el" href="classhelib_1_1_mat_mul_full_exec.html#a209a8d97b610bfa2e4128f2af33f47d0">helib::MatMulFullExec</a>, <a class="el" href="classhelib_1_1_block_mat_mul1_d_exec.html#ac429810135e0baf67ab1b78063244e41">helib::BlockMatMul1DExec</a>, and <a class="el" href="classhelib_1_1_mat_mul1_d_exec.html#a0da8c1a1683134544fab47d88bd3f476">helib::MatMul1DExec</a>.</p>
+
+</div>
+</div>
+<a id="a68ecfac912aec8f5b6e6645998471e3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68ecfac912aec8f5b6e6645998471e3a">&#9670;&nbsp;</a></span>mul()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void helib::MatMulExecBase::mul </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classhelib_1_1_ctxt.html">Ctxt</a> &amp;&#160;</td>
+          <td class="paramname"><em>ctxt</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classhelib_1_1_block_mat_mul_full_exec.html#a80166482405aa5e3c65a347d79ca5853">helib::BlockMatMulFullExec</a>, <a class="el" href="classhelib_1_1_mat_mul_full_exec.html#a531e4a1b8902d42e49c0a73abb8ea5fc">helib::MatMulFullExec</a>, <a class="el" href="classhelib_1_1_block_mat_mul1_d_exec.html#af36907d774fc03366b42a592475513b9">helib::BlockMatMul1DExec</a>, and <a class="el" href="classhelib_1_1_mat_mul1_d_exec.html#a3a35f4eeb069e47fc3c3276ff8983637">helib::MatMul1DExec</a>.</p>
+
+</div>
+</div>
+<a id="af7a43b1384b9c188ab228ea052351d2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7a43b1384b9c188ab228ea052351d2d">&#9670;&nbsp;</a></span>upgrade()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void helib::MatMulExecBase::upgrade </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classhelib_1_1_block_mat_mul_full_exec.html#ac4f8e33d2645ef2774692563ec8189e7">helib::BlockMatMulFullExec</a>, <a class="el" href="classhelib_1_1_mat_mul_full_exec.html#a6f1e801baca8e7970ddceee8a606a600">helib::MatMulFullExec</a>, <a class="el" href="classhelib_1_1_block_mat_mul1_d_exec.html#a57066755fcb0bd1ae8ded8dfeb24eb28">helib::BlockMatMul1DExec</a>, and <a class="el" href="classhelib_1_1_mat_mul1_d_exec.html#a304177669edbaaa7745c7c87be51c194">helib::MatMul1DExec</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/helib/<a class="el" href="matmul_8h_source.html">matmul.h</a></li>
+<li>/HElib/include/helib/<a class="el" href="matmul_8h_source.html">matmul.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.8-->

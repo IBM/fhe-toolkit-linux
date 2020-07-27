@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -73,7 +73,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>helib</b></li><li class="navelem"><a class="el" href="classhelib_1_1_p_g_f_f_t.html">PGFFT</a></li><li class="navelem"><a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html">aligned_allocator</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacehelib.html">helib</a></li><li class="navelem"><a class="el" href="classhelib_1_1_p_g_f_f_t.html">PGFFT</a></li><li class="navelem"><a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html">aligned_allocator</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -85,36 +85,236 @@ $(function() {
 <div class="title">helib::PGFFT::aligned_allocator&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_p_g_f_f_t_8h_source.html">PGFFT.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aef7385525e57d83cecb045c9eab57a23"><td class="memItemLeft" align="right" valign="top"><a id="aef7385525e57d83cecb045c9eab57a23"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b> = T</td></tr>
+<tr class="memitem:aef7385525e57d83cecb045c9eab57a23"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html#aef7385525e57d83cecb045c9eab57a23">value_type</a> = T</td></tr>
 <tr class="separator:aef7385525e57d83cecb045c9eab57a23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a48a62f34e8dc44b029572b833d4c935a"><td class="memTemplParams" colspan="2"><a id="a48a62f34e8dc44b029572b833d4c935a"></a>
-template&lt;class U &gt; </td></tr>
-<tr class="memitem:a48a62f34e8dc44b029572b833d4c935a"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>aligned_allocator</b> (<a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html">aligned_allocator</a>&lt; U &gt; const &amp;) noexcept</td></tr>
+<tr class="memitem:af2340398126121c075252af309e8965e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html#af2340398126121c075252af309e8965e">aligned_allocator</a> () noexcept</td></tr>
+<tr class="separator:af2340398126121c075252af309e8965e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48a62f34e8dc44b029572b833d4c935a"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:a48a62f34e8dc44b029572b833d4c935a"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html#a48a62f34e8dc44b029572b833d4c935a">aligned_allocator</a> (<a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html">aligned_allocator</a>&lt; U &gt; const &amp;) noexcept</td></tr>
 <tr class="separator:a48a62f34e8dc44b029572b833d4c935a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d2d325eb8ea605a2155a02282c94d7b"><td class="memItemLeft" align="right" valign="top"><a id="a8d2d325eb8ea605a2155a02282c94d7b"></a>
-value_type *&#160;</td><td class="memItemRight" valign="bottom"><b>allocate</b> (std::size_t n)</td></tr>
+<tr class="memitem:a8d2d325eb8ea605a2155a02282c94d7b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html#aef7385525e57d83cecb045c9eab57a23">value_type</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html#a8d2d325eb8ea605a2155a02282c94d7b">allocate</a> (std::size_t n)</td></tr>
 <tr class="separator:a8d2d325eb8ea605a2155a02282c94d7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c2bb38e0a4e294bcf192a472dea42f0"><td class="memItemLeft" align="right" valign="top"><a id="a9c2bb38e0a4e294bcf192a472dea42f0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>deallocate</b> (value_type *p, std::size_t) noexcept</td></tr>
+<tr class="memitem:a9c2bb38e0a4e294bcf192a472dea42f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html#a9c2bb38e0a4e294bcf192a472dea42f0">deallocate</a> (<a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html#aef7385525e57d83cecb045c9eab57a23">value_type</a> *p, std::size_t) noexcept</td></tr>
 <tr class="separator:a9c2bb38e0a4e294bcf192a472dea42f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22f91140ca6bd4c3717b3e7d0d2a766b"><td class="memTemplParams" colspan="2"><a id="a22f91140ca6bd4c3717b3e7d0d2a766b"></a>
-template&lt;class U &gt; </td></tr>
-<tr class="memitem:a22f91140ca6bd4c3717b3e7d0d2a766b"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator==</b> (<a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html">aligned_allocator</a>&lt; U &gt; const &amp;) noexcept</td></tr>
+<tr class="memitem:a22f91140ca6bd4c3717b3e7d0d2a766b"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:a22f91140ca6bd4c3717b3e7d0d2a766b"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html#a22f91140ca6bd4c3717b3e7d0d2a766b">operator==</a> (<a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html">aligned_allocator</a>&lt; U &gt; const &amp;) noexcept</td></tr>
 <tr class="separator:a22f91140ca6bd4c3717b3e7d0d2a766b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bd2e92911869bc27193071787a7da6f"><td class="memTemplParams" colspan="2"><a id="a7bd2e92911869bc27193071787a7da6f"></a>
-template&lt;class U &gt; </td></tr>
-<tr class="memitem:a7bd2e92911869bc27193071787a7da6f"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator!=</b> (<a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html">aligned_allocator</a>&lt; U &gt; const &amp;y) noexcept</td></tr>
+<tr class="memitem:a7bd2e92911869bc27193071787a7da6f"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:a7bd2e92911869bc27193071787a7da6f"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html#a7bd2e92911869bc27193071787a7da6f">operator!=</a> (<a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html">aligned_allocator</a>&lt; U &gt; const &amp;y) noexcept</td></tr>
 <tr class="separator:a7bd2e92911869bc27193071787a7da6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="aef7385525e57d83cecb045c9eab57a23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef7385525e57d83cecb045c9eab57a23">&#9670;&nbsp;</a></span>value_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html">helib::PGFFT::aligned_allocator</a>&lt; T &gt;::<a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html#aef7385525e57d83cecb045c9eab57a23">value_type</a> =  T</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="af2340398126121c075252af309e8965e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2340398126121c075252af309e8965e">&#9670;&nbsp;</a></span>aligned_allocator() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html">helib::PGFFT::aligned_allocator</a>&lt; T &gt;::<a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html">aligned_allocator</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a48a62f34e8dc44b029572b833d4c935a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48a62f34e8dc44b029572b833d4c935a">&#9670;&nbsp;</a></span>aligned_allocator() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html">helib::PGFFT::aligned_allocator</a>&lt; T &gt;::<a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html">aligned_allocator</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html">aligned_allocator</a>&lt; U &gt; const &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8d2d325eb8ea605a2155a02282c94d7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d2d325eb8ea605a2155a02282c94d7b">&#9670;&nbsp;</a></span>allocate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html#aef7385525e57d83cecb045c9eab57a23">value_type</a>* <a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html">helib::PGFFT::aligned_allocator</a>&lt; T &gt;::allocate </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9c2bb38e0a4e294bcf192a472dea42f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c2bb38e0a4e294bcf192a472dea42f0">&#9670;&nbsp;</a></span>deallocate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html">helib::PGFFT::aligned_allocator</a>&lt; T &gt;::deallocate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html#aef7385525e57d83cecb045c9eab57a23">value_type</a> *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7bd2e92911869bc27193071787a7da6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bd2e92911869bc27193071787a7da6f">&#9670;&nbsp;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html">helib::PGFFT::aligned_allocator</a>&lt; T &gt;::operator!= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html">aligned_allocator</a>&lt; U &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>y</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a22f91140ca6bd4c3717b3e7d0d2a766b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22f91140ca6bd4c3717b3e7d0d2a766b">&#9670;&nbsp;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html">helib::PGFFT::aligned_allocator</a>&lt; T &gt;::operator== </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classhelib_1_1_p_g_f_f_t_1_1aligned__allocator.html">aligned_allocator</a>&lt; U &gt; const &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/helib/<a class="el" href="_p_g_f_f_t_8h_source.html">PGFFT.h</a></li>
+<li>/HElib/include/helib/<a class="el" href="_p_g_f_f_t_8h_source.html">PGFFT.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.8-->

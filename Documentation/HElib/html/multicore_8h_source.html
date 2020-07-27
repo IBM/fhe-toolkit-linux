@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
         <meta name="generator" content="Doxygen 1.8.18"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <title>HElib: include/helib/multicore.h Source File</title>
+        <title>HElib: /HElib/include/helib/multicore.h Source File</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
         <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -100,7 +100,7 @@ $(function() {
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;atomic&gt;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;mutex&gt;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span>helib {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacehelib.html">helib</a> {</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#define HELIB_atomic_long std::atomic_long</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#define HELIB_atomic_ulong std::atomic_ulong</span></div>
@@ -112,20 +112,21 @@ $(function() {
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span>helib {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacehelib.html">helib</a> {</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#define HELIB_atomic_long long</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#define HELIB_atomic_ulong unsigned long</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="multicore_8h.html#a7c90ab9d0567056e6b5325f59f3822fc">   40</a></span>&#160;<span class="preprocessor">#define HELIB_atomic_ulong unsigned long</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="multicore_8h.html#a5ee2ac1cdae82f4a579143ff39513de8">   41</a></span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#define HELIB_MUTEX_TYPE int</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#define HELIB_MUTEX_GUARD(mx) ((void)mx)</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="multicore_8h.html#a0d381701cc03fa11e9b7ec2e222c9be6">   43</a></span>&#160;<span class="preprocessor">#define HELIB_MUTEX_GUARD(mx) ((void)mx)</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="multicore_8h.html#a757de47007fb42487efd1c7f35af857b">   44</a></span>&#160; </div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;} <span class="comment">// namespace helib</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif // ifdef HELIB_THREADS</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif // ifndef HELIB_MULTICORE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="anamespacehelib_html"><div class="ttname"><a href="namespacehelib.html">helib</a></div><div class="ttdef"><b>Definition:</b> apiAttributes.h:21</div></div>
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->
 </div>

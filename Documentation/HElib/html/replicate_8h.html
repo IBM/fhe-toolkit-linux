@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
         <meta name="generator" content="Doxygen 1.8.18"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <title>HElib: include/helib/replicate.h File Reference</title>
+        <title>HElib: /HElib/include/helib/replicate.h File Reference</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
         <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -79,6 +79,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -99,38 +100,39 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An abstract class to handle call-backs to get the output of replicate.  <a href="classhelib_1_1_replicate_handler.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacehelib"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html">helib</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a28bebe2d214c86938103f34adecb7ff3"><td class="memItemLeft" align="right" valign="top"><a id="a28bebe2d214c86938103f34adecb7ff3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="replicate_8h.html#a28bebe2d214c86938103f34adecb7ff3">helib::replicate</a> (const EncryptedArray &amp;ea, Ctxt &amp;ctx, long pos)</td></tr>
-<tr class="memdesc:a28bebe2d214c86938103f34adecb7ff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The value in slot #pos is replicated in all other slots. On an n-slot ciphertext, this algorithm performs O(log n) 1D rotations. <br /></td></tr>
+<tr class="memitem:a28bebe2d214c86938103f34adecb7ff3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a28bebe2d214c86938103f34adecb7ff3">helib::replicate</a> (const EncryptedArray &amp;ea, Ctxt &amp;ctx, long pos)</td></tr>
+<tr class="memdesc:a28bebe2d214c86938103f34adecb7ff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The value in slot #pos is replicated in all other slots. On an n-slot ciphertext, this algorithm performs O(log n) 1D rotations.  <a href="namespacehelib.html#a28bebe2d214c86938103f34adecb7ff3">More...</a><br /></td></tr>
 <tr class="separator:a28bebe2d214c86938103f34adecb7ff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb07910b30bab32f4ebf91af705e3c6d"><td class="memItemLeft" align="right" valign="top"><a id="adb07910b30bab32f4ebf91af705e3c6d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="replicate_8h.html#adb07910b30bab32f4ebf91af705e3c6d">helib::replicate0</a> (const EncryptedArray &amp;ea, Ctxt &amp;ctxt, long pos)</td></tr>
-<tr class="memdesc:adb07910b30bab32f4ebf91af705e3c6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A lower-level routine. Same as replicate, but assumes all slots are zero except slot #pos. <br /></td></tr>
+<tr class="memitem:adb07910b30bab32f4ebf91af705e3c6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#adb07910b30bab32f4ebf91af705e3c6d">helib::replicate0</a> (const EncryptedArray &amp;ea, Ctxt &amp;ctxt, long pos)</td></tr>
+<tr class="memdesc:adb07910b30bab32f4ebf91af705e3c6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A lower-level routine. Same as replicate, but assumes all slots are zero except slot #pos.  <a href="namespacehelib.html#adb07910b30bab32f4ebf91af705e3c6d">More...</a><br /></td></tr>
 <tr class="separator:adb07910b30bab32f4ebf91af705e3c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55f84fcea62365a27445739f444d81db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="replicate_8h.html#a55f84fcea62365a27445739f444d81db">helib::replicateAll</a> (const EncryptedArray &amp;ea, const Ctxt &amp;ctxt, ReplicateHandler *handler, long recBound=64, RepAuxDim *repAuxPtr=nullptr)</td></tr>
+<tr class="memitem:a55f84fcea62365a27445739f444d81db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a55f84fcea62365a27445739f444d81db">helib::replicateAll</a> (const EncryptedArray &amp;ea, const Ctxt &amp;ctxt, ReplicateHandler *handler, long recBound=64, RepAuxDim *repAuxPtr=nullptr)</td></tr>
 <tr class="separator:a55f84fcea62365a27445739f444d81db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0a2f3a3e50d07abc0a16161003fc0b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="replicate_8h.html#ab0a2f3a3e50d07abc0a16161003fc0b5">helib::replicateAll</a> (std::vector&lt; Ctxt &gt; &amp;v, const EncryptedArray &amp;ea, const Ctxt &amp;ctxt, long recBound=64, RepAuxDim *repAuxPtr=nullptr)</td></tr>
+<tr class="memitem:ab0a2f3a3e50d07abc0a16161003fc0b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ab0a2f3a3e50d07abc0a16161003fc0b5">helib::replicateAll</a> (std::vector&lt; Ctxt &gt; &amp;v, const EncryptedArray &amp;ea, const Ctxt &amp;ctxt, long recBound=64, RepAuxDim *repAuxPtr=nullptr)</td></tr>
 <tr class="separator:ab0a2f3a3e50d07abc0a16161003fc0b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80787c8857d1d8b8b4fad63f11201626"><td class="memTemplParams" colspan="2">template&lt;typename Scheme &gt; </td></tr>
-<tr class="memitem:a80787c8857d1d8b8b4fad63f11201626"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="replicate_8h.html#a80787c8857d1d8b8b4fad63f11201626">helib::replicateAll</a> (std::vector&lt; Ptxt&lt; Scheme &gt;&gt; &amp;v, const EncryptedArray &amp;, const Ptxt&lt; Scheme &gt; &amp;ptxt)</td></tr>
-<tr class="memdesc:a80787c8857d1d8b8b4fad63f11201626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a vector of plaintexts with each slot replicated in each plaintext.  <a href="replicate_8h.html#a80787c8857d1d8b8b4fad63f11201626">More...</a><br /></td></tr>
+<tr class="memitem:a80787c8857d1d8b8b4fad63f11201626"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a80787c8857d1d8b8b4fad63f11201626">helib::replicateAll</a> (std::vector&lt; Ptxt&lt; Scheme &gt;&gt; &amp;v, const EncryptedArray &amp;, const Ptxt&lt; Scheme &gt; &amp;ptxt)</td></tr>
+<tr class="memdesc:a80787c8857d1d8b8b4fad63f11201626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a vector of plaintexts with each slot replicated in each plaintext.  <a href="namespacehelib.html#a80787c8857d1d8b8b4fad63f11201626">More...</a><br /></td></tr>
 <tr class="separator:a80787c8857d1d8b8b4fad63f11201626"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae12fb4b6143d8e2cb6a5dbf36922fbe7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="replicate_8h.html#ae12fb4b6143d8e2cb6a5dbf36922fbe7">helib::replicateAllOrig</a> (const EncryptedArray &amp;ea, const Ctxt &amp;ctxt, ReplicateHandler *handler, RepAux *repAuxPtr=nullptr)</td></tr>
+<tr class="memitem:ae12fb4b6143d8e2cb6a5dbf36922fbe7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ae12fb4b6143d8e2cb6a5dbf36922fbe7">helib::replicateAllOrig</a> (const EncryptedArray &amp;ea, const Ctxt &amp;ctxt, ReplicateHandler *handler, RepAux *repAuxPtr=nullptr)</td></tr>
 <tr class="separator:ae12fb4b6143d8e2cb6a5dbf36922fbe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c6d6a64a8c538bb0189ac908896ac6c"><td class="memItemLeft" align="right" valign="top"><a id="a2c6d6a64a8c538bb0189ac908896ac6c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::replicate</b> (const EncryptedArray &amp;ea, PlaintextArray &amp;pa, long i)</td></tr>
+<tr class="memitem:a2c6d6a64a8c538bb0189ac908896ac6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a2c6d6a64a8c538bb0189ac908896ac6c">helib::replicate</a> (const EncryptedArray &amp;ea, PlaintextArray &amp;pa, long i)</td></tr>
 <tr class="separator:a2c6d6a64a8c538bb0189ac908896ac6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae14f023af8c881464a3dbaf01b18d7da"><td class="memTemplParams" colspan="2">template&lt;typename Scheme &gt; </td></tr>
-<tr class="memitem:ae14f023af8c881464a3dbaf01b18d7da"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="replicate_8h.html#ae14f023af8c881464a3dbaf01b18d7da">helib::replicate</a> (const EncryptedArray &amp;, Ptxt&lt; Scheme &gt; &amp;ptxt, long i)</td></tr>
-<tr class="memdesc:ae14f023af8c881464a3dbaf01b18d7da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replicate single slot of a <code><a class="el" href="classhelib_1_1_ptxt.html" title="An object that mimics the functionality of the Ctxt object, and acts as a convenient entry point for ...">Ptxt</a></code> object across all of its slots.  <a href="replicate_8h.html#ae14f023af8c881464a3dbaf01b18d7da">More...</a><br /></td></tr>
+<tr class="memitem:ae14f023af8c881464a3dbaf01b18d7da"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ae14f023af8c881464a3dbaf01b18d7da">helib::replicate</a> (const EncryptedArray &amp;, Ptxt&lt; Scheme &gt; &amp;ptxt, long i)</td></tr>
+<tr class="memdesc:ae14f023af8c881464a3dbaf01b18d7da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replicate single slot of a <code><a class="el" href="classhelib_1_1_ptxt.html" title="An object that mimics the functionality of the Ctxt object, and acts as a convenient entry point for ...">Ptxt</a></code> object across all of its slots.  <a href="namespacehelib.html#ae14f023af8c881464a3dbaf01b18d7da">More...</a><br /></td></tr>
 <tr class="separator:ae14f023af8c881464a3dbaf01b18d7da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a47f0fb8de69aa81c6224003a79011ed3"><td class="memItemLeft" align="right" valign="top"><a id="a47f0fb8de69aa81c6224003a79011ed3"></a>
-NTL_THREAD_LOCAL bool&#160;</td><td class="memItemRight" valign="bottom"><b>helib::replicateVerboseFlag</b> = false</td></tr>
+<tr class="memitem:a47f0fb8de69aa81c6224003a79011ed3"><td class="memItemLeft" align="right" valign="top">NTL_THREAD_LOCAL bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a47f0fb8de69aa81c6224003a79011ed3">helib::replicateVerboseFlag</a> = false</td></tr>
 <tr class="separator:a47f0fb8de69aa81c6224003a79011ed3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -138,253 +140,7 @@ NTL_THREAD_LOCAL bool&#160;</td><td class="memItemRight" valign="bottom"><b>heli
 <p>This module implements a recursive, O(1)-amortized algorithm for replications. On an input ciphertext that encrypts (x_1, ..., x_n), we generate the n encrypted std::vectors (x_1, ..., x_1), ..., (x_n, ..., x_n), in that order.</p>
 <p>To process the output std::vectors, a "call back" mechanism is used (so that we do not need to generate them all, and instead can return them one by one). For this purpose, the caller should pass a pointer to a class derived from the purely abstract class ReplicateHandler.</p>
 <p>The replication procedures are meant to be used for linear algebra operation where a matrix-std::vector multiplication can be implemented for example by replicating each entry of the std::vector as a stand-alone ciphertext, then use the SIMD operations on these ciphertexts. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="ae14f023af8c881464a3dbaf01b18d7da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae14f023af8c881464a3dbaf01b18d7da">&#9670;&nbsp;</a></span>replicate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Scheme &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void helib::replicate </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classhelib_1_1_encrypted_array.html">EncryptedArray</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classhelib_1_1_ptxt.html">Ptxt</a>&lt; Scheme &gt; &amp;&#160;</td>
-          <td class="paramname"><em>ptxt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>i</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Replicate single slot of a <code>Ptxt</code> object across all of its slots. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Scheme</td><td>Encryption scheme used (must be <code>BGV</code> or <code>CKKS</code>). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ptxt</td><td>Plaintext on which to do the replication. </td></tr>
-    <tr><td class="paramname">i</td><td>Position of the slot to replicate. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to <code>*this</code> post replication. </dd></dl>
-
-</div>
-</div>
-<a id="a55f84fcea62365a27445739f444d81db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55f84fcea62365a27445739f444d81db">&#9670;&nbsp;</a></span>replicateAll() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void helib::replicateAll </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classhelib_1_1_encrypted_array.html">EncryptedArray</a> &amp;&#160;</td>
-          <td class="paramname"><em>ea</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classhelib_1_1_ctxt.html">Ctxt</a> &amp;&#160;</td>
-          <td class="paramname"><em>ctxt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classhelib_1_1_replicate_handler.html">ReplicateHandler</a> *&#160;</td>
-          <td class="paramname"><em>handler</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>recBound</em> = <code>64</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">RepAuxDim *&#160;</td>
-          <td class="paramname"><em>repAuxPtr</em> = <code>nullptr</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>replicateAll uses a hybrid strategy, combining the O(log n) strategy of the replicate method, with an O(1) strategy, which is faster but introduces more noise. This tradeoff is controlled by the parameter recBound:</p>
-<ul>
-<li>recBound &lt; 0: recursion to depth |recBound| (faster, noisier) </li>
-<li>recBound ==0: no recursion (slower, less noise) </li>
-<li>recBound &gt; 0: the recursion depth is chosen heuristically, but is capped at recBound</li>
-</ul>
-<p>The default value for recBound is 64, this ensures that the choice is based only on the heuristic, which will introduce noise corresponding to O(log log n) levels of recursion, but still gives an algorithm that theoretically runs in time O(n). </p>
-
-</div>
-</div>
-<a id="ab0a2f3a3e50d07abc0a16161003fc0b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0a2f3a3e50d07abc0a16161003fc0b5">&#9670;&nbsp;</a></span>replicateAll() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void helib::replicateAll </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="classhelib_1_1_ctxt.html">Ctxt</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classhelib_1_1_encrypted_array.html">EncryptedArray</a> &amp;&#160;</td>
-          <td class="paramname"><em>ea</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classhelib_1_1_ctxt.html">Ctxt</a> &amp;&#160;</td>
-          <td class="paramname"><em>ctxt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>recBound</em> = <code>64</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">RepAuxDim *&#160;</td>
-          <td class="paramname"><em>repAuxPtr</em> = <code>nullptr</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>return the result as a std::vector of ciphertexts, mostly useful for debugging purposes (for real parameters would take a lot of memory) </p>
-
-</div>
-</div>
-<a id="a80787c8857d1d8b8b4fad63f11201626"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80787c8857d1d8b8b4fad63f11201626">&#9670;&nbsp;</a></span>replicateAll() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Scheme &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void helib::replicateAll </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="classhelib_1_1_ptxt.html">Ptxt</a>&lt; Scheme &gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classhelib_1_1_encrypted_array.html">EncryptedArray</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classhelib_1_1_ptxt.html">Ptxt</a>&lt; Scheme &gt; &amp;&#160;</td>
-          <td class="paramname"><em>ptxt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Generate a vector of plaintexts with each slot replicated in each plaintext. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Scheme</td><td>Encryption scheme used (must be <code>BGV</code> or <code>CKKS</code>). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">v</td><td>Vector of replicated plaintext slots. </td></tr>
-    <tr><td class="paramname">ptxt</td><td>Plaintext whose slots will be replicated.</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>The order of the return vector agrees with the order of the slots. i.e. the <code>i</code>th plaintext in the return value is a replication of <code>*this[i]</code>. </p>
-
-</div>
-</div>
-<a id="ae12fb4b6143d8e2cb6a5dbf36922fbe7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae12fb4b6143d8e2cb6a5dbf36922fbe7">&#9670;&nbsp;</a></span>replicateAllOrig()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void helib::replicateAllOrig </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classhelib_1_1_encrypted_array.html">EncryptedArray</a> &amp;&#160;</td>
-          <td class="paramname"><em>ea</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classhelib_1_1_ctxt.html">Ctxt</a> &amp;&#160;</td>
-          <td class="paramname"><em>ctxt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classhelib_1_1_replicate_handler.html">ReplicateHandler</a> *&#160;</td>
-          <td class="paramname"><em>handler</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">RepAux *&#160;</td>
-          <td class="paramname"><em>repAuxPtr</em> = <code>nullptr</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function is obsolete, and is kept for historical purposes only. It was a first attempt at implementing the O(1)-amortized algorithm, but is less efficient than the function above. </p>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->
 </div>

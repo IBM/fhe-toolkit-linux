@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
         <meta name="generator" content="Doxygen 1.8.18"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <title>HElib: include/helib/Ptxt.h File Reference</title>
+        <title>HElib: /HElib/include/helib/Ptxt.h File Reference</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
         <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -79,6 +79,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Ptxt.h File Reference</div>  </div>
@@ -111,123 +112,25 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An object that mimics the functionality of the <code><a class="el" href="classhelib_1_1_ctxt.html" title="A Ctxt object holds a single ciphertext.">Ctxt</a></code> object, and acts as a convenient entry point for inputting/encoding data which is to be encrypted.  <a href="classhelib_1_1_ptxt.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacehelib"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html">helib</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ae05ae4d1e5789165fa5fe70824e87077"><td class="memTemplParams" colspan="2">template&lt;typename From , typename Scheme &gt; </td></tr>
-<tr class="memitem:ae05ae4d1e5789165fa5fe70824e87077"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; typename Scheme::SlotType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_ptxt_8h.html#ae05ae4d1e5789165fa5fe70824e87077">helib::convertDataToSlotVector</a> (const std::vector&lt; From &gt; &amp;data, const Context &amp;context)</td></tr>
-<tr class="memdesc:ae05ae4d1e5789165fa5fe70824e87077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts <code>std::vector&lt;From&gt;</code> to <code>std::vector&lt;Scheme::SlotType&gt;</code>.  <a href="_ptxt_8h.html#ae05ae4d1e5789165fa5fe70824e87077">More...</a><br /></td></tr>
+<tr class="memitem:ae05ae4d1e5789165fa5fe70824e87077"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; typename Scheme::SlotType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ae05ae4d1e5789165fa5fe70824e87077">helib::convertDataToSlotVector</a> (const std::vector&lt; From &gt; &amp;data, const Context &amp;context)</td></tr>
+<tr class="memdesc:ae05ae4d1e5789165fa5fe70824e87077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts <code>std::vector&lt;From&gt;</code> to <code>std::vector&lt;Scheme::SlotType&gt;</code>.  <a href="namespacehelib.html#ae05ae4d1e5789165fa5fe70824e87077">More...</a><br /></td></tr>
 <tr class="separator:ae05ae4d1e5789165fa5fe70824e87077"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98d0e8b458fb8f75fa79ff7c7effe58e"><td class="memTemplParams" colspan="2">template&lt;typename Scheme &gt; </td></tr>
-<tr class="memitem:a98d0e8b458fb8f75fa79ff7c7effe58e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_ptxt_8h.html#a98d0e8b458fb8f75fa79ff7c7effe58e">helib::innerProduct</a> (Ptxt&lt; Scheme &gt; &amp;result, const std::vector&lt; Ptxt&lt; Scheme &gt;&gt; &amp;first_vec, const std::vector&lt; Ptxt&lt; Scheme &gt;&gt; &amp;second_vec)</td></tr>
-<tr class="memdesc:a98d0e8b458fb8f75fa79ff7c7effe58e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free function that computes the inner product of two vectors of <code><a class="el" href="classhelib_1_1_ptxt.html" title="An object that mimics the functionality of the Ctxt object, and acts as a convenient entry point for ...">Ptxt</a></code>.  <a href="_ptxt_8h.html#a98d0e8b458fb8f75fa79ff7c7effe58e">More...</a><br /></td></tr>
+<tr class="memitem:a98d0e8b458fb8f75fa79ff7c7effe58e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a98d0e8b458fb8f75fa79ff7c7effe58e">helib::innerProduct</a> (Ptxt&lt; Scheme &gt; &amp;result, const std::vector&lt; Ptxt&lt; Scheme &gt;&gt; &amp;first_vec, const std::vector&lt; Ptxt&lt; Scheme &gt;&gt; &amp;second_vec)</td></tr>
+<tr class="memdesc:a98d0e8b458fb8f75fa79ff7c7effe58e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free function that computes the inner product of two vectors of <code><a class="el" href="classhelib_1_1_ptxt.html" title="An object that mimics the functionality of the Ctxt object, and acts as a convenient entry point for ...">Ptxt</a></code>.  <a href="namespacehelib.html#a98d0e8b458fb8f75fa79ff7c7effe58e">More...</a><br /></td></tr>
 <tr class="separator:a98d0e8b458fb8f75fa79ff7c7effe58e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Plaintext object parameterised on CKKS and BGV schemes. Also contains definition of <code>CKKS</code> and <code>BGV</code> structs. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="ae05ae4d1e5789165fa5fe70824e87077"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae05ae4d1e5789165fa5fe70824e87077">&#9670;&nbsp;</a></span>convertDataToSlotVector()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename From , typename Scheme &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;typename Scheme::SlotType&gt; helib::convertDataToSlotVector </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; From &gt; &amp;&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classhelib_1_1_context.html">Context</a> &amp;&#160;</td>
-          <td class="paramname"><em>context</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts <code>std::vector&lt;From&gt;</code> to <code>std::vector&lt;Scheme::SlotType&gt;</code>. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">From</td><td>Type of the element in the input vector. </td></tr>
-    <tr><td class="paramname">Scheme</td><td>The encryption scheme to be used, must be <code>BGV</code> or <code>CKKS</code>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>Vector to be converted. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Vector of converted values of type <code>Scheme::SlotType</code>. </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Only exists for <code>BGV</code> and <code>CKKS</code>. </dd></dl>
-
-</div>
-</div>
-<a id="a98d0e8b458fb8f75fa79ff7c7effe58e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98d0e8b458fb8f75fa79ff7c7effe58e">&#9670;&nbsp;</a></span>innerProduct()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Scheme &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void helib::innerProduct </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classhelib_1_1_ptxt.html">Ptxt</a>&lt; Scheme &gt; &amp;&#160;</td>
-          <td class="paramname"><em>result</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="classhelib_1_1_ptxt.html">Ptxt</a>&lt; Scheme &gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>first_vec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="classhelib_1_1_ptxt.html">Ptxt</a>&lt; Scheme &gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>second_vec</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Free function that computes the inner product of two vectors of <code>Ptxt</code>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">result</td><td>The output <code>Ptxt</code> that will hold the result. </td></tr>
-    <tr><td class="paramname">first_vec</td><td>The first input vector of plaintexts. </td></tr>
-    <tr><td class="paramname">second_vec</td><td>The second input vector of plaintexts. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>If the two vector sizes differ, the shorter vector will be padded with zeroes. </dd></dl>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->
 </div>

@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -73,7 +73,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>helib</b></li><li class="navelem"><a class="el" href="structhelib_1_1_mat_mul1_d__derived__impl.html">MatMul1D_derived_impl</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacehelib.html">helib</a></li><li class="navelem"><a class="el" href="structhelib_1_1_mat_mul1_d__derived__impl.html">MatMul1D_derived_impl</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -87,18 +87,166 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad713079453fa2488c5304d11f55a3230"><td class="memItemLeft" align="right" valign="top"><a id="ad713079453fa2488c5304d11f55a3230"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>processDiagonal1</b> (RX &amp;poly, long i, const <a class="el" href="classhelib_1_1_encrypted_array_derived.html">EncryptedArrayDerived</a>&lt; type &gt; &amp;ea, const <a class="el" href="classhelib_1_1_mat_mul1_d__derived.html">MatMul1D_derived</a>&lt; type &gt; &amp;mat)</td></tr>
+<tr class="memitem:ad713079453fa2488c5304d11f55a3230"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhelib_1_1_mat_mul1_d__derived__impl.html#ad713079453fa2488c5304d11f55a3230">processDiagonal1</a> (RX &amp;poly, long i, const <a class="el" href="classhelib_1_1_encrypted_array_derived.html">EncryptedArrayDerived</a>&lt; type &gt; &amp;ea, const <a class="el" href="classhelib_1_1_mat_mul1_d__derived.html">MatMul1D_derived</a>&lt; type &gt; &amp;mat)</td></tr>
 <tr class="separator:ad713079453fa2488c5304d11f55a3230"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad75d3cfc759c0661036934860cee34dc"><td class="memItemLeft" align="right" valign="top"><a id="ad75d3cfc759c0661036934860cee34dc"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>processDiagonal2</b> (RX &amp;poly, long idx, const <a class="el" href="classhelib_1_1_encrypted_array_derived.html">EncryptedArrayDerived</a>&lt; type &gt; &amp;ea, const <a class="el" href="classhelib_1_1_mat_mul1_d__derived.html">MatMul1D_derived</a>&lt; type &gt; &amp;mat)</td></tr>
+<tr class="memitem:ad75d3cfc759c0661036934860cee34dc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhelib_1_1_mat_mul1_d__derived__impl.html#ad75d3cfc759c0661036934860cee34dc">processDiagonal2</a> (RX &amp;poly, long idx, const <a class="el" href="classhelib_1_1_encrypted_array_derived.html">EncryptedArrayDerived</a>&lt; type &gt; &amp;ea, const <a class="el" href="classhelib_1_1_mat_mul1_d__derived.html">MatMul1D_derived</a>&lt; type &gt; &amp;mat)</td></tr>
 <tr class="separator:ad75d3cfc759c0661036934860cee34dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a148dde0a46e794cfa1a3d3b1d4099caa"><td class="memItemLeft" align="right" valign="top"><a id="a148dde0a46e794cfa1a3d3b1d4099caa"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>processDiagonal</b> (RX &amp;poly, long i, const <a class="el" href="classhelib_1_1_encrypted_array_derived.html">EncryptedArrayDerived</a>&lt; type &gt; &amp;ea, const <a class="el" href="classhelib_1_1_mat_mul1_d__derived.html">MatMul1D_derived</a>&lt; type &gt; &amp;mat)</td></tr>
+<tr class="memitem:a148dde0a46e794cfa1a3d3b1d4099caa"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhelib_1_1_mat_mul1_d__derived__impl.html#a148dde0a46e794cfa1a3d3b1d4099caa">processDiagonal</a> (RX &amp;poly, long i, const <a class="el" href="classhelib_1_1_encrypted_array_derived.html">EncryptedArrayDerived</a>&lt; type &gt; &amp;ea, const <a class="el" href="classhelib_1_1_mat_mul1_d__derived.html">MatMul1D_derived</a>&lt; type &gt; &amp;mat)</td></tr>
 <tr class="separator:a148dde0a46e794cfa1a3d3b1d4099caa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a148dde0a46e794cfa1a3d3b1d4099caa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a148dde0a46e794cfa1a3d3b1d4099caa">&#9670;&nbsp;</a></span>processDiagonal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="structhelib_1_1_mat_mul1_d__derived__impl.html">helib::MatMul1D_derived_impl</a>&lt; type &gt;::processDiagonal </td>
+          <td>(</td>
+          <td class="paramtype">RX &amp;&#160;</td>
+          <td class="paramname"><em>poly</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classhelib_1_1_encrypted_array_derived.html">EncryptedArrayDerived</a>&lt; type &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ea</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classhelib_1_1_mat_mul1_d__derived.html">MatMul1D_derived</a>&lt; type &gt; &amp;&#160;</td>
+          <td class="paramname"><em>mat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad713079453fa2488c5304d11f55a3230"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad713079453fa2488c5304d11f55a3230">&#9670;&nbsp;</a></span>processDiagonal1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="structhelib_1_1_mat_mul1_d__derived__impl.html">helib::MatMul1D_derived_impl</a>&lt; type &gt;::processDiagonal1 </td>
+          <td>(</td>
+          <td class="paramtype">RX &amp;&#160;</td>
+          <td class="paramname"><em>poly</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classhelib_1_1_encrypted_array_derived.html">EncryptedArrayDerived</a>&lt; type &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ea</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classhelib_1_1_mat_mul1_d__derived.html">MatMul1D_derived</a>&lt; type &gt; &amp;&#160;</td>
+          <td class="paramname"><em>mat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad75d3cfc759c0661036934860cee34dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad75d3cfc759c0661036934860cee34dc">&#9670;&nbsp;</a></span>processDiagonal2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="structhelib_1_1_mat_mul1_d__derived__impl.html">helib::MatMul1D_derived_impl</a>&lt; type &gt;::processDiagonal2 </td>
+          <td>(</td>
+          <td class="paramtype">RX &amp;&#160;</td>
+          <td class="paramname"><em>poly</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>idx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classhelib_1_1_encrypted_array_derived.html">EncryptedArrayDerived</a>&lt; type &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ea</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classhelib_1_1_mat_mul1_d__derived.html">MatMul1D_derived</a>&lt; type &gt; &amp;&#160;</td>
+          <td class="paramname"><em>mat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/matmul.cpp</li>
+<li>/HElib/src/<a class="el" href="matmul_8cpp.html">matmul.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.8-->

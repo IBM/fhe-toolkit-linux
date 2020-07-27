@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -73,7 +73,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>helib</b></li><li class="navelem"><a class="el" href="classhelib_1_1_eval_map.html">EvalMap</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacehelib.html">helib</a></li><li class="navelem"><a class="el" href="classhelib_1_1_eval_map.html">EvalMap</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -92,14 +92,11 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1fb71a558b22ab7d4b6fa3611b1b6eaf"><td class="memItemLeft" align="right" valign="top"><a id="a1fb71a558b22ab7d4b6fa3611b1b6eaf"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>EvalMap</b> (const <a class="el" href="classhelib_1_1_encrypted_array.html">EncryptedArray</a> &amp;_ea, bool minimal, const NTL::Vec&lt; long &gt; &amp;mvec, bool _invert, bool build_cache, bool normal_basis=true)</td></tr>
+<tr class="memitem:a1fb71a558b22ab7d4b6fa3611b1b6eaf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_eval_map.html#a1fb71a558b22ab7d4b6fa3611b1b6eaf">EvalMap</a> (const <a class="el" href="classhelib_1_1_encrypted_array.html">EncryptedArray</a> &amp;_ea, bool minimal, const NTL::Vec&lt; long &gt; &amp;mvec, bool _invert, bool build_cache, bool normal_basis=true)</td></tr>
 <tr class="separator:a1fb71a558b22ab7d4b6fa3611b1b6eaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed3f9a5dc25cc1b0afdac310958ae8c3"><td class="memItemLeft" align="right" valign="top"><a id="aed3f9a5dc25cc1b0afdac310958ae8c3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>upgrade</b> ()</td></tr>
+<tr class="memitem:aed3f9a5dc25cc1b0afdac310958ae8c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_eval_map.html#aed3f9a5dc25cc1b0afdac310958ae8c3">upgrade</a> ()</td></tr>
 <tr class="separator:aed3f9a5dc25cc1b0afdac310958ae8c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9044ba453e8fda4fc90cc55c3c68b5b"><td class="memItemLeft" align="right" valign="top"><a id="ad9044ba453e8fda4fc90cc55c3c68b5b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>apply</b> (<a class="el" href="classhelib_1_1_ctxt.html">Ctxt</a> &amp;ctxt) const</td></tr>
+<tr class="memitem:ad9044ba453e8fda4fc90cc55c3c68b5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_eval_map.html#ad9044ba453e8fda4fc90cc55c3c68b5b">apply</a> (<a class="el" href="classhelib_1_1_ctxt.html">Ctxt</a> &amp;ctxt) const</td></tr>
 <tr class="separator:ad9044ba453e8fda4fc90cc55c3c68b5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -113,9 +110,98 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>apply</b> (<a class="
 <p>If invert flag is true, the inverse transformation is used. In addition, the current implementation folds into the inverse transformation a transformation that moves the coefficients in each slot into a normal-basis representation, which helps with the unpacking procedure.</p>
 <p>The constructor precomputes certain values, and the linear transformation itself is effected using the apply method.</p>
 <p>Note that the factorization in mvec must correspond to the generators used in <a class="el" href="classhelib_1_1_p_algebra.html" title="The structure of (Z/mZ)* /(p)">PAlgebra</a>. The best way to ensure this is to directly use the output of the program in params.cpp: that program computes values for mvec (to be used here), and gens and ords (to be used in initialization of the <a class="el" href="classhelib_1_1_context.html" title="Maintaining the parameters.">Context</a>). </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
-<li>include/helib/<a class="el" href="_eval_map_8h_source.html">EvalMap.h</a></li>
-<li>src/EvalMap.cpp</li>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1fb71a558b22ab7d4b6fa3611b1b6eaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fb71a558b22ab7d4b6fa3611b1b6eaf">&#9670;&nbsp;</a></span>EvalMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">helib::EvalMap::EvalMap </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classhelib_1_1_encrypted_array.html">EncryptedArray</a> &amp;&#160;</td>
+          <td class="paramname"><em>_ea</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>minimal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const NTL::Vec&lt; long &gt; &amp;&#160;</td>
+          <td class="paramname"><em>mvec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_invert</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>build_cache</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>normal_basis</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad9044ba453e8fda4fc90cc55c3c68b5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9044ba453e8fda4fc90cc55c3c68b5b">&#9670;&nbsp;</a></span>apply()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void helib::EvalMap::apply </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classhelib_1_1_ctxt.html">Ctxt</a> &amp;&#160;</td>
+          <td class="paramname"><em>ctxt</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aed3f9a5dc25cc1b0afdac310958ae8c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed3f9a5dc25cc1b0afdac310958ae8c3">&#9670;&nbsp;</a></span>upgrade()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void helib::EvalMap::upgrade </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>/HElib/include/helib/<a class="el" href="_eval_map_8h_source.html">EvalMap.h</a></li>
+<li>/HElib/src/<a class="el" href="_eval_map_8cpp.html">EvalMap.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.8-->

@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
         <meta name="generator" content="Doxygen 1.8.18"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <title>HElib: include/helib/polyEval.h Source File</title>
+        <title>HElib: /HElib/include/helib/polyEval.h Source File</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
         <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -98,12 +98,12 @@ $(function() {
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_context_8h.html">helib/Context.h</a>&gt;</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_ctxt_8h.html">helib/Ctxt.h</a>&gt;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span>helib {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacehelib.html">helib</a> {</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> <a class="code" href="poly_eval_8h.html#a342c01cce2724537976f9ce808e6b8ec">polyEval</a>(Ctxt&amp; ret, NTL::ZZX poly, <span class="keyword">const</span> Ctxt&amp; x, <span class="keywordtype">long</span> k = 0);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacehelib.html#a342c01cce2724537976f9ce808e6b8ec">polyEval</a>(Ctxt&amp; ret, NTL::ZZX poly, <span class="keyword">const</span> Ctxt&amp; x, <span class="keywordtype">long</span> k = 0);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">// Note: poly is passed by value, so caller keeps the original</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">void</span> <a class="code" href="poly_eval_8h.html#a342c01cce2724537976f9ce808e6b8ec">polyEval</a>(Ctxt&amp; ret, <span class="keyword">const</span> NTL::Vec&lt;Ctxt&gt;&amp; poly, <span class="keyword">const</span> Ctxt&amp; x);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacehelib.html#a342c01cce2724537976f9ce808e6b8ec">polyEval</a>(Ctxt&amp; ret, <span class="keyword">const</span> NTL::Vec&lt;Ctxt&gt;&amp; poly, <span class="keyword">const</span> Ctxt&amp; x);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">// A useful helper class</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
@@ -116,13 +116,13 @@ $(function() {
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  std::vector&lt;Ctxt&gt; v; <span class="comment">// A std::vector storing the powers themselves</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <a class="code" href="classhelib_1_1_dynamic_ctxt_powers.html">DynamicCtxtPowers</a>(<span class="keyword">const</span> <a class="code" href="classhelib_1_1_ctxt.html">Ctxt</a>&amp; c, <span class="keywordtype">long</span> nPowers)</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classhelib_1_1_dynamic_ctxt_powers.html#a5d7db6e850e84b397e97d49c7fe0755d">   51</a></span>&#160;  <a class="code" href="classhelib_1_1_dynamic_ctxt_powers.html#a5d7db6e850e84b397e97d49c7fe0755d">DynamicCtxtPowers</a>(<span class="keyword">const</span> <a class="code" href="classhelib_1_1_ctxt.html">Ctxt</a>&amp; c, <span class="keywordtype">long</span> nPowers)</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  {</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">// Sanity-check</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    assertFalse&lt;InvalidArgument&gt;(c.<a class="code" href="classhelib_1_1_ctxt.html#a151d7507c39014fe92da71b22d9fdaf1">isEmpty</a>(), <span class="stringliteral">&quot;Ciphertext cannot be empty&quot;</span>);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    assertTrue&lt;InvalidArgument&gt;(nPowers &gt; 0, <span class="stringliteral">&quot;Must have positive nPowers&quot;</span>);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="classhelib_1_1_ctxt.html">Ctxt</a> tmp(c.getPubKey(), c.getPtxtSpace());</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="classhelib_1_1_ctxt.html">Ctxt</a> tmp(c.<a class="code" href="classhelib_1_1_ctxt.html#a56a77dfb30edd3f462dc078b6098957f">getPubKey</a>(), c.<a class="code" href="classhelib_1_1_ctxt.html#ad1ae403520999ebf024a8c664e74ea41">getPtxtSpace</a>());</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    v.resize(nPowers, tmp); <span class="comment">// Initializes nPowers empty ciphertexts</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    v[0] = c;               <span class="comment">// store X itself in v[0]</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  }</div>
@@ -130,11 +130,11 @@ $(function() {
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <a class="code" href="classhelib_1_1_ctxt.html">Ctxt</a>&amp; <a class="code" href="classhelib_1_1_dynamic_ctxt_powers.html#a88588d2bdab1096a2a8b26a440b11ae9">getPower</a>(<span class="keywordtype">long</span> e); <span class="comment">// must use e &gt;= 1, else throws an exception</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
 <div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classhelib_1_1_dynamic_ctxt_powers.html#a4ca09befbdce3a13df966705631243e8">   66</a></span>&#160;  <a class="code" href="classhelib_1_1_ctxt.html">Ctxt</a>&amp; <a class="code" href="classhelib_1_1_dynamic_ctxt_powers.html#a4ca09befbdce3a13df966705631243e8">at</a>(<span class="keywordtype">long</span> i) { <span class="keywordflow">return</span> <a class="code" href="classhelib_1_1_dynamic_ctxt_powers.html#a88588d2bdab1096a2a8b26a440b11ae9">getPower</a>(i + 1); }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <a class="code" href="classhelib_1_1_ctxt.html">Ctxt</a>&amp; operator[](<span class="keywordtype">long</span> i) { <span class="keywordflow">return</span> <a class="code" href="classhelib_1_1_dynamic_ctxt_powers.html#a88588d2bdab1096a2a8b26a440b11ae9">getPower</a>(i + 1); }</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classhelib_1_1_dynamic_ctxt_powers.html#a334fb99c655099f576bfc74f8678ab44">   67</a></span>&#160;  <a class="code" href="classhelib_1_1_ctxt.html">Ctxt</a>&amp; <a class="code" href="classhelib_1_1_dynamic_ctxt_powers.html#a334fb99c655099f576bfc74f8678ab44">operator[]</a>(<span class="keywordtype">long</span> i) { <span class="keywordflow">return</span> <a class="code" href="classhelib_1_1_dynamic_ctxt_powers.html#a88588d2bdab1096a2a8b26a440b11ae9">getPower</a>(i + 1); }</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keyword">const</span> std::vector&lt;Ctxt&gt;&amp; getVector()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> v; }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keywordtype">long</span> size()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> v.size(); }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keywordtype">bool</span> isPowerComputed(<span class="keywordtype">long</span> i)</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classhelib_1_1_dynamic_ctxt_powers.html#a1b919e7ce7deb5dba7f1d53e7cd21871">   69</a></span>&#160;  <span class="keyword">const</span> std::vector&lt;Ctxt&gt;&amp; <a class="code" href="classhelib_1_1_dynamic_ctxt_powers.html#a1b919e7ce7deb5dba7f1d53e7cd21871">getVector</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> v; }</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classhelib_1_1_dynamic_ctxt_powers.html#a0bb850c687c54319725aec1057258d82">   70</a></span>&#160;  <span class="keywordtype">long</span> <a class="code" href="classhelib_1_1_dynamic_ctxt_powers.html#a0bb850c687c54319725aec1057258d82">size</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> v.size(); }</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classhelib_1_1_dynamic_ctxt_powers.html#a7c8e1fd789aac88f9a252be6f2c5c08e">   71</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classhelib_1_1_dynamic_ctxt_powers.html#a7c8e1fd789aac88f9a252be6f2c5c08e">isPowerComputed</a>(<span class="keywordtype">long</span> i)</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  {</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">return</span> (i &gt; 0 &amp;&amp; i &lt;= (<span class="keywordtype">long</span>)v.size() &amp;&amp; !v[i - 1].isEmpty());</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  }</div>
@@ -144,13 +144,21 @@ $(function() {
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#endif // ifndef HELIB_POLYEVAL_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclasshelib_1_1_dynamic_ctxt_powers_html_a5d7db6e850e84b397e97d49c7fe0755d"><div class="ttname"><a href="classhelib_1_1_dynamic_ctxt_powers.html#a5d7db6e850e84b397e97d49c7fe0755d">helib::DynamicCtxtPowers::DynamicCtxtPowers</a></div><div class="ttdeci">DynamicCtxtPowers(const Ctxt &amp;c, long nPowers)</div><div class="ttdef"><b>Definition:</b> polyEval.h:51</div></div>
 <div class="ttc" id="aclasshelib_1_1_dynamic_ctxt_powers_html"><div class="ttname"><a href="classhelib_1_1_dynamic_ctxt_powers.html">helib::DynamicCtxtPowers</a></div><div class="ttdoc">Store powers of X, compute them dynamically as needed.</div><div class="ttdef"><b>Definition:</b> polyEval.h:46</div></div>
-<div class="ttc" id="apoly_eval_8h_html_a342c01cce2724537976f9ce808e6b8ec"><div class="ttname"><a href="poly_eval_8h.html#a342c01cce2724537976f9ce808e6b8ec">helib::polyEval</a></div><div class="ttdeci">void polyEval(Ctxt &amp;ret, NTL::ZZX poly, const Ctxt &amp;x, long k=0)</div><div class="ttdoc">Evaluate a cleartext polynomial on an encrypted input.</div><div class="ttdef"><b>Definition:</b> polyEval.cpp:129</div></div>
+<div class="ttc" id="aclasshelib_1_1_ctxt_html_a56a77dfb30edd3f462dc078b6098957f"><div class="ttname"><a href="classhelib_1_1_ctxt.html#a56a77dfb30edd3f462dc078b6098957f">helib::Ctxt::getPubKey</a></div><div class="ttdeci">const PubKey &amp; getPubKey() const</div><div class="ttdef"><b>Definition:</b> Ctxt.h:765</div></div>
+<div class="ttc" id="aclasshelib_1_1_ctxt_html_ad1ae403520999ebf024a8c664e74ea41"><div class="ttname"><a href="classhelib_1_1_ctxt.html#ad1ae403520999ebf024a8c664e74ea41">helib::Ctxt::getPtxtSpace</a></div><div class="ttdeci">long getPtxtSpace() const</div><div class="ttdef"><b>Definition:</b> Ctxt.h:767</div></div>
+<div class="ttc" id="anamespacehelib_html"><div class="ttname"><a href="namespacehelib.html">helib</a></div><div class="ttdef"><b>Definition:</b> apiAttributes.h:21</div></div>
 <div class="ttc" id="a_ctxt_8h_html"><div class="ttname"><a href="_ctxt_8h.html">Ctxt.h</a></div><div class="ttdoc">Declarations of a BGV-type ciphertext and key-switching matrices.</div></div>
 <div class="ttc" id="a_context_8h_html"><div class="ttname"><a href="_context_8h.html">Context.h</a></div><div class="ttdoc">Keeps the parameters of an instance of the cryptosystem.</div></div>
 <div class="ttc" id="aclasshelib_1_1_dynamic_ctxt_powers_html_a4ca09befbdce3a13df966705631243e8"><div class="ttname"><a href="classhelib_1_1_dynamic_ctxt_powers.html#a4ca09befbdce3a13df966705631243e8">helib::DynamicCtxtPowers::at</a></div><div class="ttdeci">Ctxt &amp; at(long i)</div><div class="ttdoc">dp.at(i) and dp[i] both return the i+1st power</div><div class="ttdef"><b>Definition:</b> polyEval.h:66</div></div>
+<div class="ttc" id="anamespacehelib_html_a342c01cce2724537976f9ce808e6b8ec"><div class="ttname"><a href="namespacehelib.html#a342c01cce2724537976f9ce808e6b8ec">helib::polyEval</a></div><div class="ttdeci">void polyEval(Ctxt &amp;ret, NTL::ZZX poly, const Ctxt &amp;x, long k=0)</div><div class="ttdoc">Evaluate a cleartext polynomial on an encrypted input.</div><div class="ttdef"><b>Definition:</b> polyEval.cpp:129</div></div>
 <div class="ttc" id="aclasshelib_1_1_ctxt_html_a151d7507c39014fe92da71b22d9fdaf1"><div class="ttname"><a href="classhelib_1_1_ctxt.html#a151d7507c39014fe92da71b22d9fdaf1">helib::Ctxt::isEmpty</a></div><div class="ttdeci">bool isEmpty() const</div><div class="ttdoc">Is this an empty ciphertext without any parts.</div><div class="ttdef"><b>Definition:</b> Ctxt.h:743</div></div>
 <div class="ttc" id="aclasshelib_1_1_ctxt_html"><div class="ttname"><a href="classhelib_1_1_ctxt.html">helib::Ctxt</a></div><div class="ttdoc">A Ctxt object holds a single ciphertext.</div><div class="ttdef"><b>Definition:</b> Ctxt.h:270</div></div>
+<div class="ttc" id="aclasshelib_1_1_dynamic_ctxt_powers_html_a7c8e1fd789aac88f9a252be6f2c5c08e"><div class="ttname"><a href="classhelib_1_1_dynamic_ctxt_powers.html#a7c8e1fd789aac88f9a252be6f2c5c08e">helib::DynamicCtxtPowers::isPowerComputed</a></div><div class="ttdeci">bool isPowerComputed(long i)</div><div class="ttdef"><b>Definition:</b> polyEval.h:71</div></div>
+<div class="ttc" id="aclasshelib_1_1_dynamic_ctxt_powers_html_a0bb850c687c54319725aec1057258d82"><div class="ttname"><a href="classhelib_1_1_dynamic_ctxt_powers.html#a0bb850c687c54319725aec1057258d82">helib::DynamicCtxtPowers::size</a></div><div class="ttdeci">long size() const</div><div class="ttdef"><b>Definition:</b> polyEval.h:70</div></div>
+<div class="ttc" id="aclasshelib_1_1_dynamic_ctxt_powers_html_a334fb99c655099f576bfc74f8678ab44"><div class="ttname"><a href="classhelib_1_1_dynamic_ctxt_powers.html#a334fb99c655099f576bfc74f8678ab44">helib::DynamicCtxtPowers::operator[]</a></div><div class="ttdeci">Ctxt &amp; operator[](long i)</div><div class="ttdef"><b>Definition:</b> polyEval.h:67</div></div>
+<div class="ttc" id="aclasshelib_1_1_dynamic_ctxt_powers_html_a1b919e7ce7deb5dba7f1d53e7cd21871"><div class="ttname"><a href="classhelib_1_1_dynamic_ctxt_powers.html#a1b919e7ce7deb5dba7f1d53e7cd21871">helib::DynamicCtxtPowers::getVector</a></div><div class="ttdeci">const std::vector&lt; Ctxt &gt; &amp; getVector() const</div><div class="ttdef"><b>Definition:</b> polyEval.h:69</div></div>
 <div class="ttc" id="aclasshelib_1_1_dynamic_ctxt_powers_html_a88588d2bdab1096a2a8b26a440b11ae9"><div class="ttname"><a href="classhelib_1_1_dynamic_ctxt_powers.html#a88588d2bdab1096a2a8b26a440b11ae9">helib::DynamicCtxtPowers::getPower</a></div><div class="ttdeci">Ctxt &amp; getPower(long e)</div><div class="ttdoc">Returns the e'th power, computing it as needed.</div><div class="ttdef"><b>Definition:</b> polyEval.cpp:18</div></div>
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->

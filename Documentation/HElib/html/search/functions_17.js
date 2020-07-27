@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['_7epolymod_1233',['~PolyMod',['../classhelib_1_1_poly_mod.html#acabfe2e0ceb18342c0e0ad40fe451251',1,'helib::PolyMod']]],
-  ['_7epolymodring_1234',['~PolyModRing',['../structhelib_1_1_poly_mod_ring.html#a2175edd6ede241f3a6408b9d169e51bc',1,'helib::PolyModRing']]],
-  ['_7eptxt_1235',['~Ptxt',['../classhelib_1_1_ptxt.html#a71edaa17612629ec56220ea022202016',1,'helib::Ptxt']]],
-  ['_7epubkey_1236',['~PubKey',['../classhelib_1_1_pub_key.html#aabd77762ff776bfbf3ae389b49fa7ac9',1,'helib::PubKey']]]
+  ['zmstargen_2555',['ZmStarGen',['../classhelib_1_1_p_algebra.html#aa0f6448b824d27233d9fbed310a70641',1,'helib::PAlgebra']]],
+  ['zz_5fpxmodulus1_2556',['ZZ_pXModulus1',['../classhelib_1_1_z_z__p_x_modulus1.html#a09894b3405261267bef1e490795f3d95',1,'helib::ZZ_pXModulus1::ZZ_pXModulus1()'],['../classhelib_1_1zz__p_x_modulus1.html#abc224981ad47dbb515a3c67bc9df5b6d',1,'helib::zz_pXModulus1::zz_pXModulus1()']]],
+  ['zzxtopowerful_2557',['ZZXtoPowerful',['../classhelib_1_1_powerful_d_c_r_t.html#a329d42eb1e3c2b741b401125bc4107a9',1,'helib::PowerfulDCRT']]]
 ];

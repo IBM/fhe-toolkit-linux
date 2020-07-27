@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
         <meta name="generator" content="Doxygen 1.8.18"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <title>HElib: include/helib/PAlgebra.h File Reference</title>
+        <title>HElib: /HElib/include/helib/PAlgebra.h File Reference</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
         <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -79,6 +79,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
@@ -96,9 +97,9 @@ $(function() {
 <code>#include &lt;<a class="el" href="_numb_th_8h_source.html">helib/NumbTh.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="zz_x_8h_source.html">helib/zzX.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="hypercube_8h_source.html">helib/hypercube.h</a>&gt;</code><br />
-<code>#include &lt;helib/PGFFT.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="_p_g_f_f_t_8h_source.html">helib/PGFFT.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="cloned_ptr_8h_source.html">helib/clonedPtr.h</a>&gt;</code><br />
-<code>#include &lt;helib/apiAttributes.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="api_attributes_8h_source.html">helib/apiAttributes.h</a>&gt;</code><br />
 </div>
 <p><a href="_p_algebra_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -129,31 +130,33 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The structure of Z[X]/(Phi_m(X), p)  <a href="classhelib_1_1_p_algebra_mod.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacehelib"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html">helib</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a3f121e88d1ede1fd384a8ad4ebb51f41"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><b>PA_INJECT</b>(typ)</td></tr>
+<tr class="memitem:a3f121e88d1ede1fd384a8ad4ebb51f41"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_algebra_8h.html#a3f121e88d1ede1fd384a8ad4ebb51f41">PA_INJECT</a>(typ)</td></tr>
 <tr class="separator:a3f121e88d1ede1fd384a8ad4ebb51f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ab0181d82dc81ed4d1f8c1d950b4efd7e"><td class="memItemLeft" align="right" valign="top"><a id="ab0181d82dc81ed4d1f8c1d950b4efd7e"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>PA_tag</b> { <b>PA_GF2_tag</b>, 
-<b>PA_zz_p_tag</b>, 
-<b>PA_cx_tag</b>
+<tr class="memitem:ab0181d82dc81ed4d1f8c1d950b4efd7e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ab0181d82dc81ed4d1f8c1d950b4efd7e">helib::PA_tag</a> { <a class="el" href="namespacehelib.html#ab0181d82dc81ed4d1f8c1d950b4efd7eab33244c736f38a4c21e6d86c6a683d58">helib::PA_GF2_tag</a>, 
+<a class="el" href="namespacehelib.html#ab0181d82dc81ed4d1f8c1d950b4efd7ea63d35380340004730e7cb505a4da38e2">helib::PA_zz_p_tag</a>, 
+<a class="el" href="namespacehelib.html#ab0181d82dc81ed4d1f8c1d950b4efd7ea7d944116ae9eb1abb2d5fa92bb6d21ee">helib::PA_cx_tag</a>
  }</td></tr>
 <tr class="separator:ab0181d82dc81ed4d1f8c1d950b4efd7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af7ad5bd5c310b0ad7f96d6e2065e5b2b"><td class="memItemLeft" align="right" valign="top"><a id="af7ad5bd5c310b0ad7f96d6e2065e5b2b"></a>
-PAlgebraModBase *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_algebra_8h.html#af7ad5bd5c310b0ad7f96d6e2065e5b2b">helib::buildPAlgebraMod</a> (const PAlgebra &amp;zMStar, long r)</td></tr>
-<tr class="memdesc:af7ad5bd5c310b0ad7f96d6e2065e5b2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a table, of type PA_GF2 if p == 2 and r == 1, and PA_zz_p otherwise. <br /></td></tr>
+<tr class="memitem:af7ad5bd5c310b0ad7f96d6e2065e5b2b"><td class="memItemLeft" align="right" valign="top">PAlgebraModBase *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#af7ad5bd5c310b0ad7f96d6e2065e5b2b">helib::buildPAlgebraMod</a> (const PAlgebra &amp;zMStar, long r)</td></tr>
+<tr class="memdesc:af7ad5bd5c310b0ad7f96d6e2065e5b2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a table, of type PA_GF2 if p == 2 and r == 1, and PA_zz_p otherwise.  <a href="namespacehelib.html#af7ad5bd5c310b0ad7f96d6e2065e5b2b">More...</a><br /></td></tr>
 <tr class="separator:af7ad5bd5c310b0ad7f96d6e2065e5b2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed4e8a7e6a0c99087b87431d7478e4d6"><td class="memItemLeft" align="right" valign="top"><a id="aed4e8a7e6a0c99087b87431d7478e4d6"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_algebra_8h.html#aed4e8a7e6a0c99087b87431d7478e4d6">helib::comparePAlgebra</a> (const PAlgebra &amp;palg, unsigned long m, unsigned long p, unsigned long r, const std::vector&lt; long &gt; &amp;gens, const std::vector&lt; long &gt; &amp;ords)</td></tr>
-<tr class="memdesc:aed4e8a7e6a0c99087b87431d7478e4d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns true if the palg parameters match the rest, false otherwise <br /></td></tr>
+<tr class="memitem:aed4e8a7e6a0c99087b87431d7478e4d6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#aed4e8a7e6a0c99087b87431d7478e4d6">helib::comparePAlgebra</a> (const PAlgebra &amp;palg, unsigned long m, unsigned long p, unsigned long r, const std::vector&lt; long &gt; &amp;gens, const std::vector&lt; long &gt; &amp;ords)</td></tr>
+<tr class="memdesc:aed4e8a7e6a0c99087b87431d7478e4d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns true if the palg parameters match the rest, false otherwise  <a href="namespacehelib.html#aed4e8a7e6a0c99087b87431d7478e4d6">More...</a><br /></td></tr>
 <tr class="separator:aed4e8a7e6a0c99087b87431d7478e4d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a742ec1357ca244079dacd7c1cb2fcb90"><td class="memItemLeft" align="right" valign="top"><a id="a742ec1357ca244079dacd7c1cb2fcb90"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>helib::calcPolyNormBnd</b> (long m)</td></tr>
+<tr class="memitem:a742ec1357ca244079dacd7c1cb2fcb90"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a742ec1357ca244079dacd7c1cb2fcb90">helib::calcPolyNormBnd</a> (long m)</td></tr>
 <tr class="separator:a742ec1357ca244079dacd7c1cb2fcb90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -174,7 +177,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>helib::calcPolyNorm
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">  <span class="keyword">static</span> <span class="keyword">const</span> PA_tag tag = typ::tag;                                          \</div>
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="namespacehelib.html#ab0181d82dc81ed4d1f8c1d950b4efd7e">PA_tag</a> tag = typ::tag;                                          \</div>
 <div class="line">  typedef <span class="keyword">typename</span> typ::R R;                                                   \</div>
 <div class="line">  typedef <span class="keyword">typename</span> typ::RX RX;                                                 \</div>
 <div class="line">  typedef <span class="keyword">typename</span> typ::vec_RX vec_RX;                                         \</div>
@@ -194,6 +197,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>helib::calcPolyNorm
 </div>
 </div>
 </div><!-- contents -->
+<div class="ttc" id="anamespacehelib_html_ab0181d82dc81ed4d1f8c1d950b4efd7e"><div class="ttname"><a href="namespacehelib.html#ab0181d82dc81ed4d1f8c1d950b4efd7e">helib::PA_tag</a></div><div class="ttdeci">PA_tag</div><div class="ttdef"><b>Definition:</b> PAlgebra.h:296</div></div>
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->
 </div>
