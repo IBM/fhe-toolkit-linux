@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['palgebra_2ecpp_1619',['PAlgebra.cpp',['../_p_algebra_8cpp.html',1,'']]],
+  ['palgebra_2eh_1620',['PAlgebra.h',['../_p_algebra_8h.html',1,'']]],
+  ['permnetwork_2ecpp_1621',['PermNetwork.cpp',['../_perm_network_8cpp.html',1,'']]],
+  ['permutations_2ecpp_1622',['permutations.cpp',['../permutations_8cpp.html',1,'']]],
+  ['permutations_2eh_1623',['permutations.h',['../permutations_8h.html',1,'']]],
+  ['pgfft_2ecpp_1624',['PGFFT.cpp',['../_p_g_f_f_t_8cpp.html',1,'']]],
+  ['pgfft_2eh_1625',['PGFFT.h',['../_p_g_f_f_t_8h.html',1,'']]],
+  ['polyeval_2ecpp_1626',['polyEval.cpp',['../poly_eval_8cpp.html',1,'']]],
+  ['polyeval_2eh_1627',['polyEval.h',['../poly_eval_8h.html',1,'']]],
+  ['polymod_2ecpp_1628',['PolyMod.cpp',['../_poly_mod_8cpp.html',1,'']]],
+  ['polymod_2eh_1629',['PolyMod.h',['../_poly_mod_8h.html',1,'']]],
+  ['polymodring_2ecpp_1630',['PolyModRing.cpp',['../_poly_mod_ring_8cpp.html',1,'']]],
+  ['polymodring_2eh_1631',['PolyModRing.h',['../_poly_mod_ring_8h.html',1,'']]],
+  ['powerful_2ecpp_1632',['powerful.cpp',['../powerful_8cpp.html',1,'']]],
+  ['powerful_2eh_1633',['powerful.h',['../powerful_8h.html',1,'']]],
+  ['primechain_2ecpp_1634',['primeChain.cpp',['../prime_chain_8cpp.html',1,'']]],
+  ['primechain_2eh_1635',['primeChain.h',['../prime_chain_8h.html',1,'']]],
+  ['ptrmatrix_2eh_1636',['PtrMatrix.h',['../_ptr_matrix_8h.html',1,'']]],
+  ['ptrvector_2eh_1637',['PtrVector.h',['../_ptr_vector_8h.html',1,'']]],
+  ['ptxt_2ecpp_1638',['Ptxt.cpp',['../_ptxt_8cpp.html',1,'']]],
+  ['ptxt_2eh_1639',['Ptxt.h',['../_ptxt_8h.html',1,'']]]
+];
