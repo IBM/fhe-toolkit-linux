@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
         <meta name="generator" content="Doxygen 1.8.18"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <title>HElib: src/keySwitching.cpp File Reference</title>
+        <title>HElib: /Users/Projects/FHE_HElib_Repos_Public_staging/homenc_v1.0.2/HElib/src/keySwitching.cpp File Reference</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
         <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -78,6 +78,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -90,66 +91,58 @@ $(function() {
 <div class="textblock"><code>#include &lt;unordered_set&gt;</code><br />
 <code>#include &lt;NTL/ZZ.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="permutations_8h_source.html">helib/permutations.h</a>&gt;</code><br />
-<code>#include &lt;helib/binio.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="binio_8h_source.html">helib/binio.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="key_switching_8h_source.html">helib/keySwitching.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="keys_8h_source.html">helib/keys.h</a>&gt;</code><br />
-<code>#include &lt;helib/apiAttributes.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="api_attributes_8h_source.html">helib/apiAttributes.h</a>&gt;</code><br />
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacehelib"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html">helib</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ad1e62bfb6af337a49d07244385b05fa0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><b>computeParams</b>(context,  m,  i)</td></tr>
+<tr class="memitem:ad1e62bfb6af337a49d07244385b05fa0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="key_switching_8cpp.html#ad1e62bfb6af337a49d07244385b05fa0">computeParams</a>(context,  m,  i)</td></tr>
 <tr class="separator:ad1e62bfb6af337a49d07244385b05fa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae5b3ba4659fee95212891f530d1a88c1"><td class="memItemLeft" align="right" valign="top"><a id="ae5b3ba4659fee95212891f530d1a88c1"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>helib::operator&lt;&lt;</b> (std::ostream &amp;str, const KeySwitch &amp;matrix)</td></tr>
+<tr class="memitem:ae5b3ba4659fee95212891f530d1a88c1"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ae5b3ba4659fee95212891f530d1a88c1">helib::operator&lt;&lt;</a> (std::ostream &amp;str, const KeySwitch &amp;matrix)</td></tr>
 <tr class="separator:ae5b3ba4659fee95212891f530d1a88c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Strategies for generating key-switching matrices</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>These functions are implemented in KeySwitching.cpp </p>
 </div></td></tr>
-<tr class="memitem:a4fb58a793bef4befd9d75d8852d8fc55"><td class="memItemLeft" align="right" valign="top"><a id="a4fb58a793bef4befd9d75d8852d8fc55"></a>
-long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="key_switching_8h.html#a4fb58a793bef4befd9d75d8852d8fc55">helib::KSGiantStepSize</a> (long D)</td></tr>
-<tr class="memdesc:a4fb58a793bef4befd9d75d8852d8fc55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns number of baby steps. Used to keep this and matmul routines "in sync". <br /></td></tr>
+<tr class="memitem:a4fb58a793bef4befd9d75d8852d8fc55"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a4fb58a793bef4befd9d75d8852d8fc55">helib::KSGiantStepSize</a> (long D)</td></tr>
+<tr class="memdesc:a4fb58a793bef4befd9d75d8852d8fc55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that returns number of baby steps. Used to keep this and matmul routines "in sync".  <a href="namespacehelib.html#a4fb58a793bef4befd9d75d8852d8fc55">More...</a><br /></td></tr>
 <tr class="separator:a4fb58a793bef4befd9d75d8852d8fc55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4da7a89f85244e58f456a86832c46a27"><td class="memItemLeft" align="right" valign="top"><a id="a4da7a89f85244e58f456a86832c46a27"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="key_switching_8h.html#a4da7a89f85244e58f456a86832c46a27">helib::addAllMatrices</a> (SecKey &amp;sKey, long keyID=0)</td></tr>
-<tr class="memdesc:a4da7a89f85244e58f456a86832c46a27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximalistic approach: generate matrices s(X^e)-&gt;s(X) for all e in Zm*. <br /></td></tr>
+<tr class="memitem:a4da7a89f85244e58f456a86832c46a27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a4da7a89f85244e58f456a86832c46a27">helib::addAllMatrices</a> (SecKey &amp;sKey, long keyID=0)</td></tr>
+<tr class="memdesc:a4da7a89f85244e58f456a86832c46a27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximalistic approach: generate matrices s(X^e)-&gt;s(X) for all e in Zm*.  <a href="namespacehelib.html#a4da7a89f85244e58f456a86832c46a27">More...</a><br /></td></tr>
 <tr class="separator:a4da7a89f85244e58f456a86832c46a27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ace8477657e91faeb4c33824bab098d"><td class="memItemLeft" align="right" valign="top"><a id="a3ace8477657e91faeb4c33824bab098d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="key_switching_8h.html#a3ace8477657e91faeb4c33824bab098d">helib::addSome1DMatrices</a> (SecKey &amp;sKey, long bound=<a class="el" href="key_switching_8h.html#a3838902c58164cdb58bee2043b2263bd">HELIB_KEYSWITCH_THRESH</a>, long keyID=0)</td></tr>
-<tr class="memdesc:a3ace8477657e91faeb4c33824bab098d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate some matrices of the form s(X^{g^i})-&gt;s(X), but not all. For a generator g whose order is larger than bound, generate only enough matrices for the giant-step/baby-step procedures (2*sqrt(ord(g))of them). <br /></td></tr>
+<tr class="memitem:a3ace8477657e91faeb4c33824bab098d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a3ace8477657e91faeb4c33824bab098d">helib::addSome1DMatrices</a> (SecKey &amp;sKey, long bound=<a class="el" href="key_switching_8h.html#a3838902c58164cdb58bee2043b2263bd">HELIB_KEYSWITCH_THRESH</a>, long keyID=0)</td></tr>
+<tr class="memdesc:a3ace8477657e91faeb4c33824bab098d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate some matrices of the form s(X^{g^i})-&gt;s(X), but not all. For a generator g whose order is larger than bound, generate only enough matrices for the giant-step/baby-step procedures (2*sqrt(ord(g))of them).  <a href="namespacehelib.html#a3ace8477657e91faeb4c33824bab098d">More...</a><br /></td></tr>
 <tr class="separator:a3ace8477657e91faeb4c33824bab098d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f3689b135fde2c843eed5ce0813a975"><td class="memItemLeft" align="right" valign="top"><a id="a8f3689b135fde2c843eed5ce0813a975"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="key_switching_8h.html#a8f3689b135fde2c843eed5ce0813a975">helib::add1DMatrices</a> (SecKey &amp;sKey, long keyID=0)</td></tr>
-<tr class="memdesc:a8f3689b135fde2c843eed5ce0813a975"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate all matrices s(X^{g^i})-&gt;s(X) for generators g of Zm* /(p) and i&lt;ord(g). If g has different orders in Zm* and Zm* /(p) then generate also matrices of the form s(X^{g^{-i}})-&gt;s(X) <br /></td></tr>
+<tr class="memitem:a8f3689b135fde2c843eed5ce0813a975"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a8f3689b135fde2c843eed5ce0813a975">helib::add1DMatrices</a> (SecKey &amp;sKey, long keyID=0)</td></tr>
+<tr class="memdesc:a8f3689b135fde2c843eed5ce0813a975"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate all matrices s(X^{g^i})-&gt;s(X) for generators g of Zm* /(p) and i&lt;ord(g). If g has different orders in Zm* and Zm* /(p) then generate also matrices of the form s(X^{g^{-i}})-&gt;s(X)  <a href="namespacehelib.html#a8f3689b135fde2c843eed5ce0813a975">More...</a><br /></td></tr>
 <tr class="separator:a8f3689b135fde2c843eed5ce0813a975"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63d75eed1d12814e2e858ab82e07d311"><td class="memItemLeft" align="right" valign="top"><a id="a63d75eed1d12814e2e858ab82e07d311"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::addBSGS1DMatrices</b> (SecKey &amp;sKey, long keyID=0)</td></tr>
+<tr class="memitem:a63d75eed1d12814e2e858ab82e07d311"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a63d75eed1d12814e2e858ab82e07d311">helib::addBSGS1DMatrices</a> (SecKey &amp;sKey, long keyID=0)</td></tr>
 <tr class="separator:a63d75eed1d12814e2e858ab82e07d311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40b42a155c81c0507222ebca1f0a39f8"><td class="memItemLeft" align="right" valign="top"><a id="a40b42a155c81c0507222ebca1f0a39f8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="key_switching_8h.html#a40b42a155c81c0507222ebca1f0a39f8">helib::addSomeFrbMatrices</a> (SecKey &amp;sKey, long bound=<a class="el" href="key_switching_8h.html#a3838902c58164cdb58bee2043b2263bd">HELIB_KEYSWITCH_THRESH</a>, long keyID=0)</td></tr>
-<tr class="memdesc:a40b42a155c81c0507222ebca1f0a39f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate all/some Frobenius matrices of the form s(X^{p^i})-&gt;s(X) <br /></td></tr>
+<tr class="memitem:a40b42a155c81c0507222ebca1f0a39f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a40b42a155c81c0507222ebca1f0a39f8">helib::addSomeFrbMatrices</a> (SecKey &amp;sKey, long bound=<a class="el" href="key_switching_8h.html#a3838902c58164cdb58bee2043b2263bd">HELIB_KEYSWITCH_THRESH</a>, long keyID=0)</td></tr>
+<tr class="memdesc:a40b42a155c81c0507222ebca1f0a39f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate all/some Frobenius matrices of the form s(X^{p^i})-&gt;s(X)  <a href="namespacehelib.html#a40b42a155c81c0507222ebca1f0a39f8">More...</a><br /></td></tr>
 <tr class="separator:a40b42a155c81c0507222ebca1f0a39f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62bfda232309a69cc3824e5323345073"><td class="memItemLeft" align="right" valign="top"><a id="a62bfda232309a69cc3824e5323345073"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::addFrbMatrices</b> (SecKey &amp;sKey, long keyID=0)</td></tr>
+<tr class="memitem:a62bfda232309a69cc3824e5323345073"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a62bfda232309a69cc3824e5323345073">helib::addFrbMatrices</a> (SecKey &amp;sKey, long keyID=0)</td></tr>
 <tr class="separator:a62bfda232309a69cc3824e5323345073"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9483c8e129d827f9b49f140a327dd15"><td class="memItemLeft" align="right" valign="top"><a id="af9483c8e129d827f9b49f140a327dd15"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::addBSGSFrbMatrices</b> (SecKey &amp;sKey, long keyID=0)</td></tr>
+<tr class="memitem:af9483c8e129d827f9b49f140a327dd15"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#af9483c8e129d827f9b49f140a327dd15">helib::addBSGSFrbMatrices</a> (SecKey &amp;sKey, long keyID=0)</td></tr>
 <tr class="separator:af9483c8e129d827f9b49f140a327dd15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c3d6b66cd30aed055d9c5a6333eca7c"><td class="memItemLeft" align="right" valign="top"><a id="a0c3d6b66cd30aed055d9c5a6333eca7c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="key_switching_8h.html#a0c3d6b66cd30aed055d9c5a6333eca7c">helib::addMinimal1DMatrices</a> (SecKey &amp;sKey, long keyID=0)</td></tr>
-<tr class="memdesc:a0c3d6b66cd30aed055d9c5a6333eca7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">These routines just add a single matrix (or two, for bad dimensions) <br /></td></tr>
+<tr class="memitem:a0c3d6b66cd30aed055d9c5a6333eca7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a0c3d6b66cd30aed055d9c5a6333eca7c">helib::addMinimal1DMatrices</a> (SecKey &amp;sKey, long keyID=0)</td></tr>
+<tr class="memdesc:a0c3d6b66cd30aed055d9c5a6333eca7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">These routines just add a single matrix (or two, for bad dimensions)  <a href="namespacehelib.html#a0c3d6b66cd30aed055d9c5a6333eca7c">More...</a><br /></td></tr>
 <tr class="separator:a0c3d6b66cd30aed055d9c5a6333eca7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa94886e3afbcd49800243fd7fdaedd39"><td class="memItemLeft" align="right" valign="top"><a id="aa94886e3afbcd49800243fd7fdaedd39"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::addMinimalFrbMatrices</b> (SecKey &amp;sKey, long keyID=0)</td></tr>
+<tr class="memitem:aa94886e3afbcd49800243fd7fdaedd39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#aa94886e3afbcd49800243fd7fdaedd39">helib::addMinimalFrbMatrices</a> (SecKey &amp;sKey, long keyID=0)</td></tr>
 <tr class="separator:aa94886e3afbcd49800243fd7fdaedd39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d420cdf0dc5b6968a8a89809cd5b5f3"><td class="memItemLeft" align="right" valign="top"><a id="a7d420cdf0dc5b6968a8a89809cd5b5f3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::addMatrices4Network</b> (SecKey &amp;sKey, const PermNetwork &amp;net, long keyID=0)</td></tr>
+<tr class="memitem:a7d420cdf0dc5b6968a8a89809cd5b5f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a7d420cdf0dc5b6968a8a89809cd5b5f3">helib::addMatrices4Network</a> (SecKey &amp;sKey, const PermNetwork &amp;net, long keyID=0)</td></tr>
 <tr class="separator:a7d420cdf0dc5b6968a8a89809cd5b5f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96c1092ac50c752cc8577da03cf232d4"><td class="memItemLeft" align="right" valign="top"><a id="a96c1092ac50c752cc8577da03cf232d4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="key_switching_8h.html#a96c1092ac50c752cc8577da03cf232d4">helib::addTheseMatrices</a> (SecKey &amp;sKey, const std::set&lt; long &gt; &amp;automVals, long keyID=0)</td></tr>
-<tr class="memdesc:a96c1092ac50c752cc8577da03cf232d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate specific key-switching matrices, described by the given set. <br /></td></tr>
+<tr class="memitem:a96c1092ac50c752cc8577da03cf232d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a96c1092ac50c752cc8577da03cf232d4">helib::addTheseMatrices</a> (SecKey &amp;sKey, const std::set&lt; long &gt; &amp;automVals, long keyID=0)</td></tr>
+<tr class="memdesc:a96c1092ac50c752cc8577da03cf232d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate specific key-switching matrices, described by the given set.  <a href="namespacehelib.html#a96c1092ac50c752cc8577da03cf232d4">More...</a><br /></td></tr>
 <tr class="separator:a96c1092ac50c752cc8577da03cf232d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -188,7 +181,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="key_
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">  <span class="keywordtype">bool</span> native;                                                                 \</div>
-<div class="line">  long <a class="code" href="_numb_th_8h.html#a8693a4a2d91babebc9b8887bbcd1f0ea">ord</a>, gi, g2md;                                                          \</div>
+<div class="line">  long <a class="code" href="namespacehelib.html#a8693a4a2d91babebc9b8887bbcd1f0ea">ord</a>, gi, g2md;                                                          \</div>
 <div class="line">  NTL::mulmod_precon_t g2mdminv;                                               \</div>
 <div class="line">  if (i == context.zMStar.numOfGens()) { <span class="comment">/* Frobenius matrices */</span>              \</div>
 <div class="line">    ord = context.zMStar.getOrdP();                                            \</div>
@@ -199,7 +192,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="key_
 <div class="line">    gi = context.zMStar.ZmStarGen(i);                                          \</div>
 <div class="line">    native = context.zMStar.SameOrd(i);                                        \</div>
 <div class="line">    if (!native) {                                                             \</div>
-<div class="line">      g2md = PowerMod(gi, -ord, m); <span class="comment">/* g^{-ord} mod m */</span>                       \</div>
+<div class="line">      g2md = PowerMod(gi, -<a class="code" href="namespacehelib.html#a8693a4a2d91babebc9b8887bbcd1f0ea">ord</a>, m); <span class="comment">/* g^{-ord} mod m */</span>                       \</div>
 <div class="line">      g2mdminv = PrepMulModPrecon(g2md, m);                                    \</div>
 <div class="line">    }                                                                          \</div>
 <div class="line">  }                                                                            \</div>
@@ -208,7 +201,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="key_
 </div>
 </div>
 </div><!-- contents -->
-<div class="ttc" id="a_numb_th_8h_html_a8693a4a2d91babebc9b8887bbcd1f0ea"><div class="ttname"><a href="_numb_th_8h.html#a8693a4a2d91babebc9b8887bbcd1f0ea">helib::ord</a></div><div class="ttdeci">long ord(long N, long p)</div><div class="ttdoc">Compute the highest power of p that divides N.</div><div class="ttdef"><b>Definition:</b> NumbTh.cpp:695</div></div>
+<div class="ttc" id="anamespacehelib_html_a8693a4a2d91babebc9b8887bbcd1f0ea"><div class="ttname"><a href="namespacehelib.html#a8693a4a2d91babebc9b8887bbcd1f0ea">helib::ord</a></div><div class="ttdeci">long ord(long N, long p)</div><div class="ttdoc">Compute the highest power of p that divides N.</div><div class="ttdef"><b>Definition:</b> NumbTh.cpp:695</div></div>
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->
 </div>

@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -73,7 +73,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>helib</b></li><li class="navelem"><a class="el" href="classhelib_1_1_scratch_cell.html">ScratchCell</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacehelib.html">helib</a></li><li class="navelem"><a class="el" href="classhelib_1_1_scratch_cell.html">ScratchCell</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -91,26 +91,104 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a77fab5bf558ed998f923e2c4b708f5c5"><td class="memItemLeft" align="right" valign="top"><a id="a77fab5bf558ed998f923e2c4b708f5c5"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ScratchCell</b> (const <a class="el" href="classhelib_1_1_ctxt.html">Ctxt</a> &amp;c)</td></tr>
+<tr class="memitem:a77fab5bf558ed998f923e2c4b708f5c5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_scratch_cell.html#a77fab5bf558ed998f923e2c4b708f5c5">ScratchCell</a> (const <a class="el" href="classhelib_1_1_ctxt.html">Ctxt</a> &amp;c)</td></tr>
 <tr class="separator:a77fab5bf558ed998f923e2c4b708f5c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9c03ab4ac191d334021da8b24a387c7"><td class="memItemLeft" align="right" valign="top"><a id="ab9c03ab4ac191d334021da8b24a387c7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ScratchCell</b> (<a class="el" href="classhelib_1_1_scratch_cell.html">ScratchCell</a> &amp;&amp;other)</td></tr>
+<tr class="memitem:ab9c03ab4ac191d334021da8b24a387c7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_scratch_cell.html#ab9c03ab4ac191d334021da8b24a387c7">ScratchCell</a> (<a class="el" href="classhelib_1_1_scratch_cell.html">ScratchCell</a> &amp;&amp;other)</td></tr>
 <tr class="separator:ab9c03ab4ac191d334021da8b24a387c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a78ae82009b44f81b0babaa4d759b6768"><td class="memItemLeft" align="right" valign="top"><a id="a78ae82009b44f81b0babaa4d759b6768"></a>
-std::atomic_bool&#160;</td><td class="memItemRight" valign="bottom"><b>used</b></td></tr>
+<tr class="memitem:a78ae82009b44f81b0babaa4d759b6768"><td class="memItemLeft" align="right" valign="top">std::atomic_bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_scratch_cell.html#a78ae82009b44f81b0babaa4d759b6768">used</a></td></tr>
 <tr class="separator:a78ae82009b44f81b0babaa4d759b6768"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32576cc31007dc849ff419550cbed05d"><td class="memItemLeft" align="right" valign="top"><a id="a32576cc31007dc849ff419550cbed05d"></a>
-std::unique_ptr&lt; <a class="el" href="classhelib_1_1_ctxt.html">Ctxt</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ct</b></td></tr>
+<tr class="memitem:a32576cc31007dc849ff419550cbed05d"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classhelib_1_1_ctxt.html">Ctxt</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_scratch_cell.html#a32576cc31007dc849ff419550cbed05d">ct</a></td></tr>
 <tr class="separator:a32576cc31007dc849ff419550cbed05d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class to help manage the allocation of temporary <a class="el" href="classhelib_1_1_ctxt.html" title="A Ctxt object holds a single ciphertext.">Ctxt</a> objects. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/<a class="el" href="binary_arith_8cpp.html">binaryArith.cpp</a></li>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a77fab5bf558ed998f923e2c4b708f5c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77fab5bf558ed998f923e2c4b708f5c5">&#9670;&nbsp;</a></span>ScratchCell() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">helib::ScratchCell::ScratchCell </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classhelib_1_1_ctxt.html">Ctxt</a> &amp;&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab9c03ab4ac191d334021da8b24a387c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9c03ab4ac191d334021da8b24a387c7">&#9670;&nbsp;</a></span>ScratchCell() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">helib::ScratchCell::ScratchCell </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classhelib_1_1_scratch_cell.html">ScratchCell</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a32576cc31007dc849ff419550cbed05d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32576cc31007dc849ff419550cbed05d">&#9670;&nbsp;</a></span>ct</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classhelib_1_1_ctxt.html">Ctxt</a>&gt; helib::ScratchCell::ct</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a78ae82009b44f81b0babaa4d759b6768"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78ae82009b44f81b0babaa4d759b6768">&#9670;&nbsp;</a></span>used</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic_bool helib::ScratchCell::used</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>/Users/Projects/FHE_HElib_Repos_Public_staging/homenc_v1.0.2/HElib/src/<a class="el" href="binary_arith_8cpp.html">binaryArith.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.8-->

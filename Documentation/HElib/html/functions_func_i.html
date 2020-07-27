@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -76,6 +76,9 @@ $(function() {
 &#160;
 
 <h3><a id="index_i"></a>- i -</h3><ul>
+<li>iFFT()
+: <a class="el" href="classhelib_1_1_cmodulus.html#a62cf7fc60c4f8d106b0dd73cede44f5f">helib::Cmodulus</a>
+</li>
 <li>imag()
 : <a class="el" href="classhelib_1_1_ptxt.html#ace682ff41a5f1833ae298aa8d33e05d5">helib::Ptxt</a>
 </li>
@@ -106,6 +109,9 @@ $(function() {
 <li>indexOfRep()
 : <a class="el" href="classhelib_1_1_p_algebra.html#a8b99ace4bf35e1ff128147ca5d58e4d9">helib::PAlgebra</a>
 </li>
+<li>IndexSet()
+: <a class="el" href="classhelib_1_1_index_set.html#a7eaa00acd0e00b7e3ad2b56f237b39d1">helib::IndexSet</a>
+</li>
 <li>init()
 : <a class="el" href="classhelib_1_1_add_d_a_g.html#ae2d6170c036b65028e05a980f494d3ea">helib::AddDAG</a>
 , <a class="el" href="classhelib_1_1_double_c_r_t_helper.html#a2a5120c6b955c4cdc9aa6a998111614f">helib::DoubleCRTHelper</a>
@@ -114,18 +120,47 @@ $(function() {
 , <a class="el" href="classhelib_1_1_recrypt_data.html#ab115b88319d1a7a13695b3ac795e49ae">helib::RecryptData</a>
 , <a class="el" href="classhelib_1_1_thin_recrypt_data.html#accba45a87da96c0545b19c82d20c2da0">helib::ThinRecryptData</a>
 </li>
+<li>initNormalBasisMatrix()
+: <a class="el" href="classhelib_1_1_encrypted_array_derived.html#a540b5ea6214812fa2414044923c3a035">helib::EncryptedArrayDerived&lt; type &gt;</a>
+</li>
+<li>initPConv()
+: <a class="el" href="classhelib_1_1_powerful_conversion.html#a443cfef5a0991a96f9c2873f4164d0e9">helib::PowerfulConversion</a>
+</li>
+<li>initSignature()
+: <a class="el" href="classhelib_1_1_cube_signature.html#a703f1b99c86044a134a2c2dd7811c57c">helib::CubeSignature</a>
+</li>
 <li>insert()
 : <a class="el" href="classhelib_1_1_index_map.html#ad644fbc8cfa3a3de5597194b4ca20224">helib::IndexMap&lt; T &gt;</a>
 , <a class="el" href="classhelib_1_1_index_set.html#aa2957053dea143c8ca64766f514306c3">helib::IndexSet</a>
 </li>
+<li>InvalidArgument()
+: <a class="el" href="classhelib_1_1_invalid_argument.html#a94cf781d2d4f38bcc07144b0d8caa23f">helib::InvalidArgument</a>
+</li>
+<li>inZmStar()
+: <a class="el" href="classhelib_1_1_p_algebra.html#a30408cf321051115b46bb75f9c9cc898">helib::PAlgebra</a>
+</li>
 <li>isBase()
 : <a class="el" href="classhelib_1_1_s_k_handle.html#aff3f98d8320f01259907d99b9d1e82b4">helib::SKHandle</a>
+</li>
+<li>isBootstrappable()
+: <a class="el" href="classhelib_1_1_context.html#abb8f32691d102e0390b5770526c8d4fd">helib::Context</a>
+, <a class="el" href="classhelib_1_1_pub_key.html#ad0ad65deb509b0e020dd603a4857492a">helib::PubKey</a>
+</li>
+<li>isCKKS()
+: <a class="el" href="classhelib_1_1_ctxt.html#ac6b93e6a7979f2d7e14022fe1ec9c384">helib::Ctxt</a>
+, <a class="el" href="classhelib_1_1_pub_key.html#ab8aed3e83355c67529fa2f53b2fb1ba5">helib::PubKey</a>
 </li>
 <li>isCorrect()
 : <a class="el" href="classhelib_1_1_ctxt.html#ab1bef6b0f71080cf5fba23ea87490d0c">helib::Ctxt</a>
 </li>
+<li>isDummy()
+: <a class="el" href="classhelib_1_1_key_switch.html#a0d5b6037b48b01c67bf29b0ae19f16e0">helib::KeySwitch</a>
+</li>
 <li>isEmpty()
 : <a class="el" href="classhelib_1_1_ctxt.html#a151d7507c39014fe92da71b22d9fdaf1">helib::Ctxt</a>
+</li>
+<li>isIdentity()
+: <a class="el" href="classhelib_1_1_perm_net_layer.html#ac369482c12aa6a9301e3cc19f8607350">helib::PermNetLayer</a>
 </li>
 <li>isInterval()
 : <a class="el" href="classhelib_1_1_index_set.html#a4d96dce11e3a0564e8b59b3eaff947d2">helib::IndexSet</a>
@@ -133,11 +168,17 @@ $(function() {
 <li>isOne()
 : <a class="el" href="classhelib_1_1_s_k_handle.html#abcbc38129fd9f8a57a51738a4bf95497">helib::SKHandle</a>
 </li>
+<li>isPowerComputed()
+: <a class="el" href="classhelib_1_1_dynamic_ctxt_powers.html#a7c8e1fd789aac88f9a252be6f2c5c08e">helib::DynamicCtxtPowers</a>
+</li>
 <li>isReachable()
 : <a class="el" href="classhelib_1_1_pub_key.html#a67598f5056cba7b1b94fcdd8482a947c">helib::PubKey</a>
 </li>
 <li>isRep()
 : <a class="el" href="classhelib_1_1_p_algebra.html#a0bea13d33d64fcaab59ed2b0b5c5100a">helib::PAlgebra</a>
+</li>
+<li>isSet()
+: <a class="el" href="structhelib_1_1_ptr_vector.html#afdc2a14a65d1d9e38cc95721ed245fd9">helib::PtrVector&lt; T &gt;</a>
 </li>
 <li>isValid()
 : <a class="el" href="classhelib_1_1_poly_mod.html#a14c70f6fbf3f033dcc68e5f13c643aa2">helib::PolyMod</a>
@@ -145,6 +186,10 @@ $(function() {
 </li>
 <li>isZeroDivisor()
 : <a class="el" href="classhelib_1_1_context.html#a2b87d5f0041ad5abe2bcf358cb818343">helib::Context</a>
+</li>
+<li>iterator()
+: <a class="el" href="classhelib_1_1general__range_1_1iterator.html#a439f11a590de1d1517b0966dc1a260b4">helib::general_range&lt; T &gt;::iterator</a>
+, <a class="el" href="classhelib_1_1_index_set_1_1iterator.html#ab59e4d4df42591d0090ef3366270484a">helib::IndexSet::iterator</a>
 </li>
 <li>ith_rep()
 : <a class="el" href="classhelib_1_1_p_algebra.html#a09f3f7d864c1989663a51f43984777f3">helib::PAlgebra</a>

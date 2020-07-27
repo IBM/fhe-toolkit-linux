@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
         <meta name="generator" content="Doxygen 1.8.18"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <title>HElib: include/helib/ArgMap.h Source File</title>
+        <title>HElib: /Users/Projects/FHE_HElib_Repos_Public_staging/homenc_v1.0.2/HElib/include/helib/ArgMap.h Source File</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
         <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -115,7 +115,7 @@ $(function() {
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;regex&gt;</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="assertions_8h.html">helib/assertions.h</a>&gt;</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">namespace </span>helib {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacehelib.html">helib</a> {</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classhelib_1_1_arg_map.html">   72</a></span>&#160;<span class="keyword">class </span><a class="code" href="classhelib_1_1_arg_map.html">ArgMap</a></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{</div>
@@ -160,7 +160,7 @@ $(function() {
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      <span class="keywordflow">return</span> this-&gt;positional_args.end();</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    }</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">bool</span> empty() { <span class="keywordflow">return</span> this-&gt;positional_args.empty(); }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespacehelib.html#ad94835a294c90ee0ea0336561c8f38ad">empty</a>() { <span class="keywordflow">return</span> this-&gt;positional_args.empty(); }</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  }; <span class="comment">// end of PositionalArgsList</span></div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="keyword">struct </span><a class="code" href="structhelib_1_1_arg_map_1_1_arg_processor.html">ArgProcessor</a>;</div>
@@ -219,11 +219,11 @@ $(function() {
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                   std::function&lt;<span class="keywordtype">void</span>(<span class="keyword">const</span> std::string&amp;)&gt; stop = {});</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  <span class="keyword">enum class</span> Separator</div>
+<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="classhelib_1_1_arg_map.html#ac96d090b5476e9a39b41ae27d74641b0">  180</a></span>&#160;  <span class="keyword">enum class</span> <a class="code" href="classhelib_1_1_arg_map.html#ac96d090b5476e9a39b41ae27d74641b0">Separator</a></div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  {</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    COLON,</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    EQUALS,</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    WHITESPACE</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <a class="code" href="classhelib_1_1_arg_map.html#ac96d090b5476e9a39b41ae27d74641b0af65f22e75defc168edfc6444e6aaf4f8">COLON</a>,</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <a class="code" href="classhelib_1_1_arg_map.html#ac96d090b5476e9a39b41ae27d74641b0a6837aeca94b8f55801166eb031e26a5a">EQUALS</a>,</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <a class="code" href="classhelib_1_1_arg_map.html#ac96d090b5476e9a39b41ae27d74641b0a52f1e315372b38db1b8f4e3666c4f721">WHITESPACE</a></div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  };</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
@@ -260,7 +260,7 @@ $(function() {
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
 <div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;  <a class="code" href="classhelib_1_1_arg_map.html">ArgMap</a>&amp; <a class="code" href="classhelib_1_1_arg_map.html#af54e2d261ed329d3b3b2e2cfbf35ab80">diagnostics</a>(std::ostream&amp; ostrm = std::cout);</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  <a class="code" href="classhelib_1_1_arg_map.html">ArgMap</a>&amp; <a class="code" href="classhelib_1_1_arg_map.html#ae477d3e97e6b9f4e847b7976fc939992">separator</a>(Separator s);</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  <a class="code" href="classhelib_1_1_arg_map.html">ArgMap</a>&amp; <a class="code" href="classhelib_1_1_arg_map.html#ae477d3e97e6b9f4e847b7976fc939992">separator</a>(<a class="code" href="classhelib_1_1_arg_map.html#ac96d090b5476e9a39b41ae27d74641b0">Separator</a> s);</div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160; </div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;  <a class="code" href="classhelib_1_1_arg_map.html">ArgMap</a>&amp; <a class="code" href="classhelib_1_1_arg_map.html#a7bcbfcccc0c9fcc9f3eba06067fcd97f">note</a>(<span class="keyword">const</span> std::string&amp; s);</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160; </div>
@@ -305,13 +305,13 @@ $(function() {
 <div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;      std::size_t pos = it-&gt;find(sep);</div>
 <div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;      <span class="keywordflow">if</span> (pos != std::string::npos) {</div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;        <span class="keywordflow">if</span> (pos == 0) {</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;          std::string sub = it-&gt;substr(1, std::string::npos);</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;          std::string <a class="code" href="namespacehelib.html#a305064dc4866c160a571bd653556c113">sub</a> = it-&gt;substr(1, std::string::npos);</div>
 <div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;          *it = sep;</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;          args_lst.insert_after(it, sub);</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;          args_lst.insert_after(it, <a class="code" href="namespacehelib.html#a305064dc4866c160a571bd653556c113">sub</a>);</div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;          std::string sub = it-&gt;substr(pos);</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;          std::string <a class="code" href="namespacehelib.html#a305064dc4866c160a571bd653556c113">sub</a> = it-&gt;substr(pos);</div>
 <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;          *it = it-&gt;substr(0, pos);</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;          args_lst.insert_after(it, sub);</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;          args_lst.insert_after(it, <a class="code" href="namespacehelib.html#a305064dc4866c160a571bd653556c113">sub</a>);</div>
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;        }</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;      }</div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    }</div>
@@ -323,9 +323,9 @@ $(function() {
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00402"></a><span class="lineno"><a class="line" href="structhelib_1_1_arg_map_1_1_arg_processor.html">  402</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structhelib_1_1_arg_map_1_1_arg_processor.html">ArgMap::ArgProcessor</a></div>
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;{</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="structhelib_1_1_arg_map_1_1_arg_processor.html">ArgProcessor</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;  <span class="keyword">virtual</span> ArgType getArgType() = 0;</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> process(<span class="keyword">const</span> std::string&amp; s) = 0;</div>
+<div class="line"><a name="l00404"></a><span class="lineno"><a class="line" href="structhelib_1_1_arg_map_1_1_arg_processor.html#afdec15131d585403483783f150f90bb6">  404</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="structhelib_1_1_arg_map_1_1_arg_processor.html#afdec15131d585403483783f150f90bb6">~ArgProcessor</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00405"></a><span class="lineno"><a class="line" href="structhelib_1_1_arg_map_1_1_arg_processor.html#a76d699586ece388055ccd708a273bfbf">  405</a></span>&#160;  <span class="keyword">virtual</span> ArgType <a class="code" href="structhelib_1_1_arg_map_1_1_arg_processor.html#a76d699586ece388055ccd708a273bfbf">getArgType</a>() = 0;</div>
+<div class="line"><a name="l00406"></a><span class="lineno"><a class="line" href="structhelib_1_1_arg_map_1_1_arg_processor.html#a19c15b33dcfd8ee176b1e6c22d1afe68">  406</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="structhelib_1_1_arg_map_1_1_arg_processor.html#a19c15b33dcfd8ee176b1e6c22d1afe68">process</a>(<span class="keyword">const</span> std::string&amp; s) = 0;</div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;}; <span class="comment">// end of ArgProcessor</span></div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160; </div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> C&gt;</div>
@@ -542,22 +542,22 @@ $(function() {
 <div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;  <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;}</div>
 <div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160; </div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;<span class="keyword">inline</span> <a class="code" href="classhelib_1_1_arg_map.html">ArgMap</a>&amp; <a class="code" href="classhelib_1_1_arg_map.html#a0ecab734381e89bf13e2dd38af25585c">ArgMap::helpArgs</a>(<span class="keyword">const</span> std::string s)</div>
+<div class="line"><a name="l00623"></a><span class="lineno"><a class="line" href="classhelib_1_1_arg_map.html#aec9f54ce4e5c048da7d35c2a23688a75">  623</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classhelib_1_1_arg_map.html">ArgMap</a>&amp; <a class="code" href="classhelib_1_1_arg_map.html#a0ecab734381e89bf13e2dd38af25585c">ArgMap::helpArgs</a>(<span class="keyword">const</span> std::string s)</div>
 <div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;{</div>
 <div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;  this-&gt;help_tokens = {s};</div>
 <div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;  <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;}</div>
 <div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160; </div>
-<div class="line"><a name="l00629"></a><span class="lineno"><a class="line" href="classhelib_1_1_arg_map.html#ae477d3e97e6b9f4e847b7976fc939992">  629</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classhelib_1_1_arg_map.html">ArgMap</a>&amp; <a class="code" href="classhelib_1_1_arg_map.html#ae477d3e97e6b9f4e847b7976fc939992">ArgMap::separator</a>(Separator s)</div>
+<div class="line"><a name="l00629"></a><span class="lineno"><a class="line" href="classhelib_1_1_arg_map.html#ae477d3e97e6b9f4e847b7976fc939992">  629</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classhelib_1_1_arg_map.html">ArgMap</a>&amp; <a class="code" href="classhelib_1_1_arg_map.html#ae477d3e97e6b9f4e847b7976fc939992">ArgMap::separator</a>(<a class="code" href="classhelib_1_1_arg_map.html#ac96d090b5476e9a39b41ae27d74641b0">Separator</a> s)</div>
 <div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;{</div>
 <div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;  <span class="keywordflow">switch</span> (s) {</div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;  <span class="keywordflow">case</span> Separator::EQUALS:</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;  <span class="keywordflow">case</span> <a class="code" href="classhelib_1_1_arg_map.html#ac96d090b5476e9a39b41ae27d74641b0a6837aeca94b8f55801166eb031e26a5a">Separator::EQUALS</a>:</div>
 <div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;    this-&gt;kv_separator = <span class="charliteral">&#39;=&#39;</span>;</div>
 <div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;    <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;  <span class="keywordflow">case</span> Separator::COLON:</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;  <span class="keywordflow">case</span> <a class="code" href="classhelib_1_1_arg_map.html#ac96d090b5476e9a39b41ae27d74641b0af65f22e75defc168edfc6444e6aaf4f8">Separator::COLON</a>:</div>
 <div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;    this-&gt;kv_separator = <span class="charliteral">&#39;:&#39;</span>;</div>
 <div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;    <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;  <span class="keywordflow">case</span> Separator::WHITESPACE:</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;  <span class="keywordflow">case</span> <a class="code" href="classhelib_1_1_arg_map.html#ac96d090b5476e9a39b41ae27d74641b0a52f1e315372b38db1b8f4e3666c4f721">Separator::WHITESPACE</a>:</div>
 <div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;    this-&gt;kv_separator = <span class="charliteral">&#39; &#39;</span>;</div>
 <div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;    <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;  <span class="keywordflow">default</span>:</div>
@@ -815,22 +815,32 @@ $(function() {
 <div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;<span class="preprocessor">#endif // ifndef HELIB_ARGMAP_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclasshelib_1_1_arg_map_html_a7bcbfcccc0c9fcc9f3eba06067fcd97f"><div class="ttname"><a href="classhelib_1_1_arg_map.html#a7bcbfcccc0c9fcc9f3eba06067fcd97f">helib::ArgMap::note</a></div><div class="ttdeci">ArgMap &amp; note(const std::string &amp;s)</div><div class="ttdoc">Adds a note to usage Adds a note to the arg usage description.</div><div class="ttdef"><b>Definition:</b> ArgMap.h:569</div></div>
+<div class="ttc" id="astructhelib_1_1_arg_map_1_1_arg_processor_html_a19c15b33dcfd8ee176b1e6c22d1afe68"><div class="ttname"><a href="structhelib_1_1_arg_map_1_1_arg_processor.html#a19c15b33dcfd8ee176b1e6c22d1afe68">helib::ArgMap::ArgProcessor::process</a></div><div class="ttdeci">virtual bool process(const std::string &amp;s)=0</div></div>
 <div class="ttc" id="aclasshelib_1_1_runtime_error_html"><div class="ttname"><a href="classhelib_1_1_runtime_error.html">helib::RuntimeError</a></div><div class="ttdoc">Inherits from Exception and std::runtime_error.</div><div class="ttdef"><b>Definition:</b> exceptions.h:105</div></div>
+<div class="ttc" id="anamespacehelib_html_ad94835a294c90ee0ea0336561c8f38ad"><div class="ttname"><a href="namespacehelib.html#ad94835a294c90ee0ea0336561c8f38ad">helib::empty</a></div><div class="ttdeci">bool empty(const IndexSet &amp;s)</div><div class="ttdef"><b>Definition:</b> IndexSet.h:182</div></div>
 <div class="ttc" id="aclasshelib_1_1_arg_map_html_a383d5eb53291ab618eebeb60c2112dde"><div class="ttname"><a href="classhelib_1_1_arg_map.html#a383d5eb53291ab618eebeb60c2112dde">helib::ArgMap::usage</a></div><div class="ttdeci">void usage(const std::string &amp;msg=&quot;&quot;) const</div><div class="ttdoc">Print usage and exit Prints the usage and exits the program.</div><div class="ttdef"><b>Definition:</b> ArgMap.h:575</div></div>
 <div class="ttc" id="aclasshelib_1_1_arg_map_html_aa7dcd50df0466cd4be10a94eb3f96d1b"><div class="ttname"><a href="classhelib_1_1_arg_map.html#aa7dcd50df0466cd4be10a94eb3f96d1b">helib::ArgMap::required</a></div><div class="ttdeci">ArgMap &amp; required()</div><div class="ttdoc">Swaps to required arg mode Swaps to required arg mode. Following arguments will be considered require...</div><div class="ttdef"><b>Definition:</b> ArgMap.h:655</div></div>
 <div class="ttc" id="aclasshelib_1_1_logic_error_html"><div class="ttname"><a href="classhelib_1_1_logic_error.html">helib::LogicError</a></div><div class="ttdoc">Inherits from Exception and std::logic_error.</div><div class="ttdef"><b>Definition:</b> exceptions.h:68</div></div>
 <div class="ttc" id="astructhelib_1_1_arg_map_1_1_arg_processor_html"><div class="ttname"><a href="structhelib_1_1_arg_map_1_1_arg_processor.html">helib::ArgMap::ArgProcessor</a></div><div class="ttdef"><b>Definition:</b> ArgMap.h:403</div></div>
+<div class="ttc" id="astructhelib_1_1_arg_map_1_1_arg_processor_html_afdec15131d585403483783f150f90bb6"><div class="ttname"><a href="structhelib_1_1_arg_map_1_1_arg_processor.html#afdec15131d585403483783f150f90bb6">helib::ArgMap::ArgProcessor::~ArgProcessor</a></div><div class="ttdeci">virtual ~ArgProcessor()=default</div></div>
 <div class="ttc" id="aclasshelib_1_1_arg_map_html_a89eee5d391a2fd41b6b6c4b545b159b7"><div class="ttname"><a href="classhelib_1_1_arg_map.html#a89eee5d391a2fd41b6b6c4b545b159b7">helib::ArgMap::parse</a></div><div class="ttdeci">ArgMap &amp; parse(int argc, char **argv)</div><div class="ttdoc">Parse the argv array Parse the argv array If it fails or -h is an argument it prints the usage and ex...</div><div class="ttdef"><b>Definition:</b> ArgMap.h:810</div></div>
+<div class="ttc" id="anamespacehelib_html_a305064dc4866c160a571bd653556c113"><div class="ttname"><a href="namespacehelib.html#a305064dc4866c160a571bd653556c113">helib::sub</a></div><div class="ttdeci">void sub(const EncryptedArray &amp;ea, PlaintextArray &amp;pa, const PlaintextArray &amp;other)</div><div class="ttdef"><b>Definition:</b> EncryptedArray.cpp:1036</div></div>
 <div class="ttc" id="aclasshelib_1_1_arg_map_html_ae477d3e97e6b9f4e847b7976fc939992"><div class="ttname"><a href="classhelib_1_1_arg_map.html#ae477d3e97e6b9f4e847b7976fc939992">helib::ArgMap::separator</a></div><div class="ttdeci">ArgMap &amp; separator(Separator s)</div><div class="ttdoc">Sets the key-value separator Sets the named args key-value pair separator character.</div><div class="ttdef"><b>Definition:</b> ArgMap.h:629</div></div>
 <div class="ttc" id="aclasshelib_1_1_arg_map_html_ac06dd5e3726ecd5d8e688d665c2c9e50"><div class="ttname"><a href="classhelib_1_1_arg_map.html#ac06dd5e3726ecd5d8e688d665c2c9e50">helib::ArgMap::named</a></div><div class="ttdeci">ArgMap &amp; named()</div><div class="ttdoc">Swaps to named arg type (default) Swaps to required arg mode. Following arguments will be considered ...</div><div class="ttdef"><b>Definition:</b> ArgMap.h:668</div></div>
+<div class="ttc" id="astructhelib_1_1_arg_map_1_1_arg_processor_html_a76d699586ece388055ccd708a273bfbf"><div class="ttname"><a href="structhelib_1_1_arg_map_1_1_arg_processor.html#a76d699586ece388055ccd708a273bfbf">helib::ArgMap::ArgProcessor::getArgType</a></div><div class="ttdeci">virtual ArgType getArgType()=0</div></div>
+<div class="ttc" id="aclasshelib_1_1_arg_map_html_ac96d090b5476e9a39b41ae27d74641b0af65f22e75defc168edfc6444e6aaf4f8"><div class="ttname"><a href="classhelib_1_1_arg_map.html#ac96d090b5476e9a39b41ae27d74641b0af65f22e75defc168edfc6444e6aaf4f8">helib::ArgMap::Separator::COLON</a></div><div class="ttdeci">@ COLON</div></div>
 <div class="ttc" id="aclasshelib_1_1_arg_map_html"><div class="ttname"><a href="classhelib_1_1_arg_map.html">helib::ArgMap</a></div><div class="ttdoc">Basic class for arg parsing. Example use:</div><div class="ttdef"><b>Definition:</b> ArgMap.h:73</div></div>
 <div class="ttc" id="aclasshelib_1_1_arg_map_html_af54e2d261ed329d3b3b2e2cfbf35ab80"><div class="ttname"><a href="classhelib_1_1_arg_map.html#af54e2d261ed329d3b3b2e2cfbf35ab80">helib::ArgMap::diagnostics</a></div><div class="ttdeci">ArgMap &amp; diagnostics(std::ostream &amp;ostrm=std::cout)</div><div class="ttdoc">Turns on diagnostics printout when parsing Swaps to required arg mode. Following arguments will be co...</div><div class="ttdef"><b>Definition:</b> ArgMap.h:681</div></div>
 <div class="ttc" id="aclasshelib_1_1_arg_map_html_a0ecab734381e89bf13e2dd38af25585c"><div class="ttname"><a href="classhelib_1_1_arg_map.html#a0ecab734381e89bf13e2dd38af25585c">helib::ArgMap::helpArgs</a></div><div class="ttdeci">ArgMap &amp; helpArgs(const std::initializer_list&lt; std::string &gt; s)</div><div class="ttdoc">Provide custom help toggle args. (defaults are &quot;-h&quot;, &quot;--help&quot;) Overwrite default help toggle args to ...</div><div class="ttdef"><b>Definition:</b> ArgMap.h:617</div></div>
+<div class="ttc" id="aclasshelib_1_1_arg_map_html_ac96d090b5476e9a39b41ae27d74641b0a6837aeca94b8f55801166eb031e26a5a"><div class="ttname"><a href="classhelib_1_1_arg_map.html#ac96d090b5476e9a39b41ae27d74641b0a6837aeca94b8f55801166eb031e26a5a">helib::ArgMap::Separator::EQUALS</a></div><div class="ttdeci">@ EQUALS</div></div>
+<div class="ttc" id="aclasshelib_1_1_arg_map_html_ac96d090b5476e9a39b41ae27d74641b0a52f1e315372b38db1b8f4e3666c4f721"><div class="ttname"><a href="classhelib_1_1_arg_map.html#ac96d090b5476e9a39b41ae27d74641b0a52f1e315372b38db1b8f4e3666c4f721">helib::ArgMap::Separator::WHITESPACE</a></div><div class="ttdeci">@ WHITESPACE</div></div>
 <div class="ttc" id="aclasshelib_1_1_arg_map_html_af838c44fcb91c73284de3cbf993861f2"><div class="ttname"><a href="classhelib_1_1_arg_map.html#af838c44fcb91c73284de3cbf993861f2">helib::ArgMap::toggle</a></div><div class="ttdeci">ArgMap &amp; toggle(bool t=true)</div><div class="ttdoc">Swaps to toggle arg type Swaps to required arg mode. Following arguments will be considered of toggle...</div><div class="ttdef"><b>Definition:</b> ArgMap.h:661</div></div>
+<div class="ttc" id="anamespacehelib_html"><div class="ttname"><a href="namespacehelib.html">helib</a></div><div class="ttdef"><b>Definition:</b> apiAttributes.h:21</div></div>
 <div class="ttc" id="aclasshelib_1_1_arg_map_html_a8e2a662a2283329301f6d7b5e0e845c8"><div class="ttname"><a href="classhelib_1_1_arg_map.html#a8e2a662a2283329301f6d7b5e0e845c8">helib::ArgMap::dots</a></div><div class="ttdeci">ArgMap &amp; dots(C &amp;container, const char *name)</div><div class="ttdoc">Adds variable number of positional arg types after defined arg types are exhausted....</div><div class="ttdef"><b>Definition:</b> ArgMap.h:554</div></div>
 <div class="ttc" id="aclasshelib_1_1_arg_map_html_adf55e7e52a63bd72fe212cb90e58ad64"><div class="ttname"><a href="classhelib_1_1_arg_map.html#adf55e7e52a63bd72fe212cb90e58ad64">helib::ArgMap::positional</a></div><div class="ttdeci">ArgMap &amp; positional()</div><div class="ttdoc">Swaps to positional arg type Swaps to required arg mode. Following arguments will be considered of po...</div><div class="ttdef"><b>Definition:</b> ArgMap.h:674</div></div>
 <div class="ttc" id="aclasshelib_1_1_arg_map_html_a39ddbc25b7e1b038dbab65d5c1383b50"><div class="ttname"><a href="classhelib_1_1_arg_map.html#a39ddbc25b7e1b038dbab65d5c1383b50">helib::ArgMap::optional</a></div><div class="ttdeci">ArgMap &amp; optional()</div><div class="ttdoc">Swaps to optional arg mode (default) Swaps to optional arg mode. Following arguments will be consider...</div><div class="ttdef"><b>Definition:</b> ArgMap.h:649</div></div>
 <div class="ttc" id="aclasshelib_1_1_arg_map_html_a72a8c34a4d72036f02d3bb3cc6f754d2"><div class="ttname"><a href="classhelib_1_1_arg_map.html#a72a8c34a4d72036f02d3bb3cc6f754d2">helib::ArgMap::arg</a></div><div class="ttdeci">ArgMap &amp; arg(const std::string &amp;name, T &amp;value)</div><div class="ttdoc">Add a new argument description Adds a new argument description with value of type T....</div><div class="ttdef"><b>Definition:</b> ArgMap.h:486</div></div>
+<div class="ttc" id="aclasshelib_1_1_arg_map_html_ac96d090b5476e9a39b41ae27d74641b0"><div class="ttname"><a href="classhelib_1_1_arg_map.html#ac96d090b5476e9a39b41ae27d74641b0">helib::ArgMap::Separator</a></div><div class="ttdeci">Separator</div><div class="ttdef"><b>Definition:</b> ArgMap.h:181</div></div>
 <div class="ttc" id="aclasshelib_1_1_arg_map_html_a7665dba84ba3a420e052a61eb6c4e30f"><div class="ttname"><a href="classhelib_1_1_arg_map.html#a7665dba84ba3a420e052a61eb6c4e30f">helib::ArgMap::doc</a></div><div class="ttdeci">std::string doc() const</div><div class="ttdoc">Return arg docs Returns the argument documentation as a string.</div><div class="ttdef"><b>Definition:</b> ArgMap.h:709</div></div>
 <div class="ttc" id="aassertions_8h_html"><div class="ttname"><a href="assertions_8h.html">assertions.h</a></div><div class="ttdoc">Various assertion functions for use within HElib. These are meant as a replacement for C-style assert...</div></div>
 <!-- HTML footer for doxygen 1.8.8-->

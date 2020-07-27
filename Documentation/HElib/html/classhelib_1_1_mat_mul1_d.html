@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -73,7 +73,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>helib</b></li><li class="navelem"><a class="el" href="classhelib_1_1_mat_mul1_d.html">MatMul1D</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacehelib.html">helib</a></li><li class="navelem"><a class="el" href="classhelib_1_1_mat_mul1_d.html">MatMul1D</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -85,6 +85,8 @@ $(function() {
 <div class="title">helib::MatMul1D Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="matmul_8h_source.html">matmul.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for helib::MatMul1D:</div>
 <div class="dyncontent">
@@ -101,21 +103,116 @@ Inheritance diagram for helib::MatMul1D:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a692f59bd5635ab8d76c2a7c9cb7c3941"><td class="memItemLeft" align="right" valign="top"><a id="a692f59bd5635ab8d76c2a7c9cb7c3941"></a>
-typedef <a class="el" href="classhelib_1_1_mat_mul1_d_exec.html">MatMul1DExec</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ExecType</b></td></tr>
+<tr class="memitem:a692f59bd5635ab8d76c2a7c9cb7c3941"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classhelib_1_1_mat_mul1_d_exec.html">MatMul1DExec</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_mat_mul1_d.html#a692f59bd5635ab8d76c2a7c9cb7c3941">ExecType</a></td></tr>
 <tr class="separator:a692f59bd5635ab8d76c2a7c9cb7c3941"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1f3faa1ad35a049142bcc971af37e51f"><td class="memItemLeft" align="right" valign="top"><a id="a1f3faa1ad35a049142bcc971af37e51f"></a>
-virtual const <a class="el" href="classhelib_1_1_encrypted_array.html">EncryptedArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getEA</b> () const =0</td></tr>
+<tr class="memitem:a02f561ab02f5c0bd55f9e0967d781657"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_mat_mul1_d.html#a02f561ab02f5c0bd55f9e0967d781657">~MatMul1D</a> ()</td></tr>
+<tr class="separator:a02f561ab02f5c0bd55f9e0967d781657"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f3faa1ad35a049142bcc971af37e51f"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classhelib_1_1_encrypted_array.html">EncryptedArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_mat_mul1_d.html#a1f3faa1ad35a049142bcc971af37e51f">getEA</a> () const =0</td></tr>
 <tr class="separator:a1f3faa1ad35a049142bcc971af37e51f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac91f82321e96d0c291470bb1efd95ba2"><td class="memItemLeft" align="right" valign="top"><a id="ac91f82321e96d0c291470bb1efd95ba2"></a>
-virtual long&#160;</td><td class="memItemRight" valign="bottom"><b>getDim</b> () const =0</td></tr>
+<tr class="memitem:ac91f82321e96d0c291470bb1efd95ba2"><td class="memItemLeft" align="right" valign="top">virtual long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_mat_mul1_d.html#ac91f82321e96d0c291470bb1efd95ba2">getDim</a> () const =0</td></tr>
 <tr class="separator:ac91f82321e96d0c291470bb1efd95ba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a692f59bd5635ab8d76c2a7c9cb7c3941"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a692f59bd5635ab8d76c2a7c9cb7c3941">&#9670;&nbsp;</a></span>ExecType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classhelib_1_1_mat_mul1_d_exec.html">MatMul1DExec</a> <a class="el" href="classhelib_1_1_mat_mul1_d.html#a692f59bd5635ab8d76c2a7c9cb7c3941">helib::MatMul1D::ExecType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a02f561ab02f5c0bd55f9e0967d781657"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02f561ab02f5c0bd55f9e0967d781657">&#9670;&nbsp;</a></span>~MatMul1D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual helib::MatMul1D::~MatMul1D </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac91f82321e96d0c291470bb1efd95ba2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac91f82321e96d0c291470bb1efd95ba2">&#9670;&nbsp;</a></span>getDim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual long helib::MatMul1D::getDim </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classhelib_1_1_mat_mul_full_helper.html#a8a165ef13d3aa92b49413a494b4b26e7">helib::MatMulFullHelper&lt; type &gt;</a>, <a class="el" href="classhelib_1_1_random_multi_matrix.html#a32e6a004acda49550afae0cfeccd2106">helib::RandomMultiMatrix&lt; type &gt;</a>, and <a class="el" href="classhelib_1_1_random_matrix.html#aed3e7bfd763aae434b83bea29b8aead4">helib::RandomMatrix&lt; type &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a1f3faa1ad35a049142bcc971af37e51f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f3faa1ad35a049142bcc971af37e51f">&#9670;&nbsp;</a></span>getEA()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const <a class="el" href="classhelib_1_1_encrypted_array.html">EncryptedArray</a>&amp; helib::MatMul1D::getEA </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classhelib_1_1_mat_mul_full_helper.html#acc75639c0612ee51dfda555f62a54057">helib::MatMulFullHelper&lt; type &gt;</a>, <a class="el" href="classhelib_1_1_random_multi_matrix.html#acd53241c9b998862a7474e7b63bcfb34">helib::RandomMultiMatrix&lt; type &gt;</a>, and <a class="el" href="classhelib_1_1_random_matrix.html#a97927f600d5a7456af4c9f26b37e5e37">helib::RandomMatrix&lt; type &gt;</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/helib/<a class="el" href="matmul_8h_source.html">matmul.h</a></li>
+<li>/Users/Projects/FHE_HElib_Repos_Public_staging/homenc_v1.0.2/HElib/include/helib/<a class="el" href="matmul_8h_source.html">matmul.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.8-->

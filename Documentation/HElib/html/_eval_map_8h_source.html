@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
         <meta name="generator" content="Doxygen 1.8.18"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <title>HElib: include/helib/EvalMap.h Source File</title>
+        <title>HElib: /Users/Projects/FHE_HElib_Repos_Public_staging/homenc_v1.0.2/HElib/include/helib/EvalMap.h Source File</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
         <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -98,7 +98,7 @@ $(function() {
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_encrypted_array_8h.html">helib/EncryptedArray.h</a>&gt;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="matmul_8h.html">helib/matmul.h</a>&gt;</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span>helib {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacehelib.html">helib</a> {</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classhelib_1_1_eval_map.html">   54</a></span>&#160;<span class="keyword">class </span><a class="code" href="classhelib_1_1_eval_map.html">EvalMap</a></div>
@@ -111,7 +111,7 @@ $(function() {
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  NTL::Vec&lt;std::unique_ptr&lt;MatMul1DExec&gt;&gt; matvec; <span class="comment">// regular matrices</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <a class="code" href="classhelib_1_1_eval_map.html">EvalMap</a>(<span class="keyword">const</span> <a class="code" href="classhelib_1_1_encrypted_array.html">EncryptedArray</a>&amp; _ea,</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <a class="code" href="classhelib_1_1_eval_map.html#a1fb71a558b22ab7d4b6fa3611b1b6eaf">EvalMap</a>(<span class="keyword">const</span> <a class="code" href="classhelib_1_1_encrypted_array.html">EncryptedArray</a>&amp; _ea,</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;          <span class="keywordtype">bool</span> minimal,</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;          <span class="keyword">const</span> NTL::Vec&lt;long&gt;&amp; mvec,</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;          <span class="keywordtype">bool</span> _invert,</div>
@@ -122,8 +122,8 @@ $(function() {
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="comment">// normal basis transformation when invert == true.</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="comment">// On by default, off for testing</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keywordtype">void</span> upgrade();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keywordtype">void</span> apply(<a class="code" href="classhelib_1_1_ctxt.html">Ctxt</a>&amp; ctxt) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classhelib_1_1_eval_map.html#aed3f9a5dc25cc1b0afdac310958ae8c3">upgrade</a>();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classhelib_1_1_eval_map.html#ad9044ba453e8fda4fc90cc55c3c68b5b">apply</a>(<a class="code" href="classhelib_1_1_ctxt.html">Ctxt</a>&amp; ctxt) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;};</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
@@ -136,26 +136,33 @@ $(function() {
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  NTL::Vec&lt;std::unique_ptr&lt;MatMulExecBase&gt;&gt; matvec; <span class="comment">// regular matrices</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <a class="code" href="classhelib_1_1_thin_eval_map.html">ThinEvalMap</a>(<span class="keyword">const</span> <a class="code" href="classhelib_1_1_encrypted_array.html">EncryptedArray</a>&amp; _ea,</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <a class="code" href="classhelib_1_1_thin_eval_map.html#a10975ac9f3b5736badd6d6342be78cb9">ThinEvalMap</a>(<span class="keyword">const</span> <a class="code" href="classhelib_1_1_encrypted_array.html">EncryptedArray</a>&amp; _ea,</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;              <span class="keywordtype">bool</span> minimal,</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;              <span class="keyword">const</span> NTL::Vec&lt;long&gt;&amp; mvec,</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;              <span class="keywordtype">bool</span> _invert,</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;              <span class="keywordtype">bool</span> build_cache);</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keywordtype">void</span> upgrade();</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keywordtype">void</span> apply(<a class="code" href="classhelib_1_1_ctxt.html">Ctxt</a>&amp; ctxt) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classhelib_1_1_thin_eval_map.html#a89f65f8b331fa6071e995db9749c9c97">upgrade</a>();</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classhelib_1_1_thin_eval_map.html#a3688e0126fc26aa205b65737b7ff7297">apply</a>(<a class="code" href="classhelib_1_1_ctxt.html">Ctxt</a>&amp; ctxt) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;};</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;} <span class="comment">// namespace helib</span></div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#endif // ifndef HELIB_EVALMAP_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclasshelib_1_1_eval_map_html_a1fb71a558b22ab7d4b6fa3611b1b6eaf"><div class="ttname"><a href="classhelib_1_1_eval_map.html#a1fb71a558b22ab7d4b6fa3611b1b6eaf">helib::EvalMap::EvalMap</a></div><div class="ttdeci">EvalMap(const EncryptedArray &amp;_ea, bool minimal, const NTL::Vec&lt; long &gt; &amp;mvec, bool _invert, bool build_cache, bool normal_basis=true)</div><div class="ttdef"><b>Definition:</b> EvalMap.cpp:42</div></div>
+<div class="ttc" id="aclasshelib_1_1_thin_eval_map_html_a3688e0126fc26aa205b65737b7ff7297"><div class="ttname"><a href="classhelib_1_1_thin_eval_map.html#a3688e0126fc26aa205b65737b7ff7297">helib::ThinEvalMap::apply</a></div><div class="ttdeci">void apply(Ctxt &amp;ctxt) const</div><div class="ttdef"><b>Definition:</b> EvalMap.cpp:649</div></div>
 <div class="ttc" id="aclasshelib_1_1_encrypted_array_html"><div class="ttname"><a href="classhelib_1_1_encrypted_array.html">helib::EncryptedArray</a></div><div class="ttdoc">A simple wrapper for a smart pointer to an EncryptedArrayBase. This is the interface that higher-leve...</div><div class="ttdef"><b>Definition:</b> EncryptedArray.h:1237</div></div>
+<div class="ttc" id="aclasshelib_1_1_thin_eval_map_html_a10975ac9f3b5736badd6d6342be78cb9"><div class="ttname"><a href="classhelib_1_1_thin_eval_map.html#a10975ac9f3b5736badd6d6342be78cb9">helib::ThinEvalMap::ThinEvalMap</a></div><div class="ttdeci">ThinEvalMap(const EncryptedArray &amp;_ea, bool minimal, const NTL::Vec&lt; long &gt; &amp;mvec, bool _invert, bool build_cache)</div><div class="ttdef"><b>Definition:</b> EvalMap.cpp:509</div></div>
 <div class="ttc" id="aclasshelib_1_1_thin_eval_map_html"><div class="ttname"><a href="classhelib_1_1_thin_eval_map.html">helib::ThinEvalMap</a></div><div class="ttdoc">Class that provides the functionality for the linear transforms used in &quot;thin&quot; boostrapping,...</div><div class="ttdef"><b>Definition:</b> EvalMap.h:88</div></div>
 <div class="ttc" id="aclasshelib_1_1_eval_map_html"><div class="ttname"><a href="classhelib_1_1_eval_map.html">helib::EvalMap</a></div><div class="ttdoc">Class that provides the functionality for the linear transforms used in boostrapping....</div><div class="ttdef"><b>Definition:</b> EvalMap.h:55</div></div>
 <div class="ttc" id="a_encrypted_array_8h_html"><div class="ttname"><a href="_encrypted_array_8h.html">EncryptedArray.h</a></div><div class="ttdoc">Data-movement operations on encrypted arrays of slots.</div></div>
+<div class="ttc" id="aclasshelib_1_1_eval_map_html_ad9044ba453e8fda4fc90cc55c3c68b5b"><div class="ttname"><a href="classhelib_1_1_eval_map.html#ad9044ba453e8fda4fc90cc55c3c68b5b">helib::EvalMap::apply</a></div><div class="ttdeci">void apply(Ctxt &amp;ctxt) const</div><div class="ttdef"><b>Definition:</b> EvalMap.cpp:171</div></div>
+<div class="ttc" id="anamespacehelib_html"><div class="ttname"><a href="namespacehelib.html">helib</a></div><div class="ttdef"><b>Definition:</b> apiAttributes.h:21</div></div>
 <div class="ttc" id="amatmul_8h_html"><div class="ttname"><a href="matmul_8h.html">matmul.h</a></div><div class="ttdoc">some matrix / linear algenra stuff</div></div>
+<div class="ttc" id="aclasshelib_1_1_eval_map_html_aed3f9a5dc25cc1b0afdac310958ae8c3"><div class="ttname"><a href="classhelib_1_1_eval_map.html#aed3f9a5dc25cc1b0afdac310958ae8c3">helib::EvalMap::upgrade</a></div><div class="ttdeci">void upgrade()</div><div class="ttdef"><b>Definition:</b> EvalMap.cpp:163</div></div>
 <div class="ttc" id="aclasshelib_1_1_ctxt_html"><div class="ttname"><a href="classhelib_1_1_ctxt.html">helib::Ctxt</a></div><div class="ttdoc">A Ctxt object holds a single ciphertext.</div><div class="ttdef"><b>Definition:</b> Ctxt.h:270</div></div>
+<div class="ttc" id="aclasshelib_1_1_thin_eval_map_html_a89f65f8b331fa6071e995db9749c9c97"><div class="ttname"><a href="classhelib_1_1_thin_eval_map.html#a89f65f8b331fa6071e995db9749c9c97">helib::ThinEvalMap::upgrade</a></div><div class="ttdeci">void upgrade()</div><div class="ttdef"><b>Definition:</b> EvalMap.cpp:641</div></div>
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->
 </div>

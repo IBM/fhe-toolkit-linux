@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
         <meta name="generator" content="Doxygen 1.8.18"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <title>HElib: include/helib/NumbTh.h File Reference</title>
+        <title>HElib: /Users/Projects/FHE_HElib_Repos_Public_staging/homenc_v1.0.2/HElib/include/helib/NumbTh.h File Reference</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
         <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -79,6 +79,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
@@ -118,16 +119,16 @@ $(function() {
 <code>#include &lt;NTL/GF2EX.h&gt;</code><br />
 <code>#include &lt;NTL/lzz_pEX.h&gt;</code><br />
 <code>#include &lt;NTL/FFT.h&gt;</code><br />
-<code>#include &lt;helib/range.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="range_8h_source.html">helib/range.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="assertions_8h_source.html">helib/assertions.h</a>&gt;</code><br />
-<code>#include &lt;helib/apiAttributes.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="api_attributes_8h_source.html">helib/apiAttributes.h</a>&gt;</code><br />
 </div>
 <p><a href="_numb_th_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_random_state.html">helib::RandomState</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Facility for "restoring" the NTL PRG state.  <a href="classhelib_1_1_random_state.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Facility for "restoring" the <a class="el" href="namespace_n_t_l.html">NTL</a> PRG state.  <a href="classhelib_1_1_random_state.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1zz__p_x_modulus1.html">helib::zz_pXModulus1</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Auxiliary classes to facilitate faster reduction mod Phi_m(X) when the input has degree less than m.  <a href="classhelib_1_1zz__p_x_modulus1.html#details">More...</a><br /></td></tr>
@@ -136,1076 +137,372 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">placeholder for pXModulus ...no optimizations  <a href="classhelib_1_1_z_z__p_x_modulus1.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacehelib"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html">helib</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacehelib_1_1_f_h_eglobals"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib_1_1_f_h_eglobals.html">helib::FHEglobals</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a71c5778babb7aa5a7caf5e93098b7df4"><td class="memItemLeft" align="right" valign="top"><a id="a71c5778babb7aa5a7caf5e93098b7df4"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>ERFC_INVERSE_SIZE</b>&#160;&#160;&#160;(long(sizeof(erfc_inverse) / sizeof(erfc_inverse[0])))</td></tr>
+<tr class="memitem:a71c5778babb7aa5a7caf5e93098b7df4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a71c5778babb7aa5a7caf5e93098b7df4">ERFC_INVERSE_SIZE</a>&#160;&#160;&#160;(long(sizeof(erfc_inverse) / sizeof(erfc_inverse[0])))</td></tr>
 <tr class="separator:a71c5778babb7aa5a7caf5e93098b7df4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ad6eb9f0889a704dbc4684ce445c48456"><td class="memItemLeft" align="right" valign="top"><a id="ad6eb9f0889a704dbc4684ce445c48456"></a>
-typedef long&#160;</td><td class="memItemRight" valign="bottom"><b>helib::LONG</b></td></tr>
+<tr class="memitem:ad6eb9f0889a704dbc4684ce445c48456"><td class="memItemLeft" align="right" valign="top">typedef long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ad6eb9f0889a704dbc4684ce445c48456">helib::LONG</a></td></tr>
 <tr class="separator:ad6eb9f0889a704dbc4684ce445c48456"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af8f51eef1d124d7e046b6a276d857fdb"><td class="memItemLeft" align="right" valign="top"><a id="af8f51eef1d124d7e046b6a276d857fdb"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>helib::setDryRun</b> (bool toWhat=true)</td></tr>
+<tr class="memitem:af8f51eef1d124d7e046b6a276d857fdb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#af8f51eef1d124d7e046b6a276d857fdb">helib::setDryRun</a> (bool toWhat=true)</td></tr>
 <tr class="separator:af8f51eef1d124d7e046b6a276d857fdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa79a0a06add60a27a1a2198fcf948e01"><td class="memItemLeft" align="right" valign="top"><a id="aa79a0a06add60a27a1a2198fcf948e01"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>helib::isDryRun</b> ()</td></tr>
+<tr class="memitem:aa79a0a06add60a27a1a2198fcf948e01"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#aa79a0a06add60a27a1a2198fcf948e01">helib::isDryRun</a> ()</td></tr>
 <tr class="separator:aa79a0a06add60a27a1a2198fcf948e01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ce92a7a0f311e90d9022ea931a671ec"><td class="memItemLeft" align="right" valign="top"><a id="a1ce92a7a0f311e90d9022ea931a671ec"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::setAutomorphVals</b> (std::set&lt; long &gt; *aVals)</td></tr>
+<tr class="memitem:a1ce92a7a0f311e90d9022ea931a671ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a1ce92a7a0f311e90d9022ea931a671ec">helib::setAutomorphVals</a> (std::set&lt; long &gt; *aVals)</td></tr>
 <tr class="separator:a1ce92a7a0f311e90d9022ea931a671ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac639ce6687180f2ac5e50e8706d79488"><td class="memItemLeft" align="right" valign="top"><a id="ac639ce6687180f2ac5e50e8706d79488"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>helib::isSetAutomorphVals</b> ()</td></tr>
+<tr class="memitem:ac639ce6687180f2ac5e50e8706d79488"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ac639ce6687180f2ac5e50e8706d79488">helib::isSetAutomorphVals</a> ()</td></tr>
 <tr class="separator:ac639ce6687180f2ac5e50e8706d79488"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b0cf6b325974c5fb87c29686d82e414"><td class="memItemLeft" align="right" valign="top"><a id="a7b0cf6b325974c5fb87c29686d82e414"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::recordAutomorphVal</b> (long k)</td></tr>
+<tr class="memitem:a7b0cf6b325974c5fb87c29686d82e414"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a7b0cf6b325974c5fb87c29686d82e414">helib::recordAutomorphVal</a> (long k)</td></tr>
 <tr class="separator:a7b0cf6b325974c5fb87c29686d82e414"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fab1809e50aa6fc8c0f80e66943f490"><td class="memItemLeft" align="right" valign="top"><a id="a8fab1809e50aa6fc8c0f80e66943f490"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::setAutomorphVals2</b> (std::set&lt; long &gt; *aVals)</td></tr>
+<tr class="memitem:a8fab1809e50aa6fc8c0f80e66943f490"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a8fab1809e50aa6fc8c0f80e66943f490">helib::setAutomorphVals2</a> (std::set&lt; long &gt; *aVals)</td></tr>
 <tr class="separator:a8fab1809e50aa6fc8c0f80e66943f490"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff7fd713547b09f8f18fbf95ccf83f95"><td class="memItemLeft" align="right" valign="top"><a id="aff7fd713547b09f8f18fbf95ccf83f95"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>helib::isSetAutomorphVals2</b> ()</td></tr>
+<tr class="memitem:aff7fd713547b09f8f18fbf95ccf83f95"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#aff7fd713547b09f8f18fbf95ccf83f95">helib::isSetAutomorphVals2</a> ()</td></tr>
 <tr class="separator:aff7fd713547b09f8f18fbf95ccf83f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a479ecb7208f177739fa83913e8515192"><td class="memItemLeft" align="right" valign="top"><a id="a479ecb7208f177739fa83913e8515192"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::recordAutomorphVal2</b> (long k)</td></tr>
+<tr class="memitem:a479ecb7208f177739fa83913e8515192"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a479ecb7208f177739fa83913e8515192">helib::recordAutomorphVal2</a> (long k)</td></tr>
 <tr class="separator:a479ecb7208f177739fa83913e8515192"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6cd0b7c9b7fa0afbb885295f10d9354"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#af6cd0b7c9b7fa0afbb885295f10d9354">helib::bitSetToLong</a> (long bits, long bitSize)</td></tr>
-<tr class="memdesc:af6cd0b7c9b7fa0afbb885295f10d9354"><td class="mdescLeft">&#160;</td><td class="mdescRight">Considers <code>bits</code> as a vector of bits and returns the value it represents when interpreted as a n-bit 2's complement number, where n is given by <code>bitSize</code>.  <a href="_numb_th_8h.html#af6cd0b7c9b7fa0afbb885295f10d9354">More...</a><br /></td></tr>
+<tr class="memitem:af6cd0b7c9b7fa0afbb885295f10d9354"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#af6cd0b7c9b7fa0afbb885295f10d9354">helib::bitSetToLong</a> (long bits, long bitSize)</td></tr>
+<tr class="memdesc:af6cd0b7c9b7fa0afbb885295f10d9354"><td class="mdescLeft">&#160;</td><td class="mdescRight">Considers <code>bits</code> as a vector of bits and returns the value it represents when interpreted as a n-bit 2's complement number, where n is given by <code>bitSize</code>.  <a href="namespacehelib.html#af6cd0b7c9b7fa0afbb885295f10d9354">More...</a><br /></td></tr>
 <tr class="separator:af6cd0b7c9b7fa0afbb885295f10d9354"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f2638750d81a618d59217f3e9b3218a"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a3f2638750d81a618d59217f3e9b3218a">helib::mcMod</a> (long a, long b)</td></tr>
-<tr class="memdesc:a3f2638750d81a618d59217f3e9b3218a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Routines for computing mathematically correct mod and div.  <a href="_numb_th_8h.html#a3f2638750d81a618d59217f3e9b3218a">More...</a><br /></td></tr>
+<tr class="memitem:a3f2638750d81a618d59217f3e9b3218a"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a3f2638750d81a618d59217f3e9b3218a">helib::mcMod</a> (long a, long b)</td></tr>
+<tr class="memdesc:a3f2638750d81a618d59217f3e9b3218a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Routines for computing mathematically correct mod and div.  <a href="namespacehelib.html#a3f2638750d81a618d59217f3e9b3218a">More...</a><br /></td></tr>
 <tr class="separator:a3f2638750d81a618d59217f3e9b3218a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51f60e27cb24d575d4b10a522dbb4279"><td class="memItemLeft" align="right" valign="top"><a id="a51f60e27cb24d575d4b10a522dbb4279"></a>
-long&#160;</td><td class="memItemRight" valign="bottom"><b>helib::mcDiv</b> (long a, long b)</td></tr>
+<tr class="memitem:a51f60e27cb24d575d4b10a522dbb4279"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a51f60e27cb24d575d4b10a522dbb4279">helib::mcDiv</a> (long a, long b)</td></tr>
 <tr class="separator:a51f60e27cb24d575d4b10a522dbb4279"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af183ee91810e5601837e62dfb85df0cd"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#af183ee91810e5601837e62dfb85df0cd">helib::balRem</a> (long a, long q)</td></tr>
+<tr class="memitem:af183ee91810e5601837e62dfb85df0cd"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#af183ee91810e5601837e62dfb85df0cd">helib::balRem</a> (long a, long q)</td></tr>
 <tr class="separator:af183ee91810e5601837e62dfb85df0cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad92538fab792f75e009a2330c365637d"><td class="memItemLeft" align="right" valign="top"><a id="ad92538fab792f75e009a2330c365637d"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#ad92538fab792f75e009a2330c365637d">helib::fsquare</a> (double x)</td></tr>
-<tr class="memdesc:ad92538fab792f75e009a2330c365637d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the square of a number as a double. <br /></td></tr>
+<tr class="memitem:ad92538fab792f75e009a2330c365637d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ad92538fab792f75e009a2330c365637d">helib::fsquare</a> (double x)</td></tr>
+<tr class="memdesc:ad92538fab792f75e009a2330c365637d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the square of a number as a double.  <a href="namespacehelib.html#ad92538fab792f75e009a2330c365637d">More...</a><br /></td></tr>
 <tr class="separator:ad92538fab792f75e009a2330c365637d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96fc760be384a17313e24f5383ceabd1"><td class="memItemLeft" align="right" valign="top"><a id="a96fc760be384a17313e24f5383ceabd1"></a>
-long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a96fc760be384a17313e24f5383ceabd1">helib::multOrd</a> (long p, long m)</td></tr>
-<tr class="memdesc:a96fc760be384a17313e24f5383ceabd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return multiplicative order of p modulo m, or 0 if GCD(p, m) != 1. <br /></td></tr>
+<tr class="memitem:a96fc760be384a17313e24f5383ceabd1"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a96fc760be384a17313e24f5383ceabd1">helib::multOrd</a> (long p, long m)</td></tr>
+<tr class="memdesc:a96fc760be384a17313e24f5383ceabd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return multiplicative order of p modulo m, or 0 if GCD(p, m) != 1.  <a href="namespacehelib.html#a96fc760be384a17313e24f5383ceabd1">More...</a><br /></td></tr>
 <tr class="separator:a96fc760be384a17313e24f5383ceabd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acdb8f2124f5f56970fe7f88802c976b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#acdb8f2124f5f56970fe7f88802c976b1">helib::ppsolve</a> (NTL::vec_zz_pE &amp;x, const NTL::mat_zz_pE &amp;A, const NTL::vec_zz_pE &amp;b, long p, long r)</td></tr>
-<tr class="memdesc:acdb8f2124f5f56970fe7f88802c976b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prime power solver.  <a href="_numb_th_8h.html#acdb8f2124f5f56970fe7f88802c976b1">More...</a><br /></td></tr>
+<tr class="memitem:acdb8f2124f5f56970fe7f88802c976b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#acdb8f2124f5f56970fe7f88802c976b1">helib::ppsolve</a> (NTL::vec_zz_pE &amp;x, const NTL::mat_zz_pE &amp;A, const NTL::vec_zz_pE &amp;b, long p, long r)</td></tr>
+<tr class="memdesc:acdb8f2124f5f56970fe7f88802c976b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prime power solver.  <a href="namespacehelib.html#acdb8f2124f5f56970fe7f88802c976b1">More...</a><br /></td></tr>
 <tr class="separator:acdb8f2124f5f56970fe7f88802c976b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0faaee69d7f687471cb483dfa78e6701"><td class="memItemLeft" align="right" valign="top"><a id="a0faaee69d7f687471cb483dfa78e6701"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a0faaee69d7f687471cb483dfa78e6701">helib::ppsolve</a> (NTL::vec_GF2E &amp;x, const NTL::mat_GF2E &amp;A, const NTL::vec_GF2E &amp;b, long p, long r)</td></tr>
-<tr class="memdesc:a0faaee69d7f687471cb483dfa78e6701"><td class="mdescLeft">&#160;</td><td class="mdescRight">A version for GF2: must have p == 2 and r == 1. <br /></td></tr>
+<tr class="memitem:a0faaee69d7f687471cb483dfa78e6701"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a0faaee69d7f687471cb483dfa78e6701">helib::ppsolve</a> (NTL::vec_GF2E &amp;x, const NTL::mat_GF2E &amp;A, const NTL::vec_GF2E &amp;b, long p, long r)</td></tr>
+<tr class="memdesc:a0faaee69d7f687471cb483dfa78e6701"><td class="mdescLeft">&#160;</td><td class="mdescRight">A version for GF2: must have p == 2 and r == 1.  <a href="namespacehelib.html#a0faaee69d7f687471cb483dfa78e6701">More...</a><br /></td></tr>
 <tr class="separator:a0faaee69d7f687471cb483dfa78e6701"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a784e87216f278000cfa935b61657da58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a784e87216f278000cfa935b61657da58">helib::ppInvert</a> (NTL::mat_zz_p &amp;X, const NTL::mat_zz_p &amp;A, long p, long r)</td></tr>
-<tr class="memdesc:a784e87216f278000cfa935b61657da58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the inverse mod p^r of an n x n matrix.  <a href="_numb_th_8h.html#a784e87216f278000cfa935b61657da58">More...</a><br /></td></tr>
+<tr class="memitem:a784e87216f278000cfa935b61657da58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a784e87216f278000cfa935b61657da58">helib::ppInvert</a> (NTL::mat_zz_p &amp;X, const NTL::mat_zz_p &amp;A, long p, long r)</td></tr>
+<tr class="memdesc:a784e87216f278000cfa935b61657da58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the inverse mod p^r of an n x n matrix.  <a href="namespacehelib.html#a784e87216f278000cfa935b61657da58">More...</a><br /></td></tr>
 <tr class="separator:a784e87216f278000cfa935b61657da58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73a34ea89aec17e40d20d534e210a14f"><td class="memItemLeft" align="right" valign="top"><a id="a73a34ea89aec17e40d20d534e210a14f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::ppInvert</b> (NTL::mat_zz_pE &amp;X, const NTL::mat_zz_pE &amp;A, long p, long r)</td></tr>
+<tr class="memitem:a73a34ea89aec17e40d20d534e210a14f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a73a34ea89aec17e40d20d534e210a14f">helib::ppInvert</a> (NTL::mat_zz_pE &amp;X, const NTL::mat_zz_pE &amp;A, long p, long r)</td></tr>
 <tr class="separator:a73a34ea89aec17e40d20d534e210a14f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af35b575565f163995c6abd08972bddf2"><td class="memItemLeft" align="right" valign="top"><a id="af35b575565f163995c6abd08972bddf2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::ppInvert</b> (NTL::mat_GF2 &amp;X, const NTL::mat_GF2 &amp;A, UNUSED long p, UNUSED long r)</td></tr>
+<tr class="memitem:af35b575565f163995c6abd08972bddf2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#af35b575565f163995c6abd08972bddf2">helib::ppInvert</a> (NTL::mat_GF2 &amp;X, const NTL::mat_GF2 &amp;A, <a class="el" href="api_attributes_8h.html#addf5ec070e9499d36b7f2009ce736076">UNUSED</a> long p, <a class="el" href="api_attributes_8h.html#addf5ec070e9499d36b7f2009ce736076">UNUSED</a> long r)</td></tr>
 <tr class="separator:af35b575565f163995c6abd08972bddf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac46606ccee8c1fe481e3b5a1f90291c5"><td class="memItemLeft" align="right" valign="top"><a id="ac46606ccee8c1fe481e3b5a1f90291c5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::ppInvert</b> (NTL::mat_GF2E &amp;X, const NTL::mat_GF2E &amp;A, UNUSED long p, UNUSED long r)</td></tr>
+<tr class="memitem:ac46606ccee8c1fe481e3b5a1f90291c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ac46606ccee8c1fe481e3b5a1f90291c5">helib::ppInvert</a> (NTL::mat_GF2E &amp;X, const NTL::mat_GF2E &amp;A, <a class="el" href="api_attributes_8h.html#addf5ec070e9499d36b7f2009ce736076">UNUSED</a> long p, <a class="el" href="api_attributes_8h.html#addf5ec070e9499d36b7f2009ce736076">UNUSED</a> long r)</td></tr>
 <tr class="separator:ac46606ccee8c1fe481e3b5a1f90291c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7db28e5ca105b114e0c89655eee171b9"><td class="memItemLeft" align="right" valign="top"><a id="a7db28e5ca105b114e0c89655eee171b9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::buildLinPolyMatrix</b> (NTL::mat_zz_pE &amp;M, long p)</td></tr>
+<tr class="memitem:a7db28e5ca105b114e0c89655eee171b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a7db28e5ca105b114e0c89655eee171b9">helib::buildLinPolyMatrix</a> (NTL::mat_zz_pE &amp;M, long p)</td></tr>
 <tr class="separator:a7db28e5ca105b114e0c89655eee171b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82218a5a8f14a790b60cd7f288863b9d"><td class="memItemLeft" align="right" valign="top"><a id="a82218a5a8f14a790b60cd7f288863b9d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::buildLinPolyMatrix</b> (NTL::mat_GF2E &amp;M, long p)</td></tr>
+<tr class="memitem:a82218a5a8f14a790b60cd7f288863b9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a82218a5a8f14a790b60cd7f288863b9d">helib::buildLinPolyMatrix</a> (NTL::mat_GF2E &amp;M, long p)</td></tr>
 <tr class="separator:a82218a5a8f14a790b60cd7f288863b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5711dacd10c102835bd585bff52e32c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a5711dacd10c102835bd585bff52e32c5">helib::buildLinPolyCoeffs</a> (NTL::vec_zz_pE &amp;C, const NTL::vec_zz_pE &amp;L, long p, long r)</td></tr>
-<tr class="memdesc:a5711dacd10c102835bd585bff52e32c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Combination of buildLinPolyMatrix and ppsolve.  <a href="_numb_th_8h.html#a5711dacd10c102835bd585bff52e32c5">More...</a><br /></td></tr>
+<tr class="memitem:a5711dacd10c102835bd585bff52e32c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a5711dacd10c102835bd585bff52e32c5">helib::buildLinPolyCoeffs</a> (NTL::vec_zz_pE &amp;C, const NTL::vec_zz_pE &amp;L, long p, long r)</td></tr>
+<tr class="memdesc:a5711dacd10c102835bd585bff52e32c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Combination of buildLinPolyMatrix and ppsolve.  <a href="namespacehelib.html#a5711dacd10c102835bd585bff52e32c5">More...</a><br /></td></tr>
 <tr class="separator:a5711dacd10c102835bd585bff52e32c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae78f42668b74b50bfeec97988619350c"><td class="memItemLeft" align="right" valign="top"><a id="ae78f42668b74b50bfeec97988619350c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#ae78f42668b74b50bfeec97988619350c">helib::buildLinPolyCoeffs</a> (NTL::vec_GF2E &amp;C, const NTL::vec_GF2E &amp;L, long p, long r)</td></tr>
-<tr class="memdesc:ae78f42668b74b50bfeec97988619350c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A version for GF2: must be called with p == 2 and r == 1. <br /></td></tr>
+<tr class="memitem:ae78f42668b74b50bfeec97988619350c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ae78f42668b74b50bfeec97988619350c">helib::buildLinPolyCoeffs</a> (NTL::vec_GF2E &amp;C, const NTL::vec_GF2E &amp;L, long p, long r)</td></tr>
+<tr class="memdesc:ae78f42668b74b50bfeec97988619350c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A version for GF2: must be called with p == 2 and r == 1.  <a href="namespacehelib.html#ae78f42668b74b50bfeec97988619350c">More...</a><br /></td></tr>
 <tr class="separator:ae78f42668b74b50bfeec97988619350c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0dda3f81ff66fb0e9a92bc39ecad0a92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a0dda3f81ff66fb0e9a92bc39ecad0a92">helib::applyLinPoly</a> (NTL::zz_pE &amp;beta, const NTL::vec_zz_pE &amp;C, const NTL::zz_pE &amp;alpha, long p)</td></tr>
-<tr class="memdesc:a0dda3f81ff66fb0e9a92bc39ecad0a92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a linearized polynomial with coefficient vector C.  <a href="_numb_th_8h.html#a0dda3f81ff66fb0e9a92bc39ecad0a92">More...</a><br /></td></tr>
+<tr class="memitem:a0dda3f81ff66fb0e9a92bc39ecad0a92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a0dda3f81ff66fb0e9a92bc39ecad0a92">helib::applyLinPoly</a> (NTL::zz_pE &amp;beta, const NTL::vec_zz_pE &amp;C, const NTL::zz_pE &amp;alpha, long p)</td></tr>
+<tr class="memdesc:a0dda3f81ff66fb0e9a92bc39ecad0a92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply a linearized polynomial with coefficient vector C.  <a href="namespacehelib.html#a0dda3f81ff66fb0e9a92bc39ecad0a92">More...</a><br /></td></tr>
 <tr class="separator:a0dda3f81ff66fb0e9a92bc39ecad0a92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a379dfd6585b3c7aab695a9ca33a7ad89"><td class="memItemLeft" align="right" valign="top"><a id="a379dfd6585b3c7aab695a9ca33a7ad89"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a379dfd6585b3c7aab695a9ca33a7ad89">helib::applyLinPoly</a> (NTL::GF2E &amp;beta, const NTL::vec_GF2E &amp;C, const NTL::GF2E &amp;alpha, long p)</td></tr>
-<tr class="memdesc:a379dfd6585b3c7aab695a9ca33a7ad89"><td class="mdescLeft">&#160;</td><td class="mdescRight">A version for GF2: must be called with p == 2 and r == 1. <br /></td></tr>
+<tr class="memitem:a379dfd6585b3c7aab695a9ca33a7ad89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a379dfd6585b3c7aab695a9ca33a7ad89">helib::applyLinPoly</a> (NTL::GF2E &amp;beta, const NTL::vec_GF2E &amp;C, const NTL::GF2E &amp;alpha, long p)</td></tr>
+<tr class="memdesc:a379dfd6585b3c7aab695a9ca33a7ad89"><td class="mdescLeft">&#160;</td><td class="mdescRight">A version for GF2: must be called with p == 2 and r == 1.  <a href="namespacehelib.html#a379dfd6585b3c7aab695a9ca33a7ad89">More...</a><br /></td></tr>
 <tr class="separator:a379dfd6585b3c7aab695a9ca33a7ad89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1630d15e5b8352685afcf561db40323"><td class="memItemLeft" align="right" valign="top"><a id="ac1630d15e5b8352685afcf561db40323"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#ac1630d15e5b8352685afcf561db40323">helib::log2</a> (const NTL::xdouble &amp;x)</td></tr>
-<tr class="memdesc:ac1630d15e5b8352685afcf561db40323"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base-2 logarithm. <br /></td></tr>
+<tr class="memitem:ac1630d15e5b8352685afcf561db40323"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ac1630d15e5b8352685afcf561db40323">helib::log2</a> (const NTL::xdouble &amp;x)</td></tr>
+<tr class="memdesc:ac1630d15e5b8352685afcf561db40323"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base-2 logarithm.  <a href="namespacehelib.html#ac1630d15e5b8352685afcf561db40323">More...</a><br /></td></tr>
 <tr class="separator:ac1630d15e5b8352685afcf561db40323"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d163aa9f73ad476ebd97d7778d79258"><td class="memItemLeft" align="right" valign="top"><a id="a8d163aa9f73ad476ebd97d7778d79258"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a8d163aa9f73ad476ebd97d7778d79258">helib::factorize</a> (std::vector&lt; long &gt; &amp;factors, long N)</td></tr>
-<tr class="memdesc:a8d163aa9f73ad476ebd97d7778d79258"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factoring by trial division, only works for N&lt;2^{60}, only the primes are recorded, not their multiplicity. <br /></td></tr>
+<tr class="memitem:a8d163aa9f73ad476ebd97d7778d79258"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a8d163aa9f73ad476ebd97d7778d79258">helib::factorize</a> (std::vector&lt; long &gt; &amp;factors, long N)</td></tr>
+<tr class="memdesc:a8d163aa9f73ad476ebd97d7778d79258"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factoring by trial division, only works for N&lt;2^{60}, only the primes are recorded, not their multiplicity.  <a href="namespacehelib.html#a8d163aa9f73ad476ebd97d7778d79258">More...</a><br /></td></tr>
 <tr class="separator:a8d163aa9f73ad476ebd97d7778d79258"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a26515bfdcb0f7e654cefa0d955d4be"><td class="memItemLeft" align="right" valign="top"><a id="a0a26515bfdcb0f7e654cefa0d955d4be"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::factorize</b> (std::vector&lt; NTL::ZZ &gt; &amp;factors, const NTL::ZZ &amp;N)</td></tr>
+<tr class="memitem:a0a26515bfdcb0f7e654cefa0d955d4be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a0a26515bfdcb0f7e654cefa0d955d4be">helib::factorize</a> (std::vector&lt; NTL::ZZ &gt; &amp;factors, const NTL::ZZ &amp;N)</td></tr>
 <tr class="separator:a0a26515bfdcb0f7e654cefa0d955d4be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75dc52f12b0306195238f56bcf4a112b"><td class="memItemLeft" align="right" valign="top"><a id="a75dc52f12b0306195238f56bcf4a112b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a75dc52f12b0306195238f56bcf4a112b">helib::factorize</a> (NTL::Vec&lt; NTL::Pair&lt; long, long &gt;&gt; &amp;factors, long N)</td></tr>
-<tr class="memdesc:a75dc52f12b0306195238f56bcf4a112b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factoring by trial division, only works for N&lt;2^{60} primes and multiplicities are recorded. <br /></td></tr>
+<tr class="memitem:a75dc52f12b0306195238f56bcf4a112b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a75dc52f12b0306195238f56bcf4a112b">helib::factorize</a> (NTL::Vec&lt; NTL::Pair&lt; long, long &gt;&gt; &amp;factors, long N)</td></tr>
+<tr class="memdesc:a75dc52f12b0306195238f56bcf4a112b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factoring by trial division, only works for N&lt;2^{60} primes and multiplicities are recorded.  <a href="namespacehelib.html#a75dc52f12b0306195238f56bcf4a112b">More...</a><br /></td></tr>
 <tr class="separator:a75dc52f12b0306195238f56bcf4a112b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a407ad6533d4dd3820cc35b07ad41988b"><td class="memItemLeft" align="right" valign="top"><a id="a407ad6533d4dd3820cc35b07ad41988b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a407ad6533d4dd3820cc35b07ad41988b">helib::pp_factorize</a> (std::vector&lt; long &gt; &amp;factors, long N)</td></tr>
-<tr class="memdesc:a407ad6533d4dd3820cc35b07ad41988b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prime-power factorization. <br /></td></tr>
+<tr class="memitem:a407ad6533d4dd3820cc35b07ad41988b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a407ad6533d4dd3820cc35b07ad41988b">helib::pp_factorize</a> (std::vector&lt; long &gt; &amp;factors, long N)</td></tr>
+<tr class="memdesc:a407ad6533d4dd3820cc35b07ad41988b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prime-power factorization.  <a href="namespacehelib.html#a407ad6533d4dd3820cc35b07ad41988b">More...</a><br /></td></tr>
 <tr class="separator:a407ad6533d4dd3820cc35b07ad41988b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add32ec15c61473a42b7136dee8360b8b"><td class="memItemLeft" align="right" valign="top"><a id="add32ec15c61473a42b7136dee8360b8b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#add32ec15c61473a42b7136dee8360b8b">helib::phiN</a> (long &amp;phiN, std::vector&lt; long &gt; &amp;facts, long N)</td></tr>
-<tr class="memdesc:add32ec15c61473a42b7136dee8360b8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute Phi(N) and also factorize N. <br /></td></tr>
+<tr class="memitem:add32ec15c61473a42b7136dee8360b8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#add32ec15c61473a42b7136dee8360b8b">helib::phiN</a> (long &amp;phiN, std::vector&lt; long &gt; &amp;facts, long N)</td></tr>
+<tr class="memdesc:add32ec15c61473a42b7136dee8360b8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute Phi(N) and also factorize N.  <a href="namespacehelib.html#add32ec15c61473a42b7136dee8360b8b">More...</a><br /></td></tr>
 <tr class="separator:add32ec15c61473a42b7136dee8360b8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62dc0ba06446370515708c0229fa046e"><td class="memItemLeft" align="right" valign="top"><a id="a62dc0ba06446370515708c0229fa046e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::phiN</b> (NTL::ZZ &amp;phiN, std::vector&lt; NTL::ZZ &gt; &amp;facts, const NTL::ZZ &amp;N)</td></tr>
+<tr class="memitem:a62dc0ba06446370515708c0229fa046e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a62dc0ba06446370515708c0229fa046e">helib::phiN</a> (NTL::ZZ &amp;phiN, std::vector&lt; NTL::ZZ &gt; &amp;facts, const NTL::ZZ &amp;N)</td></tr>
 <tr class="separator:a62dc0ba06446370515708c0229fa046e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93e575c4502d7606d86b46af66600ce0"><td class="memItemLeft" align="right" valign="top"><a id="a93e575c4502d7606d86b46af66600ce0"></a>
-long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a93e575c4502d7606d86b46af66600ce0">helib::phi_N</a> (long N)</td></tr>
-<tr class="memdesc:a93e575c4502d7606d86b46af66600ce0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute Phi(N). <br /></td></tr>
+<tr class="memitem:a93e575c4502d7606d86b46af66600ce0"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a93e575c4502d7606d86b46af66600ce0">helib::phi_N</a> (long N)</td></tr>
+<tr class="memdesc:a93e575c4502d7606d86b46af66600ce0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute Phi(N).  <a href="namespacehelib.html#a93e575c4502d7606d86b46af66600ce0">More...</a><br /></td></tr>
 <tr class="separator:a93e575c4502d7606d86b46af66600ce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67f0037687252f6999a8526165cd8e41"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a67f0037687252f6999a8526165cd8e41">helib::findGenerators</a> (std::vector&lt; long &gt; &amp;gens, std::vector&lt; long &gt; &amp;ords, long m, long p, const std::vector&lt; long &gt; &amp;candidates=std::vector&lt; long &gt;())</td></tr>
+<tr class="memitem:a67f0037687252f6999a8526165cd8e41"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a67f0037687252f6999a8526165cd8e41">helib::findGenerators</a> (std::vector&lt; long &gt; &amp;gens, std::vector&lt; long &gt; &amp;ords, long m, long p, const std::vector&lt; long &gt; &amp;candidates=std::vector&lt; long &gt;())</td></tr>
 <tr class="separator:a67f0037687252f6999a8526165cd8e41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e1f9936cf8c582202702cbb65eaf2ce"><td class="memItemLeft" align="right" valign="top"><a id="a9e1f9936cf8c582202702cbb65eaf2ce"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a9e1f9936cf8c582202702cbb65eaf2ce">helib::FindPrimitiveRoot</a> (NTL::zz_p &amp;r, unsigned long e)</td></tr>
-<tr class="memdesc:a9e1f9936cf8c582202702cbb65eaf2ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find e-th root of unity modulo the current modulus. <br /></td></tr>
+<tr class="memitem:a9e1f9936cf8c582202702cbb65eaf2ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a9e1f9936cf8c582202702cbb65eaf2ce">helib::FindPrimitiveRoot</a> (NTL::zz_p &amp;r, unsigned long e)</td></tr>
+<tr class="memdesc:a9e1f9936cf8c582202702cbb65eaf2ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find e-th root of unity modulo the current modulus.  <a href="namespacehelib.html#a9e1f9936cf8c582202702cbb65eaf2ce">More...</a><br /></td></tr>
 <tr class="separator:a9e1f9936cf8c582202702cbb65eaf2ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3ed622332f1680e6384644d3c347e19"><td class="memItemLeft" align="right" valign="top"><a id="ae3ed622332f1680e6384644d3c347e19"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::FindPrimitiveRoot</b> (NTL::ZZ_p &amp;r, unsigned long e)</td></tr>
+<tr class="memitem:ae3ed622332f1680e6384644d3c347e19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ae3ed622332f1680e6384644d3c347e19">helib::FindPrimitiveRoot</a> (NTL::ZZ_p &amp;r, unsigned long e)</td></tr>
 <tr class="separator:ae3ed622332f1680e6384644d3c347e19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4d98c1a6634ea3827fafd456ea56a5e"><td class="memItemLeft" align="right" valign="top"><a id="ad4d98c1a6634ea3827fafd456ea56a5e"></a>
-long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#ad4d98c1a6634ea3827fafd456ea56a5e">helib::mobius</a> (long n)</td></tr>
-<tr class="memdesc:ad4d98c1a6634ea3827fafd456ea56a5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute mobius function (naive method as n is small). <br /></td></tr>
+<tr class="memitem:ad4d98c1a6634ea3827fafd456ea56a5e"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ad4d98c1a6634ea3827fafd456ea56a5e">helib::mobius</a> (long n)</td></tr>
+<tr class="memdesc:ad4d98c1a6634ea3827fafd456ea56a5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute mobius function (naive method as n is small).  <a href="namespacehelib.html#ad4d98c1a6634ea3827fafd456ea56a5e">More...</a><br /></td></tr>
 <tr class="separator:ad4d98c1a6634ea3827fafd456ea56a5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a181a74dc451ffc410450d6c238f2a68c"><td class="memItemLeft" align="right" valign="top"><a id="a181a74dc451ffc410450d6c238f2a68c"></a>
-NTL::ZZX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a181a74dc451ffc410450d6c238f2a68c">helib::Cyclotomic</a> (long N)</td></tr>
-<tr class="memdesc:a181a74dc451ffc410450d6c238f2a68c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute cyclotomic polynomial. <br /></td></tr>
+<tr class="memitem:a181a74dc451ffc410450d6c238f2a68c"><td class="memItemLeft" align="right" valign="top">NTL::ZZX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a181a74dc451ffc410450d6c238f2a68c">helib::Cyclotomic</a> (long N)</td></tr>
+<tr class="memdesc:a181a74dc451ffc410450d6c238f2a68c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute cyclotomic polynomial.  <a href="namespacehelib.html#a181a74dc451ffc410450d6c238f2a68c">More...</a><br /></td></tr>
 <tr class="separator:a181a74dc451ffc410450d6c238f2a68c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adad7e0c1723b324e29278f21aa889143"><td class="memItemLeft" align="right" valign="top"><a id="adad7e0c1723b324e29278f21aa889143"></a>
-NTL::ZZX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#adad7e0c1723b324e29278f21aa889143">helib::makeIrredPoly</a> (long p, long d)</td></tr>
-<tr class="memdesc:adad7e0c1723b324e29278f21aa889143"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a degree-d irreducible polynomial mod p. <br /></td></tr>
+<tr class="memitem:adad7e0c1723b324e29278f21aa889143"><td class="memItemLeft" align="right" valign="top">NTL::ZZX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#adad7e0c1723b324e29278f21aa889143">helib::makeIrredPoly</a> (long p, long d)</td></tr>
+<tr class="memdesc:adad7e0c1723b324e29278f21aa889143"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a degree-d irreducible polynomial mod p.  <a href="namespacehelib.html#adad7e0c1723b324e29278f21aa889143">More...</a><br /></td></tr>
 <tr class="separator:adad7e0c1723b324e29278f21aa889143"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b5c3e6a25c84bcec39b646e10598378"><td class="memItemLeft" align="right" valign="top"><a id="a9b5c3e6a25c84bcec39b646e10598378"></a>
-long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a9b5c3e6a25c84bcec39b646e10598378">helib::primroot</a> (long N, long phiN)</td></tr>
-<tr class="memdesc:a9b5c3e6a25c84bcec39b646e10598378"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a primitive root modulo N. <br /></td></tr>
+<tr class="memitem:a9b5c3e6a25c84bcec39b646e10598378"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a9b5c3e6a25c84bcec39b646e10598378">helib::primroot</a> (long N, long phiN)</td></tr>
+<tr class="memdesc:a9b5c3e6a25c84bcec39b646e10598378"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a primitive root modulo N.  <a href="namespacehelib.html#a9b5c3e6a25c84bcec39b646e10598378">More...</a><br /></td></tr>
 <tr class="separator:a9b5c3e6a25c84bcec39b646e10598378"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8693a4a2d91babebc9b8887bbcd1f0ea"><td class="memItemLeft" align="right" valign="top"><a id="a8693a4a2d91babebc9b8887bbcd1f0ea"></a>
-long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a8693a4a2d91babebc9b8887bbcd1f0ea">helib::ord</a> (long N, long p)</td></tr>
-<tr class="memdesc:a8693a4a2d91babebc9b8887bbcd1f0ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the highest power of p that divides N. <br /></td></tr>
+<tr class="memitem:a8693a4a2d91babebc9b8887bbcd1f0ea"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a8693a4a2d91babebc9b8887bbcd1f0ea">helib::ord</a> (long N, long p)</td></tr>
+<tr class="memdesc:a8693a4a2d91babebc9b8887bbcd1f0ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the highest power of p that divides N.  <a href="namespacehelib.html#a8693a4a2d91babebc9b8887bbcd1f0ea">More...</a><br /></td></tr>
 <tr class="separator:a8693a4a2d91babebc9b8887bbcd1f0ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57dbaa8bc9cf194a1e08fd5af3497a5e"><td class="memItemLeft" align="right" valign="top"><a id="a57dbaa8bc9cf194a1e08fd5af3497a5e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>helib::is2power</b> (long m)</td></tr>
+<tr class="memitem:a57dbaa8bc9cf194a1e08fd5af3497a5e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a57dbaa8bc9cf194a1e08fd5af3497a5e">helib::is2power</a> (long m)</td></tr>
 <tr class="separator:a57dbaa8bc9cf194a1e08fd5af3497a5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0bcd83ef1650a094f9ba12551a2e9e4"><td class="memItemLeft" align="right" valign="top"><a id="ad0bcd83ef1650a094f9ba12551a2e9e4"></a>
-NTL::ZZX&#160;</td><td class="memItemRight" valign="bottom"><b>helib::RandPoly</b> (long n, const NTL::ZZ &amp;p)</td></tr>
+<tr class="memitem:ad0bcd83ef1650a094f9ba12551a2e9e4"><td class="memItemLeft" align="right" valign="top">NTL::ZZX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ad0bcd83ef1650a094f9ba12551a2e9e4">helib::RandPoly</a> (long n, const NTL::ZZ &amp;p)</td></tr>
 <tr class="separator:ad0bcd83ef1650a094f9ba12551a2e9e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fc507c5ea1850c348a7c2d743b59a57"><td class="memItemLeft" align="right" valign="top"><a id="a8fc507c5ea1850c348a7c2d743b59a57"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::MulMod</b> (NTL::ZZX &amp;out, const NTL::ZZX &amp;f, long a, long q, bool abs)</td></tr>
+<tr class="memitem:a8fc507c5ea1850c348a7c2d743b59a57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a8fc507c5ea1850c348a7c2d743b59a57">helib::MulMod</a> (NTL::ZZX &amp;out, const NTL::ZZX &amp;f, long a, long q, bool abs)</td></tr>
 <tr class="separator:a8fc507c5ea1850c348a7c2d743b59a57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af73b2f08337ba65b54609e7bfca96cda"><td class="memItemLeft" align="right" valign="top"><a id="af73b2f08337ba65b54609e7bfca96cda"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::MulMod</b> (NTL::ZZX &amp;out, const NTL::ZZX &amp;f, long a, long q)</td></tr>
+<tr class="memitem:af73b2f08337ba65b54609e7bfca96cda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#af73b2f08337ba65b54609e7bfca96cda">helib::MulMod</a> (NTL::ZZX &amp;out, const NTL::ZZX &amp;f, long a, long q)</td></tr>
 <tr class="separator:af73b2f08337ba65b54609e7bfca96cda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44a8cf8d3d1da74a8060a177e3e49028"><td class="memItemLeft" align="right" valign="top"><a id="a44a8cf8d3d1da74a8060a177e3e49028"></a>
-NTL::ZZX&#160;</td><td class="memItemRight" valign="bottom"><b>helib::MulMod</b> (const NTL::ZZX &amp;f, long a, long q, bool abs)</td></tr>
+<tr class="memitem:a44a8cf8d3d1da74a8060a177e3e49028"><td class="memItemLeft" align="right" valign="top">NTL::ZZX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a44a8cf8d3d1da74a8060a177e3e49028">helib::MulMod</a> (const NTL::ZZX &amp;f, long a, long q, bool abs)</td></tr>
 <tr class="separator:a44a8cf8d3d1da74a8060a177e3e49028"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16376b83d0b9ac08d1cc631756741220"><td class="memItemLeft" align="right" valign="top"><a id="a16376b83d0b9ac08d1cc631756741220"></a>
-NTL::ZZX&#160;</td><td class="memItemRight" valign="bottom"><b>helib::MulMod</b> (const NTL::ZZX &amp;f, long a, long q)</td></tr>
+<tr class="memitem:a16376b83d0b9ac08d1cc631756741220"><td class="memItemLeft" align="right" valign="top">NTL::ZZX&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a16376b83d0b9ac08d1cc631756741220">helib::MulMod</a> (const NTL::ZZX &amp;f, long a, long q)</td></tr>
 <tr class="separator:a16376b83d0b9ac08d1cc631756741220"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00e504f2374c5e7357c7608a94527887"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a00e504f2374c5e7357c7608a94527887">helib::balanced_MulMod</a> (NTL::ZZX &amp;out, const NTL::ZZX &amp;f, long a, long q)</td></tr>
+<tr class="memitem:a00e504f2374c5e7357c7608a94527887"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a00e504f2374c5e7357c7608a94527887">helib::balanced_MulMod</a> (NTL::ZZX &amp;out, const NTL::ZZX &amp;f, long a, long q)</td></tr>
 <tr class="separator:a00e504f2374c5e7357c7608a94527887"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2e47ad408b14cf352174243c3c8adf6"><td class="memTemplParams" colspan="2"><a id="ab2e47ad408b14cf352174243c3c8adf6"></a>
-template&lt;typename T1 , typename T2 &gt; </td></tr>
-<tr class="memitem:ab2e47ad408b14cf352174243c3c8adf6"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#ab2e47ad408b14cf352174243c3c8adf6">helib::convert</a> (T1 &amp;x1, const T2 &amp;x2)</td></tr>
-<tr class="memdesc:ab2e47ad408b14cf352174243c3c8adf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">A generic template that resolves to NTL's conv routine. <br /></td></tr>
+<tr class="memitem:ab2e47ad408b14cf352174243c3c8adf6"><td class="memTemplParams" colspan="2">template&lt;typename T1 , typename T2 &gt; </td></tr>
+<tr class="memitem:ab2e47ad408b14cf352174243c3c8adf6"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ab2e47ad408b14cf352174243c3c8adf6">helib::convert</a> (T1 &amp;x1, const T2 &amp;x2)</td></tr>
+<tr class="memdesc:ab2e47ad408b14cf352174243c3c8adf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">A generic template that resolves to <a class="el" href="namespace_n_t_l.html">NTL</a>'s conv routine.  <a href="namespacehelib.html#ab2e47ad408b14cf352174243c3c8adf6">More...</a><br /></td></tr>
 <tr class="separator:ab2e47ad408b14cf352174243c3c8adf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59e1e9edc58b546c8d12a4cb56812f81"><td class="memTemplParams" colspan="2"><a id="a59e1e9edc58b546c8d12a4cb56812f81"></a>
-template&lt;typename T1 , typename T2 &gt; </td></tr>
-<tr class="memitem:a59e1e9edc58b546c8d12a4cb56812f81"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a59e1e9edc58b546c8d12a4cb56812f81">helib::convert</a> (std::vector&lt; T1 &gt; &amp;v1, const std::vector&lt; T2 &gt; &amp;v2)</td></tr>
-<tr class="memdesc:a59e1e9edc58b546c8d12a4cb56812f81"><td class="mdescLeft">&#160;</td><td class="mdescRight">generic vector conversion routines <br /></td></tr>
+<tr class="memitem:a59e1e9edc58b546c8d12a4cb56812f81"><td class="memTemplParams" colspan="2">template&lt;typename T1 , typename T2 &gt; </td></tr>
+<tr class="memitem:a59e1e9edc58b546c8d12a4cb56812f81"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a59e1e9edc58b546c8d12a4cb56812f81">helib::convert</a> (std::vector&lt; T1 &gt; &amp;v1, const std::vector&lt; T2 &gt; &amp;v2)</td></tr>
+<tr class="memdesc:a59e1e9edc58b546c8d12a4cb56812f81"><td class="mdescLeft">&#160;</td><td class="mdescRight">generic vector conversion routines  <a href="namespacehelib.html#a59e1e9edc58b546c8d12a4cb56812f81">More...</a><br /></td></tr>
 <tr class="separator:a59e1e9edc58b546c8d12a4cb56812f81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5d8cacfd0370294ae07fb571ee2caee"><td class="memTemplParams" colspan="2"><a id="ab5d8cacfd0370294ae07fb571ee2caee"></a>
-template&lt;typename T1 , typename T2 &gt; </td></tr>
-<tr class="memitem:ab5d8cacfd0370294ae07fb571ee2caee"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::convert</b> (std::vector&lt; T1 &gt; &amp;v1, const NTL::Vec&lt; T2 &gt; &amp;v2)</td></tr>
+<tr class="memitem:ab5d8cacfd0370294ae07fb571ee2caee"><td class="memTemplParams" colspan="2">template&lt;typename T1 , typename T2 &gt; </td></tr>
+<tr class="memitem:ab5d8cacfd0370294ae07fb571ee2caee"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ab5d8cacfd0370294ae07fb571ee2caee">helib::convert</a> (std::vector&lt; T1 &gt; &amp;v1, const NTL::Vec&lt; T2 &gt; &amp;v2)</td></tr>
 <tr class="separator:ab5d8cacfd0370294ae07fb571ee2caee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33593bb6e050f5639138bf3f76a28d8c"><td class="memTemplParams" colspan="2"><a id="a33593bb6e050f5639138bf3f76a28d8c"></a>
-template&lt;typename T1 , typename T2 &gt; </td></tr>
-<tr class="memitem:a33593bb6e050f5639138bf3f76a28d8c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::convert</b> (NTL::Vec&lt; T1 &gt; &amp;v1, const std::vector&lt; T2 &gt; &amp;v2)</td></tr>
+<tr class="memitem:a33593bb6e050f5639138bf3f76a28d8c"><td class="memTemplParams" colspan="2">template&lt;typename T1 , typename T2 &gt; </td></tr>
+<tr class="memitem:a33593bb6e050f5639138bf3f76a28d8c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a33593bb6e050f5639138bf3f76a28d8c">helib::convert</a> (NTL::Vec&lt; T1 &gt; &amp;v1, const std::vector&lt; T2 &gt; &amp;v2)</td></tr>
 <tr class="separator:a33593bb6e050f5639138bf3f76a28d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa59b9ea3393970dcb1c4a9ef6ef310ef"><td class="memTemplParams" colspan="2"><a id="aa59b9ea3393970dcb1c4a9ef6ef310ef"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aa59b9ea3393970dcb1c4a9ef6ef310ef"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#aa59b9ea3393970dcb1c4a9ef6ef310ef">helib::convert</a> (std::vector&lt; T &gt; &amp;v1, const std::vector&lt; T &gt; &amp;v2)</td></tr>
-<tr class="memdesc:aa59b9ea3393970dcb1c4a9ef6ef310ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trivial type conversion, useful for generic code. <br /></td></tr>
+<tr class="memitem:aa59b9ea3393970dcb1c4a9ef6ef310ef"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aa59b9ea3393970dcb1c4a9ef6ef310ef"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#aa59b9ea3393970dcb1c4a9ef6ef310ef">helib::convert</a> (std::vector&lt; T &gt; &amp;v1, const std::vector&lt; T &gt; &amp;v2)</td></tr>
+<tr class="memdesc:aa59b9ea3393970dcb1c4a9ef6ef310ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trivial type conversion, useful for generic code.  <a href="namespacehelib.html#aa59b9ea3393970dcb1c4a9ef6ef310ef">More...</a><br /></td></tr>
 <tr class="separator:aa59b9ea3393970dcb1c4a9ef6ef310ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a194a7e93c41b4da649614c39e9a77c8f"><td class="memTemplParams" colspan="2"><a id="a194a7e93c41b4da649614c39e9a77c8f"></a>
-template&lt;typename T1 , typename T2 &gt; </td></tr>
-<tr class="memitem:a194a7e93c41b4da649614c39e9a77c8f"><td class="memTemplItemLeft" align="right" valign="top">T1&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::convert</b> (const T2 &amp;v2)</td></tr>
+<tr class="memitem:a194a7e93c41b4da649614c39e9a77c8f"><td class="memTemplParams" colspan="2">template&lt;typename T1 , typename T2 &gt; </td></tr>
+<tr class="memitem:a194a7e93c41b4da649614c39e9a77c8f"><td class="memTemplItemLeft" align="right" valign="top">T1&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a194a7e93c41b4da649614c39e9a77c8f">helib::convert</a> (const T2 &amp;v2)</td></tr>
 <tr class="separator:a194a7e93c41b4da649614c39e9a77c8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f11bbe3deab00c9a1dc525d23958a6c"><td class="memTemplParams" colspan="2"><a id="a3f11bbe3deab00c9a1dc525d23958a6c"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a3f11bbe3deab00c9a1dc525d23958a6c"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::vector_replicate</b> (const T &amp;a, long n)</td></tr>
+<tr class="memitem:a3f11bbe3deab00c9a1dc525d23958a6c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a3f11bbe3deab00c9a1dc525d23958a6c"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a3f11bbe3deab00c9a1dc525d23958a6c">helib::vector_replicate</a> (const T &amp;a, long n)</td></tr>
 <tr class="separator:a3f11bbe3deab00c9a1dc525d23958a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29ccc2648ee5736fe519c1c884bf1b68"><td class="memTemplParams" colspan="2"><a id="a29ccc2648ee5736fe519c1c884bf1b68"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a29ccc2648ee5736fe519c1c884bf1b68"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::Vec_replicate</b> (const T &amp;a, long n)</td></tr>
+<tr class="memitem:a29ccc2648ee5736fe519c1c884bf1b68"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a29ccc2648ee5736fe519c1c884bf1b68"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a29ccc2648ee5736fe519c1c884bf1b68">helib::Vec_replicate</a> (const T &amp;a, long n)</td></tr>
 <tr class="separator:a29ccc2648ee5736fe519c1c884bf1b68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9837bdade0e2dabb7bbf0d03a5e2e93b"><td class="memItemLeft" align="right" valign="top"><a id="a9837bdade0e2dabb7bbf0d03a5e2e93b"></a>
-long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a9837bdade0e2dabb7bbf0d03a5e2e93b">helib::computeProd</a> (const NTL::Vec&lt; long &gt; &amp;vec)</td></tr>
-<tr class="memdesc:a9837bdade0e2dabb7bbf0d03a5e2e93b"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns \prod_d vec[d] <br /></td></tr>
+<tr class="memitem:a9837bdade0e2dabb7bbf0d03a5e2e93b"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a9837bdade0e2dabb7bbf0d03a5e2e93b">helib::computeProd</a> (const NTL::Vec&lt; long &gt; &amp;vec)</td></tr>
+<tr class="memdesc:a9837bdade0e2dabb7bbf0d03a5e2e93b"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns \prod_d vec[d]  <a href="namespacehelib.html#a9837bdade0e2dabb7bbf0d03a5e2e93b">More...</a><br /></td></tr>
 <tr class="separator:a9837bdade0e2dabb7bbf0d03a5e2e93b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aababf76c7325db9e7409cf950a581993"><td class="memItemLeft" align="right" valign="top"><a id="aababf76c7325db9e7409cf950a581993"></a>
-long&#160;</td><td class="memItemRight" valign="bottom"><b>helib::computeProd</b> (const std::vector&lt; long &gt; &amp;vec)</td></tr>
+<tr class="memitem:aababf76c7325db9e7409cf950a581993"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#aababf76c7325db9e7409cf950a581993">helib::computeProd</a> (const std::vector&lt; long &gt; &amp;vec)</td></tr>
 <tr class="separator:aababf76c7325db9e7409cf950a581993"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50c25069289464e0a2fb8398199fd5ef"><td class="memItemLeft" align="right" valign="top"><a id="a50c25069289464e0a2fb8398199fd5ef"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::mul</b> (std::vector&lt; NTL::ZZX &gt; &amp;x, const std::vector&lt; NTL::ZZX &gt; &amp;a, long b)</td></tr>
+<tr class="memitem:a50c25069289464e0a2fb8398199fd5ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a50c25069289464e0a2fb8398199fd5ef">helib::mul</a> (std::vector&lt; NTL::ZZX &gt; &amp;x, const std::vector&lt; NTL::ZZX &gt; &amp;a, long b)</td></tr>
 <tr class="separator:a50c25069289464e0a2fb8398199fd5ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9965244b44a7884f3e08999f6adec16f"><td class="memItemLeft" align="right" valign="top"><a id="a9965244b44a7884f3e08999f6adec16f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::div</b> (std::vector&lt; NTL::ZZX &gt; &amp;x, const std::vector&lt; NTL::ZZX &gt; &amp;a, long b)</td></tr>
+<tr class="memitem:a9965244b44a7884f3e08999f6adec16f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a9965244b44a7884f3e08999f6adec16f">helib::div</a> (std::vector&lt; NTL::ZZX &gt; &amp;x, const std::vector&lt; NTL::ZZX &gt; &amp;a, long b)</td></tr>
 <tr class="separator:a9965244b44a7884f3e08999f6adec16f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33424cc1805af9dc818e142033c9d9be"><td class="memItemLeft" align="right" valign="top"><a id="a33424cc1805af9dc818e142033c9d9be"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::add</b> (std::vector&lt; NTL::ZZX &gt; &amp;x, const std::vector&lt; NTL::ZZX &gt; &amp;a, const std::vector&lt; NTL::ZZX &gt; &amp;b)</td></tr>
+<tr class="memitem:a33424cc1805af9dc818e142033c9d9be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a33424cc1805af9dc818e142033c9d9be">helib::add</a> (std::vector&lt; NTL::ZZX &gt; &amp;x, const std::vector&lt; NTL::ZZX &gt; &amp;a, const std::vector&lt; NTL::ZZX &gt; &amp;b)</td></tr>
 <tr class="separator:a33424cc1805af9dc818e142033c9d9be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1249c9ddf12d285f6c06985342e52562"><td class="memItemLeft" align="right" valign="top"><a id="a1249c9ddf12d285f6c06985342e52562"></a>
-long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a1249c9ddf12d285f6c06985342e52562">helib::is_in</a> (long x, int *X, long sz)</td></tr>
-<tr class="memdesc:a1249c9ddf12d285f6c06985342e52562"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds whether x is an element of the set X of size sz, Returns -1 it not and the location if true. <br /></td></tr>
+<tr class="memitem:a1249c9ddf12d285f6c06985342e52562"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a1249c9ddf12d285f6c06985342e52562">helib::is_in</a> (long x, int *X, long sz)</td></tr>
+<tr class="memdesc:a1249c9ddf12d285f6c06985342e52562"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds whether x is an element of the set X of size sz, Returns -1 it not and the location if true.  <a href="namespacehelib.html#a1249c9ddf12d285f6c06985342e52562">More...</a><br /></td></tr>
 <tr class="separator:a1249c9ddf12d285f6c06985342e52562"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcde52d4dcf5f9f26931c54efa401258"><td class="memItemLeft" align="right" valign="top"><a id="afcde52d4dcf5f9f26931c54efa401258"></a>
-long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#afcde52d4dcf5f9f26931c54efa401258">helib::CRTcoeff</a> (long p, long q, bool symmetric=false)</td></tr>
-<tr class="memdesc:afcde52d4dcf5f9f26931c54efa401258"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a CRT coefficient: x = (0 mod p, 1 mod q). If symmetric is set then x \in [-pq/2, pq/2), else x \in [0,pq) <br /></td></tr>
+<tr class="memitem:afcde52d4dcf5f9f26931c54efa401258"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#afcde52d4dcf5f9f26931c54efa401258">helib::CRTcoeff</a> (long p, long q, bool symmetric=false)</td></tr>
+<tr class="memdesc:afcde52d4dcf5f9f26931c54efa401258"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a CRT coefficient: x = (0 mod p, 1 mod q). If symmetric is set then x \in [-pq/2, pq/2), else x \in [0,pq)  <a href="namespacehelib.html#afcde52d4dcf5f9f26931c54efa401258">More...</a><br /></td></tr>
 <tr class="separator:afcde52d4dcf5f9f26931c54efa401258"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5165f6a4ea9a752c8c40d5790acfb4e0"><td class="memTemplParams" colspan="2">template&lt;class zzvec &gt; </td></tr>
-<tr class="memitem:a5165f6a4ea9a752c8c40d5790acfb4e0"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a5165f6a4ea9a752c8c40d5790acfb4e0">helib::intVecCRT</a> (NTL::vec_ZZ &amp;vp, const NTL::ZZ &amp;p, const zzvec &amp;vq, long q)</td></tr>
-<tr class="memdesc:a5165f6a4ea9a752c8c40d5790acfb4e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Incremental integer CRT for vectors.  <a href="_numb_th_8h.html#a5165f6a4ea9a752c8c40d5790acfb4e0">More...</a><br /></td></tr>
+<tr class="memitem:a5165f6a4ea9a752c8c40d5790acfb4e0"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a5165f6a4ea9a752c8c40d5790acfb4e0">helib::intVecCRT</a> (NTL::vec_ZZ &amp;vp, const NTL::ZZ &amp;p, const zzvec &amp;vq, long q)</td></tr>
+<tr class="memdesc:a5165f6a4ea9a752c8c40d5790acfb4e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Incremental integer CRT for vectors.  <a href="namespacehelib.html#a5165f6a4ea9a752c8c40d5790acfb4e0">More...</a><br /></td></tr>
 <tr class="separator:a5165f6a4ea9a752c8c40d5790acfb4e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa88363f3a91a37ba8e213b0cb764ea5"><td class="memTemplParams" colspan="2">template&lt;typename T , bool maxFlag&gt; </td></tr>
-<tr class="memitem:aaa88363f3a91a37ba8e213b0cb764ea5"><td class="memTemplItemLeft" align="right" valign="top">long&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#aaa88363f3a91a37ba8e213b0cb764ea5">helib::argminmax</a> (std::vector&lt; T &gt; &amp;v)</td></tr>
-<tr class="memdesc:aaa88363f3a91a37ba8e213b0cb764ea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the index of the (first) largest/smallest element.  <a href="_numb_th_8h.html#aaa88363f3a91a37ba8e213b0cb764ea5">More...</a><br /></td></tr>
+<tr class="memitem:aaa88363f3a91a37ba8e213b0cb764ea5"><td class="memTemplItemLeft" align="right" valign="top">long&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#aaa88363f3a91a37ba8e213b0cb764ea5">helib::argminmax</a> (std::vector&lt; T &gt; &amp;v)</td></tr>
+<tr class="memdesc:aaa88363f3a91a37ba8e213b0cb764ea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the index of the (first) largest/smallest element.  <a href="namespacehelib.html#aaa88363f3a91a37ba8e213b0cb764ea5">More...</a><br /></td></tr>
 <tr class="separator:aaa88363f3a91a37ba8e213b0cb764ea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae84a9818e92cbee595e4895ad9dee849"><td class="memTemplParams" colspan="2"><a id="ae84a9818e92cbee595e4895ad9dee849"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ae84a9818e92cbee595e4895ad9dee849"><td class="memTemplItemLeft" align="right" valign="top">long&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::argmax</b> (std::vector&lt; T &gt; &amp;v)</td></tr>
+<tr class="memitem:ae84a9818e92cbee595e4895ad9dee849"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae84a9818e92cbee595e4895ad9dee849"><td class="memTemplItemLeft" align="right" valign="top">long&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ae84a9818e92cbee595e4895ad9dee849">helib::argmax</a> (std::vector&lt; T &gt; &amp;v)</td></tr>
 <tr class="separator:ae84a9818e92cbee595e4895ad9dee849"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4218a947a483c68d1727c537c216c347"><td class="memTemplParams" colspan="2"><a id="a4218a947a483c68d1727c537c216c347"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a4218a947a483c68d1727c537c216c347"><td class="memTemplItemLeft" align="right" valign="top">long&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::argmin</b> (std::vector&lt; T &gt; &amp;v)</td></tr>
+<tr class="memitem:a4218a947a483c68d1727c537c216c347"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a4218a947a483c68d1727c537c216c347"><td class="memTemplItemLeft" align="right" valign="top">long&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a4218a947a483c68d1727c537c216c347">helib::argmin</a> (std::vector&lt; T &gt; &amp;v)</td></tr>
 <tr class="separator:a4218a947a483c68d1727c537c216c347"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acced988b8c7248219e7c13e20d1d0e6c"><td class="memItemLeft" align="right" valign="top"><a id="acced988b8c7248219e7c13e20d1d0e6c"></a>
-long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#acced988b8c7248219e7c13e20d1d0e6c">helib::argmax</a> (std::vector&lt; long &gt; &amp;v, bool(*moreThan)(long, long))</td></tr>
-<tr class="memdesc:acced988b8c7248219e7c13e20d1d0e6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A variant with a specialized comparison function (*moreThan)(a,b) returns the comparison a&gt;b. <br /></td></tr>
+<tr class="memitem:acced988b8c7248219e7c13e20d1d0e6c"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#acced988b8c7248219e7c13e20d1d0e6c">helib::argmax</a> (std::vector&lt; long &gt; &amp;v, bool(*moreThan)(long, long))</td></tr>
+<tr class="memdesc:acced988b8c7248219e7c13e20d1d0e6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A variant with a specialized comparison function (*moreThan)(a,b) returns the comparison a&gt;b.  <a href="namespacehelib.html#acced988b8c7248219e7c13e20d1d0e6c">More...</a><br /></td></tr>
 <tr class="separator:acced988b8c7248219e7c13e20d1d0e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b607a9ca070971badf105209dc47583"><td class="memItemLeft" align="right" valign="top"><a id="a3b607a9ca070971badf105209dc47583"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>helib::closeToOne</b> (const NTL::xdouble &amp;x, long p)</td></tr>
+<tr class="memitem:a3b607a9ca070971badf105209dc47583"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a3b607a9ca070971badf105209dc47583">helib::closeToOne</a> (const NTL::xdouble &amp;x, long p)</td></tr>
 <tr class="separator:a3b607a9ca070971badf105209dc47583"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03f697f7ff3bbb3d9d17f75d35946991"><td class="memItemLeft" align="right" valign="top"><a id="a03f697f7ff3bbb3d9d17f75d35946991"></a>
-std::pair&lt; long, long &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>helib::rationalApprox</b> (double x, long denomBound=0)</td></tr>
+<tr class="memitem:a03f697f7ff3bbb3d9d17f75d35946991"><td class="memItemLeft" align="right" valign="top">std::pair&lt; long, long &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a03f697f7ff3bbb3d9d17f75d35946991">helib::rationalApprox</a> (double x, long denomBound=0)</td></tr>
 <tr class="separator:a03f697f7ff3bbb3d9d17f75d35946991"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a564d4348157a8775888f09a680313ba6"><td class="memItemLeft" align="right" valign="top"><a id="a564d4348157a8775888f09a680313ba6"></a>
-std::pair&lt; NTL::ZZ, NTL::ZZ &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>helib::rationalApprox</b> (NTL::xdouble x, NTL::xdouble denomBound=NTL::xdouble(0.0))</td></tr>
+<tr class="memitem:a564d4348157a8775888f09a680313ba6"><td class="memItemLeft" align="right" valign="top">std::pair&lt; NTL::ZZ, NTL::ZZ &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a564d4348157a8775888f09a680313ba6">helib::rationalApprox</a> (NTL::xdouble x, NTL::xdouble denomBound=NTL::xdouble(0.0))</td></tr>
 <tr class="separator:a564d4348157a8775888f09a680313ba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0df3789de0744e7c90d5a5d6cf54a5ed"><td class="memItemLeft" align="right" valign="top"><a id="a0df3789de0744e7c90d5a5d6cf54a5ed"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a0df3789de0744e7c90d5a5d6cf54a5ed">helib::seekPastChar</a> (std::istream &amp;str, int cc)</td></tr>
-<tr class="memdesc:a0df3789de0744e7c90d5a5d6cf54a5ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advance the input stream beyond white spaces and a single instance of the char cc. <br /></td></tr>
+<tr class="memitem:a0df3789de0744e7c90d5a5d6cf54a5ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a0df3789de0744e7c90d5a5d6cf54a5ed">helib::seekPastChar</a> (std::istream &amp;str, int cc)</td></tr>
+<tr class="memdesc:a0df3789de0744e7c90d5a5d6cf54a5ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advance the input stream beyond white spaces and a single instance of the char cc.  <a href="namespacehelib.html#a0df3789de0744e7c90d5a5d6cf54a5ed">More...</a><br /></td></tr>
 <tr class="separator:a0df3789de0744e7c90d5a5d6cf54a5ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8dfd59b19280a7a98989bbc0dd6a8c2c"><td class="memTemplParams" colspan="2"><a id="a8dfd59b19280a7a98989bbc0dd6a8c2c"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a8dfd59b19280a7a98989bbc0dd6a8c2c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a8dfd59b19280a7a98989bbc0dd6a8c2c">helib::reverse</a> (NTL::Vec&lt; T &gt; &amp;v, long lo, long hi)</td></tr>
-<tr class="memdesc:a8dfd59b19280a7a98989bbc0dd6a8c2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverse a vector in place. <br /></td></tr>
+<tr class="memitem:a8dfd59b19280a7a98989bbc0dd6a8c2c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a8dfd59b19280a7a98989bbc0dd6a8c2c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a8dfd59b19280a7a98989bbc0dd6a8c2c">helib::reverse</a> (NTL::Vec&lt; T &gt; &amp;v, long lo, long hi)</td></tr>
+<tr class="memdesc:a8dfd59b19280a7a98989bbc0dd6a8c2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverse a vector in place.  <a href="namespacehelib.html#a8dfd59b19280a7a98989bbc0dd6a8c2c">More...</a><br /></td></tr>
 <tr class="separator:a8dfd59b19280a7a98989bbc0dd6a8c2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1688528ff1a377be38502ae7c048336c"><td class="memTemplParams" colspan="2"><a id="a1688528ff1a377be38502ae7c048336c"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a1688528ff1a377be38502ae7c048336c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a1688528ff1a377be38502ae7c048336c">helib::rotate</a> (NTL::Vec&lt; T &gt; &amp;v, long k)</td></tr>
-<tr class="memdesc:a1688528ff1a377be38502ae7c048336c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate a vector in place using swaps. <br /></td></tr>
+<tr class="memitem:a1688528ff1a377be38502ae7c048336c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a1688528ff1a377be38502ae7c048336c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a1688528ff1a377be38502ae7c048336c">helib::rotate</a> (NTL::Vec&lt; T &gt; &amp;v, long k)</td></tr>
+<tr class="memdesc:a1688528ff1a377be38502ae7c048336c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate a vector in place using swaps.  <a href="namespacehelib.html#a1688528ff1a377be38502ae7c048336c">More...</a><br /></td></tr>
 <tr class="separator:a1688528ff1a377be38502ae7c048336c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8f65ef133cee27ad846423d012d5487"><td class="memTemplParams" colspan="2"><a id="ae8f65ef133cee27ad846423d012d5487"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ae8f65ef133cee27ad846423d012d5487"><td class="memTemplItemLeft" align="right" valign="top">long&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#ae8f65ef133cee27ad846423d012d5487">helib::lsize</a> (const std::vector&lt; T &gt; &amp;v)</td></tr>
-<tr class="memdesc:ae8f65ef133cee27ad846423d012d5487"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of STL vector as a long (rather than unsigned long) <br /></td></tr>
+<tr class="memitem:ae8f65ef133cee27ad846423d012d5487"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae8f65ef133cee27ad846423d012d5487"><td class="memTemplItemLeft" align="right" valign="top">long&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ae8f65ef133cee27ad846423d012d5487">helib::lsize</a> (const std::vector&lt; T &gt; &amp;v)</td></tr>
+<tr class="memdesc:ae8f65ef133cee27ad846423d012d5487"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of STL vector as a long (rather than unsigned long)  <a href="namespacehelib.html#ae8f65ef133cee27ad846423d012d5487">More...</a><br /></td></tr>
 <tr class="separator:ae8f65ef133cee27ad846423d012d5487"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ca37f043534295ce82c13c09b48325f"><td class="memTemplParams" colspan="2"><a id="a3ca37f043534295ce82c13c09b48325f"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a3ca37f043534295ce82c13c09b48325f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a3ca37f043534295ce82c13c09b48325f">helib::killVec</a> (std::vector&lt; T &gt; &amp;vec)</td></tr>
-<tr class="memdesc:a3ca37f043534295ce82c13c09b48325f"><td class="mdescLeft">&#160;</td><td class="mdescRight">NTL/std compatibility. <br /></td></tr>
+<tr class="memitem:a3ca37f043534295ce82c13c09b48325f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a3ca37f043534295ce82c13c09b48325f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a3ca37f043534295ce82c13c09b48325f">helib::killVec</a> (std::vector&lt; T &gt; &amp;vec)</td></tr>
+<tr class="memdesc:a3ca37f043534295ce82c13c09b48325f"><td class="mdescLeft">&#160;</td><td class="mdescRight">NTL/std compatibility.  <a href="namespacehelib.html#a3ca37f043534295ce82c13c09b48325f">More...</a><br /></td></tr>
 <tr class="separator:a3ca37f043534295ce82c13c09b48325f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d98d78d4a4dddc7c6859af409b17e07"><td class="memTemplParams" colspan="2"><a id="a5d98d78d4a4dddc7c6859af409b17e07"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a5d98d78d4a4dddc7c6859af409b17e07"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::killVec</b> (NTL::Vec&lt; T &gt; &amp;vec)</td></tr>
+<tr class="memitem:a5d98d78d4a4dddc7c6859af409b17e07"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a5d98d78d4a4dddc7c6859af409b17e07"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a5d98d78d4a4dddc7c6859af409b17e07">helib::killVec</a> (NTL::Vec&lt; T &gt; &amp;vec)</td></tr>
 <tr class="separator:a5d98d78d4a4dddc7c6859af409b17e07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2de6d470f49ed882f0bde7b67f5c456"><td class="memTemplParams" colspan="2"><a id="ae2de6d470f49ed882f0bde7b67f5c456"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ae2de6d470f49ed882f0bde7b67f5c456"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::setLengthZero</b> (std::vector&lt; T &gt; &amp;vec)</td></tr>
+<tr class="memitem:ae2de6d470f49ed882f0bde7b67f5c456"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae2de6d470f49ed882f0bde7b67f5c456"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ae2de6d470f49ed882f0bde7b67f5c456">helib::setLengthZero</a> (std::vector&lt; T &gt; &amp;vec)</td></tr>
 <tr class="separator:ae2de6d470f49ed882f0bde7b67f5c456"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07b53294ce70bc1a04b741ef3ac4512d"><td class="memTemplParams" colspan="2"><a id="a07b53294ce70bc1a04b741ef3ac4512d"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a07b53294ce70bc1a04b741ef3ac4512d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::setLengthZero</b> (NTL::Vec&lt; T &gt; &amp;vec)</td></tr>
+<tr class="memitem:a07b53294ce70bc1a04b741ef3ac4512d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a07b53294ce70bc1a04b741ef3ac4512d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a07b53294ce70bc1a04b741ef3ac4512d">helib::setLengthZero</a> (NTL::Vec&lt; T &gt; &amp;vec)</td></tr>
 <tr class="separator:a07b53294ce70bc1a04b741ef3ac4512d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50cb104179094690467c87a1c09c8a05"><td class="memTemplParams" colspan="2"><a id="a50cb104179094690467c87a1c09c8a05"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a50cb104179094690467c87a1c09c8a05"><td class="memTemplItemLeft" align="right" valign="top">long&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::lsize</b> (const NTL::Vec&lt; T &gt; &amp;v)</td></tr>
+<tr class="memitem:a50cb104179094690467c87a1c09c8a05"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a50cb104179094690467c87a1c09c8a05"><td class="memTemplItemLeft" align="right" valign="top">long&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a50cb104179094690467c87a1c09c8a05">helib::lsize</a> (const NTL::Vec&lt; T &gt; &amp;v)</td></tr>
 <tr class="separator:a50cb104179094690467c87a1c09c8a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad61eac49543dd3559b386f94ca7112c9"><td class="memTemplParams" colspan="2"><a id="ad61eac49543dd3559b386f94ca7112c9"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ad61eac49543dd3559b386f94ca7112c9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::resize</b> (NTL::Vec&lt; T &gt; &amp;v, long sz, const T &amp;val)</td></tr>
+<tr class="memitem:ad61eac49543dd3559b386f94ca7112c9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ad61eac49543dd3559b386f94ca7112c9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ad61eac49543dd3559b386f94ca7112c9">helib::resize</a> (NTL::Vec&lt; T &gt; &amp;v, long sz, const T &amp;val)</td></tr>
 <tr class="separator:ad61eac49543dd3559b386f94ca7112c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8aea4186c17622aa24763219ba2e39c"><td class="memTemplParams" colspan="2"><a id="ae8aea4186c17622aa24763219ba2e39c"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ae8aea4186c17622aa24763219ba2e39c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::resize</b> (std::vector&lt; T &gt; &amp;v, long sz, const T &amp;val)</td></tr>
+<tr class="memitem:ae8aea4186c17622aa24763219ba2e39c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae8aea4186c17622aa24763219ba2e39c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ae8aea4186c17622aa24763219ba2e39c">helib::resize</a> (std::vector&lt; T &gt; &amp;v, long sz, const T &amp;val)</td></tr>
 <tr class="separator:ae8aea4186c17622aa24763219ba2e39c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49b481e5ebaa9bc469124e7c2d5eae38"><td class="memTemplParams" colspan="2"><a id="a49b481e5ebaa9bc469124e7c2d5eae38"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a49b481e5ebaa9bc469124e7c2d5eae38"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::resize</b> (NTL::Vec&lt; T &gt; &amp;v, long sz)</td></tr>
+<tr class="memitem:a49b481e5ebaa9bc469124e7c2d5eae38"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a49b481e5ebaa9bc469124e7c2d5eae38"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a49b481e5ebaa9bc469124e7c2d5eae38">helib::resize</a> (NTL::Vec&lt; T &gt; &amp;v, long sz)</td></tr>
 <tr class="separator:a49b481e5ebaa9bc469124e7c2d5eae38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91e17a6dd739205036bdc410372608cc"><td class="memTemplParams" colspan="2"><a id="a91e17a6dd739205036bdc410372608cc"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a91e17a6dd739205036bdc410372608cc"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::resize</b> (std::vector&lt; T &gt; &amp;v, long sz)</td></tr>
+<tr class="memitem:a91e17a6dd739205036bdc410372608cc"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a91e17a6dd739205036bdc410372608cc"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a91e17a6dd739205036bdc410372608cc">helib::resize</a> (std::vector&lt; T &gt; &amp;v, long sz)</td></tr>
 <tr class="separator:a91e17a6dd739205036bdc410372608cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1dac9d465c144cdd7f736730704c38e6"><td class="memTemplParams" colspan="2"><a id="a1dac9d465c144cdd7f736730704c38e6"></a>
-template&lt;typename T1 , typename T2 &gt; </td></tr>
-<tr class="memitem:a1dac9d465c144cdd7f736730704c38e6"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a1dac9d465c144cdd7f736730704c38e6">helib::sameObject</a> (const T1 *p1, const T2 *p2)</td></tr>
-<tr class="memdesc:a1dac9d465c144cdd7f736730704c38e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Testing if two vectors point to the same object. <br /></td></tr>
+<tr class="memitem:a1dac9d465c144cdd7f736730704c38e6"><td class="memTemplParams" colspan="2">template&lt;typename T1 , typename T2 &gt; </td></tr>
+<tr class="memitem:a1dac9d465c144cdd7f736730704c38e6"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a1dac9d465c144cdd7f736730704c38e6">helib::sameObject</a> (const T1 *p1, const T2 *p2)</td></tr>
+<tr class="memdesc:a1dac9d465c144cdd7f736730704c38e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Testing if two vectors point to the same object.  <a href="namespacehelib.html#a1dac9d465c144cdd7f736730704c38e6">More...</a><br /></td></tr>
 <tr class="separator:a1dac9d465c144cdd7f736730704c38e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7d7a435e482d03e39e3b592765adc85"><td class="memItemLeft" align="right" valign="top"><a id="ad7d7a435e482d03e39e3b592765adc85"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#ad7d7a435e482d03e39e3b592765adc85">helib::ModComp</a> (NTL::ZZX &amp;res, const NTL::ZZX &amp;g, const NTL::ZZX &amp;h, const NTL::ZZX &amp;f)</td></tr>
-<tr class="memdesc:ad7d7a435e482d03e39e3b592765adc85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modular composition of polynomials: res = g(h) mod f. <br /></td></tr>
+<tr class="memitem:ad7d7a435e482d03e39e3b592765adc85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ad7d7a435e482d03e39e3b592765adc85">helib::ModComp</a> (NTL::ZZX &amp;res, const NTL::ZZX &amp;g, const NTL::ZZX &amp;h, const NTL::ZZX &amp;f)</td></tr>
+<tr class="memdesc:ad7d7a435e482d03e39e3b592765adc85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modular composition of polynomials: res = g(h) mod f.  <a href="namespacehelib.html#ad7d7a435e482d03e39e3b592765adc85">More...</a><br /></td></tr>
 <tr class="separator:ad7d7a435e482d03e39e3b592765adc85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11db92e970f97ed66aebb1702dc5a0df"><td class="memItemLeft" align="right" valign="top"><a id="a11db92e970f97ed66aebb1702dc5a0df"></a>
-long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a11db92e970f97ed66aebb1702dc5a0df">helib::polyEvalMod</a> (const NTL::ZZX &amp;poly, long x, long p)</td></tr>
-<tr class="memdesc:a11db92e970f97ed66aebb1702dc5a0df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates a modular integer polynomial, returns poly(x) mod p. <br /></td></tr>
+<tr class="memitem:a11db92e970f97ed66aebb1702dc5a0df"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a11db92e970f97ed66aebb1702dc5a0df">helib::polyEvalMod</a> (const NTL::ZZX &amp;poly, long x, long p)</td></tr>
+<tr class="memdesc:a11db92e970f97ed66aebb1702dc5a0df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates a modular integer polynomial, returns poly(x) mod p.  <a href="namespacehelib.html#a11db92e970f97ed66aebb1702dc5a0df">More...</a><br /></td></tr>
 <tr class="separator:a11db92e970f97ed66aebb1702dc5a0df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e7d6d68a0351702ae31c17eb4e72307"><td class="memItemLeft" align="right" valign="top"><a id="a9e7d6d68a0351702ae31c17eb4e72307"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a9e7d6d68a0351702ae31c17eb4e72307">helib::interpolateMod</a> (NTL::ZZX &amp;poly, const NTL::vec_long &amp;x, const NTL::vec_long &amp;y, long p, long e=1)</td></tr>
-<tr class="memdesc:a9e7d6d68a0351702ae31c17eb4e72307"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpolate polynomial such that poly(x[i] mod p)=y[i] (mod p^e) It is assumed that the points x[i] are all distinct modulo p. <br /></td></tr>
+<tr class="memitem:a9e7d6d68a0351702ae31c17eb4e72307"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a9e7d6d68a0351702ae31c17eb4e72307">helib::interpolateMod</a> (NTL::ZZX &amp;poly, const NTL::vec_long &amp;x, const NTL::vec_long &amp;y, long p, long e=1)</td></tr>
+<tr class="memdesc:a9e7d6d68a0351702ae31c17eb4e72307"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpolate polynomial such that poly(x[i] mod p)=y[i] (mod p^e) It is assumed that the points x[i] are all distinct modulo p.  <a href="namespacehelib.html#a9e7d6d68a0351702ae31c17eb4e72307">More...</a><br /></td></tr>
 <tr class="separator:a9e7d6d68a0351702ae31c17eb4e72307"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8ff9e17791a3dd96ca79b2dd4d0654d"><td class="memItemLeft" align="right" valign="top"><a id="ad8ff9e17791a3dd96ca79b2dd4d0654d"></a>
-long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#ad8ff9e17791a3dd96ca79b2dd4d0654d">helib::divc</a> (long a, long b)</td></tr>
-<tr class="memdesc:ad8ff9e17791a3dd96ca79b2dd4d0654d"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns ceiling(a/b); assumes a &gt;=0, b&gt;0, a+b &lt;= MAX_LONG <br /></td></tr>
+<tr class="memitem:ad8ff9e17791a3dd96ca79b2dd4d0654d"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ad8ff9e17791a3dd96ca79b2dd4d0654d">helib::divc</a> (long a, long b)</td></tr>
+<tr class="memdesc:ad8ff9e17791a3dd96ca79b2dd4d0654d"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns ceiling(a/b); assumes a &gt;=0, b&gt;0, a+b &lt;= MAX_LONG  <a href="namespacehelib.html#ad8ff9e17791a3dd96ca79b2dd4d0654d">More...</a><br /></td></tr>
 <tr class="separator:ad8ff9e17791a3dd96ca79b2dd4d0654d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7b15d5fbf553550437df6ca02d5a282"><td class="memItemLeft" align="right" valign="top"><a id="af7b15d5fbf553550437df6ca02d5a282"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::rem</b> (NTL::zz_pX &amp;r, const NTL::zz_pX &amp;a, const zz_pXModulus1 &amp;ff)</td></tr>
+<tr class="memitem:af7b15d5fbf553550437df6ca02d5a282"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#af7b15d5fbf553550437df6ca02d5a282">helib::rem</a> (NTL::zz_pX &amp;r, const NTL::zz_pX &amp;a, const zz_pXModulus1 &amp;ff)</td></tr>
 <tr class="separator:af7b15d5fbf553550437df6ca02d5a282"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91bd0e83a2e59c7de3a489b5d3fb3aa8"><td class="memTemplParams" colspan="2"><a id="a91bd0e83a2e59c7de3a489b5d3fb3aa8"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a91bd0e83a2e59c7de3a489b5d3fb3aa8"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::operator&lt;&lt;</b> (std::ostream &amp;s, std::vector&lt; T &gt; v)</td></tr>
+<tr class="memitem:a91bd0e83a2e59c7de3a489b5d3fb3aa8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a91bd0e83a2e59c7de3a489b5d3fb3aa8"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a91bd0e83a2e59c7de3a489b5d3fb3aa8">helib::operator&lt;&lt;</a> (std::ostream &amp;s, std::vector&lt; T &gt; v)</td></tr>
 <tr class="separator:a91bd0e83a2e59c7de3a489b5d3fb3aa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b06418a6494e921dec0c5d086cf46ce"><td class="memTemplParams" colspan="2"><a id="a2b06418a6494e921dec0c5d086cf46ce"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a2b06418a6494e921dec0c5d086cf46ce"><td class="memTemplItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::operator&gt;&gt;</b> (std::istream &amp;s, std::vector&lt; T &gt; &amp;v)</td></tr>
+<tr class="memitem:a2b06418a6494e921dec0c5d086cf46ce"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a2b06418a6494e921dec0c5d086cf46ce"><td class="memTemplItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a2b06418a6494e921dec0c5d086cf46ce">helib::operator&gt;&gt;</a> (std::istream &amp;s, std::vector&lt; T &gt; &amp;v)</td></tr>
 <tr class="separator:a2b06418a6494e921dec0c5d086cf46ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa86d423a862384884b7bed74e573e8f"><td class="memTemplParams" colspan="2"><a id="aaa86d423a862384884b7bed74e573e8f"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aaa86d423a862384884b7bed74e573e8f"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::vecToStr</b> (const std::vector&lt; T &gt; &amp;v)</td></tr>
+<tr class="memitem:aaa86d423a862384884b7bed74e573e8f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aaa86d423a862384884b7bed74e573e8f"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#aaa86d423a862384884b7bed74e573e8f">helib::vecToStr</a> (const std::vector&lt; T &gt; &amp;v)</td></tr>
 <tr class="separator:aaa86d423a862384884b7bed74e573e8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1040284398724d43661ac3eff7a7400e"><td class="memTemplParams" colspan="2"><a id="a1040284398724d43661ac3eff7a7400e"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a1040284398724d43661ac3eff7a7400e"><td class="memTemplItemLeft" align="right" valign="top">NTL::Vec&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::atoVec</b> (const char *a)</td></tr>
+<tr class="memitem:a1040284398724d43661ac3eff7a7400e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a1040284398724d43661ac3eff7a7400e"><td class="memTemplItemLeft" align="right" valign="top">NTL::Vec&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a1040284398724d43661ac3eff7a7400e">helib::atoVec</a> (const char *a)</td></tr>
 <tr class="separator:a1040284398724d43661ac3eff7a7400e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acdd11aa1bf58d7ac5843fe3ee5fb244c"><td class="memTemplParams" colspan="2"><a id="acdd11aa1bf58d7ac5843fe3ee5fb244c"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:acdd11aa1bf58d7ac5843fe3ee5fb244c"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::atovector</b> (const char *a)</td></tr>
+<tr class="memitem:acdd11aa1bf58d7ac5843fe3ee5fb244c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:acdd11aa1bf58d7ac5843fe3ee5fb244c"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#acdd11aa1bf58d7ac5843fe3ee5fb244c">helib::atovector</a> (const char *a)</td></tr>
 <tr class="separator:acdd11aa1bf58d7ac5843fe3ee5fb244c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab19a0354bdc3a0ef4ba47d01c8a4aaaf"><td class="memItemLeft" align="right" valign="top"><a id="ab19a0354bdc3a0ef4ba47d01c8a4aaaf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::TofftRep_trunc</b> (NTL::fftRep &amp;y, const NTL::zz_pX &amp;x, long k, UNUSED long len, long lo, long hi)</td></tr>
+<tr class="memitem:ab19a0354bdc3a0ef4ba47d01c8a4aaaf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ab19a0354bdc3a0ef4ba47d01c8a4aaaf">helib::TofftRep_trunc</a> (NTL::fftRep &amp;y, const NTL::zz_pX &amp;x, long k, <a class="el" href="api_attributes_8h.html#addf5ec070e9499d36b7f2009ce736076">UNUSED</a> long len, long lo, long hi)</td></tr>
 <tr class="separator:ab19a0354bdc3a0ef4ba47d01c8a4aaaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3259e4f89f7c305b12bd13bab812ef72"><td class="memItemLeft" align="right" valign="top"><a id="a3259e4f89f7c305b12bd13bab812ef72"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::TofftRep_trunc</b> (NTL::fftRep &amp;y, const NTL::zz_pX &amp;x, long k, long len)</td></tr>
+<tr class="memitem:a3259e4f89f7c305b12bd13bab812ef72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a3259e4f89f7c305b12bd13bab812ef72">helib::TofftRep_trunc</a> (NTL::fftRep &amp;y, const NTL::zz_pX &amp;x, long k, long len)</td></tr>
 <tr class="separator:a3259e4f89f7c305b12bd13bab812ef72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a454437c5c0e3415fe2a360fa48a3eb5f"><td class="memTemplParams" colspan="2">template&lt;typename T , typename P , typename... Args&gt; </td></tr>
-<tr class="memitem:a454437c5c0e3415fe2a360fa48a3eb5f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a454437c5c0e3415fe2a360fa48a3eb5f">helib::make_lazy</a> (const NTL::Lazy&lt; T, P &gt; &amp;obj, Args &amp;&amp;... args)</td></tr>
+<tr class="memitem:a454437c5c0e3415fe2a360fa48a3eb5f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a454437c5c0e3415fe2a360fa48a3eb5f">helib::make_lazy</a> (const NTL::Lazy&lt; T, P &gt; &amp;obj, Args &amp;&amp;... args)</td></tr>
 <tr class="separator:a454437c5c0e3415fe2a360fa48a3eb5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05c7ab380349944791e571afd60e7a06"><td class="memTemplParams" colspan="2">template&lt;typename T , typename P , typename F , typename... Args&gt; </td></tr>
-<tr class="memitem:a05c7ab380349944791e571afd60e7a06"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a05c7ab380349944791e571afd60e7a06">helib::make_lazy_with_fun</a> (const NTL::Lazy&lt; T, P &gt; &amp;obj, F f, Args &amp;&amp;... args)</td></tr>
+<tr class="memitem:a05c7ab380349944791e571afd60e7a06"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a05c7ab380349944791e571afd60e7a06">helib::make_lazy_with_fun</a> (const NTL::Lazy&lt; T, P &gt; &amp;obj, F f, Args &amp;&amp;... args)</td></tr>
 <tr class="separator:a05c7ab380349944791e571afd60e7a06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6eafbe78be51b304a8b359f7f6142ef5"><td class="memItemLeft" align="right" valign="top"><a id="a6eafbe78be51b304a8b359f7f6142ef5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::Warning</b> (const char *msg)</td></tr>
+<tr class="memitem:a6eafbe78be51b304a8b359f7f6142ef5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a6eafbe78be51b304a8b359f7f6142ef5">helib::Warning</a> (const char *msg)</td></tr>
 <tr class="separator:a6eafbe78be51b304a8b359f7f6142ef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9582d8b75aec10d74a0a89b48678be1b"><td class="memItemLeft" align="right" valign="top"><a id="a9582d8b75aec10d74a0a89b48678be1b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::Warning</b> (const std::string &amp;msg)</td></tr>
+<tr class="memitem:a9582d8b75aec10d74a0a89b48678be1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a9582d8b75aec10d74a0a89b48678be1b">helib::Warning</a> (const std::string &amp;msg)</td></tr>
 <tr class="separator:a9582d8b75aec10d74a0a89b48678be1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:aa4e11abf6db9206e9dc7ac9397ce28fb"><td class="memItemLeft" align="right" valign="top">const long double&#160;</td><td class="memItemRight" valign="bottom"><b>helib::PI</b></td></tr>
+<tr class="memitem:aa4e11abf6db9206e9dc7ac9397ce28fb"><td class="memItemLeft" align="right" valign="top">const long double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#aa4e11abf6db9206e9dc7ac9397ce28fb">helib::PI</a></td></tr>
 <tr class="separator:aa4e11abf6db9206e9dc7ac9397ce28fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59a5014a165318cfdf6dd1ba9044e9e3"><td class="memItemLeft" align="right" valign="top"><a id="a59a5014a165318cfdf6dd1ba9044e9e3"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#a59a5014a165318cfdf6dd1ba9044e9e3">helib::FHEglobals::dryRun</a> = false</td></tr>
-<tr class="memdesc:a59a5014a165318cfdf6dd1ba9044e9e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">A dry-run flag The dry-run option disables most operations, to save time. This lets us quickly go over the evaluation of a circuit and estimate the resulting noise magnitude, without having to actually compute anything. <br /></td></tr>
+<tr class="memitem:a59a5014a165318cfdf6dd1ba9044e9e3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib_1_1_f_h_eglobals.html#a59a5014a165318cfdf6dd1ba9044e9e3">helib::FHEglobals::dryRun</a> = false</td></tr>
+<tr class="memdesc:a59a5014a165318cfdf6dd1ba9044e9e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">A dry-run flag The dry-run option disables most operations, to save time. This lets us quickly go over the evaluation of a circuit and estimate the resulting noise magnitude, without having to actually compute anything.  <a href="namespacehelib_1_1_f_h_eglobals.html#a59a5014a165318cfdf6dd1ba9044e9e3">More...</a><br /></td></tr>
 <tr class="separator:a59a5014a165318cfdf6dd1ba9044e9e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae595d95a946a3f9b5bfbac55e5f0df0f"><td class="memItemLeft" align="right" valign="top"><a id="ae595d95a946a3f9b5bfbac55e5f0df0f"></a>
-std::set&lt; long &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#ae595d95a946a3f9b5bfbac55e5f0df0f">helib::FHEglobals::automorphVals</a> = nullptr</td></tr>
-<tr class="memdesc:ae595d95a946a3f9b5bfbac55e5f0df0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of required automorphisms When non-nullptr, causes Ctxt::smartAutomorphism to just record the requested automorphism rather than actually performing it. This can be used to get a list of needed automorphisms for certain operations and then generate all these key-switching matrices. Should only be used in conjunction with dryRun=true. <br /></td></tr>
+<tr class="memitem:ae595d95a946a3f9b5bfbac55e5f0df0f"><td class="memItemLeft" align="right" valign="top">std::set&lt; long &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib_1_1_f_h_eglobals.html#ae595d95a946a3f9b5bfbac55e5f0df0f">helib::FHEglobals::automorphVals</a> = nullptr</td></tr>
+<tr class="memdesc:ae595d95a946a3f9b5bfbac55e5f0df0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of required automorphisms When non-nullptr, causes Ctxt::smartAutomorphism to just record the requested automorphism rather than actually performing it. This can be used to get a list of needed automorphisms for certain operations and then generate all these key-switching matrices. Should only be used in conjunction with dryRun=true.  <a href="namespacehelib_1_1_f_h_eglobals.html#ae595d95a946a3f9b5bfbac55e5f0df0f">More...</a><br /></td></tr>
 <tr class="separator:ae595d95a946a3f9b5bfbac55e5f0df0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26e09dcf2db94c4039eb189a76a803ee"><td class="memItemLeft" align="right" valign="top"><a id="a26e09dcf2db94c4039eb189a76a803ee"></a>
-std::set&lt; long &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>helib::FHEglobals::automorphVals2</b> = nullptr</td></tr>
+<tr class="memitem:a26e09dcf2db94c4039eb189a76a803ee"><td class="memItemLeft" align="right" valign="top">std::set&lt; long &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib_1_1_f_h_eglobals.html#a26e09dcf2db94c4039eb189a76a803ee">helib::FHEglobals::automorphVals2</a> = nullptr</td></tr>
 <tr class="separator:a26e09dcf2db94c4039eb189a76a803ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac088f2fa765a2ab95c318d60df164b6d"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><b>helib::erfc_inverse</b> []</td></tr>
+<tr class="memitem:ac088f2fa765a2ab95c318d60df164b6d"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ac088f2fa765a2ab95c318d60df164b6d">helib::erfc_inverse</a> []</td></tr>
 <tr class="separator:ac088f2fa765a2ab95c318d60df164b6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae977d2527a20cd02ae18841eea99aa2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_numb_th_8h.html#ae977d2527a20cd02ae18841eea99aa2e">helib::PolyRed</a> (NTL::ZZX &amp;out, const NTL::ZZX &amp;in, long q, bool abs=false)</td></tr>
-<tr class="memdesc:ae977d2527a20cd02ae18841eea99aa2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduce all the coefficients of a polynomial modulo q.  <a href="_numb_th_8h.html#ae977d2527a20cd02ae18841eea99aa2e">More...</a><br /></td></tr>
+<tr class="memitem:ae977d2527a20cd02ae18841eea99aa2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ae977d2527a20cd02ae18841eea99aa2e">helib::PolyRed</a> (NTL::ZZX &amp;out, const NTL::ZZX &amp;in, long q, bool abs=false)</td></tr>
+<tr class="memdesc:ae977d2527a20cd02ae18841eea99aa2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduce all the coefficients of a polynomial modulo q.  <a href="namespacehelib.html#ae977d2527a20cd02ae18841eea99aa2e">More...</a><br /></td></tr>
 <tr class="separator:ae977d2527a20cd02ae18841eea99aa2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd2078641e9787af3d6acbee6d557dad"><td class="memItemLeft" align="right" valign="top"><a id="acd2078641e9787af3d6acbee6d557dad"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::PolyRed</b> (NTL::ZZX &amp;out, const NTL::ZZX &amp;in, const NTL::ZZ &amp;q, bool abs=false)</td></tr>
+<tr class="memitem:acd2078641e9787af3d6acbee6d557dad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#acd2078641e9787af3d6acbee6d557dad">helib::PolyRed</a> (NTL::ZZX &amp;out, const NTL::ZZX &amp;in, const NTL::ZZ &amp;q, bool abs=false)</td></tr>
 <tr class="separator:acd2078641e9787af3d6acbee6d557dad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec8847d93fff429651833026b9553e1b"><td class="memItemLeft" align="right" valign="top"><a id="aec8847d93fff429651833026b9553e1b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::PolyRed</b> (NTL::ZZX &amp;F, long q, bool abs=false)</td></tr>
+<tr class="memitem:aec8847d93fff429651833026b9553e1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#aec8847d93fff429651833026b9553e1b">helib::PolyRed</a> (NTL::ZZX &amp;F, long q, bool abs=false)</td></tr>
 <tr class="separator:aec8847d93fff429651833026b9553e1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ada257cf26f3f2074300fddf5381f11"><td class="memItemLeft" align="right" valign="top"><a id="a7ada257cf26f3f2074300fddf5381f11"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::PolyRed</b> (NTL::ZZX &amp;F, const NTL::ZZ &amp;q, bool abs=false)</td></tr>
+<tr class="memitem:a7ada257cf26f3f2074300fddf5381f11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a7ada257cf26f3f2074300fddf5381f11">helib::PolyRed</a> (NTL::ZZX &amp;F, const NTL::ZZ &amp;q, bool abs=false)</td></tr>
 <tr class="separator:a7ada257cf26f3f2074300fddf5381f11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bc3d452674c06b19349e1bfc47cd6bb"><td class="memItemLeft" align="right" valign="top"><a id="a9bc3d452674c06b19349e1bfc47cd6bb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::vecRed</b> (NTL::Vec&lt; NTL::ZZ &gt; &amp;out, const NTL::Vec&lt; NTL::ZZ &gt; &amp;in, long q, bool abs)</td></tr>
+<tr class="memitem:a9bc3d452674c06b19349e1bfc47cd6bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a9bc3d452674c06b19349e1bfc47cd6bb">helib::vecRed</a> (NTL::Vec&lt; NTL::ZZ &gt; &amp;out, const NTL::Vec&lt; NTL::ZZ &gt; &amp;in, long q, bool abs)</td></tr>
 <tr class="separator:a9bc3d452674c06b19349e1bfc47cd6bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae30e7633ce81720d2e73bb8225f82923"><td class="memItemLeft" align="right" valign="top"><a id="ae30e7633ce81720d2e73bb8225f82923"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::vecRed</b> (NTL::Vec&lt; NTL::ZZ &gt; &amp;out, const NTL::Vec&lt; NTL::ZZ &gt; &amp;in, const NTL::ZZ &amp;q, bool abs)</td></tr>
+<tr class="memitem:ae30e7633ce81720d2e73bb8225f82923"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ae30e7633ce81720d2e73bb8225f82923">helib::vecRed</a> (NTL::Vec&lt; NTL::ZZ &gt; &amp;out, const NTL::Vec&lt; NTL::ZZ &gt; &amp;in, const NTL::ZZ &amp;q, bool abs)</td></tr>
 <tr class="separator:ae30e7633ce81720d2e73bb8225f82923"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Some enhanced conversion routines</h2></td></tr>
-<tr class="memitem:a877d5bbaf6ad7ef25042c6711e6a6aa2"><td class="memItemLeft" align="right" valign="top"><a id="a877d5bbaf6ad7ef25042c6711e6a6aa2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::convert</b> (long &amp;x1, const NTL::GF2X &amp;x2)</td></tr>
+<tr class="memitem:a877d5bbaf6ad7ef25042c6711e6a6aa2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a877d5bbaf6ad7ef25042c6711e6a6aa2">helib::convert</a> (long &amp;x1, const NTL::GF2X &amp;x2)</td></tr>
 <tr class="separator:a877d5bbaf6ad7ef25042c6711e6a6aa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7d74d8c1673da0da8d2d53a9f56f30a"><td class="memItemLeft" align="right" valign="top"><a id="ad7d74d8c1673da0da8d2d53a9f56f30a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::convert</b> (long &amp;x1, const NTL::zz_pX &amp;x2)</td></tr>
+<tr class="memitem:ad7d74d8c1673da0da8d2d53a9f56f30a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ad7d74d8c1673da0da8d2d53a9f56f30a">helib::convert</a> (long &amp;x1, const NTL::zz_pX &amp;x2)</td></tr>
 <tr class="separator:ad7d74d8c1673da0da8d2d53a9f56f30a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afea2ca2bb25fb996d1d3544a353d83eb"><td class="memItemLeft" align="right" valign="top"><a id="afea2ca2bb25fb996d1d3544a353d83eb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::convert</b> (NTL::vec_zz_pE &amp;X, const std::vector&lt; NTL::ZZX &gt; &amp;A)</td></tr>
+<tr class="memitem:afea2ca2bb25fb996d1d3544a353d83eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#afea2ca2bb25fb996d1d3544a353d83eb">helib::convert</a> (NTL::vec_zz_pE &amp;X, const std::vector&lt; NTL::ZZX &gt; &amp;A)</td></tr>
 <tr class="separator:afea2ca2bb25fb996d1d3544a353d83eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa20c6011cba88e302d44bb0db4a6e7f8"><td class="memItemLeft" align="right" valign="top"><a id="aa20c6011cba88e302d44bb0db4a6e7f8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::convert</b> (NTL::mat_zz_pE &amp;X, const std::vector&lt; std::vector&lt; NTL::ZZX &gt;&gt; &amp;A)</td></tr>
+<tr class="memitem:aa20c6011cba88e302d44bb0db4a6e7f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#aa20c6011cba88e302d44bb0db4a6e7f8">helib::convert</a> (NTL::mat_zz_pE &amp;X, const std::vector&lt; std::vector&lt; NTL::ZZX &gt;&gt; &amp;A)</td></tr>
 <tr class="separator:aa20c6011cba88e302d44bb0db4a6e7f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1ec8745473d116541a8b302dfa70fa9"><td class="memItemLeft" align="right" valign="top"><a id="af1ec8745473d116541a8b302dfa70fa9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::convert</b> (std::vector&lt; NTL::ZZX &gt; &amp;X, const NTL::vec_zz_pE &amp;A)</td></tr>
+<tr class="memitem:af1ec8745473d116541a8b302dfa70fa9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#af1ec8745473d116541a8b302dfa70fa9">helib::convert</a> (std::vector&lt; NTL::ZZX &gt; &amp;X, const NTL::vec_zz_pE &amp;A)</td></tr>
 <tr class="separator:af1ec8745473d116541a8b302dfa70fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89daf2e69e1e8c09c09311b1430021f4"><td class="memItemLeft" align="right" valign="top"><a id="a89daf2e69e1e8c09c09311b1430021f4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::convert</b> (std::vector&lt; std::vector&lt; NTL::ZZX &gt;&gt; &amp;X, const NTL::mat_zz_pE &amp;A)</td></tr>
+<tr class="memitem:a89daf2e69e1e8c09c09311b1430021f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a89daf2e69e1e8c09c09311b1430021f4">helib::convert</a> (std::vector&lt; std::vector&lt; NTL::ZZX &gt;&gt; &amp;X, const NTL::mat_zz_pE &amp;A)</td></tr>
 <tr class="separator:a89daf2e69e1e8c09c09311b1430021f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7508506eab50bf677b80d5dc6669c980"><td class="memItemLeft" align="right" valign="top"><a id="a7508506eab50bf677b80d5dc6669c980"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::convert</b> (NTL::Vec&lt; long &gt; &amp;out, const NTL::ZZX &amp;in)</td></tr>
+<tr class="memitem:a7508506eab50bf677b80d5dc6669c980"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a7508506eab50bf677b80d5dc6669c980">helib::convert</a> (NTL::Vec&lt; long &gt; &amp;out, const NTL::ZZX &amp;in)</td></tr>
 <tr class="separator:a7508506eab50bf677b80d5dc6669c980"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1eb539ffd2cd2268861ad793f88f6393"><td class="memItemLeft" align="right" valign="top"><a id="a1eb539ffd2cd2268861ad793f88f6393"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::convert</b> (NTL::Vec&lt; long &gt; &amp;out, const NTL::zz_pX &amp;in, bool symmetric=true)</td></tr>
+<tr class="memitem:a1eb539ffd2cd2268861ad793f88f6393"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a1eb539ffd2cd2268861ad793f88f6393">helib::convert</a> (NTL::Vec&lt; long &gt; &amp;out, const NTL::zz_pX &amp;in, bool symmetric=true)</td></tr>
 <tr class="separator:a1eb539ffd2cd2268861ad793f88f6393"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a195d039398c66533aa7a1ba455ffcd4b"><td class="memItemLeft" align="right" valign="top"><a id="a195d039398c66533aa7a1ba455ffcd4b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::convert</b> (NTL::Vec&lt; long &gt; &amp;out, const NTL::GF2X &amp;in)</td></tr>
+<tr class="memitem:a195d039398c66533aa7a1ba455ffcd4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a195d039398c66533aa7a1ba455ffcd4b">helib::convert</a> (NTL::Vec&lt; long &gt; &amp;out, const NTL::GF2X &amp;in)</td></tr>
 <tr class="separator:a195d039398c66533aa7a1ba455ffcd4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3ddd5fc2763e981326700c9dcc2e777"><td class="memItemLeft" align="right" valign="top"><a id="af3ddd5fc2763e981326700c9dcc2e777"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::convert</b> (NTL::ZZX &amp;out, const NTL::Vec&lt; long &gt; &amp;in)</td></tr>
+<tr class="memitem:af3ddd5fc2763e981326700c9dcc2e777"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#af3ddd5fc2763e981326700c9dcc2e777">helib::convert</a> (NTL::ZZX &amp;out, const NTL::Vec&lt; long &gt; &amp;in)</td></tr>
 <tr class="separator:af3ddd5fc2763e981326700c9dcc2e777"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b9c95cba9d0a0f6f4a8220548276003"><td class="memItemLeft" align="right" valign="top"><a id="a4b9c95cba9d0a0f6f4a8220548276003"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::convert</b> (NTL::GF2X &amp;out, const NTL::Vec&lt; long &gt; &amp;in)</td></tr>
+<tr class="memitem:a4b9c95cba9d0a0f6f4a8220548276003"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a4b9c95cba9d0a0f6f4a8220548276003">helib::convert</a> (NTL::GF2X &amp;out, const NTL::Vec&lt; long &gt; &amp;in)</td></tr>
 <tr class="separator:a4b9c95cba9d0a0f6f4a8220548276003"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Miscellaneous utility functions. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="a0dda3f81ff66fb0e9a92bc39ecad0a92"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0dda3f81ff66fb0e9a92bc39ecad0a92">&#9670;&nbsp;</a></span>applyLinPoly()</h2>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a71c5778babb7aa5a7caf5e93098b7df4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71c5778babb7aa5a7caf5e93098b7df4">&#9670;&nbsp;</a></span>ERFC_INVERSE_SIZE</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void helib::applyLinPoly </td>
-          <td>(</td>
-          <td class="paramtype">NTL::zz_pE &amp;&#160;</td>
-          <td class="paramname"><em>beta</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const NTL::vec_zz_pE &amp;&#160;</td>
-          <td class="paramname"><em>C</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const NTL::zz_pE &amp;&#160;</td>
-          <td class="paramname"><em>alpha</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">#define ERFC_INVERSE_SIZE&#160;&#160;&#160;(long(sizeof(erfc_inverse) / sizeof(erfc_inverse[0])))</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Apply a linearized polynomial with coefficient vector C. </p>
-<p>NTL's current smallint modulus, zz_p::modulus(), is assumed to be p^r, for p prime, r &gt;= 1 integer. </p>
-
-</div>
-</div>
-<a id="aaa88363f3a91a37ba8e213b0cb764ea5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa88363f3a91a37ba8e213b0cb764ea5">&#9670;&nbsp;</a></span>argminmax()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , bool maxFlag&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">long helib::argminmax </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Find the index of the (first) largest/smallest element. </p>
-<p>These procedures are roughly just simpler variants of std::max_element and std::min_element. argmin/argmax are implemented as a template, so the code must be placed in the header file for the compiler to find it. The class T must have an implementation of operator&gt; and operator&lt; for this template to work. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">maxFlag</td><td>A boolean value: true - argmax, false - argmin </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a00e504f2374c5e7357c7608a94527887"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00e504f2374c5e7357c7608a94527887">&#9670;&nbsp;</a></span>balanced_MulMod()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void helib::balanced_MulMod </td>
-          <td>(</td>
-          <td class="paramtype">NTL::ZZX &amp;&#160;</td>
-          <td class="paramname"><em>out</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const NTL::ZZX &amp;&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>q</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Multiply the polynomial f by the integer a modulo q output coefficients are balanced (appropriately randomized for even q) </p>
-
-</div>
-</div>
-<a id="af183ee91810e5601837e62dfb85df0cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af183ee91810e5601837e62dfb85df0cd">&#9670;&nbsp;</a></span>balRem()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">long helib::balRem </td>
-          <td>(</td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>q</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Return balanced remainder. Assumes a in [0, q) and returns balanced remainder in (-q/2, q/2] </p>
-
-</div>
-</div>
-<a id="af6cd0b7c9b7fa0afbb885295f10d9354"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6cd0b7c9b7fa0afbb885295f10d9354">&#9670;&nbsp;</a></span>bitSetToLong()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">long helib::bitSetToLong </td>
-          <td>(</td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>bits</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>bitSize</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Considers <code>bits</code> as a vector of bits and returns the value it represents when interpreted as a n-bit 2's complement number, where n is given by <code>bitSize</code>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">bits</td><td>The value containing the bits to be reinterpreted. </td></tr>
-    <tr><td class="paramname">bitSize</td><td>The number of bits to use, taken from the least significant end of <code>bits</code>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The value of the reinterpreted number as a long. </dd></dl>
-
-</div>
-</div>
-<a id="a5711dacd10c102835bd585bff52e32c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5711dacd10c102835bd585bff52e32c5">&#9670;&nbsp;</a></span>buildLinPolyCoeffs()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void helib::buildLinPolyCoeffs </td>
-          <td>(</td>
-          <td class="paramtype">NTL::vec_zz_pE &amp;&#160;</td>
-          <td class="paramname"><em>C</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const NTL::vec_zz_pE &amp;&#160;</td>
-          <td class="paramname"><em>L</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>r</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Combination of buildLinPolyMatrix and ppsolve. </p>
-<p>Obtain the linearized polynomial coefficients from a vector L representing the action of a linear map on the standard basis for zz_pE over zz_p.</p>
-<p>NTL's current smallint modulus, zz_p::modulus(), is assumed to be p^r, for p prime, r &gt;= 1 integer. </p>
-
-</div>
-</div>
-<a id="a67f0037687252f6999a8526165cd8e41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67f0037687252f6999a8526165cd8e41">&#9670;&nbsp;</a></span>findGenerators()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">long helib::findGenerators </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; long &gt; &amp;&#160;</td>
-          <td class="paramname"><em>gens</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; long &gt; &amp;&#160;</td>
-          <td class="paramname"><em>ords</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>m</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; long &gt; &amp;&#160;</td>
-          <td class="paramname"><em>candidates</em> = <code>std::vector&lt;long&gt;()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Returns in gens a generating set for Zm* /</p>
-<p>, and in ords the order of these generators. Return value is the order of p in Zm*. </p>
-
-</div>
-</div>
-<a id="a5165f6a4ea9a752c8c40d5790acfb4e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5165f6a4ea9a752c8c40d5790acfb4e0">&#9670;&nbsp;</a></span>intVecCRT()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class zzvec &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">bool helib::intVecCRT </td>
-          <td>(</td>
-          <td class="paramtype">NTL::vec_ZZ &amp;&#160;</td>
-          <td class="paramname"><em>vp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const NTL::ZZ &amp;&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const zzvec &amp;&#160;</td>
-          <td class="paramname"><em>vq</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>q</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Incremental integer CRT for vectors. </p>
-<p>Expects co-primes p,q with q odd, and such that all the entries in v1 are in [-p/2,p/2). Returns in v1 the CRT of vp mod p and vq mod q, as integers in [-pq/2, pq/2). Uses the formula: </p><p class="formulaDsp">
-<img class="formulaDsp" alt="\[ CRT(vp,p,vq,q) = vp + [(vq-vp) * p^{-1}]_q * p, \]" src="form_4.png"/>
-</p>
-<p> where [...]_q means reduction to the interval [-q/2,q/2). Notice that if q is odd then this is the same as reducing to [-(q-1)/2,(q-1)/2], which means that [...]_q * p is in [-p(q-1)/2, p(q-1)/2], and since vp is in [-p/2,p/2) then the sum is indeed in [-pq/2,pq/2).</p>
-<p>Return true is both vectors are of the same length, false otherwise </p>
-
-</div>
-</div>
-<a id="a454437c5c0e3415fe2a360fa48a3eb5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a454437c5c0e3415fe2a360fa48a3eb5f">&#9670;&nbsp;</a></span>make_lazy()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename P , typename... Args&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void helib::make_lazy </td>
-          <td>(</td>
-          <td class="paramtype">const NTL::Lazy&lt; T, P &gt; &amp;&#160;</td>
-          <td class="paramname"><em>obj</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Args &amp;&amp;...&#160;</td>
-          <td class="paramname"><em>args</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This should go in NTL some day... Just call as make_lazy(obj, ...) to initialize a lazy object via a call to a constructor T(...) </p>
-
-</div>
-</div>
-<a id="a05c7ab380349944791e571afd60e7a06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05c7ab380349944791e571afd60e7a06">&#9670;&nbsp;</a></span>make_lazy_with_fun()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename P , typename F , typename... Args&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void helib::make_lazy_with_fun </td>
-          <td>(</td>
-          <td class="paramtype">const NTL::Lazy&lt; T, P &gt; &amp;&#160;</td>
-          <td class="paramname"><em>obj</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">F&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Args &amp;&amp;...&#160;</td>
-          <td class="paramname"><em>args</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This should go in NTL some day... Just call as make_lazy(obj, f, ....) to initialize a lazy object via a call to f(*obj, ...) </p>
-
-</div>
-</div>
-<a id="a3f2638750d81a618d59217f3e9b3218a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f2638750d81a618d59217f3e9b3218a">&#9670;&nbsp;</a></span>mcMod()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">long helib::mcMod </td>
-          <td>(</td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Routines for computing mathematically correct mod and div. </p>
-<p>mcDiv(a, b) = floor(a / b), mcMod(a, b) = a - b*mcDiv(a, b); in particular, mcMod(a, b) is 0 or has the same sign as b </p>
-
-</div>
-</div>
-<a id="ae977d2527a20cd02ae18841eea99aa2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae977d2527a20cd02ae18841eea99aa2e">&#9670;&nbsp;</a></span>PolyRed()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void helib::PolyRed </td>
-          <td>(</td>
-          <td class="paramtype">NTL::ZZX &amp;&#160;</td>
-          <td class="paramname"><em>out</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const NTL::ZZX &amp;&#160;</td>
-          <td class="paramname"><em>in</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>q</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>abs</em> = <code>false</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Reduce all the coefficients of a polynomial modulo q. </p>
-<p>When abs=false reduce to interval (-q/2,...,q/2), when abs=true reduce to [0,q). When abs=false and q=2, maintains the same sign as the input. </p>
-
-</div>
-</div>
-<a id="a784e87216f278000cfa935b61657da58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a784e87216f278000cfa935b61657da58">&#9670;&nbsp;</a></span>ppInvert()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void helib::ppInvert </td>
-          <td>(</td>
-          <td class="paramtype">NTL::mat_zz_p &amp;&#160;</td>
-          <td class="paramname"><em>X</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const NTL::mat_zz_p &amp;&#160;</td>
-          <td class="paramname"><em>A</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>r</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Compute the inverse mod p^r of an n x n matrix. </p>
-<p>NTL's current smallint modulus zz_p::modulus() is assumed to be p^r for p prime, r &gt;= 1 integer. For the zz_pE variant also zz_pE::modulus() must be initialized. An error is raised if A is not invertible mod p. </p>
-
-</div>
-</div>
-<a id="acdb8f2124f5f56970fe7f88802c976b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acdb8f2124f5f56970fe7f88802c976b1">&#9670;&nbsp;</a></span>ppsolve()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void helib::ppsolve </td>
-          <td>(</td>
-          <td class="paramtype">NTL::vec_zz_pE &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const NTL::mat_zz_pE &amp;&#160;</td>
-          <td class="paramname"><em>A</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const NTL::vec_zz_pE &amp;&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>r</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Prime power solver. </p>
-<p>A is an n x n matrix, b is a length n (row) vector, this function finds a solution for the matrix-vector equation x A = b. An error is raised if A is not invertible mod p.</p>
-<p>NTL's current smallint modulus, zz_p::modulus(), is assumed to be p^r, for p prime, r &gt;= 1 integer. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="ac088f2fa765a2ab95c318d60df164b6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac088f2fa765a2ab95c318d60df164b6d">&#9670;&nbsp;</a></span>erfc_inverse</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const double helib::erfc_inverse[]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {0,</div>
-<div class="line">                               0.6744897501960817432,</div>
-<div class="line">                               1.1503493803760081782,</div>
-<div class="line">                               1.5341205443525463117,</div>
-<div class="line">                               1.8627318674216514554,</div>
-<div class="line">                               2.1538746940614562129,</div>
-<div class="line">                               2.4175590162365050618,</div>
-<div class="line">                               2.6600674686174596585,</div>
-<div class="line">                               2.8856349124267571473,</div>
-<div class="line">                               3.0972690781987844623,</div>
-<div class="line">                               3.2971933456919633418,</div>
-<div class="line">                               3.4871041041144311068,</div>
-<div class="line">                               3.6683292851213230192,</div>
-<div class="line">                               3.8419306855019108708,</div>
-<div class="line">                               4.0087725941685849622,</div>
-<div class="line">                               4.1695693233491057549,</div>
-<div class="line">                               4.3249190408260462571,</div>
-<div class="line">                               4.4753284246542033544,</div>
-<div class="line">                               4.6212310014992471565,</div>
-<div class="line">                               4.7630010342678139569,</div>
-<div class="line">                               4.9009642079631930118}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="aa4e11abf6db9206e9dc7ac9397ce28fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4e11abf6db9206e9dc7ac9397ce28fb">&#9670;&nbsp;</a></span>PI</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const long double helib::PI</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">    3.1415926535897932384626433832795028841971693993751058209749445923078164L</div>
-</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

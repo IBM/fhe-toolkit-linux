@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -73,7 +73,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>helib</b></li><li class="navelem"><a class="el" href="classhelib_1_1_arg_map.html">ArgMap</a></li><li class="navelem"><a class="el" href="structhelib_1_1_arg_map_1_1_arg_processor.html">ArgProcessor</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacehelib.html">helib</a></li><li class="navelem"><a class="el" href="classhelib_1_1_arg_map.html">ArgMap</a></li><li class="navelem"><a class="el" href="structhelib_1_1_arg_map_1_1_arg_processor.html">ArgProcessor</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -84,18 +84,98 @@ $(function() {
 <div class="title">helib::ArgMap::ArgProcessor Struct Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_arg_map_8h_source.html">ArgMap.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a76d699586ece388055ccd708a273bfbf"><td class="memItemLeft" align="right" valign="top"><a id="a76d699586ece388055ccd708a273bfbf"></a>
-virtual ArgType&#160;</td><td class="memItemRight" valign="bottom"><b>getArgType</b> ()=0</td></tr>
+<tr class="memitem:afdec15131d585403483783f150f90bb6"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhelib_1_1_arg_map_1_1_arg_processor.html#afdec15131d585403483783f150f90bb6">~ArgProcessor</a> ()=default</td></tr>
+<tr class="separator:afdec15131d585403483783f150f90bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76d699586ece388055ccd708a273bfbf"><td class="memItemLeft" align="right" valign="top">virtual ArgType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhelib_1_1_arg_map_1_1_arg_processor.html#a76d699586ece388055ccd708a273bfbf">getArgType</a> ()=0</td></tr>
 <tr class="separator:a76d699586ece388055ccd708a273bfbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19c15b33dcfd8ee176b1e6c22d1afe68"><td class="memItemLeft" align="right" valign="top"><a id="a19c15b33dcfd8ee176b1e6c22d1afe68"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>process</b> (const std::string &amp;s)=0</td></tr>
+<tr class="memitem:a19c15b33dcfd8ee176b1e6c22d1afe68"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhelib_1_1_arg_map_1_1_arg_processor.html#a19c15b33dcfd8ee176b1e6c22d1afe68">process</a> (const std::string &amp;s)=0</td></tr>
 <tr class="separator:a19c15b33dcfd8ee176b1e6c22d1afe68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="afdec15131d585403483783f150f90bb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdec15131d585403483783f150f90bb6">&#9670;&nbsp;</a></span>~ArgProcessor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual helib::ArgMap::ArgProcessor::~ArgProcessor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a76d699586ece388055ccd708a273bfbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76d699586ece388055ccd708a273bfbf">&#9670;&nbsp;</a></span>getArgType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual ArgType helib::ArgMap::ArgProcessor::getArgType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a19c15b33dcfd8ee176b1e6c22d1afe68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19c15b33dcfd8ee176b1e6c22d1afe68">&#9670;&nbsp;</a></span>process()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool helib::ArgMap::ArgProcessor::process </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>include/helib/<a class="el" href="_arg_map_8h_source.html">ArgMap.h</a></li>
+<li>/Users/Projects/FHE_HElib_Repos_Public_staging/homenc_v1.0.2/HElib/include/helib/<a class="el" href="_arg_map_8h_source.html">ArgMap.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.8-->

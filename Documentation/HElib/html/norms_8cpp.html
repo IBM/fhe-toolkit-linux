@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
         <meta name="generator" content="Doxygen 1.8.18"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <title>HElib: src/norms.cpp File Reference</title>
+        <title>HElib: /Users/Projects/FHE_HElib_Repos_Public_staging/homenc_v1.0.2/HElib/src/norms.cpp File Reference</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
         <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -78,6 +78,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -91,179 +92,104 @@ $(function() {
 <code>#include &lt;<a class="el" href="_double_c_r_t_8h_source.html">helib/DoubleCRT.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="norms_8h_source.html">helib/norms.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="_p_algebra_8h_source.html">helib/PAlgebra.h</a>&gt;</code><br />
-<code>#include &lt;helib/fhe_stats.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="fhe__stats_8h_source.html">helib/fhe_stats.h</a>&gt;</code><br />
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacehelib"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html">helib</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a88e1a82fb86e2675a7533e788ce0a67b"><td class="memItemLeft" align="right" valign="top"><a id="a88e1a82fb86e2675a7533e788ce0a67b"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>USE_HALF_FFT</b>&#160;&#160;&#160;(1)</td></tr>
+<tr class="memitem:a88e1a82fb86e2675a7533e788ce0a67b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="norms_8cpp.html#a88e1a82fb86e2675a7533e788ce0a67b">USE_HALF_FFT</a>&#160;&#160;&#160;(1)</td></tr>
 <tr class="separator:a88e1a82fb86e2675a7533e788ce0a67b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4ef9a62e784d68ec04cf0b0ad6b487f"><td class="memItemLeft" align="right" valign="top"><a id="ab4ef9a62e784d68ec04cf0b0ad6b487f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>USE_QUARTER_FFT</b>&#160;&#160;&#160;(1)</td></tr>
+<tr class="memitem:ab4ef9a62e784d68ec04cf0b0ad6b487f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="norms_8cpp.html#ab4ef9a62e784d68ec04cf0b0ad6b487f">USE_QUARTER_FFT</a>&#160;&#160;&#160;(1)</td></tr>
 <tr class="separator:ab4ef9a62e784d68ec04cf0b0ad6b487f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3faed04ade2efb1a809baa1484e98b4c"><td class="memItemLeft" align="right" valign="top"><a id="a3faed04ade2efb1a809baa1484e98b4c"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>USE_TWO_QUARTERS</b>&#160;&#160;&#160;(0)</td></tr>
+<tr class="memitem:a3faed04ade2efb1a809baa1484e98b4c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="norms_8cpp.html#a3faed04ade2efb1a809baa1484e98b4c">USE_TWO_QUARTERS</a>&#160;&#160;&#160;(0)</td></tr>
 <tr class="separator:a3faed04ade2efb1a809baa1484e98b4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:afb375497516b4f80ee52cca6bbdf07fa"><td class="memItemLeft" align="right" valign="top"><a id="afb375497516b4f80ee52cca6bbdf07fa"></a>
-long&#160;</td><td class="memItemRight" valign="bottom"><b>helib::sumOfCoeffs</b> (const zzX &amp;f)</td></tr>
+<tr class="memitem:afb375497516b4f80ee52cca6bbdf07fa"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#afb375497516b4f80ee52cca6bbdf07fa">helib::sumOfCoeffs</a> (const zzX &amp;f)</td></tr>
 <tr class="separator:afb375497516b4f80ee52cca6bbdf07fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcbfc533a08e770ed13e226150f57298"><td class="memItemLeft" align="right" valign="top"><a id="adcbfc533a08e770ed13e226150f57298"></a>
-NTL::ZZ&#160;</td><td class="memItemRight" valign="bottom"><b>helib::sumOfCoeffs</b> (const NTL::ZZX &amp;f)</td></tr>
+<tr class="memitem:adcbfc533a08e770ed13e226150f57298"><td class="memItemLeft" align="right" valign="top">NTL::ZZ&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#adcbfc533a08e770ed13e226150f57298">helib::sumOfCoeffs</a> (const NTL::ZZX &amp;f)</td></tr>
 <tr class="separator:adcbfc533a08e770ed13e226150f57298"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31dcd6fc8861bd6ead98d082fba87214"><td class="memItemLeft" align="right" valign="top"><a id="a31dcd6fc8861bd6ead98d082fba87214"></a>
-NTL::ZZ&#160;</td><td class="memItemRight" valign="bottom"><b>helib::sumOfCoeffs</b> (const DoubleCRT &amp;f)</td></tr>
+<tr class="memitem:a31dcd6fc8861bd6ead98d082fba87214"><td class="memItemLeft" align="right" valign="top">NTL::ZZ&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a31dcd6fc8861bd6ead98d082fba87214">helib::sumOfCoeffs</a> (const DoubleCRT &amp;f)</td></tr>
 <tr class="separator:a31dcd6fc8861bd6ead98d082fba87214"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a20a91635cf835f5d24ba9fc0431002"><td class="memItemLeft" align="right" valign="top"><a id="a1a20a91635cf835f5d24ba9fc0431002"></a>
-NTL::ZZ&#160;</td><td class="memItemRight" valign="bottom"><b>helib::largestCoeff</b> (const NTL::ZZX &amp;f)</td></tr>
+<tr class="memitem:a1a20a91635cf835f5d24ba9fc0431002"><td class="memItemLeft" align="right" valign="top">NTL::ZZ&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a1a20a91635cf835f5d24ba9fc0431002">helib::largestCoeff</a> (const NTL::ZZX &amp;f)</td></tr>
 <tr class="separator:a1a20a91635cf835f5d24ba9fc0431002"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46eaa10d04eed2ee69d9e2c0a52528a7"><td class="memItemLeft" align="right" valign="top"><a id="a46eaa10d04eed2ee69d9e2c0a52528a7"></a>
-NTL::ZZ&#160;</td><td class="memItemRight" valign="bottom"><b>helib::largestCoeff</b> (const NTL::Vec&lt; NTL::ZZ &gt; &amp;f)</td></tr>
+<tr class="memitem:a46eaa10d04eed2ee69d9e2c0a52528a7"><td class="memItemLeft" align="right" valign="top">NTL::ZZ&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a46eaa10d04eed2ee69d9e2c0a52528a7">helib::largestCoeff</a> (const NTL::Vec&lt; NTL::ZZ &gt; &amp;f)</td></tr>
 <tr class="separator:a46eaa10d04eed2ee69d9e2c0a52528a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe1a3a33c80ba67655fd3cf8e6e66831"><td class="memItemLeft" align="right" valign="top"><a id="abe1a3a33c80ba67655fd3cf8e6e66831"></a>
-NTL::ZZ&#160;</td><td class="memItemRight" valign="bottom"><b>helib::largestCoeff</b> (const DoubleCRT &amp;f)</td></tr>
+<tr class="memitem:abe1a3a33c80ba67655fd3cf8e6e66831"><td class="memItemLeft" align="right" valign="top">NTL::ZZ&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#abe1a3a33c80ba67655fd3cf8e6e66831">helib::largestCoeff</a> (const DoubleCRT &amp;f)</td></tr>
 <tr class="separator:abe1a3a33c80ba67655fd3cf8e6e66831"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05eeef94d05d407f020712567c5eef27"><td class="memItemLeft" align="right" valign="top"><a id="a05eeef94d05d407f020712567c5eef27"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="norms_8h.html#a05eeef94d05d407f020712567c5eef27">helib::coeffsL2NormSquared</a> (const zzX &amp;f)</td></tr>
-<tr class="memdesc:a05eeef94d05d407f020712567c5eef27"><td class="mdescLeft">&#160;</td><td class="mdescRight">The L2-norm of an element (in coefficient representation) <br /></td></tr>
+<tr class="memitem:a05eeef94d05d407f020712567c5eef27"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a05eeef94d05d407f020712567c5eef27">helib::coeffsL2NormSquared</a> (const zzX &amp;f)</td></tr>
+<tr class="memdesc:a05eeef94d05d407f020712567c5eef27"><td class="mdescLeft">&#160;</td><td class="mdescRight">The L2-norm of an element (in coefficient representation)  <a href="namespacehelib.html#a05eeef94d05d407f020712567c5eef27">More...</a><br /></td></tr>
 <tr class="separator:a05eeef94d05d407f020712567c5eef27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09fe1adbf8a3a923231957865d6f7ade"><td class="memItemLeft" align="right" valign="top"><a id="a09fe1adbf8a3a923231957865d6f7ade"></a>
-NTL::xdouble&#160;</td><td class="memItemRight" valign="bottom"><b>helib::coeffsL2NormSquared</b> (const NTL::ZZX &amp;f)</td></tr>
+<tr class="memitem:a09fe1adbf8a3a923231957865d6f7ade"><td class="memItemLeft" align="right" valign="top">NTL::xdouble&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a09fe1adbf8a3a923231957865d6f7ade">helib::coeffsL2NormSquared</a> (const NTL::ZZX &amp;f)</td></tr>
 <tr class="separator:a09fe1adbf8a3a923231957865d6f7ade"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac39c73d6b51367807eca721bb748aadc"><td class="memItemLeft" align="right" valign="top"><a id="ac39c73d6b51367807eca721bb748aadc"></a>
-NTL::xdouble&#160;</td><td class="memItemRight" valign="bottom"><b>helib::coeffsL2NormSquared</b> (const DoubleCRT &amp;f)</td></tr>
+<tr class="memitem:ac39c73d6b51367807eca721bb748aadc"><td class="memItemLeft" align="right" valign="top">NTL::xdouble&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ac39c73d6b51367807eca721bb748aadc">helib::coeffsL2NormSquared</a> (const DoubleCRT &amp;f)</td></tr>
 <tr class="separator:ac39c73d6b51367807eca721bb748aadc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a9543f301395b419a4026ea72424c01"><td class="memItemLeft" align="right" valign="top"><a id="a3a9543f301395b419a4026ea72424c01"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>helib::embeddingLargestCoeff</b> (const std::vector&lt; double &gt; &amp;f, const PAlgebra &amp;palg)</td></tr>
+<tr class="memitem:a3a9543f301395b419a4026ea72424c01"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a3a9543f301395b419a4026ea72424c01">helib::embeddingLargestCoeff</a> (const std::vector&lt; double &gt; &amp;f, const PAlgebra &amp;palg)</td></tr>
 <tr class="separator:a3a9543f301395b419a4026ea72424c01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a338704cc219609b1663cc3b5bf1cb631"><td class="memItemLeft" align="right" valign="top"><a id="a338704cc219609b1663cc3b5bf1cb631"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::embeddingLargestCoeff_x2</b> (double &amp;norm1, double &amp;norm2, const std::vector&lt; double &gt; &amp;f1, const std::vector&lt; double &gt; &amp;f2, const PAlgebra &amp;palg)</td></tr>
+<tr class="memitem:a338704cc219609b1663cc3b5bf1cb631"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a338704cc219609b1663cc3b5bf1cb631">helib::embeddingLargestCoeff_x2</a> (double &amp;norm1, double &amp;norm2, const std::vector&lt; double &gt; &amp;f1, const std::vector&lt; double &gt; &amp;f2, const PAlgebra &amp;palg)</td></tr>
 <tr class="separator:a338704cc219609b1663cc3b5bf1cb631"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1163a93bce42908b4edfa4e2a2989c49"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="norms_8h.html#a1163a93bce42908b4edfa4e2a2989c49">helib::embeddingLargestCoeff</a> (const zzX &amp;f, const PAlgebra &amp;palg)</td></tr>
+<tr class="memitem:a1163a93bce42908b4edfa4e2a2989c49"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a1163a93bce42908b4edfa4e2a2989c49">helib::embeddingLargestCoeff</a> (const zzX &amp;f, const PAlgebra &amp;palg)</td></tr>
 <tr class="separator:a1163a93bce42908b4edfa4e2a2989c49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff1d310e2dc35b38b4f87aeaa0e8c73c"><td class="memItemLeft" align="right" valign="top"><a id="aff1d310e2dc35b38b4f87aeaa0e8c73c"></a>
-NTL::xdouble&#160;</td><td class="memItemRight" valign="bottom"><b>helib::embeddingLargestCoeff</b> (const NTL::ZZX &amp;f, const PAlgebra &amp;palg)</td></tr>
+<tr class="memitem:aff1d310e2dc35b38b4f87aeaa0e8c73c"><td class="memItemLeft" align="right" valign="top">NTL::xdouble&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#aff1d310e2dc35b38b4f87aeaa0e8c73c">helib::embeddingLargestCoeff</a> (const NTL::ZZX &amp;f, const PAlgebra &amp;palg)</td></tr>
 <tr class="separator:aff1d310e2dc35b38b4f87aeaa0e8c73c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cd57ab6741a87f8b261d0a1417b8c5b"><td class="memItemLeft" align="right" valign="top"><a id="a7cd57ab6741a87f8b261d0a1417b8c5b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::CKKS_canonicalEmbedding</b> (std::vector&lt; cx_double &gt; &amp;v, const std::vector&lt; double &gt; &amp;f, const PAlgebra &amp;palg)</td></tr>
+<tr class="memitem:a7cd57ab6741a87f8b261d0a1417b8c5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a7cd57ab6741a87f8b261d0a1417b8c5b">helib::CKKS_canonicalEmbedding</a> (std::vector&lt; cx_double &gt; &amp;v, const std::vector&lt; double &gt; &amp;f, const PAlgebra &amp;palg)</td></tr>
 <tr class="separator:a7cd57ab6741a87f8b261d0a1417b8c5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affe1779765ee918f4c7e869ed86baf6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="norms_8h.html#affe1779765ee918f4c7e869ed86baf6a">helib::CKKS_canonicalEmbedding</a> (std::vector&lt; cx_double &gt; &amp;v, const zzX &amp;f, const PAlgebra &amp;palg)</td></tr>
+<tr class="memitem:affe1779765ee918f4c7e869ed86baf6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#affe1779765ee918f4c7e869ed86baf6a">helib::CKKS_canonicalEmbedding</a> (std::vector&lt; cx_double &gt; &amp;v, const zzX &amp;f, const PAlgebra &amp;palg)</td></tr>
 <tr class="separator:affe1779765ee918f4c7e869ed86baf6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ec3f9852eabd8796caf38d347501acd"><td class="memItemLeft" align="right" valign="top"><a id="a5ec3f9852eabd8796caf38d347501acd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::CKKS_canonicalEmbedding</b> (std::vector&lt; cx_double &gt; &amp;v, const NTL::ZZX &amp;f, const PAlgebra &amp;palg)</td></tr>
+<tr class="memitem:a5ec3f9852eabd8796caf38d347501acd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a5ec3f9852eabd8796caf38d347501acd">helib::CKKS_canonicalEmbedding</a> (std::vector&lt; cx_double &gt; &amp;v, const NTL::ZZX &amp;f, const PAlgebra &amp;palg)</td></tr>
 <tr class="separator:a5ec3f9852eabd8796caf38d347501acd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ec40f00efeb846267027bd14353fe4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="norms_8h.html#a5ec40f00efeb846267027bd14353fe4a">helib::CKKS_embedInSlots</a> (zzX &amp;f, const std::vector&lt; cx_double &gt; &amp;v, const PAlgebra &amp;palg, double scaling)</td></tr>
+<tr class="memitem:a5ec40f00efeb846267027bd14353fe4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a5ec40f00efeb846267027bd14353fe4a">helib::CKKS_embedInSlots</a> (zzX &amp;f, const std::vector&lt; cx_double &gt; &amp;v, const PAlgebra &amp;palg, double scaling)</td></tr>
 <tr class="separator:a5ec40f00efeb846267027bd14353fe4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><ul>
 <li>computing various norms of ring elements </li>
 </ul>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="affe1779765ee918f4c7e869ed86baf6a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#affe1779765ee918f4c7e869ed86baf6a">&#9670;&nbsp;</a></span>CKKS_canonicalEmbedding()</h2>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a88e1a82fb86e2675a7533e788ce0a67b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88e1a82fb86e2675a7533e788ce0a67b">&#9670;&nbsp;</a></span>USE_HALF_FFT</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void helib::CKKS_canonicalEmbedding </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; cx_double &gt; &amp;&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const zzX &amp;&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classhelib_1_1_p_algebra.html">PAlgebra</a> &amp;&#160;</td>
-          <td class="paramname"><em>palg</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">#define USE_HALF_FFT&#160;&#160;&#160;(1)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Computes canonical embedding. Requires p==-1 and m==2^k where k &gt;=2 and f.length() &lt; m/2. Sets v[m/4-1-i] = DFT[palg.ith_rep(i)] for i in range(m/4), where DFT[j] = f(W^j) for j in range(m), and W = exp(-2*pi*I/m). </p>
 
 </div>
 </div>
-<a id="a5ec40f00efeb846267027bd14353fe4a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ec40f00efeb846267027bd14353fe4a">&#9670;&nbsp;</a></span>CKKS_embedInSlots()</h2>
+<a id="ab4ef9a62e784d68ec04cf0b0ad6b487f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4ef9a62e784d68ec04cf0b0ad6b487f">&#9670;&nbsp;</a></span>USE_QUARTER_FFT</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void helib::CKKS_embedInSlots </td>
-          <td>(</td>
-          <td class="paramtype">zzX &amp;&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; cx_double &gt; &amp;&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classhelib_1_1_p_algebra.html">PAlgebra</a> &amp;&#160;</td>
-          <td class="paramname"><em>palg</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>scaling</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">#define USE_QUARTER_FFT&#160;&#160;&#160;(1)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Requires p==-1 and m==2^k where k &gt;=2. Computes the inverse of canonical embedding, scaled by scaling and then rounded to nearest integer. </p>
 
 </div>
 </div>
-<a id="a1163a93bce42908b4edfa4e2a2989c49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1163a93bce42908b4edfa4e2a2989c49">&#9670;&nbsp;</a></span>embeddingLargestCoeff()</h2>
+<a id="a3faed04ade2efb1a809baa1484e98b4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3faed04ade2efb1a809baa1484e98b4c">&#9670;&nbsp;</a></span>USE_TWO_QUARTERS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double helib::embeddingLargestCoeff </td>
-          <td>(</td>
-          <td class="paramtype">const zzX &amp;&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classhelib_1_1_p_algebra.html">PAlgebra</a> &amp;&#160;</td>
-          <td class="paramname"><em>palg</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">#define USE_TWO_QUARTERS&#160;&#160;&#160;(0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Computing the L-infinity norm of the canonical embedding Assumed: deg(f) &lt; phi(m). </p>
 
 </div>
 </div>

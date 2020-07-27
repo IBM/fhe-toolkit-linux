@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['writecontextbase_1269',['writeContextBase',['../classhelib_1_1_context.html#a3a9a7a348aecd453c92d1c077a9af03d',1,'helib::Context']]]
+  ['fullbinarytree_3c_20t_20_3e_2816',['FullBinaryTree&lt; T &gt;',['../classhelib_1_1_tree_node.html#ac07289ec6bd1eafcb29ab390d948e0d8',1,'helib::TreeNode']]]
 ];

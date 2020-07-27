@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
         <meta name="generator" content="Doxygen 1.8.18"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <title>HElib: include/helib/Context.h File Reference</title>
+        <title>HElib: /Users/Projects/FHE_HElib_Repos_Public_staging/homenc_v1.0.2/HElib/include/helib/Context.h File Reference</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
         <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -79,6 +79,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -94,7 +95,7 @@ $(function() {
 <code>#include &lt;<a class="el" href="recryption_8h_source.html">helib/recryption.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="prime_chain_8h_source.html">helib/primeChain.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="powerful_8h_source.html">helib/powerful.h</a>&gt;</code><br />
-<code>#include &lt;helib/apiAttributes.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="api_attributes_8h_source.html">helib/apiAttributes.h</a>&gt;</code><br />
 <code>#include &lt;NTL/Lazy.h&gt;</code><br />
 </div>
 <p><a href="_context_8h_source.html">Go to the source code of this file.</a></p>
@@ -105,218 +106,49 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maintaining the parameters.  <a href="classhelib_1_1_context.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacehelib"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html">helib</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:abbf9f5de032fca82af2ce94a97041bc6"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_context_8h.html#abbf9f5de032fca82af2ce94a97041bc6">helib::FindM</a> (long k, long nBits, long c, long p, long d, long s, long chosen_m, bool verbose=false)</td></tr>
-<tr class="memdesc:abbf9f5de032fca82af2ce94a97041bc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns smallest parameter m satisfying various constraints:  <a href="_context_8h.html#abbf9f5de032fca82af2ce94a97041bc6">More...</a><br /></td></tr>
+<tr class="memitem:abbf9f5de032fca82af2ce94a97041bc6"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#abbf9f5de032fca82af2ce94a97041bc6">helib::FindM</a> (long k, long nBits, long c, long p, long d, long s, long chosen_m, bool <a class="el" href="_test___ptr_vector_8cpp.html#ab3f078684998b83967d507d0f453f454">verbose</a>=false)</td></tr>
+<tr class="memdesc:abbf9f5de032fca82af2ce94a97041bc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns smallest parameter m satisfying various constraints:  <a href="namespacehelib.html#abbf9f5de032fca82af2ce94a97041bc6">More...</a><br /></td></tr>
 <tr class="separator:abbf9f5de032fca82af2ce94a97041bc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8425881cdaaef9fade4dd57cc3cf5e8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_context_8h.html#a8425881cdaaef9fade4dd57cc3cf5e8b">helib::writeContextBase</a> (std::ostream &amp;s, const Context &amp;context)</td></tr>
-<tr class="memdesc:a8425881cdaaef9fade4dd57cc3cf5e8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">write [m p r gens ords] data  <a href="_context_8h.html#a8425881cdaaef9fade4dd57cc3cf5e8b">More...</a><br /></td></tr>
+<tr class="memitem:a8425881cdaaef9fade4dd57cc3cf5e8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a8425881cdaaef9fade4dd57cc3cf5e8b">helib::writeContextBase</a> (std::ostream &amp;s, const Context &amp;context)</td></tr>
+<tr class="memdesc:a8425881cdaaef9fade4dd57cc3cf5e8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">write [m p r gens ords] data  <a href="namespacehelib.html#a8425881cdaaef9fade4dd57cc3cf5e8b">More...</a><br /></td></tr>
 <tr class="separator:a8425881cdaaef9fade4dd57cc3cf5e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7b88eb3fd0aa4821cb6700fa65ecee2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_context_8h.html#ab7b88eb3fd0aa4821cb6700fa65ecee2">helib::readContextBase</a> (std::istream &amp;s, unsigned long &amp;m, unsigned long &amp;p, unsigned long &amp;r, std::vector&lt; long &gt; &amp;gens, std::vector&lt; long &gt; &amp;ords)</td></tr>
-<tr class="memdesc:ab7b88eb3fd0aa4821cb6700fa65ecee2"><td class="mdescLeft">&#160;</td><td class="mdescRight">read [m p r gens ords] data, needed to construct context  <a href="_context_8h.html#ab7b88eb3fd0aa4821cb6700fa65ecee2">More...</a><br /></td></tr>
+<tr class="memitem:ab7b88eb3fd0aa4821cb6700fa65ecee2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#ab7b88eb3fd0aa4821cb6700fa65ecee2">helib::readContextBase</a> (std::istream &amp;s, unsigned long &amp;m, unsigned long &amp;p, unsigned long &amp;r, std::vector&lt; long &gt; &amp;gens, std::vector&lt; long &gt; &amp;ords)</td></tr>
+<tr class="memdesc:ab7b88eb3fd0aa4821cb6700fa65ecee2"><td class="mdescLeft">&#160;</td><td class="mdescRight">read [m p r gens ords] data, needed to construct context  <a href="namespacehelib.html#ab7b88eb3fd0aa4821cb6700fa65ecee2">More...</a><br /></td></tr>
 <tr class="separator:ab7b88eb3fd0aa4821cb6700fa65ecee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcfd34a416649164e3b01c4af1c8654e"><td class="memItemLeft" align="right" valign="top"><a id="adcfd34a416649164e3b01c4af1c8654e"></a>
-std::unique_ptr&lt; Context &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>helib::buildContextFromAscii</b> (std::istream &amp;str)</td></tr>
+<tr class="memitem:adcfd34a416649164e3b01c4af1c8654e"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; Context &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#adcfd34a416649164e3b01c4af1c8654e">helib::buildContextFromAscii</a> (std::istream &amp;str)</td></tr>
 <tr class="separator:adcfd34a416649164e3b01c4af1c8654e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3167b996c8b02f9f390d1d9957693b9f"><td class="memItemLeft" align="right" valign="top"><a id="a3167b996c8b02f9f390d1d9957693b9f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_context_8h.html#a3167b996c8b02f9f390d1d9957693b9f">helib::writeContextBaseBinary</a> (std::ostream &amp;str, const Context &amp;context)</td></tr>
-<tr class="memdesc:a3167b996c8b02f9f390d1d9957693b9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">write [m p r gens ords] data <br /></td></tr>
+<tr class="memitem:a3167b996c8b02f9f390d1d9957693b9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a3167b996c8b02f9f390d1d9957693b9f">helib::writeContextBaseBinary</a> (std::ostream &amp;str, const Context &amp;context)</td></tr>
+<tr class="memdesc:a3167b996c8b02f9f390d1d9957693b9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">write [m p r gens ords] data  <a href="namespacehelib.html#a3167b996c8b02f9f390d1d9957693b9f">More...</a><br /></td></tr>
 <tr class="separator:a3167b996c8b02f9f390d1d9957693b9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f9bc09cb4de5422bb79e9c4d67db80a"><td class="memItemLeft" align="right" valign="top"><a id="a1f9bc09cb4de5422bb79e9c4d67db80a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::writeContextBinary</b> (std::ostream &amp;str, const Context &amp;context)</td></tr>
+<tr class="memitem:a1f9bc09cb4de5422bb79e9c4d67db80a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a1f9bc09cb4de5422bb79e9c4d67db80a">helib::writeContextBinary</a> (std::ostream &amp;str, const Context &amp;context)</td></tr>
 <tr class="separator:a1f9bc09cb4de5422bb79e9c4d67db80a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb88b203e4e9aeaf5fe329e7cc276aad"><td class="memItemLeft" align="right" valign="top"><a id="acb88b203e4e9aeaf5fe329e7cc276aad"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_context_8h.html#acb88b203e4e9aeaf5fe329e7cc276aad">helib::readContextBaseBinary</a> (std::istream &amp;s, unsigned long &amp;m, unsigned long &amp;p, unsigned long &amp;r, std::vector&lt; long &gt; &amp;gens, std::vector&lt; long &gt; &amp;ords)</td></tr>
-<tr class="memdesc:acb88b203e4e9aeaf5fe329e7cc276aad"><td class="mdescLeft">&#160;</td><td class="mdescRight">read [m p r gens ords] data, needed to construct context <br /></td></tr>
+<tr class="memitem:acb88b203e4e9aeaf5fe329e7cc276aad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#acb88b203e4e9aeaf5fe329e7cc276aad">helib::readContextBaseBinary</a> (std::istream &amp;s, unsigned long &amp;m, unsigned long &amp;p, unsigned long &amp;r, std::vector&lt; long &gt; &amp;gens, std::vector&lt; long &gt; &amp;ords)</td></tr>
+<tr class="memdesc:acb88b203e4e9aeaf5fe329e7cc276aad"><td class="mdescLeft">&#160;</td><td class="mdescRight">read [m p r gens ords] data, needed to construct context  <a href="namespacehelib.html#acb88b203e4e9aeaf5fe329e7cc276aad">More...</a><br /></td></tr>
 <tr class="separator:acb88b203e4e9aeaf5fe329e7cc276aad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4036006b2d0e378ce2aa90a5332a8d73"><td class="memItemLeft" align="right" valign="top"><a id="a4036006b2d0e378ce2aa90a5332a8d73"></a>
-std::unique_ptr&lt; Context &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>helib::buildContextFromBinary</b> (std::istream &amp;str)</td></tr>
+<tr class="memitem:a4036006b2d0e378ce2aa90a5332a8d73"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; Context &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a4036006b2d0e378ce2aa90a5332a8d73">helib::buildContextFromBinary</a> (std::istream &amp;str)</td></tr>
 <tr class="separator:a4036006b2d0e378ce2aa90a5332a8d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a07fadbe58c0bf5c4be26d9bb245755"><td class="memItemLeft" align="right" valign="top"><a id="a4a07fadbe58c0bf5c4be26d9bb245755"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::readContextBinary</b> (std::istream &amp;str, Context &amp;context)</td></tr>
+<tr class="memitem:a4a07fadbe58c0bf5c4be26d9bb245755"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a4a07fadbe58c0bf5c4be26d9bb245755">helib::readContextBinary</a> (std::istream &amp;str, Context &amp;context)</td></tr>
 <tr class="separator:a4a07fadbe58c0bf5c4be26d9bb245755"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af68cc874f7e017cd4c35d1ea52739c0f"><td class="memItemLeft" align="right" valign="top"><a id="af68cc874f7e017cd4c35d1ea52739c0f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::buildModChain</b> (Context &amp;context, long nBits, long nDgts=3, bool willBeBootstrappable=false, long skHwt=0, long resolution=3, long bitsInSpecialPrimes=0)</td></tr>
+<tr class="memitem:af68cc874f7e017cd4c35d1ea52739c0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#af68cc874f7e017cd4c35d1ea52739c0f">helib::buildModChain</a> (Context &amp;context, long nBits, long nDgts=3, bool willBeBootstrappable=false, long skHwt=0, long resolution=3, long bitsInSpecialPrimes=0)</td></tr>
 <tr class="separator:af68cc874f7e017cd4c35d1ea52739c0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcdd1f22927d282e9bbce15a18f5f3ad"><td class="memItemLeft" align="right" valign="top"><a id="abcdd1f22927d282e9bbce15a18f5f3ad"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>helib::endBuildModChain</b> (Context &amp;context)</td></tr>
+<tr class="memitem:abcdd1f22927d282e9bbce15a18f5f3ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#abcdd1f22927d282e9bbce15a18f5f3ad">helib::endBuildModChain</a> (Context &amp;context)</td></tr>
 <tr class="separator:abcdd1f22927d282e9bbce15a18f5f3ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a3ba322251033959f95b296f34745836e"><td class="memItemLeft" align="right" valign="top"><a id="a3ba322251033959f95b296f34745836e"></a>
-Context *&#160;</td><td class="memItemRight" valign="bottom"><b>helib::activeContext</b> = nullptr</td></tr>
+<tr class="memitem:a3ba322251033959f95b296f34745836e"><td class="memItemLeft" align="right" valign="top">Context *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a3ba322251033959f95b296f34745836e">helib::activeContext</a> = nullptr</td></tr>
 <tr class="separator:a3ba322251033959f95b296f34745836e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Keeps the parameters of an instance of the cryptosystem. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="abbf9f5de032fca82af2ce94a97041bc6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abbf9f5de032fca82af2ce94a97041bc6">&#9670;&nbsp;</a></span>FindM()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">long helib::FindM </td>
-          <td>(</td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>k</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>nBits</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>d</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>s</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>chosen_m</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>verbose</em> = <code>false</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns smallest parameter m satisfying various constraints: </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">k</td><td>security parameter </td></tr>
-    <tr><td class="paramname">L</td><td>number of levels </td></tr>
-    <tr><td class="paramname">c</td><td>number of columns in key switching matrices </td></tr>
-    <tr><td class="paramname">p</td><td>characteristic of plaintext space </td></tr>
-    <tr><td class="paramname">d</td><td>embedding degree (d ==0 or d==1 =&gt; no constraint) </td></tr>
-    <tr><td class="paramname">s</td><td>at least that many plaintext slots </td></tr>
-    <tr><td class="paramname">chosen_m</td><td>preselected value of m (0 =&gt; not preselected) Fails with an error message if no suitable m is found prints an informative message if verbose == true </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ab7b88eb3fd0aa4821cb6700fa65ecee2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7b88eb3fd0aa4821cb6700fa65ecee2">&#9670;&nbsp;</a></span>readContextBase()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void helib::readContextBase </td>
-          <td>(</td>
-          <td class="paramtype">std::istream &amp;&#160;</td>
-          <td class="paramname"><em>s</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned long &amp;&#160;</td>
-          <td class="paramname"><em>m</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned long &amp;&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned long &amp;&#160;</td>
-          <td class="paramname"><em>r</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; long &gt; &amp;&#160;</td>
-          <td class="paramname"><em>gens</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; long &gt; &amp;&#160;</td>
-          <td class="paramname"><em>ords</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>read [m p r gens ords] data, needed to construct context </p>
-<p>read [m p r] data, needed to construct context </p>
-
-</div>
-</div>
-<a id="a8425881cdaaef9fade4dd57cc3cf5e8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8425881cdaaef9fade4dd57cc3cf5e8b">&#9670;&nbsp;</a></span>writeContextBase()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void helib::writeContextBase </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>s</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classhelib_1_1_context.html">Context</a> &amp;&#160;</td>
-          <td class="paramname"><em>context</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>write [m p r gens ords] data </p>
-<p>write [m p r] data </p>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->
 </div>

@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -73,7 +73,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>helib</b></li><li class="navelem"><a class="el" href="classhelib_1_1_replicate_handler.html">ReplicateHandler</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacehelib.html">helib</a></li><li class="navelem"><a class="el" href="classhelib_1_1_replicate_handler.html">ReplicateHandler</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -103,17 +103,114 @@ Inheritance diagram for helib::ReplicateHandler:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab1948419f4d93c8de6afd3eb43d707d5"><td class="memItemLeft" align="right" valign="top"><a id="ab1948419f4d93c8de6afd3eb43d707d5"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>handle</b> (const <a class="el" href="classhelib_1_1_ctxt.html">Ctxt</a> &amp;ctxt)=0</td></tr>
+<tr class="memitem:ab1948419f4d93c8de6afd3eb43d707d5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_replicate_handler.html#ab1948419f4d93c8de6afd3eb43d707d5">handle</a> (const <a class="el" href="classhelib_1_1_ctxt.html">Ctxt</a> &amp;ctxt)=0</td></tr>
 <tr class="separator:ab1948419f4d93c8de6afd3eb43d707d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75d551cd8259d718f6507f381e218dbd"><td class="memItemLeft" align="right" valign="top"><a id="a75d551cd8259d718f6507f381e218dbd"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>earlyStop</b> (long d, long k, long prodDim)</td></tr>
+<tr class="memitem:a73529e97459544eec2f29b755737cfb1"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_replicate_handler.html#a73529e97459544eec2f29b755737cfb1">~ReplicateHandler</a> ()</td></tr>
+<tr class="separator:a73529e97459544eec2f29b755737cfb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75d551cd8259d718f6507f381e218dbd"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_replicate_handler.html#a75d551cd8259d718f6507f381e218dbd">earlyStop</a> (long d, long k, long prodDim)</td></tr>
 <tr class="separator:a75d551cd8259d718f6507f381e218dbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An abstract class to handle call-backs to get the output of replicate. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/helib/<a class="el" href="replicate_8h_source.html">replicate.h</a></li>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a73529e97459544eec2f29b755737cfb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73529e97459544eec2f29b755737cfb1">&#9670;&nbsp;</a></span>~ReplicateHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual helib::ReplicateHandler::~ReplicateHandler </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a75d551cd8259d718f6507f381e218dbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75d551cd8259d718f6507f381e218dbd">&#9670;&nbsp;</a></span>earlyStop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool helib::ReplicateHandler::earlyStop </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>k</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>prodDim</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab1948419f4d93c8de6afd3eb43d707d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1948419f4d93c8de6afd3eb43d707d5">&#9670;&nbsp;</a></span>handle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void helib::ReplicateHandler::handle </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classhelib_1_1_ctxt.html">Ctxt</a> &amp;&#160;</td>
+          <td class="paramname"><em>ctxt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classhelib_1_1_explicit_replicator.html#a99525045dc3ad004aa72a55ba5a19d26">helib::ExplicitReplicator</a>, <a class="el" href="class_replicate_dummy.html#af9860dad6b564fc2cac42e237cd4183e">ReplicateDummy</a>, and <a class="el" href="class_replicate_tester.html#a5361ca48fce31929d64e6e7c25809738">ReplicateTester</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>/Users/Projects/FHE_HElib_Repos_Public_staging/homenc_v1.0.2/HElib/include/helib/<a class="el" href="replicate_8h_source.html">replicate.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.8-->

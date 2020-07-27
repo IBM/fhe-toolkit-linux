@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
         <meta name="generator" content="Doxygen 1.8.18"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <title>HElib: include/helib/binaryCompare.h Source File</title>
+        <title>HElib: /Users/Projects/FHE_HElib_Repos_Public_staging/homenc_v1.0.2/HElib/include/helib/binaryCompare.h Source File</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
         <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -98,21 +98,21 @@ $(function() {
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_encrypted_array_8h.html">helib/EncryptedArray.h</a>&gt;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_ct_ptrs_8h.html">helib/CtPtrs.h</a>&gt;</span> <span class="comment">//  defines CtPtrs, CtPtrMat</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span>helib {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacehelib.html">helib</a> {</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">void</span> <a class="code" href="binary_compare_8h.html#a2eda8a61661cec76566fb5c6f475eb24">compareTwoNumbers</a>(CtPtrs&amp; max,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                       CtPtrs&amp; min,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacehelib.html#a2eda8a61661cec76566fb5c6f475eb24">compareTwoNumbers</a>(<a class="code" href="namespacehelib.html#afac4e5ae4b272f9ffd07daee26285dad">CtPtrs</a>&amp; max,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                       <a class="code" href="namespacehelib.html#afac4e5ae4b272f9ffd07daee26285dad">CtPtrs</a>&amp; min,</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                       Ctxt&amp; mu,</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                       Ctxt&amp; ni,</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                       <span class="keyword">const</span> CtPtrs&amp; a,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                       <span class="keyword">const</span> CtPtrs&amp; b,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                       <span class="keyword">const</span> <a class="code" href="namespacehelib.html#afac4e5ae4b272f9ffd07daee26285dad">CtPtrs</a>&amp; a,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                       <span class="keyword">const</span> <a class="code" href="namespacehelib.html#afac4e5ae4b272f9ffd07daee26285dad">CtPtrs</a>&amp; b,</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                       <span class="keywordtype">bool</span> twosComplement = <span class="keyword">false</span>,</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                       std::vector&lt;zzX&gt;* unpackSlotEncoding = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">void</span> <a class="code" href="binary_compare_8h.html#a2eda8a61661cec76566fb5c6f475eb24">compareTwoNumbers</a>(Ctxt&amp; mu,</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacehelib.html#a2eda8a61661cec76566fb5c6f475eb24">compareTwoNumbers</a>(Ctxt&amp; mu,</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                       Ctxt&amp; ni,</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                       <span class="keyword">const</span> CtPtrs&amp; a,</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                       <span class="keyword">const</span> CtPtrs&amp; b,</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                       <span class="keyword">const</span> <a class="code" href="namespacehelib.html#afac4e5ae4b272f9ffd07daee26285dad">CtPtrs</a>&amp; a,</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                       <span class="keyword">const</span> <a class="code" href="namespacehelib.html#afac4e5ae4b272f9ffd07daee26285dad">CtPtrs</a>&amp; b,</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                       <span class="keywordtype">bool</span> twosComplement = <span class="keyword">false</span>,</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                       std::vector&lt;zzX&gt;* unpackSlotEncoding = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
@@ -120,8 +120,10 @@ $(function() {
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif // ifndef HELIB_BINARYCOMPARE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="a_ct_ptrs_8h_html"><div class="ttname"><a href="_ct_ptrs_8h.html">CtPtrs.h</a></div><div class="ttdoc">Unified interface for vector of pointers to ciphertexts.</div></div>
+<div class="ttc" id="anamespacehelib_html_a2eda8a61661cec76566fb5c6f475eb24"><div class="ttname"><a href="namespacehelib.html#a2eda8a61661cec76566fb5c6f475eb24">helib::compareTwoNumbers</a></div><div class="ttdeci">void compareTwoNumbers(CtPtrs &amp;max, CtPtrs &amp;min, Ctxt &amp;mu, Ctxt &amp;ni, const CtPtrs &amp;a, const CtPtrs &amp;b, bool twosComplement=false, std::vector&lt; zzX &gt; *unpackSlotEncoding=nullptr)</div><div class="ttdoc">Compares two integers in binary a, b. Returns max(a, b), min(a, b) and indicator bits mu=(a&gt;b) and ni...</div><div class="ttdef"><b>Definition:</b> binaryCompare.cpp:255</div></div>
 <div class="ttc" id="a_encrypted_array_8h_html"><div class="ttname"><a href="_encrypted_array_8h.html">EncryptedArray.h</a></div><div class="ttdoc">Data-movement operations on encrypted arrays of slots.</div></div>
-<div class="ttc" id="abinary_compare_8h_html_a2eda8a61661cec76566fb5c6f475eb24"><div class="ttname"><a href="binary_compare_8h.html#a2eda8a61661cec76566fb5c6f475eb24">helib::compareTwoNumbers</a></div><div class="ttdeci">void compareTwoNumbers(CtPtrs &amp;max, CtPtrs &amp;min, Ctxt &amp;mu, Ctxt &amp;ni, const CtPtrs &amp;a, const CtPtrs &amp;b, bool twosComplement=false, std::vector&lt; zzX &gt; *unpackSlotEncoding=nullptr)</div><div class="ttdoc">Compares two integers in binary a, b. Returns max(a, b), min(a, b) and indicator bits mu=(a&gt;b) and ni...</div><div class="ttdef"><b>Definition:</b> binaryCompare.cpp:255</div></div>
+<div class="ttc" id="anamespacehelib_html"><div class="ttname"><a href="namespacehelib.html">helib</a></div><div class="ttdef"><b>Definition:</b> apiAttributes.h:21</div></div>
+<div class="ttc" id="anamespacehelib_html_afac4e5ae4b272f9ffd07daee26285dad"><div class="ttname"><a href="namespacehelib.html#afac4e5ae4b272f9ffd07daee26285dad">helib::CtPtrs</a></div><div class="ttdeci">PtrVector&lt; Ctxt &gt; CtPtrs</div><div class="ttdef"><b>Definition:</b> CtPtrs.h:25</div></div>
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->
 </div>

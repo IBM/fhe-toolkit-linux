@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
         <meta name="generator" content="Doxygen 1.8.18"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <title>HElib: include/helib/PtrVector.h File Reference</title>
+        <title>HElib: /Users/Projects/FHE_HElib_Repos_Public_staging/homenc_v1.0.2/HElib/include/helib/PtrVector.h File Reference</title>
         <!--<link href="tabs.css" rel="stylesheet" type="text/css"/>-->
         <script type="text/javascript" src="dynsections.js"></script>
         <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -79,6 +79,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">PtrVector.h File Reference</div>  </div>
@@ -92,7 +93,7 @@ $(function() {
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;NTL/vector.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="assertions_8h_source.html">helib/assertions.h</a>&gt;</code><br />
-<code>#include &lt;helib/apiAttributes.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="api_attributes_8h_source.html">helib/apiAttributes.h</a>&gt;</code><br />
 </div>
 <p><a href="_ptr_vector_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -120,39 +121,36 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An implementation of <a class="el" href="structhelib_1_1_ptr_vector.html" title="Abstract class for an array of objects.">PtrVector</a> from a single T object.  <a href="structhelib_1_1_ptr_vector___singleton.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacehelib"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehelib.html">helib</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a368a1406fcc81e32dce3caebda60477b"><td class="memTemplParams" colspan="2"><a id="a368a1406fcc81e32dce3caebda60477b"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a368a1406fcc81e32dce3caebda60477b"><td class="memTemplItemLeft" align="right" valign="top">long&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::lsize</b> (const PtrVector&lt; T &gt; &amp;v)</td></tr>
+<tr class="memitem:a368a1406fcc81e32dce3caebda60477b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a368a1406fcc81e32dce3caebda60477b"><td class="memTemplItemLeft" align="right" valign="top">long&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a368a1406fcc81e32dce3caebda60477b">helib::lsize</a> (const PtrVector&lt; T &gt; &amp;v)</td></tr>
 <tr class="separator:a368a1406fcc81e32dce3caebda60477b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a030064c52dceba94106ffbd8afb564ef"><td class="memTemplParams" colspan="2"><a id="a030064c52dceba94106ffbd8afb564ef"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a030064c52dceba94106ffbd8afb564ef"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::setLengthZero</b> (PtrVector&lt; T &gt; &amp;v)</td></tr>
+<tr class="memitem:a030064c52dceba94106ffbd8afb564ef"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a030064c52dceba94106ffbd8afb564ef"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a030064c52dceba94106ffbd8afb564ef">helib::setLengthZero</a> (PtrVector&lt; T &gt; &amp;v)</td></tr>
 <tr class="separator:a030064c52dceba94106ffbd8afb564ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a810f01874466a0f57b41f96b8cb7a96c"><td class="memTemplParams" colspan="2"><a id="a810f01874466a0f57b41f96b8cb7a96c"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a810f01874466a0f57b41f96b8cb7a96c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::resize</b> (PtrVector&lt; T &gt; &amp;v, long newSize, const T &amp;val)</td></tr>
+<tr class="memitem:a810f01874466a0f57b41f96b8cb7a96c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a810f01874466a0f57b41f96b8cb7a96c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a810f01874466a0f57b41f96b8cb7a96c">helib::resize</a> (PtrVector&lt; T &gt; &amp;v, long newSize, const T &amp;val)</td></tr>
 <tr class="separator:a810f01874466a0f57b41f96b8cb7a96c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a1574e2c95b30b1eb204d669f029368"><td class="memTemplParams" colspan="2"><a id="a6a1574e2c95b30b1eb204d669f029368"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a6a1574e2c95b30b1eb204d669f029368"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::resize</b> (PtrVector&lt; T &gt; &amp;v, long newSize, const T *val)</td></tr>
+<tr class="memitem:a6a1574e2c95b30b1eb204d669f029368"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a6a1574e2c95b30b1eb204d669f029368"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a6a1574e2c95b30b1eb204d669f029368">helib::resize</a> (PtrVector&lt; T &gt; &amp;v, long newSize, const T *val)</td></tr>
 <tr class="separator:a6a1574e2c95b30b1eb204d669f029368"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03ca08051d06a786cf812e238a0cad15"><td class="memTemplParams" colspan="2"><a id="a03ca08051d06a786cf812e238a0cad15"></a>
-template&lt;typename V1 , typename V2 &gt; </td></tr>
-<tr class="memitem:a03ca08051d06a786cf812e238a0cad15"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::vecCopy</b> (V1 &amp;v1, const V2 &amp;v2, long sizeLimit=0)</td></tr>
+<tr class="memitem:a03ca08051d06a786cf812e238a0cad15"><td class="memTemplParams" colspan="2">template&lt;typename V1 , typename V2 &gt; </td></tr>
+<tr class="memitem:a03ca08051d06a786cf812e238a0cad15"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a03ca08051d06a786cf812e238a0cad15">helib::vecCopy</a> (V1 &amp;v1, const V2 &amp;v2, long sizeLimit=0)</td></tr>
 <tr class="separator:a03ca08051d06a786cf812e238a0cad15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4d8218e2c0fee25ebec6d40d2a6036d"><td class="memTemplParams" colspan="2"><a id="aa4d8218e2c0fee25ebec6d40d2a6036d"></a>
-template&lt;typename V , typename T &gt; </td></tr>
-<tr class="memitem:aa4d8218e2c0fee25ebec6d40d2a6036d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::vecCopy</b> (V &amp;v1, const PtrVector&lt; T &gt; &amp;v2, long sizeLimit=0)</td></tr>
+<tr class="memitem:aa4d8218e2c0fee25ebec6d40d2a6036d"><td class="memTemplParams" colspan="2">template&lt;typename V , typename T &gt; </td></tr>
+<tr class="memitem:aa4d8218e2c0fee25ebec6d40d2a6036d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#aa4d8218e2c0fee25ebec6d40d2a6036d">helib::vecCopy</a> (V &amp;v1, const PtrVector&lt; T &gt; &amp;v2, long sizeLimit=0)</td></tr>
 <tr class="separator:aa4d8218e2c0fee25ebec6d40d2a6036d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7dd2ecf9ca1ddd7c2e7372fb8999030d"><td class="memTemplParams" colspan="2"><a id="a7dd2ecf9ca1ddd7c2e7372fb8999030d"></a>
-template&lt;typename V , typename T &gt; </td></tr>
-<tr class="memitem:a7dd2ecf9ca1ddd7c2e7372fb8999030d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::vecCopy</b> (PtrVector&lt; T &gt; &amp;v1, const V &amp;v2, long sizeLimit=0)</td></tr>
+<tr class="memitem:a7dd2ecf9ca1ddd7c2e7372fb8999030d"><td class="memTemplParams" colspan="2">template&lt;typename V , typename T &gt; </td></tr>
+<tr class="memitem:a7dd2ecf9ca1ddd7c2e7372fb8999030d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a7dd2ecf9ca1ddd7c2e7372fb8999030d">helib::vecCopy</a> (PtrVector&lt; T &gt; &amp;v1, const V &amp;v2, long sizeLimit=0)</td></tr>
 <tr class="separator:a7dd2ecf9ca1ddd7c2e7372fb8999030d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b1de5f6a3cb9f9da27cd496659cc899"><td class="memTemplParams" colspan="2"><a id="a2b1de5f6a3cb9f9da27cd496659cc899"></a>
-template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a2b1de5f6a3cb9f9da27cd496659cc899"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>helib::vecCopy</b> (PtrVector&lt; T &gt; &amp;v1, const PtrVector&lt; T &gt; &amp;v2, long sizeLimit=0)</td></tr>
+<tr class="memitem:a2b1de5f6a3cb9f9da27cd496659cc899"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a2b1de5f6a3cb9f9da27cd496659cc899"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehelib.html#a2b1de5f6a3cb9f9da27cd496659cc899">helib::vecCopy</a> (PtrVector&lt; T &gt; &amp;v1, const PtrVector&lt; T &gt; &amp;v2, long sizeLimit=0)</td></tr>
 <tr class="separator:a2b1de5f6a3cb9f9da27cd496659cc899"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -76,11 +76,35 @@ $(function() {
 &#160;
 
 <h3><a id="index_m"></a>- m -</h3><ul>
+<li>makeBootstrappable()
+: <a class="el" href="classhelib_1_1_context.html#aeb97afc7e74b0b7522c4168d8db2b374">helib::Context</a>
+</li>
+<li>makeExplicit()
+: <a class="el" href="classhelib_1_1_col_perm.html#ab411c50c5ac089fb1902e27ccddea97b">helib::ColPerm</a>
+</li>
 <li>mapTo01()
 : <a class="el" href="classhelib_1_1_ptxt.html#a77c0d3dc8d65ad5c0abca52210878b9d">helib::Ptxt</a>
 </li>
+<li>mapToArray()
+: <a class="el" href="classhelib_1_1_generator_trees.html#af1fc160bcf09404218e1601140f5ff05">helib::GeneratorTrees</a>
+</li>
+<li>mapToCube()
+: <a class="el" href="classhelib_1_1_generator_trees.html#abae76f45adc4861d192e56f0c15f33a0">helib::GeneratorTrees</a>
+</li>
 <li>mapToSlots()
 : <a class="el" href="classhelib_1_1_p_algebra_mod_derived.html#a8b29b31503217f41ecf84e06bd30c908">helib::PAlgebraModDerived&lt; type &gt;</a>
+</li>
+<li>MatMul1DExec()
+: <a class="el" href="classhelib_1_1_mat_mul1_d_exec.html#af2e8c72122306f5a785d986d6b8cbfd3">helib::MatMul1DExec</a>
+</li>
+<li>MatMulDimComp()
+: <a class="el" href="structhelib_1_1_mat_mul_full_exec__construct_1_1_mat_mul_dim_comp.html#a02abd91e01a5995c4039cc500827580d">helib::MatMulFullExec_construct&lt; type &gt;::MatMulDimComp</a>
+</li>
+<li>MatMulFullExec()
+: <a class="el" href="classhelib_1_1_mat_mul_full_exec.html#a067300cb8c6a45889c18f48007a23128">helib::MatMulFullExec</a>
+</li>
+<li>MatMulFullHelper()
+: <a class="el" href="classhelib_1_1_mat_mul_full_helper.html#ac52e5156869617f5802a3c083707caba">helib::MatMulFullHelper&lt; type &gt;</a>
 </li>
 <li>modDownToSet()
 : <a class="el" href="classhelib_1_1_ctxt.html#a2f74fbde43034baef79adc4d06db363c">helib::Ctxt</a>
@@ -92,7 +116,20 @@ $(function() {
 : <a class="el" href="classhelib_1_1_ctxt.html#a70334af58d9653f4afdd4891890d4af0">helib::Ctxt</a>
 </li>
 <li>mul()
-: <a class="el" href="classhelib_1_1_s_k_handle.html#a597ac6729760ac1d7b3adc3fc09b4d81">helib::SKHandle</a>
+: <a class="el" href="classhelib_1_1_block_mat_mul1_d_exec.html#af36907d774fc03366b42a592475513b9">helib::BlockMatMul1DExec</a>
+, <a class="el" href="classhelib_1_1_block_mat_mul_full_exec.html#a80166482405aa5e3c65a347d79ca5853">helib::BlockMatMulFullExec</a>
+, <a class="el" href="structhelib_1_1_const_multiplier.html#a7b68fee3683ff20bc4a9d09b512cd8be">helib::ConstMultiplier</a>
+, <a class="el" href="structhelib_1_1_const_multiplier___double_c_r_t.html#a44486c2dc265d308a66a9f3c5e6d3e89">helib::ConstMultiplier_DoubleCRT</a>
+, <a class="el" href="structhelib_1_1_const_multiplier__zz_x.html#a6e3a1b30713581b9dd9659bcfeca05d5">helib::ConstMultiplier_zzX</a>
+</li>
+<li>Mul()
+: <a class="el" href="classhelib_1_1_double_c_r_t.html#a045b2bda01f9ff183b5e31e6b90bc4cf">helib::DoubleCRT</a>
+</li>
+<li>mul()
+: <a class="el" href="classhelib_1_1_mat_mul1_d_exec.html#a3a35f4eeb069e47fc3c3276ff8983637">helib::MatMul1DExec</a>
+, <a class="el" href="classhelib_1_1_mat_mul_exec_base.html#a68ecfac912aec8f5b6e6645998471e3a">helib::MatMulExecBase</a>
+, <a class="el" href="classhelib_1_1_mat_mul_full_exec.html#a531e4a1b8902d42e49c0a73abb8ea5fc">helib::MatMulFullExec</a>
+, <a class="el" href="classhelib_1_1_s_k_handle.html#a597ac6729760ac1d7b3adc3fc09b4d81">helib::SKHandle</a>
 </li>
 <li>multByConstant()
 : <a class="el" href="classhelib_1_1_ctxt.html#a160e2585f4693920976a482f8ba4435d">helib::Ctxt</a>
@@ -103,11 +140,27 @@ $(function() {
 <li>multByP()
 : <a class="el" href="classhelib_1_1_ctxt.html#a5d7f0fe8a4c3e7b9b3298396039589cf">helib::Ctxt</a>
 </li>
+<li>multipleTransforms()
+: <a class="el" href="classhelib_1_1_block_mat_mul1_d__derived.html#a0ca39e7c6031fca902ea27026831d6eb">helib::BlockMatMul1D_derived&lt; type &gt;</a>
+, <a class="el" href="classhelib_1_1_mat_mul1_d__derived.html#a78460fa810ee5b4ff1d0e6f2a8d0b18e">helib::MatMul1D_derived&lt; type &gt;</a>
+, <a class="el" href="classhelib_1_1_random_block_matrix.html#ab16b721fa00dc8a6d83aca4832a13356">helib::RandomBlockMatrix&lt; type &gt;</a>
+, <a class="el" href="classhelib_1_1_random_matrix.html#a89256b3b7133bf1b74211ff1ae78fba1">helib::RandomMatrix&lt; type &gt;</a>
+, <a class="el" href="classhelib_1_1_random_multi_block_matrix.html#af04bb40307ed479394b86610fe29d24f">helib::RandomMultiBlockMatrix&lt; type &gt;</a>
+, <a class="el" href="classhelib_1_1_random_multi_matrix.html#aaede11533907c6ac6aa900a35f460fc8">helib::RandomMultiMatrix&lt; type &gt;</a>
+</li>
 <li>multiplyBy()
-: <a class="el" href="classhelib_1_1_ptxt.html#a5539f04b6f8741aa37f44700bb00ef63">helib::Ptxt</a>
+: <a class="el" href="classhelib_1_1_ctxt.html#a4998340ac9bb105674b4a136ef5f1eb0">helib::Ctxt</a>
+, <a class="el" href="classhelib_1_1_ptxt.html#a5539f04b6f8741aa37f44700bb00ef63">helib::Ptxt</a>
 </li>
 <li>multiplyBy2()
-: <a class="el" href="classhelib_1_1_ptxt.html#a33217b18b31a054fe1f1be6f3534c55a">helib::Ptxt</a>
+: <a class="el" href="classhelib_1_1_ctxt.html#a590e147aceaf3db0c4a7fdbcd870ee89">helib::Ctxt</a>
+, <a class="el" href="classhelib_1_1_ptxt.html#a33217b18b31a054fe1f1be6f3534c55a">helib::Ptxt</a>
+</li>
+<li>multLowLvl()
+: <a class="el" href="classhelib_1_1_ctxt.html#afb098f38a18ec6de648acadb8265d9ba">helib::Ctxt</a>
+</li>
+<li>MyClass()
+: <a class="el" href="class_my_class.html#a12a4db4f54f566ad757bf61ca736dfe2">MyClass</a>
 </li>
 </ul>
 </div><!-- contents -->

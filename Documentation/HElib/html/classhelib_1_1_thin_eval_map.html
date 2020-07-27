@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand">HElib </a>
+                    <a class="navbar-brand">HElib Implementing Homomorphic Encryption</a>
                 </div>
             </div>
         </nav>
@@ -73,7 +73,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>helib</b></li><li class="navelem"><a class="el" href="classhelib_1_1_thin_eval_map.html">ThinEvalMap</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacehelib.html">helib</a></li><li class="navelem"><a class="el" href="classhelib_1_1_thin_eval_map.html">ThinEvalMap</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -92,21 +92,101 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a10975ac9f3b5736badd6d6342be78cb9"><td class="memItemLeft" align="right" valign="top"><a id="a10975ac9f3b5736badd6d6342be78cb9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ThinEvalMap</b> (const <a class="el" href="classhelib_1_1_encrypted_array.html">EncryptedArray</a> &amp;_ea, bool minimal, const NTL::Vec&lt; long &gt; &amp;mvec, bool _invert, bool build_cache)</td></tr>
+<tr class="memitem:a10975ac9f3b5736badd6d6342be78cb9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_thin_eval_map.html#a10975ac9f3b5736badd6d6342be78cb9">ThinEvalMap</a> (const <a class="el" href="classhelib_1_1_encrypted_array.html">EncryptedArray</a> &amp;_ea, bool minimal, const NTL::Vec&lt; long &gt; &amp;mvec, bool _invert, bool build_cache)</td></tr>
 <tr class="separator:a10975ac9f3b5736badd6d6342be78cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89f65f8b331fa6071e995db9749c9c97"><td class="memItemLeft" align="right" valign="top"><a id="a89f65f8b331fa6071e995db9749c9c97"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>upgrade</b> ()</td></tr>
+<tr class="memitem:a89f65f8b331fa6071e995db9749c9c97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_thin_eval_map.html#a89f65f8b331fa6071e995db9749c9c97">upgrade</a> ()</td></tr>
 <tr class="separator:a89f65f8b331fa6071e995db9749c9c97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3688e0126fc26aa205b65737b7ff7297"><td class="memItemLeft" align="right" valign="top"><a id="a3688e0126fc26aa205b65737b7ff7297"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>apply</b> (<a class="el" href="classhelib_1_1_ctxt.html">Ctxt</a> &amp;ctxt) const</td></tr>
+<tr class="memitem:a3688e0126fc26aa205b65737b7ff7297"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelib_1_1_thin_eval_map.html#a3688e0126fc26aa205b65737b7ff7297">apply</a> (<a class="el" href="classhelib_1_1_ctxt.html">Ctxt</a> &amp;ctxt) const</td></tr>
 <tr class="separator:a3688e0126fc26aa205b65737b7ff7297"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class that provides the functionality for the linear transforms used in "thin" boostrapping, where slots are assumed to contain constants. The interface is exactly the same as for <a class="el" href="classhelib_1_1_eval_map.html" title="Class that provides the functionality for the linear transforms used in boostrapping....">EvalMap</a>, except that the constructor does not have a normal_basis parameter. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
-<li>include/helib/<a class="el" href="_eval_map_8h_source.html">EvalMap.h</a></li>
-<li>src/EvalMap.cpp</li>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a10975ac9f3b5736badd6d6342be78cb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10975ac9f3b5736badd6d6342be78cb9">&#9670;&nbsp;</a></span>ThinEvalMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">helib::ThinEvalMap::ThinEvalMap </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classhelib_1_1_encrypted_array.html">EncryptedArray</a> &amp;&#160;</td>
+          <td class="paramname"><em>_ea</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>minimal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const NTL::Vec&lt; long &gt; &amp;&#160;</td>
+          <td class="paramname"><em>mvec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_invert</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>build_cache</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3688e0126fc26aa205b65737b7ff7297"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3688e0126fc26aa205b65737b7ff7297">&#9670;&nbsp;</a></span>apply()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void helib::ThinEvalMap::apply </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classhelib_1_1_ctxt.html">Ctxt</a> &amp;&#160;</td>
+          <td class="paramname"><em>ctxt</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a89f65f8b331fa6071e995db9749c9c97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89f65f8b331fa6071e995db9749c9c97">&#9670;&nbsp;</a></span>upgrade()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void helib::ThinEvalMap::upgrade </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>/Users/Projects/FHE_HElib_Repos_Public_staging/homenc_v1.0.2/HElib/include/helib/<a class="el" href="_eval_map_8h_source.html">EvalMap.h</a></li>
+<li>/Users/Projects/FHE_HElib_Repos_Public_staging/homenc_v1.0.2/HElib/src/<a class="el" href="_eval_map_8cpp.html">EvalMap.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.8-->
