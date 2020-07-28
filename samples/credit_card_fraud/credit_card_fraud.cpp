@@ -334,7 +334,7 @@ int main(int argc,char** argv){
      nn=numBatches;
   for(int i=0; i<nn; ++i){
 
-	cout << endl << "*** Performing inference on batch " << i+1 << "/" << numBatches << " ***" << endl;
+	cout << endl << "*** Performing inference on batch " << i+1 << "/" << nn << " ***" << endl;
     HELIB_NTIMER_START(time_for_single_batch);
     // define names of files to be used to save encrypted batch of samples and their correspondent predictions
 		const string encryptedSamplesFile = outDir + "/encrypted_batch_samples_" + to_string(i) + ".bin";
