@@ -20,6 +20,14 @@ If you want to dive right in and get started installing a pre-built container av
 
 If you want to build and deploy the toolkit from scratch and perhaps customize the container to your needs, please see the [Getting Started Advanced Document](GettingStarted.Advanced.md).
 
+
+## Feedback Survey
+ 
+"IBM invites you to participate in our Advanced Security and Encryption Survey. This survey is designed to gather insights around the security challenges you or your organization face and better understand our users and how to serve you better. We will only use your feedback to improve the FHE Toolkit experience and inform future IBM security-focused products and services. IBM will not share your response data with any third parties. We look forward to your valuable feedback to improve the IBM Fully Homomorphic Encryption Toolkit for macOS, iOS, and Linux."
+
+https://www.surveygizmo.com/s3/5731822/Advanced-Security-And-Encryption-Survey-2020
+
+
 ## About this distribution
 
 The remainder of this README file explains how the source code and project are organized for those who might want to contribute to, or modify, the toolkit.  
