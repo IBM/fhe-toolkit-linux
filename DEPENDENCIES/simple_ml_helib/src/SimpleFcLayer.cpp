@@ -37,35 +37,33 @@ SimpleFcLayer::~SimpleFcLayer(){
 }
 
 streamoff SimpleFcLayer::save(ostream& stream) const {
-	SimpleTimer::push("SimpleFcLayer::save");
+  SimpleTimer::Guard guard("SimpleFcLayer::save");
 
-  streampos streamStartPos = stream.tellp();
+  const streampos streamStartPos = stream.tellp();
 
   weights.save(stream);
   bias.save(stream);
 
-  streampos streamEndPos = stream.tellp();
+  const streampos streamEndPos = stream.tellp();
 
-	SimpleTimer::pop();
   return streamEndPos - streamStartPos;
 }
 
 streamoff SimpleFcLayer::load(istream& stream){
-	SimpleTimer::push("SimpleFcLayer::load");
+  SimpleTimer::Guard guard("SimpleFcLayer::load");
 
-  streampos streamStartPos = stream.tellg();
+  const streampos streamStartPos = stream.tellg();
 
   weights.load(stream);
   bias.load(stream);
 
-  streampos streamEndPos = stream.tellg();
+  const streampos streamEndPos = stream.tellg();
 
-	SimpleTimer::pop();
   return streamEndPos - streamStartPos;
 }
 
 void SimpleFcLayer::initFromLayer(const FcPlainLayer& fpl, int baseChainIndex){
-	SimpleTimer::push("SimpleFcLayer::initFromLayer");
+	SimpleTimer::Guard guard("SimpleFcLayer::initFromLayer");
 
 	if(!he.automaticallyManagesChainIndices()){
 		if(baseChainIndex < -1 || baseChainIndex > he.getTopChainIndex())
@@ -80,16 +78,13 @@ void SimpleFcLayer::initFromLayer(const FcPlainLayer& fpl, int baseChainIndex){
   const CipherMatrixEncoder encoder(he);
   encoder.encodeEncrypt(weights, weightsVals, baseChainIndex);
   encoder.encodeEncrypt(bias, biasVals, baseChainIndex - 1);
-
-  SimpleTimer::pop();
 }
 
 CipherMatrix SimpleFcLayer::forward(const CipherMatrix& inVec) const {
-	SimpleTimer::push("SimpleFcLayer::forward");
+	SimpleTimer::Guard guard("SimpleFcLayer::forward");
 
 	CipherMatrix res = weights.getMatrixMultiply(inVec);
 	res.add(bias);
 
-  SimpleTimer::pop();
 	return res;
 }
