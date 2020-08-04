@@ -5,7 +5,7 @@ Adding new features, improving documentation, fixing bugs, writing new tests,
 designing and coding new examples or writing tutorials are all examples of 
 helpful contributions.
 
-## Prerequisits
+## Prerequisites
 All the prerequisites for contributions are already installed in every Docker 
 container. They include C++ compiler and linker, cmake, clang-format, git tools,
 editors, plus the IBM HElib and its dependencies.
