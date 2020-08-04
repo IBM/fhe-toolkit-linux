@@ -22,21 +22,27 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-# Go to the top level of the Repo
-pushd ../../
-set -x 
-set -u
-set -e
-# Pull latest from the FHE repo, master branch
-git checkout master
-# Build the Docker image for Fedora
-./BuildDockerImage.sh fedora
-# Run the toolkit container based on the Fedora image
-./RunToolkit.sh -l -s fedora
-# Test sample runs as expected
-docker exec local-fhe-toolkit-fedora /bin/bash -c " \
-    cd /opt/IBM/FHE-Workspace; \
-    cmake examples/BGV_country_db_lookup; \
-    ./examples/BGV_country_db_lookup/runtest.sh;"
-# Shut everything down 
-./StopToolkit.sh
+queries=('Albania:Tirana'
+         'Andorra:Andorra la Vella'
+         'Austria:Vienna'
+         'Belarus:Minsk'
+         'Belgium:Brussels'
+         'Southampton:Country'
+        )
+
+# Number of queries
+rt=${#queries[@]}
+
+for query in "${queries[@]}"; do
+  # Capture the result value for comparison
+  value=$( $PWD/build/BGV_country_db_lookup <<< "${query%:*}" | awk '/Query result:/{ print $3 }' )
+
+  echo "${query%:*} gives '$value'"
+  # If the query result matches then decrement the return value rt
+  if [ "$value" = "${query#*:}" ]; then
+    rt=$((rt-1))
+  fi
+done
+
+# This will return the overall pass or fail
+exit "$rt"

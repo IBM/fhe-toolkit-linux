@@ -33,5 +33,10 @@ git checkout master
 ./BuildDockerImage.sh centos
 # Run the toolkit container based on the CentOS image
 ./RunToolkit.sh -l -s centos
+# Test sample runs as expected
+docker exec local-fhe-toolkit-centos /bin/bash -c " \
+    cd /opt/IBM/FHE-Workspace; \
+    cmake examples/BGV_country_db_lookup; \
+    ./examples/BGV_country_db_lookup/runtest.sh;"
 # Shut everything down 
 ./StopToolkit.sh
