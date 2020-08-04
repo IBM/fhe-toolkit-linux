@@ -36,7 +36,7 @@ CipherMatrixEncoder::~CipherMatrixEncoder(){
 
 void CipherMatrixEncoder::encodeEncrypt(CipherMatrix& res, const tensor<double>& vals,
 		int chainIndex) const {
-	SimpleTimer::push("CipherMatrixEncoder::encodeEncrypt");
+	SimpleTimer::Guard guard("CipherMatrixEncoder::encodeEncrypt");
 
 	if(vals.order() != 3)
 		throw invalid_argument("Input must be 3-dimensional tensor");
@@ -60,8 +60,6 @@ void CipherMatrixEncoder::encodeEncrypt(CipherMatrix& res, const tensor<double>&
   }
 
   res.numFilledSlots = numFilledSlots;
-
-	SimpleTimer::pop();
 }
 
 void CipherMatrixEncoder::encodeEncrypt(CipherMatrix& res, const tensor<complex<double>>& vals,
@@ -70,7 +68,7 @@ void CipherMatrixEncoder::encodeEncrypt(CipherMatrix& res, const tensor<complex<
 }
 
 tensor<double> CipherMatrixEncoder::decryptDecodeDouble(const CipherMatrix& src) const {
-	SimpleTimer::push("CipherMatrixEncoder::decryptDecodeDouble");
+  SimpleTimer::Guard guard("CipherMatrixEncoder::decryptDecodeDouble");
 
   int numRows = src.tiles.size(0);
   int numCols = src.tiles.size(1);
@@ -86,8 +84,7 @@ tensor<double> CipherMatrixEncoder::decryptDecodeDouble(const CipherMatrix& src)
     }
   }
 
-	SimpleTimer::pop();
-	return res;
+  return res;
 }
 
 tensor<complex<double>> CipherMatrixEncoder::decryptDecodeComplex(const CipherMatrix& src) const {

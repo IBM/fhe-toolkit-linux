@@ -34,10 +34,9 @@ SimpleSquareActivationLayer::~SimpleSquareActivationLayer(){
 }
 
 CipherMatrix SimpleSquareActivationLayer::forward(const CipherMatrix& inVec) const {
-	SimpleTimer::push("SimpleSquareActivationLayer::forward");
+	SimpleTimer::Guard guard("SimpleSquareActivationLayer::forward");
 
 	CipherMatrix res = inVec.getSquare();
 
-  SimpleTimer::pop();
 	return res;
 }

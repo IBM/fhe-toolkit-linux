@@ -32,22 +32,20 @@ CipherMatrix::CipherMatrix(const CTile& prototype) : prototype(prototype), numFi
 }
 
 CipherMatrix::CipherMatrix(const CipherMatrix& src) : prototype(src.prototype), numFilledSlots(src.numFilledSlots) {
-	SimpleTimer::push("CipherMatrix::copy");
+	SimpleTimer::Guard guard("CipherMatrix::copy");
 
 	tiles.reshape(src.tiles.extents(), prototype);
 	for(int i=0; i<tiles.size(); ++i)
 		tiles[i] = CTile(src.tiles[i]);
-
-	SimpleTimer::pop();
 }
 
 CipherMatrix::~CipherMatrix(){
 }
 
 streamoff CipherMatrix::save(ostream& stream) const {
-	SimpleTimer::push("CipherMatrix::save");
+  SimpleTimer::Guard guard("CipherMatrix::save");
 
-  streampos streamStartPos = stream.tellp();
+  const streampos streamStartPos = stream.tellp();
 
   int numRows = tiles.size(0);
   int numCols = tiles.size(1);
@@ -61,16 +59,15 @@ streamoff CipherMatrix::save(ostream& stream) const {
       tiles.at(i,j).save(stream);
   }
 
-  streampos streamEndPos = stream.tellp();
+  const streampos streamEndPos = stream.tellp();
 
-	SimpleTimer::pop();
   return streamEndPos - streamStartPos;
 }
 
 streamoff CipherMatrix::load(istream& stream){
-	SimpleTimer::push("CipherMatrix::load");
+  SimpleTimer::Guard guard("CipherMatrix::load");
 
-  streampos streamStartPos = stream.tellg();
+  const streampos streamStartPos = stream.tellg();
 
   int numRows, numCols;
 
@@ -86,14 +83,13 @@ streamoff CipherMatrix::load(istream& stream){
       tiles.at(i,j).load(stream);
   }
 
-  streampos streamEndPos = stream.tellg();
+  const streampos streamEndPos = stream.tellg();
 
-	SimpleTimer::pop();
   return streamEndPos - streamStartPos;
 }
 
 void CipherMatrix::add(const CipherMatrix& other){
-	SimpleTimer::push("CipherMatrix::add");
+	SimpleTimer::Guard guard("CipherMatrix::add");
 
 	if(tiles.size(0) != other.tiles.size(0) || tiles.size(1) != other.tiles.size(1) ||
 			numFilledSlots != other.numFilledSlots)
@@ -101,12 +97,10 @@ void CipherMatrix::add(const CipherMatrix& other){
 
 	for(int i=0; i<tiles.size(); ++i)
 		tiles[i].add(other.tiles[i]);
-
-	SimpleTimer::pop();
 }
 
 CipherMatrix CipherMatrix::getMatrixMultiply(const CipherMatrix& other) const {
-	SimpleTimer::push("CipherMatrix::getMatrixMultiply");
+	SimpleTimer::Guard guard("CipherMatrix::getMatrixMultiply");
 
 	if(tiles.size(1) != other.tiles.size(0) || numFilledSlots != other.numFilledSlots)
 		throw invalid_argument("Other has incompatible dimensions");
@@ -133,17 +127,14 @@ CipherMatrix CipherMatrix::getMatrixMultiply(const CipherMatrix& other) const {
 	res.relinearize();
 	res.rescale();
 
-	SimpleTimer::pop();
 	return res;
 }
 
 void CipherMatrix::square(){
-	SimpleTimer::push("CipherMatrix::square");
+  SimpleTimer::Guard guard("CipherMatrix::square");
 
   for(auto& tile:tiles)
     tile.square();
-
-	SimpleTimer::pop();
 }
 
 CipherMatrix CipherMatrix::getSquare() const {
@@ -153,21 +144,17 @@ CipherMatrix CipherMatrix::getSquare() const {
 }
 
 void CipherMatrix::relinearize(){
-	SimpleTimer::push("CipherMatrix::relinearize");
+  SimpleTimer::Guard guard("CipherMatrix::relinearize");
 
   for(auto& tile:tiles)
     tile.relinearize();
-
-	SimpleTimer::pop();
 }
 
 void CipherMatrix::rescale(){
-	SimpleTimer::push("CipherMatrix::rescale");
+  SimpleTimer::Guard guard("CipherMatrix::rescale");
 
   for(auto& tile:tiles)
     tile.rescale();
-
-	SimpleTimer::pop();
 }
 
 int CipherMatrix::getChainIndex() const {
