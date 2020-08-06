@@ -47,6 +47,8 @@ public:
 
   ~PTile();
 
+  PTile& operator=(const PTile& src);
+
   void reduceChainIndex();
 
   void setChainIndex(const PTile& other);
