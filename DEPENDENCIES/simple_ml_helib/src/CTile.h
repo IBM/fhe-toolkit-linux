@@ -45,9 +45,9 @@ public:
 
   CTile(const CTile& src);
 
-  CTile(std::shared_ptr<AbstractCiphertext> _impl) { impl = _impl; }; // deprecated
-
   ~CTile();
+
+  CTile& operator=(const CTile& src);
 
   std::streamoff save(std::ostream& stream) const;
 

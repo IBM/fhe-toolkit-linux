@@ -35,6 +35,13 @@ PTile::PTile(const PTile& src) : impl(src.impl->clone()) {
 PTile::~PTile(){
 }
 
+PTile& PTile::operator=(const PTile& src){
+  if(this != &src)
+  	impl = src.impl->clone();
+  return *this;
+}
+
+
 void PTile::reduceChainIndex(){
 	impl->reduceChainIndex();
 }

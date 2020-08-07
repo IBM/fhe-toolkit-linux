@@ -35,6 +35,13 @@ CTile::CTile(const CTile& src) : impl(src.impl->clone()) {
 CTile::~CTile(){
 }
 
+CTile& CTile::operator=(const CTile& src){
+  if(this != &src)
+  	impl = src.impl->clone();
+  return *this;
+}
+
+
 streamoff CTile::save(ostream& stream) const {
 	return impl->save(stream);
 }
