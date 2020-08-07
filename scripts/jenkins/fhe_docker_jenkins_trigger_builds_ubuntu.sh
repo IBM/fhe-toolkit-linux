@@ -33,7 +33,17 @@ set -e
 git checkout master
 # Build the Docker image for Ubuntu
 ./BuildDockerImage.sh ubuntu
+# Shut everything down before we start
+./StopToolkit.sh
 # Run the toolkit container based on the Ubuntu image
 ./RunToolkit.sh -l -s ubuntu
+# Test sample runs as expected
+docker exec local-fhe-toolkit-ubuntu /bin/bash -c " \
+    cd /opt/IBM/FHE-Workspace; \
+    mkdir build; cd build; \
+    cmake ../examples/BGV_country_db_lookup;\
+    make;\
+    cd ..;\
+    ./examples/BGV_country_db_lookup/runtest.sh;"
 # Shut everything down 
 ./StopToolkit.sh
