@@ -26,6 +26,7 @@
 #define SRC_ML_HE_EXAMPLES_HECONTEXT_H
 
 #include <memory>
+#include <string>
 
 class AbstractCiphertext;
 class AbstractPlaintext;
