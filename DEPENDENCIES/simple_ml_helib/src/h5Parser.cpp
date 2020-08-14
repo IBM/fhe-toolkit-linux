@@ -43,9 +43,7 @@ bool H5Parser::objectExists(const string& name) const {
   }
 }
 
-H5Parser::H5Parser(string f) {
-  this->file_name = f;
-
+H5Parser::H5Parser(string f) : file_name(f) {
   // test file exists, for a nicer error message
   ifstream test(f);
   if (!test.good())

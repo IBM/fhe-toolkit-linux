@@ -29,8 +29,7 @@
 using namespace std;
 using namespace H5;
 
-H5Dumper::H5Dumper(const string& f) {
-  this->file_name = f;
+H5Dumper::H5Dumper(const string& f) : file_name(f) {
   file = H5File(f, H5F_ACC_TRUNC);
 }
 
