@@ -61,7 +61,7 @@ SimpleTimer::SectionInfo& SimpleTimer::SectionInfo::getSubSection(
 
 SimpleTimer::SectionInfo& SimpleTimer::SectionInfo::find(
     const std::string& title, const std::string& prefix) {
-  if (title == "")
+  if (title.empty())
     return *this;
 
   size_t p = title.find('.');
