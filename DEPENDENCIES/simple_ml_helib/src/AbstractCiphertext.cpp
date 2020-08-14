@@ -142,7 +142,7 @@ double AbstractCiphertext::assertEquals(const std::string& title, const std::vec
   	throw runtime_error("Size of expected values vector is bigger than size of cipher");
 
   double maxDiff = 0;
-  for(int i=0; i<expectedVals.size(); ++i){
+  for(size_t i=0; i<expectedVals.size(); ++i){
   	double diff = abs(vals[i] - expectedVals[i]);
   	double relDiff;
   	if (vals[i]!=0)
