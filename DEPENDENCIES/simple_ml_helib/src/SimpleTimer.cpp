@@ -64,7 +64,7 @@ SimpleTimer::SectionInfo& SimpleTimer::SectionInfo::find(
   if (title == "")
     return *this;
 
-  int p = title.find(".");
+  int p = title.find('.');
   string key = title;
   string cont = "";
 
