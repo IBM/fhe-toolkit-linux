@@ -152,7 +152,7 @@ tokenSize=${#ToolkitImageNameTokens[@]}
 token0=${ToolkitImageNameTokens[0]} # <local|ibmcom>
 token1=${ToolkitImageNameTokens[1]} # fhe
 token2=${ToolkitImageNameTokens[2]} # toolkit
-platform=${ToolkitImageNameTokens[3]} # {ubuntu, fedora, centos}
+platform=${ToolkitImageNameTokens[3]} # {ubuntu, fedora, centos, alpine}
 
 if ! [ $tokenSize -eq 4 ]
 then
@@ -179,7 +179,8 @@ elif [ $ARCH == "amd64" ]
 then
   if ! [ "$platform" = "fedora" ] \
   && ! [ "$platform" = "centos" ] \
-  && ! [ "$platform" = "ubuntu" ]
+  && ! [ "$platform" = "ubuntu" ] \
+  && ! [ "$platform" = "alpine" ] 
   then
     echo " "
     echo " Invalid platform: $ToolkitImageName ($platform on $ARCH) is not supported."

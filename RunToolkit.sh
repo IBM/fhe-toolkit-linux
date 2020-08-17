@@ -152,6 +152,10 @@ elif [[ "$platform" = "ubuntu" ]]
 then
     platform="ubuntu"
     tag="20.04"
+elif [[ "$platform" = "alpine" ]]
+then
+    platform="alpine"
+    tag="3.12"    
 else
     echo "Invalid option: $platform - Please specify a supported platform"
     print_usage
