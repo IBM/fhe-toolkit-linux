@@ -29,8 +29,7 @@
 using namespace std;
 using namespace H5;
 
-H5Dumper::H5Dumper(const string& f) {
-  this->file_name = f;
+H5Dumper::H5Dumper(const string& f) : file_name(f) {
   file = H5File(f, H5F_ACC_TRUNC);
 }
 
@@ -56,7 +55,7 @@ void H5Dumper::setLayerNames(const vector<string>& layerNames)
   StrType strDataType(PredType::C_S1, H5T_VARIABLE);
   vector<const char*> layerNamesCStr(layerNames.size());
 
-  for(int i = 0; i < layerNames.size(); i++)
+  for(size_t i = 0; i < layerNames.size(); i++)
   {
     layerNamesCStr[i] = layerNames[i].c_str();
   }
@@ -83,7 +82,7 @@ void H5Dumper::setLayerWeightNames(const string& layerName,
   StrType strDataType(PredType::C_S1, H5T_VARIABLE);
   vector<const char*> weightNamesCStr(weightNames.size());
 
-  for(int i = 0; i < weightNames.size(); i++)
+  for(size_t i = 0; i < weightNames.size(); i++)
   {
     weightNamesCStr[i] = weightNames[i].c_str();
   }

@@ -61,10 +61,10 @@ SimpleTimer::SectionInfo& SimpleTimer::SectionInfo::getSubSection(
 
 SimpleTimer::SectionInfo& SimpleTimer::SectionInfo::find(
     const std::string& title, const std::string& prefix) {
-  if (title == "")
+  if (title.empty())
     return *this;
 
-  int p = title.find(".");
+  size_t p = title.find('.');
   string key = title;
   string cont = "";
 
@@ -134,14 +134,14 @@ void SimpleTimer::stop() {
 void SimpleTimer::SectionInfo::addMeasure(
     std::chrono::high_resolution_clock::time_point s, int64_t cpu_s) {
   auto end_time = high_resolution_clock::now();
-  int mircosecs = duration_cast<microseconds>(end_time - s).count();
+  int64_t microsecs = duration_cast<microseconds>(end_time - s).count();
 
   auto end_cpu = getProcessCPUTime();
   int64_t cpu_microsecs = (end_cpu - cpu_s) / 1000;
 
   const lock_guard<mutex> lock(mtx);
-  sum += mircosecs;
-  sumSquares += mircosecs * mircosecs;
+  sum += microsecs;
+  sumSquares += microsecs * microsecs;
   count += 1;
   sumCPU += cpu_microsecs;
 }
