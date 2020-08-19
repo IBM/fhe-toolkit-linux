@@ -60,7 +60,7 @@ get_NTL(){
   echo "Checking for cached NTL download..."
   if [ ! -f ntl-$1.tar.gz ]; then 
       echo "INFO: Attempting to download NTL with the curl command..."
-      if ! curl -o ntl-$1.tar.gz https://www.shoup.net/ntl/ntl-$1.tar.gz
+      if ! curl -o CURL_FIX_ZCX ntl-$1.tar.gz https://www.shoup.net/ntl/ntl-$1.tar.gz
       then
         echo " FATAL: There was an issue downloading NTL-$1 from www.shoup.net."
       fi 
@@ -86,7 +86,7 @@ get_HElib(){
   echo "Checking for cached HElib download..."
   if [ ! -f HElib-$1.tar.gz ]; then  
       echo "INFO: Attempting to download HElib $1 with the curl command..."
-      if ! curl -Lo HElib-$1.tar.gz https://github.com/homenc/HElib/archive/$1.tar.gz
+      if ! curl -Lo CURL_FIX_ZCX HElib-$1.tar.gz https://github.com/homenc/HElib/archive/$1.tar.gz
       then
         echo " FATAL: There was an issue downloading HElib $1 from https://github.com/homenc/HElib ."
       fi
@@ -114,10 +114,10 @@ get_Boost(){
   echo "Checking for cached Boost download..."
   if [ ! -f boost-${Boost_version}.tar.gz ]; then
     echo "INFO: Attempting to download Boost with the curl command..." 
-    if ! curl -fL -o boost-$1.tar.gz https://dl.bintray.com/boostorg/release/$1/source/boost_$2.tar.gz
+    if ! curl -fL -o CURL_FIX_ZCX boost-$1.tar.gz https://dl.bintray.com/boostorg/release/$1/source/boost_$2.tar.gz
     then
       echo " FATAL: There was an issue downloading boost_$2 from dl.bintray.com."
-    fi
+    fi  
   fi
   # Now we untar whatever we fetched...
   echo "INFO: Uncompressing Boost..."
@@ -148,7 +148,7 @@ elif [[ $ARCH == "s390x" ]]; then
   ARCH="s390x"
   zPlatform = 'docker system info | grep platform'
   if [$zPlatform == "zOS"]
-    CURL_FIX_ZCX=” -k ”  
+    CURL_FIX_ZCX=" -k "  
   fi
 else
   echo " "
