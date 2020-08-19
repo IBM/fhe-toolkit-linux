@@ -35,6 +35,8 @@ HElib_version='v1.0.2'
 Boost_version='1.72.0'
 Boost_filename='1_72_0'
 
+CURL_FIX_ZCX = ""
+
 print_usage(){
   cat <<EOF
 
@@ -144,6 +146,10 @@ elif [[ $ARCH == "s390x" ]]; then
   # echo "Determined s390x Architecture"
   architecture="s390x"
   ARCH="s390x"
+  zPlatform = 'docker system info | grep platform'
+  if [$zPlatform == "zOS"]
+    CURL_FIX_ZCX=” -k ”  
+  fi
 else
   echo " "
   echo " FATAL: Aborting. $ARCH is not a suppported platform for building the FHE Toolkit."
