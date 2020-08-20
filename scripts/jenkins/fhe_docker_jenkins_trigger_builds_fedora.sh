@@ -31,7 +31,17 @@ set -e
 git checkout master
 # Build the Docker image for Fedora
 ./BuildDockerImage.sh fedora
+# Shut everything down before we start
+./StopToolkit.sh
 # Run the toolkit container based on the Fedora image
 ./RunToolkit.sh -l -s fedora
+# Test sample runs as expected
+docker exec local-fhe-toolkit-fedora /bin/bash -c " \
+    cd /opt/IBM/FHE-Workspace; \
+    mkdir build; cd build; \
+    cmake ../examples/BGV_country_db_lookup;\
+    make;\
+    cd ..;\
+    ./examples/BGV_country_db_lookup/runtest.sh;"
 # Shut everything down 
 ./StopToolkit.sh
