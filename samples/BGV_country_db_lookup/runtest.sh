@@ -1,4 +1,4 @@
-#/bin/bash 
+#!/bin/bash
 
 # MIT License
 # 
@@ -22,26 +22,27 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-# Go to the top level of the Repo
-pushd ../../
-set -x 
-set -u
-set -e
-# Pull latest from the FHE repo, master branch
-git checkout master
-# Build the Docker image for Fedora
-./BuildDockerImage.sh fedora
-# Shut everything down before we start
-./StopToolkit.sh
-# Run the toolkit container based on the Fedora image
-./RunToolkit.sh -l -s fedora
-# Test sample runs as expected
-docker exec local-fhe-toolkit-fedora /bin/bash -c " \
-    cd /opt/IBM/FHE-Workspace; \
-    mkdir build; cd build; \
-    cmake ../examples/BGV_country_db_lookup;\
-    make;\
-    cd ..;\
-    ./examples/BGV_country_db_lookup/runtest.sh;"
-# Shut everything down 
-./StopToolkit.sh
+country_capitals=('Albania:Tirana' 'Austria:Vienna' 'Belarus:Minsk' 'Southampton:Country')
+
+# Number of queries
+rc=${#country_capitals[@]}
+
+for country_capital in "${country_capitals[@]}"; do
+  # Capture the result value for comparison
+  query="${country_capital%:*}"
+  capital=$( $PWD/build/BGV_country_db_lookup.main <<< $query | awk '/Query result:/{ print $3 }' )
+
+  echo "$query returns '$capital'"
+  if [ "$capital" = "${country_capital#*:}" ]; then 
+    let rc--;
+  else
+    echo "Test failed.."
+    echo "Expected: $country_capital"
+    echo "Actual: $query:$capital"
+    echo ""
+  fi
+done
+
+# This will return the overall pass or fail
+echo $rc
+exit $rc
