@@ -43,8 +43,8 @@ print_usage(){
   ${bold}CONTAINER_OS${normal}   Selects the name of the operating system platform to
                  download the FHE Toolkit container from Docker Hub.
                  Available OS are:
-                 x86_64/amd64: {ubuntu, fedora, centos}
-                 s390x:        {ubuntu, fedora}
+                 x86_64/amd64: {ubuntu, fedora, centos, alpine}
+                 s390x:        {ubuntu, fedora, alpine}
 
   ${bold}OPTIONS:${normal}
   -h             Displays this help information.
@@ -134,6 +134,11 @@ then
       build="FEDORA"
       platform="fedora"
       release="32"
+  elif [[ "$platform" = "alpine" ]]
+  then
+      build="ALPINE"
+      platform="alpine"
+      release="3.12"
   else
     echo "INFO: Platform: $platform on $ARCH is not supported on this release."
     echo "      Please choose a supported platform for your trials by specifying"

@@ -166,7 +166,8 @@ fi
 if [ $ARCH == "s390x" ]
 then
   if ! [ "$platform" = "ubuntu" ] \
-  && ! [ "$platform" = "fedora" ]
+  && ! [ "$platform" = "fedora" ] \
+  && ! [ "$platform" = "alpine" ] 
   then
     echo " "
     echo " Invalid platform: $ToolkitImageName ($platform on $ARCH) is not supported."
