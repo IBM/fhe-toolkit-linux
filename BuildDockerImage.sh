@@ -35,6 +35,7 @@ HElib_version='v1.0.2'
 Boost_version='1.72.0'
 Boost_filename='1_72_0'
 
+# z/OS Container Extensions platform CURL implementation does not work as expected. If zCX platform detected, add flag to adjust.
 CURL_FIX_ZCX=""
 
 print_usage(){
@@ -146,9 +147,13 @@ elif [[ $ARCH == "s390x" ]]; then
   # echo "Determined s390x Architecture"
   architecture="s390x"
   ARCH="s390x"
+  # Ony on s390x arch is a situation where we might be running in a zOS Container extensions Docker host. 
+  # z/OS Container Extensions platform CURL implementation does not work as expected. If zCX platform detected, add flag to adjust.
   zPlatform= docker system info | grep platform
   echo $zPlatform
   if [[ $zPlatform -eq "zOS" ]]; then
+      # -k suppresses the security check allowing the curl download to complete. This check should be removed when 
+      # the CURL implementation on z/OS Container Extensions is fixed properly in a future release.
       CURL_FIX_ZCX=" -k "
   fi
 else
