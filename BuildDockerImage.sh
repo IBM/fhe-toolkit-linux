@@ -36,6 +36,7 @@ Boost_version='1.72.0'
 Boost_filename='1_72_0'
 
 # z/OS Container Extensions platform CURL implementation does not work as expected. If zCX platform detected, add flag to adjust.
+# adding -k option to curl commands on zCX else the string stays empty
 CURL_FIX_ZCX=""
 
 print_usage(){
