@@ -31,8 +31,7 @@ cd fhe-toolkit-linux
 
 Fetch the Toolkit Docker images by invoking the `FetchDockerImage.sh` 
 script followed by `<platform>` to select one of the supported platforms 
-(`centos`, `ubuntu` or `fedora`). The remaining of these instructions will 
-use CentOS as the example platform.
+(`centos`, `ubuntu`, `fedora` or `alpine`). The remaining of these instructions will use CentOS as the example platform.
 
 ```
 ./FetchDockerImage.sh centos
