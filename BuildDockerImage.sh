@@ -44,7 +44,7 @@ ${bold}CONTAINER_OS${normal}   Selects the name of the operating system platform
                build the FHE Toolkit container.
                Available OS are:
                x86_64/amd64: {ubuntu, fedora, centos, alpine}
-               s390x:        {ubuntu, fedora}
+               s390x:        {ubuntu, fedora, alpine}
 
 ${bold}OPTIONS:${normal}
 -h             Displays this help information.
@@ -193,6 +193,10 @@ if [ $ARCH == "s390x" ]; then
       build="FEDORA"
       platform="fedora"
       release="32"
+  elif [[ "$platform" = "alpine" ]]; then
+      build="ALPINE"
+      platform="alpine"
+      release="3.12"  
   else
       echo " "
       echo "  Invalid platform: $platform Please specify a supported platform: <fedora>, <ubuntu>"
