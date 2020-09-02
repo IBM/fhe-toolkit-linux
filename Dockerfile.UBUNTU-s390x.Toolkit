@@ -59,6 +59,7 @@ COPY --chown=fhe:fhe ./samples/ /opt/IBM/FHE-Workspace/examples/
 # Install code-server extensions
 #RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension ms-vscode.cpptools --force
 RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension ms-vscode.cmake-tools --force
+RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension twxs.cmake --force
 # set code-server to create a self signed cert
 RUN sed -i.bak 's/cert: false/cert: true/' /home/fhe/.config/code-server/config.yaml
 # Update VSCode user settings
