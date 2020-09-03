@@ -42,6 +42,7 @@ docker exec local-fhe-toolkit-fedora /bin/bash -c " \
     cmake ../examples/BGV_country_db_lookup;\
     make;\
     cd ..;\
+    chmod 755 examples/BGV_country_db_lookup/runtest.sh;\
     ./examples/BGV_country_db_lookup/runtest.sh;"
 # Shut everything down 
 ./StopToolkit.sh

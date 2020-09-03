@@ -30,7 +30,7 @@ rc=${#country_capitals[@]}
 for country_capital in "${country_capitals[@]}"; do
   # Capture the result value for comparison
   query="${country_capital%:*}"
-  capital=$( $PWD/build/BGV_country_db_lookup.main <<< $query | awk '/Query result:/{ print $3 }' )
+  capital=$( $PWD/build/BGV_country_db_lookup <<< $query | awk '/Query result:/{ print $3 }' )
 
   echo "$query returns '$capital'"
   if [ "$capital" = "${country_capital#*:}" ]; then 
