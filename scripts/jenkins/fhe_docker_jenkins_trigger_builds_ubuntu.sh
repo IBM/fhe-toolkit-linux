@@ -54,7 +54,7 @@ docker exec local-fhe-toolkit-ubuntu /bin/bash -c " \
 ./StopToolkit.sh
 
 echo "DOCKER LOGIN"
-docker login -u ARTE_USER -p ARTE_PWD "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com"
+docker login -u $ARTE_USER -p $ARTE_PWD "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com"
 echo "Logged in I think"
 docker tag "local/fhe-toolkit-ubuntu-amd64:latest" "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/ubuntu/fhe-toolkit-ubuntu-amd64:v1.0.2-latest"
 echo "tagging it"
