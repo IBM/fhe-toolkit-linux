@@ -34,7 +34,7 @@ ARTE_USER=$1
 ARTE_PWD=$2
 
 # Pull latest from the FHE repo, master branch
-git checkout master
+git checkout feature/jenkins_tests_and_tags
 # Build the Docker image for Ubuntu
 ./BuildDockerImage.sh ubuntu
 # Shut everything down before we start
