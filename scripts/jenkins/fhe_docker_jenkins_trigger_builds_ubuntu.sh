@@ -53,11 +53,13 @@ docker exec local-fhe-toolkit-ubuntu /bin/bash -c " \
 # Shut everything down 
 ./StopToolkit.sh
 
+#Login to Artifactory using the fhe user
 echo "DOCKER LOGIN"
 docker login -u $ARTE_USER -p $ARTE_PWD "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com"
-echo "Logged in I think"
+#Tag the docker build for storage in Artifactory
 docker tag "local/fhe-toolkit-ubuntu-amd64:latest" "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/ubuntu/fhe-toolkit-ubuntu-amd64:v1.0.2-latest"
 echo "tagging it"
+#Push and save the newly tagged build in Artifactory
 docker push "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/ubuntu/fhe-toolkit-ubuntu-amd64:v1.0.2-latest"
 echo "pushing it"
 
