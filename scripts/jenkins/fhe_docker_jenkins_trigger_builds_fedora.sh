@@ -54,7 +54,7 @@ docker exec local-fhe-toolkit-fedora /bin/bash -c " \
 #Login to Artifactory using the fhe user
 echo "DOCKER LOGIN"
 #docker login -u $ARTE_USER -p $ARTE_PWD "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com"
-echo $ARTE_PWD | docker login -u $ARTE_USER --password-stdin
+docker login -u $ARTE_USER --password-stdin | echo $ARTE_PWD 
 #Tag the docker build for storage in Artifactory
 docker tag "local/fhe-toolkit-fedora-amd64:latest" "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-amd64:v1.0.2-latest"
 echo "tagging it"
