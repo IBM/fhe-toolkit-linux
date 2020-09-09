@@ -358,15 +358,24 @@ fi
 # Clean up temporary containers
 #
 docker rmi $HElib_tag
+if [ $? -ne 0 ]
+then
+  echo " "
+  echo " WARNING: Failed to Remove '{$HElib_tag}'"
+  echo " Please check for matching docker image below."
+  docker images --all
+  echo " "
+fi
 docker rmi $PlatformRelease
 if [ $? -ne 0 ]
 then
   echo " "
-  echo " Failed to Build Base Environment. Build aborted."
-  echo " Please check for error messages above."
+  echo " WARNING: Failed to Remove '{$PlaformRelease}'"
+  echo " Please check for matching docker image below."
+  docker images --all
   echo " "
-  exit -13
 fi
+
 
 echo "==============================================================="
 echo ""
