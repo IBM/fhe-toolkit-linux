@@ -361,7 +361,7 @@ docker rmi $HElib_tag
 if [ $? -ne 0 ]
 then
   echo " "
-  echo " WARNING: Failed to Remove '{$HElib_tag}'"
+  echo " WARNING: Failed to Remove $HElib_tag"
   echo " Please check for matching docker image below."
   docker images --all
   echo " "
@@ -370,7 +370,7 @@ docker rmi $PlatformRelease
 if [ $? -ne 0 ]
 then
   echo " "
-  echo " WARNING: Failed to Remove '{$PlaformRelease}'"
+  echo " WARNING: Failed to Remove $PlaformRelease"
   echo " Please check for matching docker image below."
   docker images --all
   echo " "
