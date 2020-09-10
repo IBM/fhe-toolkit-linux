@@ -53,9 +53,9 @@ docker exec local-fhe-toolkit-fedora /bin/bash -c " \
 
 #Login to Artifactory using the fhe user
 echo "DOCKER LOGIN"
+#This works but it claims its insecure
 #docker login -u $ARTE_USER -p $ARTE_PWD "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com"
-#docker login -u $ARTE_USER --password-stdin | echo $ARTE_PWD 
-cat $ARTE_PWD | docker login --username $ARTE_USER --password-stdin
+echo "$ARTE_PWD" | docker login -u $ARTE_USER --password-stdin
 #Tag the docker build for storage in Artifactory
 docker tag "local/fhe-toolkit-fedora-amd64:latest" "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-amd64:v1.0.2-latest"
 echo "tagging it"
