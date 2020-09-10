@@ -54,7 +54,8 @@ docker exec local-fhe-toolkit-centos /bin/bash -c " \
 
 #Login to Artifactory using the fhe user
 echo "DOCKER LOGIN"
-docker login -u $ARTE_USER -p $ARTE_PWD "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com"
+#docker login -u $ARTE_USER -p $ARTE_PWD "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com"
+echo $ARTE_PWD | docker login -u $ARTE_USER --password-stdin "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com"
 #Tag the docker build for storage in Artifactory
 docker tag "local/fhe-toolkit-centos-amd64:latest" "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/centos/fhe-toolkit-centos-amd64:v1.0.2-latest"
 echo "tagging it"
