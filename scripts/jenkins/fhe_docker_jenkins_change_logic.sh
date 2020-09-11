@@ -32,5 +32,5 @@ ARTE_PWD=$2
 git log -1 --name-only
 
 #./fhe_docker_jenkins_trigger_builds_ubuntu.sh $ARTE_USER $ARTE_PWD
-./fhe_docker_jenkins_trigger_builds_fedora.sh $ARTE_USER $ARTE_PWD
+#./fhe_docker_jenkins_trigger_builds_fedora.sh $ARTE_USER $ARTE_PWD
 #./fhe_docker_jenkins_trigger_builds_centos.sh $ARTE_USER $ARTE_PWD
