@@ -375,7 +375,8 @@ then
   docker images --all
   echo " "
 fi
-
+#Throwing in test comment so it forces rebuild
+#makeing other change so it shows somethning is differetn
 
 echo "==============================================================="
 echo ""
