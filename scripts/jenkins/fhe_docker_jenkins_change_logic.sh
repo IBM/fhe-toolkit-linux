@@ -29,7 +29,24 @@
 ARTE_USER=$1
 ARTE_PWD=$2
 
-git log -1 --name-only
+GIT_LOG=git log -1 --name-only
+CENT='CENTOS'
+FED='FEDORA'
+UBU='UBUNTU'
+ALL='BuildDockerImage'
+
+
+if [[ "$GIT_LOG" == *"$ALL"* ]]; then
+  echo "CHANGES WERE MADE SO IGNORE THE REST"
+fi
+if [[ "$GIT_LOG" == *"$CENT"* ]]; then
+  echo "CHANGES WERE MADE"
+fi
+if [[ "$GIT_LOG" == *"$CENT"* ]]; then
+  echo "CHANGES WERE MADE"
+fi
+
+
 
 #./fhe_docker_jenkins_trigger_builds_ubuntu.sh $ARTE_USER $ARTE_PWD
 #./fhe_docker_jenkins_trigger_builds_fedora.sh $ARTE_USER $ARTE_PWD
