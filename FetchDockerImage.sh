@@ -26,7 +26,7 @@
 # This script is intended for those who want to try a pre-built docker container for their toolit distribution of choice.
 # see the script called BuildDockerContainer if you want to build or modify your own instance. 
 
-HElib_version='v1.0.2'
+source config_constants.sh
 
 bold=$(tput bold)
 normal=$(tput sgr0)
