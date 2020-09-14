@@ -43,7 +43,8 @@ DEPENDENCIES='DEPENDENCIES'
 
 #So it any changes were made to the base docker, build it all
 #TODO: find out how to check if something has changed with the HELib repo and it needs to be changed
-#      could be taken care of by just a change in the build docker image script
+#      could be taken care of by just a change in the build docker image script because if something is going to change
+#      I think that means that the version of the repo will be updated
 if [[ "$GIT_LOG" == *"$BUILD_ALL"* ] || 
     [ "$GIT_LOG" == *"$RUN_ALL"* ] ||
     [ "$GIT_LOG" == *"$PERSIST"* ] ||
