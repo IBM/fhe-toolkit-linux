@@ -32,6 +32,7 @@ ARTE_USER=$1
 ARTE_PWD=$2
 
 # Pull latest from the FHE repo, master branch
+#TODO: change to master before merging
 git checkout feature/jenkins_tests_and_tags
 # Build the Docker image for Fedora
 ./BuildDockerImage.sh fedora
