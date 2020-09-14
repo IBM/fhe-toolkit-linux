@@ -28,7 +28,7 @@ normal=$(tput sgr0)
 BASEDIR="$PWD"/$(dirname $0)
 SCRIPTNAME=$(basename $0)
 
-source config_constants.sh
+source ConfigConstants.sh
 
 # z/OS Container Extensions platform CURL implementation does not work as expected. If zCX platform detected, add flag to adjust.
 # adding -k option to curl commands on zCX else the string stays empty
