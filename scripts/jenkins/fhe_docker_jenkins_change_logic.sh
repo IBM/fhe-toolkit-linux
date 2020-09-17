@@ -30,7 +30,7 @@ ARTE_USER=$1
 ARTE_PWD=$2
 
 GIT_LOG=$(git log -1 --name-only)
-echo GIT_LOG
+echo $GIT_LOG
 CENT='CENTOS'
 FED='FEDORA'
 UBU='UBUNTU'
