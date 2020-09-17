@@ -47,11 +47,12 @@ VERSION_CHANGES='ConfigConstants'
 #TODO: find out how to check if something has changed with the HELib repo and it needs to be changed
 #      could be taken care of by just a change in the build docker image script because if something is going to change
 #      I think that means that the version of the repo will be updated
-if [ "$GIT_LOG" == *"$BUILD_ALL"* ] || [ "$GIT_LOG" == *"$RUN_ALL"* ] || [ "$GIT_LOG" == *"$PERSIST"* ] || [ "$GIT_LOG" == *"$SAMPLES"* ] || [ "$GIT_LOG" == *"$VERSION_CHANGES"* ] || [ "$GIT_LOG" == *"$DEPENDENCIES"* ]; then
+#if [ "$GIT_LOG" == *"$BUILD_ALL"* ] || [ "$GIT_LOG" == *"$RUN_ALL"* ] || [ "$GIT_LOG" == *"$PERSIST"* ] || [ "$GIT_LOG" == *"$SAMPLES"* ] || [ "$GIT_LOG" == *"$VERSION_CHANGES"* ] || [ "$GIT_LOG" == *"$DEPENDENCIES"* ]; then
+if [ "$GIT_LOG" == *"$VERSION_CHANGES"* ]; then 
   echo "CHANGES WERE MADE SO IGNORE THE REST"
-  ./fhe_docker_jenkins_trigger_builds_ubuntu.sh $ARTE_USER $ARTE_PWD
-  ./fhe_docker_jenkins_trigger_builds_fedora.sh $ARTE_USER $ARTE_PWD
-  ./fhe_docker_jenkins_trigger_builds_centos.sh $ARTE_USER $ARTE_PWD
+  #./fhe_docker_jenkins_trigger_builds_ubuntu.sh $ARTE_USER $ARTE_PWD
+  #./fhe_docker_jenkins_trigger_builds_fedora.sh $ARTE_USER $ARTE_PWD
+  #./fhe_docker_jenkins_trigger_builds_centos.sh $ARTE_USER $ARTE_PWD
 else
     if [[ "$GIT_LOG" == *"$FED"* ]]; then
         echo "REBUILD FEDORA"
