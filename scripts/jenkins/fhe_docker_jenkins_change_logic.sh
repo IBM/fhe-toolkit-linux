@@ -68,6 +68,8 @@ else
     if [[ "$GIT_LOG" == *"$CENT"* ]]; then
         echo "REBULD CENTOS"
         ./fhe_docker_jenkins_trigger_builds_centos.sh $ARTE_USER $ARTE_PWD
+    else 
+      echo "DID NOT DETECT ANY CHANGES, SO NO RE-BUILDS"
     fi
 
 fi
