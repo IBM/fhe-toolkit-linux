@@ -28,12 +28,7 @@ normal=$(tput sgr0)
 BASEDIR="$PWD"/$(dirname $0)
 SCRIPTNAME=$(basename $0)
 
-NTL_version='11.4.3'
-
-HElib_version='v1.0.2'
-
-Boost_version='1.72.0'
-Boost_filename='1_72_0'
+source ConfigConstants.sh
 
 # z/OS Container Extensions platform CURL implementation does not work as expected. If zCX platform detected, add flag to adjust.
 # adding -k option to curl commands on zCX else the string stays empty
