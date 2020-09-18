@@ -31,4 +31,4 @@ HElib_version='v1.0.2'
 # Boost Library
 Boost_version='1.72.0'
 Boost_filename='1_72_0'
-TEST_VAR_NAME='20.1.5'
+TEST_VAR_NAME='20.1.6'
