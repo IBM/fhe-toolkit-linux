@@ -27,6 +27,10 @@ pushd ../../
 set -x 
 set -u
 set -e
+
+ARTE_USER=$1
+ARTE_PWD=$2
+
 # Pull latest from the FHE repo, master branch
 git checkout master
 # Build the Docker image for Fedora
@@ -42,6 +46,19 @@ docker exec local-fhe-toolkit-fedora /bin/bash -c " \
     cmake ../examples/BGV_country_db_lookup;\
     make;\
     cd ..;\
+    chmod 755 examples/BGV_country_db_lookup/runtest.sh;\
     ./examples/BGV_country_db_lookup/runtest.sh;"
 # Shut everything down 
 ./StopToolkit.sh
+
+#Login to Artifactory using the fhe user
+echo "DOCKER LOGIN"
+#This works but its an alternate login version
+#docker login -u $ARTE_USER -p $ARTE_PWD "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com"
+echo $ARTE_PWD | docker login -u $ARTE_USER --password-stdin "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com"
+#Tag the docker build for storage in Artifactory
+docker tag "local/fhe-toolkit-fedora-amd64:latest" "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-amd64:v1.0.2-latest"
+echo "tagging it"
+#Push and save the newly tagged build in Artifactory
+docker push "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-amd64:v1.0.2-latest"
+echo "pushing it"
