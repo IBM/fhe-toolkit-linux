@@ -88,7 +88,7 @@ int main(int argc, char* argv[])
   // Size of NTL thread pool (default =1)
   unsigned long nthreads = 1;
   // input database file name
-  std::string db_filename="./examples/BGV_country_db_lookup/countries_dataset.csv";
+  std::string db_filename="/opt/IBM/FHE-Workspace/examples/BGV_country_db_lookup/countries_dataset.csv";
   // debug output (default no debug output)
   bool debug = false;
 
