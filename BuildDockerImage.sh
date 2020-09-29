@@ -115,9 +115,8 @@ get_Boost(){
     then
       echo " FATAL: There was an issue downloading boost_$2 from dl.bintray.com."
     fi
-  fi
-  # Now we untar whatever we fetched...
-  if [ ! -d boost ]; then
+
+    # Now we untar whatever we fetched...
     echo "INFO: Uncompressing Boost..."
     tar --no-same-owner -xf boost-$1.tar.gz
     if [ $? -ne 0 ]; then
@@ -131,7 +130,6 @@ get_Boost(){
   fi
   #rm boost-$1.tar.gz
 }
-
 
 
 
