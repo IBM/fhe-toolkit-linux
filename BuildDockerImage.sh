@@ -115,18 +115,19 @@ get_Boost(){
     then
       echo " FATAL: There was an issue downloading boost_$2 from dl.bintray.com."
     fi
+
+    # Now we untar whatever we fetched...
+    echo "INFO: Uncompressing Boost..."
+    tar --no-same-owner -xf boost-$1.tar.gz
+    if [ $? -ne 0 ]; then
+      echo " "
+      echo " FATAL: Aborting. There was an issue extracting files from boost-$1.tar.gz"
+      echo " "
+      exit -1
+    fi
+    # Rename download and remove tar file
+    mv boost_$2 boost
   fi
-  # Now we untar whatever we fetched...
-  echo "INFO: Uncompressing Boost..."
-  tar --no-same-owner -xf boost-$1.tar.gz
-  if [ $? -ne 0 ]; then
-    echo " "
-    echo " FATAL: Aborting. There was an issue extracting files from boost-$1.tar.gz"
-    echo " "
-    exit -1
-  fi
-  # Rename download and remove tar file
-  mv boost_$2 boost 
   #rm boost-$1.tar.gz
 }
 
