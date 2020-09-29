@@ -42,7 +42,7 @@ RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension twxs.cmak
 # set code-server to create a self signed cert
 RUN sed -i.bak 's/cert: false/cert: true/' ~/.config/code-server/config.yaml
 # Update code-server user settings
-RUN echo "{\"extensions.autoUpdate\": false}" > /opt/IBM/IDE-Data/User/settings.json
+RUN echo "{\"extensions.autoUpdate\": false,\n\"workbench.colorTheme\": \"Dark\"}" > /opt/IBM/IDE-Data/User/settings.json
 
 # Set the default command to launch the code-server project as a web application
 CMD ["code-server",  "--bind-addr", "0.0.0.0:8443", "--user-data-dir", "/opt/IBM/IDE-Data/", "/opt/IBM/FHE-Workspace", "--auth", "none", "--disable-telemetry"]
