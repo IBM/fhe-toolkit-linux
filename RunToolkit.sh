@@ -98,7 +98,7 @@ while getopts ":hpslv:" opt; do
     s ) # User wants an ephemeral sandbox. No peristent volume.
       SANDBOX_MODE="1"
       ;;
-    l ) # Run locally built contaliner
+    l ) # Run locally built container
       [ -n "$CONTAINER_MODE" ] \
       && { echo "Fatal: Options -l and -p are mutually exclusive" ; print_usage; exit -1;} \
       || CONTAINER_MODE=local
