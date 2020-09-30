@@ -210,8 +210,6 @@ then
     echo " "
     exit -8
   fi
-  chmod 777 $PERSISTENT_FHE_WORKSPACE_PATH
-  echo "CHANGING PERMISSIONS $PERSISTENT_FHE_WORKSPACE_PATH"
   # Set up access to a container instance file system without running the container...
   if ! ToolkitImageId=$(docker create $ToolkitImageName)
   then
@@ -258,3 +256,6 @@ then
         echo "Failed to setup workspace"
         exit -1
 fi
+
+#User IDs on the host system not matching the user IDs on the container so we are allowing permissions here
+chmod -R 777 $PERSISTENT_FHE_WORKSPACE_PATH
