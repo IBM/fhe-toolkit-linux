@@ -36,7 +36,6 @@ PORT=8443
 
 # The default location on this host where a project directory of FHE toolkit source code will be persisted
 DEFAULT_FHE_PERSISTENT_WORKSPACE_PATH="$PWD"/FHE-Toolkit-Workspace
-chmod +x $DEFAULT_FHE_PERSISTENT_WORKSPACE_PATH
 zCX=$(docker system info | grep platform)
 if [ $zCX  ] && [ $zCX == "platform=zOS" ]; then
   DEFAULT_FHE_PERSISTENT_WORKSPACE_PATH=AZD_SHARED_VOLUME
@@ -185,9 +184,6 @@ if [ "$SANDBOX_MODE" == "0" ]; then
   else
     echo "INFO:    Using user-specified persistent storage path..."
   fi
-    
-  #quick answer to some of the permissions issues we have seen
-  chmod +x $FHE_WORKSPACE_PATH
 
   # Convert to absolute path to protect against relative paths unless on zCX
   if [ ! $zCX ]; then

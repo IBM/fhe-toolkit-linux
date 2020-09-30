@@ -210,7 +210,6 @@ then
     echo " "
     exit -8
   fi
-  chmod +x "$PERSISTENT_FHE_WORKSPACE_PATH/"
   # Set up access to a container instance file system without running the container...
   if ! ToolkitImageId=$(docker create $ToolkitImageName)
   then
