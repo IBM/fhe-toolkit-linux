@@ -185,6 +185,9 @@ if [ "$SANDBOX_MODE" == "0" ]; then
     echo "INFO:    Using user-specified persistent storage path..."
   fi
     
+  #quick answer to some of the permissions issues we have seen
+  chmod +x $FHE_WORKSPACE_PATH
+
   # Convert to absolute path to protect against relative paths unless on zCX
   if [ ! $zCX ]; then
   FHE_WORKSPACE_PATH=$(abs_path "$FHE_WORKSPACE_PATH")
