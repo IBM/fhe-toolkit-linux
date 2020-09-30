@@ -57,7 +57,7 @@ ${bold}Usage: $scriptname <-p|-l> [options] CONTAINER_OS${normal}
 ${bold}CONTAINER_OS${normal}   Selects the name of the operating system platform for
                the FHE Toolkit container you want to use.
                Available OS are:
-               x86_64/amd64: {ubuntu, fedora, centos}
+               x86_64/amd64: {ubuntu, fedora, centos, alpine}
                s390x:        {ubuntu}
 
 -p             Run the IBMCOM pre-built toolkit from Docker Hub
@@ -153,6 +153,10 @@ elif [[ "$platform" = "ubuntu" ]]
 then
     platform="ubuntu"
     tag="20.04"
+elif [[ "$platform" = "alpine" ]]
+then
+    platform="alpine"
+    tag="3.12"    
 else
     echo "Invalid option: $platform - Please specify a supported platform"
     print_usage

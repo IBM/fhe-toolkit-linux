@@ -7,7 +7,7 @@ in this git repository.
 
 ## Unsupported Configurations
 
-This project strives to support as many Docker capable host platforms as possible, however due to recent changes in Fedora 31 and 32, Docker has been reported not to work out of the box. Therefore, we can't support Fedora 31+ as a host for the toolkit. If you are interested in testing the toolkit as a Fedora container, you can use the pre-built container from Docker hub or build the Fedora toolkit container yourself on MacOS 10.13+ , Ubuntu 20.04 or CentOS 8. There is no plan to add host support by the development team at this time, but we would happily accept patches from the community to add host support if possible without complicating builds on the majority of our supported platforms.
+This project strives to support as many Docker capable host platforms as possible, however due to recent changes in Fedora 31 and 32, Docker has been reported not to work out of the box. Therefore, we can't support Fedora 31+ as a host for the toolkit. If you are interested in testing the toolkit as a Fedora container, you can use the pre-built container from Docker hub or build the Fedora toolkit container yourself on MacOS 10.13+ , Ubuntu 20.04, CentOS 8 or Alpine 3.12. There is no plan to add host support by the development team at this time, but we would happily accept patches from the community to add host support if possible without complicating builds on the majority of our supported platforms.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ toolkit and `cd` into the toolkit project folder.
 cd fhe-toolkit-linux
 ```
 
-The build is initiated by invoking the `BuildDockerImage.sh` script with `-p <platform>` flag to select one of the supported platforms (`centos`, `ubuntu` or `fedora`). The remainder of these instructions will use CentOS as the example platform.
+The build is initiated by invoking the `BuildDockerImage.sh` script with `-p <platform>` flag to select one of the supported platforms (`centos`, `ubuntu`, `fedora` or `alpine`). The remainder of these instructions will use CentOS as the example platform.
 
 ```
 ./BuildDockerImage.sh centos

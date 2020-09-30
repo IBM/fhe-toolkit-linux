@@ -1,0 +1,57 @@
+ARG HElib_tag
+FROM $HElib_tag
+ENV container docker
+LABEL maintainer="Flavio Bergamaschi <flavio@uk.ibm.com>"
+
+# Docker Container for Alpine FHE IDE and Example Code Toolkit
+
+# The code-server runs on HTTPS port 8443 so expose it
+EXPOSE 8443/tcp
+
+# Set root user for installation
+USER root
+WORKDIR /root
+
+# Install pre-reqs for building code-server
+RUN apk add --no-cache openssl python3 pkgconfig xterm libx11-dev libxkbfile-dev libsecret-dev nodejs yarn
+
+# Install code-server so we can access vscode from a container context...
+RUN yarn global add node-gyp 
+RUN yarn global add node-pty 
+RUN yarn global add code-server
+
+# Create a directory to hold the VSCode user data when running as root
+RUN mkdir -p /opt/IBM/IDE-Data
+RUN chown -R fhe:fhe /opt/IBM/IDE-Data
+
+# Create a directory to hold the user FHE workspace to contain project/sample code
+RUN mkdir -p /opt/IBM/FHE-Workspace
+RUN chown -R fhe:fhe /opt/IBM/FHE-Workspace
+
+# Set fhe user for the remaining of the installation
+USER fhe
+WORKDIR /home/fhe
+
+RUN mkdir /opt/IBM/FHE-Workspace/.vscode
+COPY --chown=fhe:fhe ./IDE_Config /opt/IBM/FHE-Workspace/.vscode 
+RUN mkdir -p /opt/IBM/FHE-Workspace/examples
+RUN cp -rp /opt/IBM/FHE-distro/HElib/examples /opt/IBM/FHE-Workspace
+
+# Copy over additional examples into the FHE-Workspace from the github checkout on this host
+COPY --chown=fhe:fhe ./samples/ /opt/IBM/FHE-Workspace/examples/
+
+# Install VSCode extensions
+RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension ms-vscode.cpptools --force
+RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension ms-vscode.cmake-tools --force
+RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension twxs.cmake --force
+
+# set code-server to create a self signed cert
+RUN sed -i.bak 's/cert: false/cert: true/' /home/fhe/.config/code-server/config.yaml
+
+# Update VSCode user settings
+RUN echo "{\"extensions.autoUpdate\": false}" > /opt/IBM/IDE-Data/User/settings.json
+RUN echo "{\"extensions.autoUpdate\": false,\n\"workbench.colorTheme\": \"Dark\"}" > /opt/IBM/IDE-Data/User/settings.json
+
+# Set the default command to launch the VS Project as a web application
+CMD ["code-server",  "--bind-addr", "0.0.0.0:8443", "--user-data-dir", "/opt/IBM/IDE-Data/", "/opt/IBM/FHE-Workspace", "--auth", "none", "--disable-telemetry"]
+

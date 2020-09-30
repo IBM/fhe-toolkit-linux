@@ -68,7 +68,7 @@ ${bold}CONTAINER_IMG${normal}     Selects the name of toolkit container image to
                   or the locally built toolkit tagged container name. This script
                   exects this container image name to exist in the local docker image catalog.
                   Supported container OS are:
-                  x86_64/amd64: {ubuntu, fedora, centos}
+                  x86_64/amd64: {ubuntu, fedora, centos, alpine}
                   s390x:        {ubuntu}
 
 ${bold}Options:${normal}
@@ -166,7 +166,8 @@ fi
 if [ $ARCH == "s390x" ]
 then
   if ! [ "$platform" = "ubuntu" ] \
-  && ! [ "$platform" = "fedora" ]
+  && ! [ "$platform" = "fedora" ] \
+  && ! [ "$platform" = "alpine" ] 
   then
     echo " "
     echo " Invalid platform: $ToolkitImageName ($platform on $ARCH) is not supported."
@@ -179,7 +180,8 @@ elif [ $ARCH == "amd64" ]
 then
   if ! [ "$platform" = "fedora" ] \
   && ! [ "$platform" = "centos" ] \
-  && ! [ "$platform" = "ubuntu" ]
+  && ! [ "$platform" = "ubuntu" ] \
+  && ! [ "$platform" = "alpine" ]
   then
     echo " "
     echo " Invalid platform: $ToolkitImageName ($platform on $ARCH) is not supported."
