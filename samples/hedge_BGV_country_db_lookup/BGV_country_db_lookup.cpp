@@ -27,63 +27,27 @@
 #include <fstream>
 #include <helib/ArgMap.h>
 #include <NTL/BasicThreadPool.h>
+#include <cassert>
 
 using namespace hedge;
 using namespace std;
 
-// Utility function to read <K,V> CSV data from file
-vector<pair<string, string>> read_csv(string filename)
-{
-  vector<pair<string, string>> dataset;
-  ifstream data_file(filename);
-
-  if (!data_file.is_open())
-    throw runtime_error(
-        "Error: This example failed trying to open the data file: " + filename +
-        "\n           Please check this file exists and try again.");
-
-  vector<string> row;
-  string line, entry, temp;
-
-  if (data_file.good()) {
-    // Read each line of file
-    while (getline(data_file, line)) {
-      row.clear();
-      stringstream ss(line);
-      while (getline(ss, entry, ',')) {
-        row.push_back(entry);
-      }
-      // Add key value pairs to dataset
-      dataset.push_back(make_pair(row[0], row[1]));
-    }
-  }
-
-  data_file.close();
-  return dataset;
-}
-
-vector<int> stringToAscii(const string& val)
-{
-  vector<int> res;
-  res.reserve(val.size());
-  for (size_t i = 0; i < val.size(); ++i) {
-    res.push_back(val[i]);
-  }
-  return res;
-}
+// Forward declarations. These functions are explained later.
+vector<pair<string, string>> read_csv(string filename, int maxLen);
+void run(HeContext& he, const string& db_filename, bool debug);
+bool isPowerOf2(int v);
+vector<int> stringToAscii(const string& val);
 
 int main(int argc, char* argv[])
 {
-  /************ HElib boiler plate ************/
-
   // Note: The parameters have been chosen to provide a somewhat
   // faster running time with a non-realistic security level.
   // Do Not use these parameters in real applications.
 
   // Plaintext prime modulus
-  unsigned long p = 131;
+  unsigned long p = 127;
   // Cyclotomic polynomial - defines phi(m)
-  unsigned long m = 130; // this will give 48 slots
+  unsigned long m = 128; // this will give 32 slots
   // Hensel lifting (default = 1)
   unsigned long r = 1;
   // Number of bits of the modulus chain
@@ -126,56 +90,90 @@ int main(int argc, char* argv[])
 
   cout << "---Initialising HE Environment ... ";
   // Initialize context
-  cout << "\nInitializing the Context ... ";
-  HELIB_NTIMER_START(timer_Context);
+  cout << "\nInitializing the Context ... " << endl;
+
+  // To setup helib using hedge, let's first
+  // copy all configuration params to an HelibConfig object:
   HelibConfig conf;
   conf.p = p;
   conf.m = m;
   conf.r = r;
   conf.L = bits;
   conf.c = c;
+
+  // Next we'll initialize a BGV scheme in helib.
+  // The following two lines perform full intializiation
+  // Including key generation.
+  // (We added code for timing it).
+  HELIB_NTIMER_START(timer_Context);
   HelibBgvContext he;
   he.init(conf);
   HELIB_NTIMER_STOP(timer_Context);
 
+  // Helib-BGV is now ready to start doing some HE work.
+  // which we'll do in the follwing function, defined below
+  run(he, db_filename, debug);
+
+  return 0;
+}
+
+void run(HeContext& he, const string& db_filename, bool debug)
+{
+
+  // The run function receives an abstract HeContext class.
+  // Therefore the code below is oblivious to a particular HE scheme
+  // implementation.
+
+  // First let's print general information on our library and scheme.
+  // This will print their names, and the configuraton details.
   he.printSignature();
 
-  // Print the security level
+  // However we do have some requirements that we can
+  // assert exists:
+  // We require the plaintext to be over modular arithmetic.
+  // We'll rely on that later.
+  assert(he.getTraits().getIsModularArithmetic());
+  // Since we store ascii codes, we need it at least to be able
+  // to handle the numbers 0...127
+  assert(he.getTraits().getArithmeticModulus() >= 127);
+
+  // Next, print the security level
   // Note: This will be negligible to improve performance time.
   cout << "\n***Security Level: " << he.getSecurityLevel()
        << " *** Negligible for this example ***" << endl;
 
-  // Get the number of slot (phi(m))
-  long nslots = he.slotCount();
-  cout << "\nNumber of slots: " << nslots << endl;
+  // Let's also print the number of slots.
+  // Each ciphertext will have this many slots.
+  cout << "\nNumber of slots: " << he.slotCount() << endl;
 
-  /************ Read in the database ************/
-  vector<pair<string, string>> country_db = read_csv(db_filename);
+  // Now we'll read in the database (in cleartext).
+  // This function we'll make sure no string is longer than he.slotCount()
+  vector<pair<string, string>> country_db =
+      read_csv(db_filename, he.slotCount());
 
-  // Convert strings into numerical vectors
   cout << "\n---Initializing the encrypted key,value pair database ("
        << country_db.size() << " entries)...";
   cout << "\nConverting strings to numeric representation into Ptxt objects ..."
        << endl;
 
-  // Generating the Plain text representation of Country DB
+  // We'll now encrypt our country-capital database.
   HELIB_NTIMER_START(timer_CtxtCountryDB);
+  // The encoder class handles both encoding and encrypting.
   Encoder enc(he);
+  // This is the database: a vector of pairs of CTile-s.
+  // A CTile is a ciphertext object.
   vector<pair<CTile, CTile>> encrypted_country_db;
   for (const auto& country_capital_pair : country_db) {
-    if (debug) {
-      cout << "\t\tname_addr_pair.first size = "
-           << country_capital_pair.first.size() << " ("
-           << country_capital_pair.first << ")"
-           << "\tname_addr_pair.second size = "
-           << country_capital_pair.second.size() << " ("
-           << country_capital_pair.second << ")" << endl;
-    }
-
+    // Create a country ciphertext, and encrypt inside
+    // the ascii vector representation of each country.
+    // For example, Norway is represented
+    // (78,111,114,119,97,121,  0,0,0, ...)
     CTile country(he);
     enc.encodeEncrypt(country, stringToAscii(country_capital_pair.first));
+    // Similarly encrypt the capital name
     CTile capital(he);
     enc.encodeEncrypt(capital, stringToAscii(country_capital_pair.second));
+    // Add the pair to the database
     encrypted_country_db.emplace_back(move(country), move(capital));
   }
   HELIB_NTIMER_STOP(timer_CtxtCountryDB);
@@ -202,10 +200,13 @@ int main(int argc, char* argv[])
   HELIB_NTIMER_START(timer_TotalQuery);
   HELIB_NTIMER_START(timer_EncryptQuery);
 
+  // Encrypt the query similar to the way we encrypted
+  // the country and capital names
   CTile query(he);
   enc.encodeEncrypt(query, stringToAscii(query_string));
 
   HELIB_NTIMER_STOP(timer_EncryptQuery);
+
   /************ Perform the database search ************/
 
   HELIB_NTIMER_START(timer_QuerySearch);
@@ -213,21 +214,63 @@ int main(int argc, char* argv[])
   mask.reserve(country_db.size());
   NativeFunctionEvaluator eval(he);
   long modulusP = he.getTraits().getArithmeticModulus();
+
+  // For every entry in our database we perform the following
+  // calculation:
   for (const auto& encrypted_pair : encrypted_country_db) {
-    CTile mask_entry = encrypted_pair.first; //  Copy of database key
-    mask_entry.sub(query);                   // Calculate the difference
+    //  Copy of database key: a country name
+    CTile mask_entry = encrypted_pair.first;
+    // Calculate the difference
+    // In each slot now we'll have 0 when characters match,
+    // or non-zero when there's a mismatch
+    mask_entry.sub(query);
 
-    eval.powerInPlace(mask_entry, modulusP - 1); // Fermat's little theorem
-    mask_entry.negate();                         // Negate the ciphertext
-    mask_entry.addScalar(1);                     // 1 - mask = 0 or 1
+    // Fermat's little theorem:
+    // Since the underlying plaintext are in modular arithmetic,
+    // Raising to the power of modulusP convers all non-zero values
+    // to 1.
+    eval.powerInPlace(mask_entry, modulusP - 1);
 
-    // Create a vector of copies of the mask
-    vector<CTile> rotated_masks(nslots, mask_entry);
-    for (int i = 1; i < rotated_masks.size(); i++)
-      rotated_masks[i].rotate(-i);                // Rotate each of the masks
-    eval.totalProduct(mask_entry, rotated_masks); // Multiply each of the masks
+    // Negate the ciphertext
+    // Now we'll have 0 for match, -1 for mismatch
+    mask_entry.negate();
 
-    mask_entry.multiplyRaw(encrypted_pair.second); // multiply mask with values
+    // Add +1
+    // Now we'll have 1 for match, 0 for mismatch
+    mask_entry.addScalar(1);
+
+    // We'll now multiply all slots together, since
+    // we want a complete match across all slots.
+
+    // If slot count is a power of 2 there's an efficient way
+    // to do it:
+    // we'll do a rotate-and-multiply algorithm, similar to
+    // a rotate-and-sum one.
+    if (isPowerOf2(he.slotCount())) {
+      for (int rot = 1; rot < he.slotCount(); rot *= 2) {
+        CTile tmp(mask_entry);
+        tmp.rotate(-rot);
+        mask_entry.multiply(tmp);
+      }
+    } else {
+      // Otherwise we'll create all possible rotations, and multiply all of
+      // them.
+      // Note that for non powers of 2 a rotate-and-multiply algorithm
+      // can still be used as well, though it's more complicated and
+      // beyond the scope of this example.
+      vector<CTile> rotated_masks(he.slotCount(), mask_entry);
+      for (int i = 1; i < rotated_masks.size(); i++)
+        rotated_masks[i].rotate(-i); // Rotate each of the masks
+      eval.totalProduct(mask_entry,
+                        rotated_masks); // Multiply each of the masks
+    }
+
+    // mask_entry is now either all 1s if query==country,
+    // or all 0s otherwise.
+    // After we multiply by capital name it will be either
+    // the capital name, or all 0s.
+    mask_entry.multiply(encrypted_pair.second);
+    // We collect all our findings.
     mask.push_back(mask_entry);
   }
   HELIB_NTIMER_STOP(timer_QuerySearch);
@@ -267,6 +310,56 @@ int main(int argc, char* argv[])
   }
 
   cout << "\nQuery result: " << string_result << endl;
-
-  return 0;
+  helib::printNamedTimer(std::cout, "timer_TotalQuery");
 }
+
+// Utility function to read <K,V> CSV data from file
+vector<pair<string, string>> read_csv(string filename, int maxLen)
+{
+  vector<pair<string, string>> dataset;
+  ifstream data_file(filename);
+
+  if (!data_file.is_open())
+    throw runtime_error(
+        "Error: This example failed trying to open the data file: " + filename +
+        "\n           Please check this file exists and try again.");
+
+  vector<string> row;
+  string line, entry, temp;
+
+  if (data_file.good()) {
+    // Read each line of file
+    while (getline(data_file, line)) {
+      row.clear();
+      stringstream ss(line);
+      while (getline(ss, entry, ',')) {
+        row.push_back(entry);
+      }
+      if (row[0].size() > maxLen)
+        throw runtime_error("Country name " + row[0] + " too long");
+      if (row[1].size() > maxLen)
+        throw runtime_error("Capital name " + row[1] + " too long");
+
+      // Add key value pairs to dataset
+      dataset.push_back(make_pair(row[0], row[1]));
+    }
+  }
+
+  data_file.close();
+  return dataset;
+}
+
+// Return a vector of ints with the i'th element containing the ascii
+// code of the i'th character
+vector<int> stringToAscii(const string& val)
+{
+  vector<int> res;
+  res.reserve(val.size());
+  for (size_t i = 0; i < val.size(); ++i) {
+    res.push_back(val[i]);
+  }
+  return res;
+}
+
+// Returns true if v is a power of 2
+bool isPowerOf2(int v) { return (v & v - 1) == 0; }

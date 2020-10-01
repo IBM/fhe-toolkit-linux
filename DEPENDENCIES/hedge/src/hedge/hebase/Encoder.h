@@ -33,6 +33,8 @@
 
 namespace hedge {
 
+/// A class used to encode, encrypt, decode and decrypt ciphertexts and
+/// plaintexts.
 class Encoder
 {
 
@@ -52,96 +54,278 @@ public:
   void encode(PTile& res, int val, int chainIndex = -1) const;
   void encode(PTile& res, double val, int chainIndex = -1) const;
 
-  /// Encode the given vector into a PTile. \n
-  /// if the size of the given vector is less than he.slotCount(),
+  /// Encodes the given integer into a PTile.
+  /// If the size of the given vector is less than he.slotCount(),
   /// the empty slots of the PTile will be set to zero. If the size of the given
-  /// vector is more than he.slotCount(), a untime_error will be thrown. \n
-  /// @param[out] res The encoded PTile
-  /// @param[in] vals The vector to encode
-  /// @param[in] If HeContext is a CKKS context, specifies the chainIndex of
-  ///            the resulting PTile. otherwise, this parameter is ignored.
+  /// vector is more than he.slotCount(), a untime_error will be thrown.
+  /// @param[out] res The    encoded PTile
+  /// @param[in] vals The    vector to encode
+  /// @param[in] chainIndex  If HeContext is a CKKS context, specifies the
+  /// chainIndex of
+  ///                        the resulting PTile. otherwise, this parameter is
+  ///                        ignored.
   /// @throw runtime_error if vals.size() > he.slotCount()
   void encode(PTile& res,
               const std::vector<int>& vals,
               int chainIndex = -1) const;
+
+  /// Encodes the given double into a PTile.
+  /// If the size of the given vector is less than he.slotCount(),
+  /// the empty slots of the PTile will be set to zero. If the size of the given
+  /// vector is more than he.slotCount(), a untime_error will be thrown.
+  /// @param[out] res The    encoded PTile
+  /// @param[in] vals The    vector to encode
+  /// @param[in] chainIndex  If HeContext is a CKKS context, specifies the
+  /// chainIndex of
+  ///                        the resulting PTile. otherwise, this parameter is
+  ///                        ignored.
+  /// @throw runtime_error if vals.size() > he.slotCount()
   void encode(PTile& res,
               const std::vector<long>& vals,
               int chainIndex = -1) const;
+
+  /// Encodes the given vector into a PTile.
+  /// If the size of the given vector is less than he.slotCount(),
+  /// the empty slots of the PTile will be set to zero. If the size of the given
+  /// vector is more than he.slotCount(), a untime_error will be thrown.
+  /// @param[out] res The    encoded PTile
+  /// @param[in] vals The    vector to encode
+  /// @param[in] chainIndex  If HeContext is a CKKS context, specifies the
+  /// chainIndex of
+  ///                        the resulting PTile. otherwise, this parameter is
+  ///                        ignored.
+  /// @throw runtime_error if vals.size() > he.slotCount()
   void encode(PTile& res,
               const std::vector<double>& vals,
               int chainIndex = -1) const;
+
+  /// Encodes the given vector into a PTile.
+  /// If the size of the given vector is less than he.slotCount(),
+  /// the empty slots of the PTile will be set to zero. If the size of the given
+  /// vector is more than he.slotCount(), a untime_error will be thrown.
+  /// @param[out] res The    encoded PTile
+  /// @param[in] vals The    vector to encode
+  /// @param[in] chainIndex  If HeContext is a CKKS context, specifies the
+  ///                        chainIndex of the resulting PTile. otherwise, this
+  ///                        parameter is ignored.
+  /// @throw runtime_error if vals.size() > he.slotCount()
   void encode(PTile& res,
               const std::vector<std::complex<double>>& vals,
               int chainIndex = -1) const;
 
-  // decode
+  /// Decodes the value of the given PTile into a vector of ints.
+  /// If the underlying FHE scheme is a scheme that supports floating point
+  /// values, then "src" is first decrypted into a vector of doubles and then
+  /// rounded to the nearest integers.
+  /// @param[in] src The PTile to decode.
   std::vector<int> decodeInt(const PTile& src) const;
+
+  /// Decodes the value of the given PTile into a vector of longs.
+  /// If the underlying FHE scheme is a scheme that supports floating point
+  /// values, then "src" is first decrypted into a vector of doubles and then
+  /// rounded to the nearest integers.
+  /// @param[in] src The PTile to decode.
   std::vector<long> decodeLong(const PTile& src) const;
+
+  /// Decodes the value of the given PTile into a vector of doubles.
+  /// @param[in] src The PTile to decode.
   std::vector<double> decodeDouble(const PTile& src) const;
+
+  /// Decodes the value of the given PTile into a vector of complex<double>.
+  /// @param[in] src The PTile to decode.
   std::vector<std::complex<double>> decodeComplex(const PTile& src) const;
 
-  // encrypt
+  /// Encrypts "src" into "res".
+  /// @param[out] res  The resulting CTile.
+  /// @param[in]  src  The PTile to encrypt
   void encrypt(CTile& res, const PTile& src) const;
 
-  // decrypt
+  /// Encrypts "src" into "res".
+  /// @param[out] res  The resulting PTile.
+  /// @param[in]  src  The CTile to encrypt
   void decrypt(PTile& res, const CTile& src) const;
 
-  /// Encode and then encrypt the given vector into a CTile. \n
+  /// Encodes and then encrypts the given vector into a CTile.
   /// if the size of the given vector is less than he.slotCount(),
   /// the empty slots of the CTile will be set to zero. If the size of the given
-  /// vector is more than he.slotCount(), a untime_error will be thrown. \n
-  /// @param[out] res The encoded PTile
-  /// @param[in] vals The vector to encode
-  /// @param[in] If HeContext is a CKKS context, specifies the chainIndex of
-  ///            the resulting CTile. otherwise, this parameter is ignored.
+  /// vector is more than he.slotCount(), a untime_error will be thrown.
+  /// @param[out] res        The resulting CTile
+  /// @param[in] vals        The vector to encode
+  /// @param[in] chainIndex  If HeContext is a CKKS context, specifies the
+  ///                        chainIndex of the resulting CTile. otherwise, this
+  ///                        parameter is ignored.
   /// @throw runtime_error if vals.size() > he.slotCount()
   void encodeEncrypt(CTile& res,
                      const std::vector<int>& vals,
                      int chainIndex = -1) const;
+
+  /// Encodes and then encrypts the given vector into a CTile.
+  /// if the size of the given vector is less than he.slotCount(),
+  /// the empty slots of the CTile will be set to zero. If the size of the given
+  /// vector is more than he.slotCount(), a untime_error will be thrown.
+  /// @param[out] res        The resulting CTile
+  /// @param[in] vals        The vector to encode
+  /// @param[in] chainIndex  If HeContext is a CKKS context, specifies the
+  ///                        chainIndex of the resulting CTile. otherwise, this
+  ///                        parameter is ignored.
+  /// @throw runtime_error if vals.size() > he.slotCount()
   void encodeEncrypt(CTile& res,
                      const std::vector<long>& vals,
                      int chainIndex = -1) const;
+
+  /// Encodes and then encrypts the given vector into a CTile.
+  /// if the size of the given vector is less than he.slotCount(),
+  /// the empty slots of the CTile will be set to zero. If the size of the given
+  /// vector is more than he.slotCount(), a runtime_error will be thrown.
+  /// @param[out] res        The resulting CTile
+  /// @param[in] vals        The vector to encode
+  /// @param[in] chainIndex  If HeContext is a CKKS context, specifies the
+  ///                        chainIndex of the resulting CTile. otherwise, this
+  ///                        parameter is ignored.
+  /// @throw runtime_error if vals.size() > he.slotCount()
   void encodeEncrypt(CTile& res,
                      const std::vector<double>& vals,
                      int chainIndex = -1) const;
+
+  /// Encodes and then encrypts the given vector into a CTile.
+  /// if the size of the given vector is less than he.slotCount(),
+  /// the empty slots of the CTile will be set to zero. If the size of the given
+  /// vector is more than he.slotCount(), a runtime_error will be thrown.
+  /// @param[out] res        The resulting CTile
+  /// @param[in] vals        The vector to encode
+  /// @param[in] chainIndex  If HeContext is a CKKS context, specifies the
+  ///                        chainIndex of the resulting CTile. otherwise, this
+  ///                        parameter is ignored.
+  /// @throw runtime_error If vals.size() > he.slotCount()
+  /// @throw runtime_error If the underlying FHE scheme is a scheme that does
+  ///                      not support complex values (such as BGV, for
+  ///                      example).
   void encodeEncrypt(CTile& res,
                      const std::vector<std::complex<double>>& vals,
                      int chainIndex = -1) const;
 
-  // decrypt + decode
+  /// Decodes and then decryots the given CTile into a vector of ints.
+  /// If the underlying FHE scheme is a scheme that supports floating point
+  /// values, then "src" is first decrypted into a vector of doubles and then
+  /// rounded to the nearest integers.
+  /// @param[in] src         The CTile to decode and decrypt.
   std::vector<int> decryptDecodeInt(const CTile& src) const;
+
+  /// Decodes and then decryots the given CTile into a vector of ints.
+  /// If the underlying FHE scheme is a scheme that supports floating point
+  /// values, then "src" is first decrypted into a vector of doubles and then
+  /// rounded to the nearest integers.
+  /// @param[in] src         The CTile to decode and decrypt.
   std::vector<long> decryptDecodeLong(const CTile& src) const;
+
+  /// Decodes and then decryots the given CTile into a vector of doubles.
+  /// @param[in] src         The CTile to decode and decrypt.
   std::vector<double> decryptDecodeDouble(const CTile& src) const;
+
+  /// Decodes and then decryots the given CTile into a vector of
+  /// complex<double>.
+  /// @param[in] src         The CTile to decode and decrypt.
   std::vector<std::complex<double>> decryptDecodeComplex(
       const CTile& src) const;
 
-  // print error statistics
+  /// Prints statstical information relating to the difference between "actualC"
+  /// and "expectedZ".
+  /// @param[in] actualC     The CTile to decode-decrypt and to compare to
+  ///                        expectedZ.
+  /// @param[in] expectedZ   The vector of doubles to compare actualC with.
+  /// @param[in] out         The ostream to print to.
+  ///
   void printErrorStats(CTile& actualC,
                        std::vector<double> expectedZ,
                        std::ostream& out = std::cout,
                        bool asCsv = false) const;
 
-  // check whether a chain index is valid
+  /// checks whether a chain index is valid.
+  /// @param[in] chainIndex To check its validity.
   int validateChainIndex(int chainIndex) const;
 
-  // tests that all elements within expectedVals are equal to the equivalent
-  // elements in c,
-  // up to a given epsilon, and returns the max difference found
+  /// Asserts that "c" and "expectedVals" are considered equal.
+  /// "c" and "expectedVals" will be considered equal if when decrypting and
+  /// decoding "c" into a vector, v, one of the following holds:
+  /// 1. percent == false and fabs(v[i] - expectedVals[i]) < eps, foreach i.
+  /// 2. percent == true and fabs(v[i] - expectedVals[i]) / fabs(v[i]) < eps,
+  ///    foreach i.
+  /// The maximum found absolute or relative difference (depending on the value
+  /// of "percent" flag) is returned.
+  /// @param[in] c                The CTile to compare with expectedVals
+  /// @param[in] title            The title used in case of printing a failure
+  ///                             message.
+  /// @param[in] expectedVals     The vector to compare with "c".
+  /// @param[in] eps              Comparison tolerance
+  /// @param]in] percent          If true, the relative difference between "c"
+  ///                             and "expectedVals" is checked. Otherwise,
+  ///                             the absolute difference is checked.
   double assertEquals(const CTile& c,
                       const std::string& title,
                       const std::vector<int>& expectedVals,
                       double eps = 1e-6,
                       bool percent = false) const;
+
+  /// Asserts that "c" and "expectedVals" are considered equal.
+  /// "c" and "expectedVals" will be considered equal if when decrypting and
+  /// decoding "c" into a vector, v, one of the following holds:
+  /// 1. percent == false and fabs(v[i] - expectedVals[i]) < eps, foreach i.
+  /// 2. percent == true and fabs(v[i] - expectedVals[i]) / fabs(v[i]) < eps,
+  ///    foreach i.
+  /// The maximum found absolute or relative difference (depending on the value
+  /// of "percent" flag) is returned.
+  /// @param[in] c                The CTile to compare with expectedVals
+  /// @param[in] title            The title used in case of printing a failure
+  ///                             message.
+  /// @param[in] expectedVals     The vector to compare with "c".
+  /// @param[in] eps              Comparison tolerance
+  /// @param]in] percent          If true, the relative difference between "c"
+  ///                             and "expectedVals" is checked. Otherwise,
+  ///                             the absolute difference is checked.
   double assertEquals(const CTile& c,
                       const std::string& title,
                       const std::vector<long>& expectedVals,
                       double eps = 1e-6,
                       bool percent = false) const;
+
+  /// Asserts that "c" and "expectedVals" are considered equal.
+  /// "c" and "expectedVals" will be considered equal if when decrypting and
+  /// decoding "c" into a vector, v, one of the following holds:
+  /// 1. percent == false and fabs(v[i] - expectedVals[i]) < eps, foreach i.
+  /// 2. percent == true and fabs(v[i] - expectedVals[i]) / fabs(v[i]) < eps,
+  ///    foreach i.
+  /// The maximum found absolute or relative difference (depending on the value
+  /// of "percent" flag) is returned.
+  /// @param[in] c                The CTile to compare with expectedVals
+  /// @param[in] title            The title used in case of printing a failure
+  ///                             message.
+  /// @param[in] expectedVals     The vector to compare with "c".
+  /// @param[in] eps              Comparison tolerance
+  /// @param]in] percent          If true, the relative difference between "c"
+  ///                             and "expectedVals" is checked. Otherwise,
+  ///                             the absolute difference is checked.
   double assertEquals(const CTile& c,
                       const std::string& title,
                       const std::vector<double>& expectedVals,
                       double eps = 1e-6,
                       bool percent = false) const;
+
+  /// Asserts that "c" and "expectedVals" are considered equal.
+  /// "c" and "expectedVals" will be considered equal if when decrypting and
+  /// decoding "c" into a vector, v, one of the following holds:
+  /// 1. percent == false and fabs(v[i] - expectedVals[i]) < eps, foreach i.
+  /// 2. percent == true and fabs(v[i] - expectedVals[i]) / fabs(v[i]) < eps,
+  ///    foreach i.
+  /// The maximum found absolute or relative difference (depending on the value
+  /// of "percent" flag) is returned.
+  /// @param[in] c                The CTile to compare with expectedVals
+  /// @param[in] title            The title used in case of printing a failure
+  ///                             message.
+  /// @param[in] expectedVals     The vector to compare with "c".
+  /// @param[in] eps              Comparison tolerance
+  /// @param]in] percent          If true, the relative difference between "c"
+  ///                             and "expectedVals" is checked. Otherwise,
+  ///                             the absolute difference is checked.
   double assertEquals(const CTile& c,
                       const std::string& title,
                       const std::vector<std::complex<double>>& expectedVals,

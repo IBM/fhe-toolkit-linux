@@ -30,6 +30,11 @@
 
 namespace hedge {
 
+/// A class representing an encoded (unencrypted) plaintext.
+///
+/// It's called a PTile because from a high-level point of view
+/// we'll usually use several of these combined for holding a more complicated
+/// object such as a matrix.
 class PTile
 {
 
@@ -47,16 +52,42 @@ public:
 
   PTile& operator=(const PTile& src);
 
+  /// Reduces the chain-index property of this object by 1.
+  /// Ignored if not supported.
+  /// @throw runtime_error If chain index is already at lowest value
   void reduceChainIndex();
 
+  /// Sets the chain-index property of this object to equal other object.
+  /// Can only be used if other object's chain index is less than or equal to
+  /// the chain index of this object.
+  /// Ignored if not supported.
+  /// @param[in] other object to get chain index from
+  /// @throw runtime_error If chain index of other higher than this
   void setChainIndex(const PTile& other);
 
+  /// Sets the chain-index property of this object to equal the specified value.
+  /// Can only be used if the specified value is less than or equal to the chain
+  /// index of this object.
+  /// Ignored if not supported.
+  /// @param[in] chainIndex The terget value to set the chain index to
+  /// @throw runtime_error If the specified chain index is higher than this
   void setChainIndex(int chainIndex);
 
+  /// Returns the value of the chain-index property of this object, which is a
+  /// non-negative integer.
+  /// Returns a negative value if not supported.
   int getChainIndex() const;
 
+  /// A PTile represents a plaintext consisting of multuple slots.
+  /// This method returns the number of slots in this object.
   int slotCount() const;
 
+  /// Prints information regarding this object for debug purposes.
+  /// @param[in] title A title to be included in the printing.
+  /// @param[in] maxElements The number of elements/slots to be included in the
+  /// printing.
+  /// @param[in] verbose Level of vebosity.
+  /// @param[in] out An output stream to print the information into.
   void debugPrint(const std::string& title = "",
                   int maxElements = -1,
                   int verbose = 0,

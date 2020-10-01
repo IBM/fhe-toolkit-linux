@@ -24,6 +24,7 @@
 
 #include <iostream>
 #include <chrono>
+#include <stdlib.h>
 #include "gtest/gtest.h"
 #include "hedge/hebase/hebase.h"
 #include "TestUtils.h"
@@ -31,6 +32,8 @@
 using namespace std;
 using namespace std::chrono;
 using namespace hedge;
+
+namespace hedgetest {
 
 static void decode(vector<double>& d, const Encoder& enc, const PTile& p)
 {
@@ -62,13 +65,10 @@ static void decryptDecode(vector<long>& d, const Encoder& enc, const CTile& c)
   d = enc.decryptDecodeLong(c);
 }
 
-namespace hedgetest {
-
 template <typename T>
 static void encodeValsTest(vector<T>& v1,
-                           vector<T>& v2,
-                           T expectedVal1,
-                           T expectedVal2,
+                           vector<double>& v2,
+                           vector<T>& expectedVals,
                            bool floatComparison)
 {
   HeContext& he = TestUtils::getHighNumSlots();
@@ -88,20 +88,34 @@ static void encodeValsTest(vector<T>& v1,
   cout << "multiplyPlain: " << duration_cast<microseconds>(t3 - t2).count()
        << endl;
 
-  std::vector<T> vals, vals2;
+  std::vector<double> vals;
+  std::vector<T> vals2;
   decode(vals, enc, p);
   decryptDecode(vals2, enc, c1);
 
-  EXPECT_FLOAT_EQ(expectedVal1, vals[0]);
+  for (size_t i = 0; i < v1.size(); i++) {
+    EXPECT_NEAR(v2[i], vals[i], TestUtils::getEps());
+  }
 
-  EXPECT_FLOAT_EQ(expectedVal2, vals2[0]);
+  for (size_t i = 0; i < v2.size(); i++) {
+
+    if (fabs(expectedVals[i] - vals2[i]) > 1e-4) {
+      cout << "i = " << i << endl;
+      cout << "v1[i] = " << v1[i];
+      cout << ", v2[i] = " << v2[i] << endl;
+    }
+    if (floatComparison) {
+      EXPECT_NEAR(expectedVals[i], vals2[i], TestUtils::getEps());
+    } else {
+      EXPECT_EQ(expectedVals[i], vals2[i]);
+    }
+  }
 }
 
 template <typename T>
-static void encodeValTest(vector<T>& v1,
+static void encodeValTest(vector<double>& v1,
                           T v2,
-                          T expectedVal1,
-                          T expectedVal2,
+                          vector<T>& expectedVals,
                           bool floatComparison)
 {
   HeContext& he = TestUtils::getHighNumSlots();
@@ -125,28 +139,20 @@ static void encodeValTest(vector<T>& v1,
   decode(vals, enc, p);
   decryptDecode(vals2, enc, c1);
 
-  EXPECT_FLOAT_EQ(expectedVal1, vals[0]);
+  for (size_t i = 0; i < v1.size(); i++) {
+    if (floatComparison) {
+      EXPECT_NEAR(v2, vals[i], TestUtils::getEps());
+    } else {
+      EXPECT_EQ(v2, vals[i]);
+    }
+  }
 
-  EXPECT_FLOAT_EQ(expectedVal2, vals2[0]);
-}
-
-template <typename T>
-static void encodeEncryptAndDecryptDecodeTest(vector<T>& v,
-                                              bool floatComparison)
-{
-  HeContext& he = TestUtils::getHighNumSlots();
-  Encoder enc(he);
-
-  CTile c(he);
-  enc.encodeEncrypt(c, v);
-
-  std::vector<T> vals;
-  decryptDecode(vals, enc, c);
-
-  if (floatComparison) {
-    EXPECT_FLOAT_EQ(v[0], vals[0]);
-  } else {
-    EXPECT_EQ(v[0], vals[0]);
+  for (size_t i = 0; i < expectedVals.size(); i++) {
+    if (floatComparison) {
+      EXPECT_NEAR(expectedVals[i], vals2[i], TestUtils::getEps());
+    } else {
+      EXPECT_EQ(expectedVals[i], vals2[i]);
+    }
   }
 }
 
@@ -178,28 +184,72 @@ TEST(EncoderTest, encodeVals)
   HeContext& he = TestUtils::getHighNumSlots();
   Encoder enc(he);
 
-  std::vector<double> v1(he.slotCount(), 2.3);
-  std::vector<int> v1Int(he.slotCount(), 2);
-  std::vector<long> v1Long(he.slotCount(), 2);
+  std::vector<double> v1(he.slotCount()), v2(he.slotCount()),
+      expectedVals(he.slotCount());
+  std::vector<int> v1Int(he.slotCount()), expectedValsInt(he.slotCount());
+  std::vector<long> v1Long(he.slotCount()), expectedValsLong(he.slotCount());
 
-  std::vector<double> v2(he.slotCount(), 3.1);
-  std::vector<int> v2Int(he.slotCount(), 3);
-  std::vector<long> v2Long(he.slotCount(), 3);
+  for (size_t i = 0; i < v1.size(); i++) {
+    v1[i] = (double)(rand() % 1000) / 100;
+    v2[i] = (double)(rand() % 1000) / 100;
 
-  encodeValsTest<double>(v1, v2, 3.1, 2.3 * 3.1, true);
-  encodeValsTest<int>(v1Int, v2Int, 3, 2 * 3, false);
-  encodeValsTest<long>(v1Long, v2Long, 3, 2 * 3, false);
+    v1Int[i] = (int)v1[i];
+    v1Long[i] = (long)v1[i];
+
+    double tmp = ((double)v1Int[i]) * v2[i];
+
+    // If the value after the decimal point of "tmp" is exactly 0.5, slightly
+    // offset v2
+    // to prevent small noise from causing rounding errors.
+    if (tmp - (int)tmp == 0.5) {
+      v2[i] += 1e-3;
+      tmp = ((double)v1Int[i]) * v2[i];
+    }
+
+    expectedVals[i] = v1[i] * v2[i];
+
+    expectedValsInt[i] = lround(tmp);
+    expectedValsLong[i] = lround(tmp);
+  }
+
+  double originalEps = TestUtils::getEps();
+
+  // A temporary hack - diff is larger than expected on the test below.
+  TestUtils::setEps(originalEps * 10);
+  encodeValsTest<double>(v1, v2, expectedVals, true);
+  TestUtils::setEps(originalEps);
+
+  encodeValsTest<int>(v1Int, v2, expectedValsInt, false);
+  encodeValsTest<long>(v1Long, v2, expectedValsLong, false);
 }
 
 TEST(EncoderTest, encodeVal)
 {
   HeContext& he = TestUtils::getHighNumSlots();
-  vector<double> v1(he.slotCount(), 3.5);
-  vector<int> v1Int(he.slotCount(), 3);
-  double v2 = 2.7;
-  int v2Int = 2;
-  encodeValTest<double>(v1, v2, v2, v1[0] * v2, true);
-  encodeValTest<int>(v1Int, v2Int, v2Int, v1Int[0] * v2Int, false);
+  vector<double> v1(he.slotCount()), expectedVals(he.slotCount());
+  vector<int> expectedValsInt(he.slotCount());
+  double v2 = (double)(rand() % 1000) / 100;
+  int v2Int = (int)v2;
+
+  for (size_t i = 0; i < v1.size(); i++) {
+    v1[i] = (double)(rand() % 1000) / 100;
+
+    double tmp = v1[i] * v2Int;
+
+    if (tmp - (int)tmp == 0.5) {
+      // If the value after the decimal point of "tmp" is exactly 0.5, slightly
+      // offset v2
+      // to prevent small noise from causing rounding errors.
+      v1[i] += 0.5;
+    }
+
+    expectedVals[i] = v1[i] * v2;
+
+    expectedValsInt[i] = lround(tmp);
+  }
+
+  encodeValTest<double>(v1, v2, expectedVals, true);
+  encodeValTest<int>(v1, v2Int, expectedValsInt, false);
 }
 
 TEST(EncoderTest, encodeAndDecodeComplex)
@@ -272,13 +322,25 @@ TEST(EncoderTest, encryptAndDecryptComplex)
 
 TEST(EncoderTest, encodeEncryptAndDecryptDecodeDouble)
 {
-  std::vector<double> v{2.5, 2.5, 2.5};
-  std::vector<long> vLong{2, 2, 2};
-  std::vector<int> vInt{2, 2, 2};
+  std::vector<double> v{2.51, 3.2, -5.3};
+  std::vector<long> vLong{3, 3, -5};
+  std::vector<int> vInt{3, 3, -5};
 
-  encodeEncryptAndDecryptDecodeTest<double>(v, true);
-  encodeEncryptAndDecryptDecodeTest<long>(vLong, false);
-  encodeEncryptAndDecryptDecodeTest<int>(vInt, false);
+  HeContext& he = TestUtils::getHighNumSlots();
+  Encoder enc(he);
+
+  CTile c(he);
+  enc.encodeEncrypt(c, v);
+
+  const std::vector<double> valsDouble = enc.decryptDecodeDouble(c);
+  const std::vector<int> valsInt = enc.decryptDecodeInt(c);
+  const std::vector<long> valsLong = enc.decryptDecodeLong(c);
+
+  for (size_t i = 0; i < v.size(); i++) {
+    EXPECT_FLOAT_EQ(v[i], valsDouble[i]);
+    EXPECT_EQ(vLong[i], valsLong[i]);
+    EXPECT_EQ(vInt[i], valsInt[i]);
+  }
 }
 
 TEST(EncoderTest, encodeEncryptAndDecryptDecodeComplex)

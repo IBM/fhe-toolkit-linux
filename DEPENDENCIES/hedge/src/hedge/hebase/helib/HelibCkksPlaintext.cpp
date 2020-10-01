@@ -39,7 +39,7 @@ void HelibCkksPlaintext::setChainIndex(const AbstractPlaintext& other) {}
 
 void HelibCkksPlaintext::setChainIndex(int givenChainIndex) {}
 
-int HelibCkksPlaintext::getChainIndex() const { return 0; }
+int HelibCkksPlaintext::getChainIndex() const { return -1; }
 
 int HelibCkksPlaintext::slotCount() const { return heContext.slotCount(); }
 

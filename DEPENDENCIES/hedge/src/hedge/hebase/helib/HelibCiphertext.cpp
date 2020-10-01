@@ -149,7 +149,7 @@ void HelibCiphertext::setScale(double scale)
 
 double HelibCiphertext::getScale() const { return 1; }
 
-int HelibCiphertext::getChainIndex() const { return 0; }
+int HelibCiphertext::getChainIndex() const { return -1; }
 
 void HelibCiphertext::debugPrint(const string& title,
                                  int maxVals,

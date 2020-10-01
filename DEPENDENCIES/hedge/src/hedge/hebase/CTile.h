@@ -249,18 +249,36 @@ public:
   void reduceChainIndex();
 
   /// Sets the chain-index property of this object to equal other object.
-  /// Can only be used if other object's chain index is less or equal.
+  /// Can only be used if other object's chain index is less than or equal to
+  /// the chain index of this object.
   /// Ignored if not supported.
   /// @param[in] other object to get chain index from
   /// @throw runtime_error If chain index of other higher than this
   void setChainIndex(const CTile& other);
 
+  /// Sets the chain-index property of this object to equal the specified value.
+  /// Can only be used if the specified value is less than or equal to the chain
+  /// index of this object.
+  /// Ignored if not supported.
+  /// @param[in] chainIndex The terget value to set the chain index to
+  /// @throw runtime_error If the specified chain index is higher than this
   void setChainIndex(int chainIndex);
 
+  /// Returns the value of the chain-index property of this object, which is a
+  /// non-negative integer.
+  /// Returns a negative value if not supported.
   int getChainIndex() const;
 
+  /// A CTile represents a ciphertext consisting of multuple slots.
+  /// This method returns the number of slots in this object.
   int slotCount() const;
 
+  /// Prints information regarding this object for debug purposes.
+  /// @param[in] title A title to be included in the printing.
+  /// @param[in] maxElements The number of elements/slots to be included in the
+  /// printing.
+  /// @param[in] verbose Level of vebosity.
+  /// @param[in] out An output stream to print the information into.
   void debugPrint(const std::string& title = "",
                   int maxElements = 4,
                   int verbose = 0,

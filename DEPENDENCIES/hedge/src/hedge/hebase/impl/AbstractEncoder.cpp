@@ -39,7 +39,7 @@ static vector<T> roundAndCastVector(const vector<double>& vec)
   castedVec.reserve(vec.size());
 
   for (const double& val : vec)
-    castedVec.push_back(static_cast<T>(val >= 0 ? (val + 0.5) : (val - 0.5)));
+    castedVec.push_back(lround(val));
 
   return castedVec;
 }

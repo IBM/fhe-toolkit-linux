@@ -39,7 +39,7 @@ void HelibBgvPlaintext::setChainIndex(const AbstractPlaintext& other) {}
 
 void HelibBgvPlaintext::setChainIndex(int givenChainIndex) {}
 
-int HelibBgvPlaintext::getChainIndex() const { return 0; }
+int HelibBgvPlaintext::getChainIndex() const { return -1; }
 
 int HelibBgvPlaintext::slotCount() const { return heContext.slotCount(); }
 
