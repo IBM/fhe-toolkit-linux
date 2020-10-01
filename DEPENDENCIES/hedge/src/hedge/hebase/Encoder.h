@@ -51,64 +51,81 @@ public:
   Encoder(const Encoder& src) = delete;
   Encoder& operator=(const Encoder& src) = delete;
 
+  /// Encodes the given int into all slots of a PTile.
+  /// This is usually more efficient than regular encoding.
+  /// @param[out] res The encoded PTile
+  /// @param[in] val The value to encode
+  /// @param[in] chainIndex  If HeContext is a CKKS context, specifies the
+  /// chainIndex of
+  ///                        the resulting PTile. otherwise, this parameter is
+  ///                        ignored.
   void encode(PTile& res, int val, int chainIndex = -1) const;
+
+  /// Encodes the given double into all slots of a PTile.
+  /// This is usually more efficient than regular encoding.
+  /// @param[out] res The encoded PTile
+  /// @param[in] val The value to encode
+  /// @param[in] chainIndex  If HeContext is a CKKS context, specifies the
+  /// chainIndex of
+  ///                        the resulting PTile. otherwise, this parameter is
+  ///                        ignored.
   void encode(PTile& res, double val, int chainIndex = -1) const;
 
-  /// Encodes the given integer into a PTile.
-  /// If the size of the given vector is less than he.slotCount(),
+  /// Encodes the given vector of integers into a PTile.
+  /// If the size of the given vector is less than slot count,
   /// the empty slots of the PTile will be set to zero. If the size of the given
-  /// vector is more than he.slotCount(), a untime_error will be thrown.
+  /// vector is more than slot count, a untime_error will be thrown.
   /// @param[out] res The    encoded PTile
   /// @param[in] vals The    vector to encode
   /// @param[in] chainIndex  If HeContext is a CKKS context, specifies the
   /// chainIndex of
   ///                        the resulting PTile. otherwise, this parameter is
   ///                        ignored.
-  /// @throw runtime_error if vals.size() > he.slotCount()
+  /// @throw runtime_error if vals.size() > slot count
   void encode(PTile& res,
               const std::vector<int>& vals,
               int chainIndex = -1) const;
 
-  /// Encodes the given double into a PTile.
-  /// If the size of the given vector is less than he.slotCount(),
+  /// Encodes the given vector of longs into a PTile.
+  /// If the size of the given vector is less than slot count,
   /// the empty slots of the PTile will be set to zero. If the size of the given
-  /// vector is more than he.slotCount(), a untime_error will be thrown.
+  /// vector is more than slot count, a untime_error will be thrown.
   /// @param[out] res The    encoded PTile
   /// @param[in] vals The    vector to encode
   /// @param[in] chainIndex  If HeContext is a CKKS context, specifies the
   /// chainIndex of
   ///                        the resulting PTile. otherwise, this parameter is
   ///                        ignored.
-  /// @throw runtime_error if vals.size() > he.slotCount()
+  /// @throw runtime_error if vals.size() > slot count
   void encode(PTile& res,
               const std::vector<long>& vals,
               int chainIndex = -1) const;
 
-  /// Encodes the given vector into a PTile.
-  /// If the size of the given vector is less than he.slotCount(),
+  /// Encodes the given vector of doubles into a PTile.
+  /// If the size of the given vector is less than slot count,
   /// the empty slots of the PTile will be set to zero. If the size of the given
-  /// vector is more than he.slotCount(), a untime_error will be thrown.
+  /// vector is more than slot count, a untime_error will be thrown.
   /// @param[out] res The    encoded PTile
   /// @param[in] vals The    vector to encode
   /// @param[in] chainIndex  If HeContext is a CKKS context, specifies the
   /// chainIndex of
   ///                        the resulting PTile. otherwise, this parameter is
   ///                        ignored.
-  /// @throw runtime_error if vals.size() > he.slotCount()
+  /// @throw runtime_error if vals.size() > slot count
   void encode(PTile& res,
               const std::vector<double>& vals,
               int chainIndex = -1) const;
 
-  /// Encodes the given vector into a PTile.
-  /// If the size of the given vector is less than he.slotCount(),
+  /// Encodes the given vector of complex numbers into a PTile.
+  /// If the size of the given vector is less than slot count,
   /// the empty slots of the PTile will be set to zero. If the size of the given
-  /// vector is more than he.slotCount(), a untime_error will be thrown.
+  /// vector is more than slot count, a untime_error will be thrown.
   /// @param[out] res The    encoded PTile
   /// @param[in] vals The    vector to encode
   /// @param[in] chainIndex  If HeContext is a CKKS context, specifies the
   ///                        chainIndex of the resulting PTile. otherwise, this
   ///                        parameter is ignored.
-  /// @throw runtime_error if vals.size() > he.slotCount()
+  /// @throw runtime_error if vals.size() > slot count
   void encode(PTile& res,
               const std::vector<std::complex<double>>& vals,
               int chainIndex = -1) const;
@@ -146,57 +163,57 @@ public:
   void decrypt(PTile& res, const CTile& src) const;
 
   /// Encodes and then encrypts the given vector into a CTile.
-  /// if the size of the given vector is less than he.slotCount(),
+  /// if the size of the given vector is less than slot count,
   /// the empty slots of the CTile will be set to zero. If the size of the given
-  /// vector is more than he.slotCount(), a untime_error will be thrown.
+  /// vector is more than slot count, a untime_error will be thrown.
   /// @param[out] res        The resulting CTile
   /// @param[in] vals        The vector to encode
   /// @param[in] chainIndex  If HeContext is a CKKS context, specifies the
   ///                        chainIndex of the resulting CTile. otherwise, this
   ///                        parameter is ignored.
-  /// @throw runtime_error if vals.size() > he.slotCount()
+  /// @throw runtime_error if vals.size() > slot count
   void encodeEncrypt(CTile& res,
                      const std::vector<int>& vals,
                      int chainIndex = -1) const;
 
   /// Encodes and then encrypts the given vector into a CTile.
-  /// if the size of the given vector is less than he.slotCount(),
+  /// if the size of the given vector is less than slot count,
   /// the empty slots of the CTile will be set to zero. If the size of the given
-  /// vector is more than he.slotCount(), a untime_error will be thrown.
+  /// vector is more than slot count, a untime_error will be thrown.
   /// @param[out] res        The resulting CTile
   /// @param[in] vals        The vector to encode
   /// @param[in] chainIndex  If HeContext is a CKKS context, specifies the
   ///                        chainIndex of the resulting CTile. otherwise, this
   ///                        parameter is ignored.
-  /// @throw runtime_error if vals.size() > he.slotCount()
+  /// @throw runtime_error if vals.size() > slot count
   void encodeEncrypt(CTile& res,
                      const std::vector<long>& vals,
                      int chainIndex = -1) const;
 
   /// Encodes and then encrypts the given vector into a CTile.
-  /// if the size of the given vector is less than he.slotCount(),
+  /// if the size of the given vector is less than slot count,
   /// the empty slots of the CTile will be set to zero. If the size of the given
-  /// vector is more than he.slotCount(), a runtime_error will be thrown.
+  /// vector is more than slot count, a runtime_error will be thrown.
   /// @param[out] res        The resulting CTile
   /// @param[in] vals        The vector to encode
   /// @param[in] chainIndex  If HeContext is a CKKS context, specifies the
   ///                        chainIndex of the resulting CTile. otherwise, this
   ///                        parameter is ignored.
-  /// @throw runtime_error if vals.size() > he.slotCount()
+  /// @throw runtime_error if vals.size() > slot count
   void encodeEncrypt(CTile& res,
                      const std::vector<double>& vals,
                      int chainIndex = -1) const;
 
   /// Encodes and then encrypts the given vector into a CTile.
-  /// if the size of the given vector is less than he.slotCount(),
+  /// if the size of the given vector is less than slot count,
   /// the empty slots of the CTile will be set to zero. If the size of the given
-  /// vector is more than he.slotCount(), a runtime_error will be thrown.
+  /// vector is more than slot count, a runtime_error will be thrown.
   /// @param[out] res        The resulting CTile
   /// @param[in] vals        The vector to encode
   /// @param[in] chainIndex  If HeContext is a CKKS context, specifies the
   ///                        chainIndex of the resulting CTile. otherwise, this
   ///                        parameter is ignored.
-  /// @throw runtime_error If vals.size() > he.slotCount()
+  /// @throw runtime_error If vals.size() > slot count
   /// @throw runtime_error If the underlying FHE scheme is a scheme that does
   ///                      not support complex values (such as BGV, for
   ///                      example).

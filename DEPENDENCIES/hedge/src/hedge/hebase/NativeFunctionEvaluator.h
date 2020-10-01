@@ -30,8 +30,7 @@
 
 namespace hedge {
 
-/// Placeholder class for holding functions supplied by underlying libraries.
-/// Should add functions like pow(x), polyEval(x,coefs), etc . . .
+/// Class for holding functions supplied by underlying libraries.
 class NativeFunctionEvaluator
 {
 
@@ -43,8 +42,18 @@ public:
   NativeFunctionEvaluator(const NativeFunctionEvaluator& src) = delete;
   NativeFunctionEvaluator& operator=(const NativeFunctionEvaluator& src) =
       delete;
+
+  /// Raises every slot in given CTile to the power of p.
+  /// @param[in/out] c CTile to work on
+  /// @param[in] p power to raise by
   void powerInPlace(CTile& c, int p) const;
-  void totalProduct(CTile& result, const std::vector<CTile>& multiplicands) const;
+
+  /// Compute product of given vector of CTiles elementwise.
+  /// Does so in a depth-efficient manner.
+  /// @param[out] result CTile to store result
+  /// @param[in] multiplicands vector of CTiles to multiply together.
+  void totalProduct(CTile& result,
+                    const std::vector<CTile>& multiplicands) const;
 };
 }
 
