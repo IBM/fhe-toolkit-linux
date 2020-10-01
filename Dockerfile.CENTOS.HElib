@@ -73,6 +73,12 @@ WORKDIR /opt/IBM/FHE-distro/simple_ml_helib
 RUN /bin/bash ./install_system_wide.sh && \
     ldconfig
 
+# Build and install hedge_hebase as system library in /usr/local
+COPY ./DEPENDENCIES/hedge              /opt/IBM/FHE-distro/hedge
+WORKDIR /opt/IBM/FHE-distro/hedge
+RUN ./install_system_wide.sh && \
+    ldconfig
+
 # Create user fhe:fhe with no login,
 RUN adduser --uid 5000  --comment "FHE Toolkit User" fhe
 RUN usermod -L fhe
