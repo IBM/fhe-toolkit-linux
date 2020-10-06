@@ -56,6 +56,7 @@ docker exec local-fhe-toolkit-centos /bin/bash -c " \
 NOW=$(date +'%m-%d-%Y')
 NIGHTLY_SUFFIX="nightly-${NOW}"
 VERSION="$HElib_version.$TOOLKIT_VERSION"
+
 #Login to Artifactory using the fhe user
 echo "DOCKER LOGIN"
 #docker login -u $ARTE_USER -p $ARTE_PWD "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com"
