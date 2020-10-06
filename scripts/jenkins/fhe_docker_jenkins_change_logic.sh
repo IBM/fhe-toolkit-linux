@@ -49,17 +49,17 @@ VERSION_CHANGES='ConfigConstants'
 #      I think that means that the version of the repo will be updated
 if [[ "$GIT_LOG" == *"$BUILD_ALL"* || "$GIT_LOG" == *"$RUN_ALL"* || "$GIT_LOG" == *"$PERSIST"* || "$GIT_LOG" == *"$SAMPLES"* || "$GIT_LOG" == *"$VERSION_CHANGES"*  || "$GIT_LOG" == *"$DEPENDENCIES"* ]]; then 
   echo "CHANGES WERE MADE SO IGNORE THE REST"
-  ./fhe_docker_jenkins_trigger_builds_ubuntu.sh $ARTE_USER $ARTE_PWD
-  ./fhe_docker_jenkins_trigger_builds_fedora.sh $ARTE_USER $ARTE_PWD
+ # ./fhe_docker_jenkins_trigger_builds_ubuntu.sh $ARTE_USER $ARTE_PWD
+ # ./fhe_docker_jenkins_trigger_builds_fedora.sh $ARTE_USER $ARTE_PWD
   ./fhe_docker_jenkins_trigger_builds_centos.sh $ARTE_USER $ARTE_PWD
 else
     if [[ "$GIT_LOG" == *"$FED"* ]]; then
         echo "REBUILD FEDORA"
-        ./fhe_docker_jenkins_trigger_builds_fedora.sh $ARTE_USER $ARTE_PWD
+    #    ./fhe_docker_jenkins_trigger_builds_fedora.sh $ARTE_USER $ARTE_PWD
     fi
     if [[ "$GIT_LOG" == *"$UBU"* ]]; then
         echo "REBULD UBUNTU"
-        ./fhe_docker_jenkins_trigger_builds_ubuntu.sh $ARTE_USER $ARTE_PWD
+    #    ./fhe_docker_jenkins_trigger_builds_ubuntu.sh $ARTE_USER $ARTE_PWD
     fi
     if [[ "$GIT_LOG" == *"$CENT"* ]]; then
         echo "REBULD CENTOS"
