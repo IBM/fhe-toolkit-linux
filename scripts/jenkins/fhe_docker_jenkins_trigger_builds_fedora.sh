@@ -33,7 +33,7 @@ ARTE_USER=$1
 ARTE_PWD=$2
 
 # Pull latest from the FHE repo, master branch
-git checkout nigthly_builds
+git checkout master
 # Build the Docker image for Fedora
 ./BuildDockerImage.sh fedora
 # Shut everything down before we start
