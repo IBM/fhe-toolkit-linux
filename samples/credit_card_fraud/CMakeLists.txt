@@ -9,6 +9,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License. See accompanying LICENSE file.
 
+## Rely on the Environment variable to dictate which version of helib to use
+set(HELIB_VERSION ${HELIB_CMAKE_LISTS_VERSON})
 
 project(credit_card_fraud)
 ENABLE_LANGUAGE(CXX)
@@ -17,7 +19,7 @@ ENABLE_LANGUAGE(CXX)
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
 # We rely on HELib...
-find_package(helib 1.0.0 REQUIRED)
+find_package(helib ${HELIB_VERSION} REQUIRED)
 
 # We rely on HDF5 for data access...
 find_package(HDF5 REQUIRED COMPONENTS CXX)
