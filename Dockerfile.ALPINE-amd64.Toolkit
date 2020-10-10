@@ -1,6 +1,8 @@
 ARG HElib_tag
 FROM $HElib_tag
+ARG HElib_cmake_lists_version
 ENV container docker
+ENV HELIB_CMAKE_LISTS_VERSON=$HElib_cmake_lists_version
 LABEL maintainer="Liz Maple <liz@uk.ibm.com>"
 
 # Docker Container for Alpine FHE IDE and Example Code Toolkit
