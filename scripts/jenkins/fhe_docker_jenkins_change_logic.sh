@@ -34,6 +34,7 @@ echo $GIT_LOG
 CENT='CENTOS'
 FED='FEDORA'
 UBU='UBUNTU'
+ALPINE='ALPINE'
 BUILD_ALL='BuildDockerImage'
 RUN_ALL='RunToolkit'
 PERSIST='PersistData'
@@ -52,6 +53,7 @@ if [[ "$GIT_LOG" == *"$BUILD_ALL"* || "$GIT_LOG" == *"$RUN_ALL"* || "$GIT_LOG" =
   ./fhe_docker_jenkins_trigger_builds_ubuntu.sh $ARTE_USER $ARTE_PWD
   ./fhe_docker_jenkins_trigger_builds_fedora.sh $ARTE_USER $ARTE_PWD
   ./fhe_docker_jenkins_trigger_builds_centos.sh $ARTE_USER $ARTE_PWD
+  ./fhe_docker_jenkins_trigger_builds_alpine.sh $ARTE_USER $ARTE_PWD
 else
     if [[ "$GIT_LOG" == *"$FED"* ]]; then
         echo "REBUILD FEDORA"
@@ -60,6 +62,10 @@ else
     if [[ "$GIT_LOG" == *"$UBU"* ]]; then
         echo "REBULD UBUNTU"
         ./fhe_docker_jenkins_trigger_builds_ubuntu.sh $ARTE_USER $ARTE_PWD
+    fi
+    if [[ "$GIT_LOG" == *"$ALPINE"*  ]]; then
+      echo "REBULD ALPINE"
+        ./fhe_docker_jenkins_trigger_builds_alpine.sh $ARTE_USER $ARTE_PWD
     fi
     if [[ "$GIT_LOG" == *"$CENT"* ]]; then
         echo "REBULD CENTOS"

@@ -22,12 +22,13 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-# Go to the top level of the Repo
+# Navigate to the top level of the Repo
 pushd ../../
 set -x 
 set -u
 set -e
 
+source ConfigConstants.sh
 ARTE_USER=$1
 ARTE_PWD=$2
 
@@ -51,14 +52,18 @@ docker exec local-fhe-toolkit-fedora /bin/bash -c " \
 # Shut everything down 
 ./StopToolkit.sh
 
+NOW=$(date +'%m-%d-%Y')
+NIGHTLY_SUFFIX="nightly-${NOW}"
+VERSION="$HElib_version.$TOOLKIT_VERSION"
+
 #Login to Artifactory using the fhe user
 echo "DOCKER LOGIN"
 #This works but its an alternate login version
 #docker login -u $ARTE_USER -p $ARTE_PWD "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com"
 echo $ARTE_PWD | docker login -u $ARTE_USER --password-stdin "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com"
 #Tag the docker build for storage in Artifactory
-docker tag "local/fhe-toolkit-fedora-amd64:latest" "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-amd64:v1.0.2-latest"
+docker tag "local/fhe-toolkit-fedora-amd64:latest" "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-amd64:$VERSION-$NIGHTLY_SUFFIX"
 echo "tagging it"
 #Push and save the newly tagged build in Artifactory
-docker push "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-amd64:v1.0.2-latest"
+docker push "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-amd64:$VERSION-$NIGHTLY_SUFFIX"
 echo "pushing it"
