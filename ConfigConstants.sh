@@ -32,4 +32,4 @@ HElib_cmake_lists_version='1.1.0'
 # Boost Library
 Boost_version='1.72.0'
 Boost_filename='1_72_0'
-TEST_VAR_NAME='20.1.6'
+TEST_VAR_NAME='20.1.7'
