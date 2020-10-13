@@ -51,6 +51,7 @@ VERSION_CHANGES='ConfigConstants'
 if [[ "$GIT_LOG" == *"$BUILD_ALL"* || "$GIT_LOG" == *"$RUN_ALL"* || "$GIT_LOG" == *"$PERSIST"* || "$GIT_LOG" == *"$SAMPLES"* || "$GIT_LOG" == *"$VERSION_CHANGES"*  || "$GIT_LOG" == *"$DEPENDENCIES"* ]]; then 
   echo "CHANGES WERE MADE SO IGNORE THE REST"
   if [[ "$BUILD_TYPE" == "S390" ]]; then
+     echo 'S390 Stuff $BUILD_TYPE'
     ./fhe_docker_jenkins_trigger_builds_ubuntu.sh $ARTE_USER $ARTE_PWD $BUILD_TYPE
     ./fhe_docker_jenkins_trigger_builds_fedora.sh $ARTE_USER $ARTE_PWD $BUILD_TYPE
   else 
