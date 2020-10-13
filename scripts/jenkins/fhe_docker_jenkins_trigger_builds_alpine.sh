@@ -28,20 +28,21 @@ set -x
 set -u
 set -e
 
+
 source ConfigConstants.sh
 ARTE_USER=$1
 ARTE_PWD=$2
 
 # Pull latest from the FHE repo, master branch
-git checkout s390-build-tests
-# Build the Docker image for CentOS
-./BuildDockerImage.sh centos
+git checkout master
+# Build the Docker image for Alpine
+./BuildDockerImage.sh alpine
 # Shut everything down before we start
 ./StopToolkit.sh
-# Run the toolkit container based on the CentOS image
-./RunToolkit.sh -l -s centos
+# Run the toolkit container based on the Alpine image
+./RunToolkit.sh -l -s alpine
 # Test sample runs as expected
-docker exec local-fhe-toolkit-centos /bin/bash -c " \
+docker exec local-fhe-toolkit-alpine /bin/bash -c " \
     cd /opt/IBM/FHE-Workspace; \
     mkdir build; cd build; \
     cmake ../examples/BGV_country_db_lookup;\
@@ -61,9 +62,21 @@ VERSION="$HElib_version.$TOOLKIT_VERSION"
 echo "DOCKER LOGIN"
 #docker login -u $ARTE_USER -p $ARTE_PWD "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com"
 echo $ARTE_PWD | docker login -u $ARTE_USER --password-stdin "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com"
-#Tag the docker build for storage in Artifactory
-docker tag "local/fhe-toolkit-centos-amd64:latest" "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/centos/fhe-toolkit-centos-amd64:$VERSION-$NIGHTLY_SUFFIX"
-echo "tagging it"
-#Push and save the newly tagged build in Artifactory
-docker push "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/centos/fhe-toolkit-centos-amd64:$VERSION-$NIGHTLY_SUFFIX"
-echo "pushing it"
+
+#If this is a s390 machine, then tag and push for S390
+if [[ "$BUILD_TYPE" == "S390" ]]; then
+    echo "Tagging for S390"
+    #Tag the docker build for storage in Artifactory
+    docker tag "local/fhe-toolkit-alpine-s390x:latest" "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/alpine/fhe-toolkit-alpine-s390x:$VERSION-$NIGHTLY_SUFFIX"
+    echo "tagging it"
+    #Push and save the newly tagged build in Artifactory
+    docker push "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/alpine/fhe-toolkit-alpine-s390x:$VERSION-$NIGHTLY_SUFFIX"
+    echo "pushing it"
+else
+    #Tag the docker build for storage in Artifactory
+    docker tag "local/fhe-toolkit-alpine-amd64:latest" "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/alpine/fhe-toolkit-alpine-amd64:$VERSION-$NIGHTLY_SUFFIX"
+    echo "tagging it"
+    #Push and save the newly tagged build in Artifactory
+    docker push "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/alpine/fhe-toolkit-alpine-amd64:$VERSION-$NIGHTLY_SUFFIX"
+    echo "pushing it"
+fi
