@@ -73,7 +73,7 @@ else
     fi
     if [[ "$GIT_LOG" == *"$ALPINE"*  ]]; then
       echo "REBULD ALPINE"
-        ./fhe_docker_jenkins_trigger_builds_alpine.sh $ARTE_USER $ARTE_PWD
+        ./fhe_docker_jenkins_trigger_builds_alpine.sh $ARTE_USER $ARTE_PWD $BUILD_TYPE
     fi
     if [[ "$GIT_LOG" == *"$CENT"* ]]; then
         echo "REBULD CENTOS"
