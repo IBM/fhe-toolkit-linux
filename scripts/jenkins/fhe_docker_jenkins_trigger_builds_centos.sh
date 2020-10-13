@@ -33,7 +33,7 @@ ARTE_USER=$1
 ARTE_PWD=$2
 
 # Pull latest from the FHE repo, master branch
-git checkout s390-build-tests
+git checkout master
 # Build the Docker image for CentOS
 ./BuildDockerImage.sh centos
 # Shut everything down before we start
