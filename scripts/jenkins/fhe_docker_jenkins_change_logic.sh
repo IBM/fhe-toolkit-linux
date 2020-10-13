@@ -28,6 +28,7 @@
 
 ARTE_USER=$1
 ARTE_PWD=$2
+BUILD_TYPE=$3
 
 GIT_LOG=$(git log --since="24 hours ago" --name-only)
 echo $GIT_LOG
@@ -50,26 +51,35 @@ VERSION_CHANGES='ConfigConstants'
 #      I think that means that the version of the repo will be updated
 if [[ "$GIT_LOG" == *"$BUILD_ALL"* || "$GIT_LOG" == *"$RUN_ALL"* || "$GIT_LOG" == *"$PERSIST"* || "$GIT_LOG" == *"$SAMPLES"* || "$GIT_LOG" == *"$VERSION_CHANGES"*  || "$GIT_LOG" == *"$DEPENDENCIES"* ]]; then 
   echo "CHANGES WERE MADE SO IGNORE THE REST"
-  ./fhe_docker_jenkins_trigger_builds_ubuntu.sh $ARTE_USER $ARTE_PWD
-  ./fhe_docker_jenkins_trigger_builds_fedora.sh $ARTE_USER $ARTE_PWD
-  ./fhe_docker_jenkins_trigger_builds_centos.sh $ARTE_USER $ARTE_PWD
-  ./fhe_docker_jenkins_trigger_builds_alpine.sh $ARTE_USER $ARTE_PWD
+  if [[ "$BUILD_TYPE" == "S390" ]]; then
+     echo 'S390 Stuff $BUILD_TYPE'
+    ./fhe_docker_jenkins_trigger_builds_ubuntu.sh $ARTE_USER $ARTE_PWD $BUILD_TYPE
+    ./fhe_docker_jenkins_trigger_builds_fedora.sh $ARTE_USER $ARTE_PWD $BUILD_TYPE
+    ./fhe_docker_jenkins_trigger_builds_alpine.sh $ARTE_USER $ARTE_PWD $BUILD_TYPE
+  else 
+    ./fhe_docker_jenkins_trigger_builds_ubuntu.sh $ARTE_USER $ARTE_PWD $BUILD_TYPE
+    ./fhe_docker_jenkins_trigger_builds_fedora.sh $ARTE_USER $ARTE_PWD $BUILD_TYPE
+    ./fhe_docker_jenkins_trigger_builds_centos.sh $ARTE_USER $ARTE_PWD $BUILD_TYPE
+    ./fhe_docker_jenkins_trigger_builds_alpine.sh $ARTE_USER $ARTE_PWD $BUILD_TYPE
+  fi
 else
     if [[ "$GIT_LOG" == *"$FED"* ]]; then
         echo "REBUILD FEDORA"
-        ./fhe_docker_jenkins_trigger_builds_fedora.sh $ARTE_USER $ARTE_PWD
+        ./fhe_docker_jenkins_trigger_builds_fedora.sh $ARTE_USER $ARTE_PWD $BUILD_TYPE
     fi
     if [[ "$GIT_LOG" == *"$UBU"* ]]; then
         echo "REBULD UBUNTU"
-        ./fhe_docker_jenkins_trigger_builds_ubuntu.sh $ARTE_USER $ARTE_PWD
+        ./fhe_docker_jenkins_trigger_builds_ubuntu.sh $ARTE_USER $ARTE_PWD $BUILD_TYPE
     fi
     if [[ "$GIT_LOG" == *"$ALPINE"*  ]]; then
       echo "REBULD ALPINE"
-        ./fhe_docker_jenkins_trigger_builds_alpine.sh $ARTE_USER $ARTE_PWD
+        ./fhe_docker_jenkins_trigger_builds_alpine.sh $ARTE_USER $ARTE_PWD $BUILD_TYPE
     fi
     if [[ "$GIT_LOG" == *"$CENT"* ]]; then
         echo "REBULD CENTOS"
-        ./fhe_docker_jenkins_trigger_builds_centos.sh $ARTE_USER $ARTE_PWD
+        if [[ "$BUILD_TYPE" != "S390" ]]; then
+          ./fhe_docker_jenkins_trigger_builds_centos.sh $ARTE_USER $ARTE_PWD $BUILD_TYPE
+        fi
     else 
       echo "DID NOT DETECT ANY CHANGES, SO NO RE-BUILDS"
     fi

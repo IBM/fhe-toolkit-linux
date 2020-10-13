@@ -31,6 +31,7 @@ set -e
 source ConfigConstants.sh
 ARTE_USER=$1
 ARTE_PWD=$2
+BUILD_TYPE=$3
 
 # Pull latest from the FHE repo, master branch
 git checkout master
@@ -61,9 +62,20 @@ echo "DOCKER LOGIN"
 #This works but its an alternate login version
 #docker login -u $ARTE_USER -p $ARTE_PWD "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com"
 echo $ARTE_PWD | docker login -u $ARTE_USER --password-stdin "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com"
-#Tag the docker build for storage in Artifactory
-docker tag "local/fhe-toolkit-fedora-amd64:latest" "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-amd64:$VERSION-$NIGHTLY_SUFFIX"
-echo "tagging it"
-#Push and save the newly tagged build in Artifactory
-docker push "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-amd64:$VERSION-$NIGHTLY_SUFFIX"
-echo "pushing it"
+
+#If this is a s390 machine, then tag and push for S390
+if [[ "$BUILD_TYPE" == "S390" ]]; then
+    echo "Tagging for S390"
+    docker tag "local/fhe-toolkit-fedora-s390x:latest" "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-s390x:$VERSION-$NIGHTLY_SUFFIX"
+    echo "tagging it"
+    #Push and save the newly tagged build in Artifactory
+    docker push "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-s390x:$VERSION-$NIGHTLY_SUFFIX"
+    echo "pushing it"
+else
+    #This is an x86 machine, so tag and push for x86
+    docker tag "local/fhe-toolkit-fedora-amd64:latest" "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-amd64:$VERSION-$NIGHTLY_SUFFIX"
+    echo "tagging it"
+    #Push and save the newly tagged build in Artifactory
+    docker push "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-amd64:$VERSION-$NIGHTLY_SUFFIX"
+    echo "pushing it"
+fi
