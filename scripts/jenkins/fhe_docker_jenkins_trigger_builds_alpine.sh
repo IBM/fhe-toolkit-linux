@@ -32,6 +32,7 @@ set -e
 source ConfigConstants.sh
 ARTE_USER=$1
 ARTE_PWD=$2
+BUILD_TYPE=$3
 
 # Pull latest from the FHE repo, master branch
 git checkout master
