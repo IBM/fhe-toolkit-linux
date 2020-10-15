@@ -89,7 +89,7 @@ else
     ARTE_URL="www.hello.com"
     MESSAGE="A New Build of $BUILD_KIND for $BUILD_TYPE based on Github commit:$COMMIT_NUMBER, passed all the tests and is now available for download at $ARTE_URL" 
     TEXT='{"text":"'"$MESSAGE"'"}'
-    curl -X POST -H 'Content-type: application/json' --data "$TEXT" https://hooks.slack.com/services/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
+    
 
 
 fi
