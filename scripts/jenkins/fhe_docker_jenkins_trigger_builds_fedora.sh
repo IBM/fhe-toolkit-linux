@@ -35,7 +35,7 @@ BUILD_TYPE=$3
 SLACK_HOOK=$4
 
 # Pull latest from the FHE repo, master branch
-git checkout slack-notification-artifactory-upload
+git checkout master
 # Build the Docker image for Fedora
 ./BuildDockerImage.sh fedora
 # Shut everything down before we start
