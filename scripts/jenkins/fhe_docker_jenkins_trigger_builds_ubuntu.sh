@@ -39,20 +39,20 @@ SLACK_HOOK=$4
 # Pull latest from the FHE repo, master branch
 git checkout slack-notification-artifactory-upload
 # Build the Docker image for Ubuntu
-./BuildDockerImage.sh ubuntu
+#./BuildDockerImage.sh ubuntu
 # Shut everything down before we start
 ./StopToolkit.sh
 # Run the toolkit container based on the Ubuntu image
 ./RunToolkit.sh -l -s ubuntu
 # Test sample runs as expected
-docker exec local-fhe-toolkit-ubuntu /bin/bash -c " \
-    cd /opt/IBM/FHE-Workspace; \
-    mkdir build; cd build; \
-    cmake ../examples/BGV_country_db_lookup;\
-    make;\
-    cd ..;\
-    chmod 755 examples/BGV_country_db_lookup/runtest.sh;\
-    ./examples/BGV_country_db_lookup/runtest.sh;"
+#docker exec local-fhe-toolkit-ubuntu /bin/bash -c " \
+#    cd /opt/IBM/FHE-Workspace; \
+#    mkdir build; cd build; \
+#    cmake ../examples/BGV_country_db_lookup;\
+#    make;\
+#    cd ..;\
+#    chmod 755 examples/BGV_country_db_lookup/runtest.sh;\
+#    ./examples/BGV_country_db_lookup/runtest.sh;"
 # Shut everything down 
 ./StopToolkit.sh
 
@@ -76,7 +76,7 @@ if [[ "$BUILD_TYPE" == "S390" ]]; then
     #Push and save the newly tagged build in Artifactory
     docker push $ARTE_URL
     echo "pushing it"
-    BUILD_TYPE=s390x
+    BUILD_TYPE="s390x"
 else
 #This is an x86 machine, so tag and push for x86
     ARTE_URL="sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/ubuntu/fhe-toolkit-ubuntu-amd64:$VERSION-$NIGHTLY_SUFFIX"
@@ -87,9 +87,10 @@ else
     #Push and save the newly tagged build in Artifactory
     docker push $ARTE_URL
     echo "pushing it"
+    BUILD_TYPE="amd64"
 fi
 
 pushd scripts/jenkins
-./fhe_artifactory_notification_script $SLACK_HOOK "UBUNTU" $BUILD_TYPE $ARTE_URL
+./fhe_artifactory_notification_script.sh $SLACK_HOOK "UBUNTU" $BUILD_TYPE $ARTE_URL
 
 
