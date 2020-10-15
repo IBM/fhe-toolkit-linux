@@ -75,6 +75,7 @@ if [[ "$BUILD_TYPE" == "S390" ]]; then
     echo "pushing it"
 else
 #This is an x86 machine, so tag and push for x86
+    PUSH_PATH="sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/ubuntu/fhe-toolkit-ubuntu-amd64:$VERSION-$NIGHTLY_SUFFIX"
     echo "Tagging for x86"
     #Tag the docker build for storage in Artifactory
     docker tag "local/fhe-toolkit-ubuntu-amd64:latest" "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/ubuntu/fhe-toolkit-ubuntu-amd64:$VERSION-$NIGHTLY_SUFFIX"
@@ -82,6 +83,15 @@ else
     #Push and save the newly tagged build in Artifactory
     docker push "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/ubuntu/fhe-toolkit-ubuntu-amd64:$VERSION-$NIGHTLY_SUFFIX"
     echo "pushing it"
+
+    BUILD_KIND="Ubuntu"
+    COMMIT_NUMBER=$(git log -1 --pretty=format:"%h")
+    ARTE_URL="www.hello.com"
+    MESSAGE="A New Build of $BUILD_KIND for $BUILD_TYPE based on Github commit:$COMMIT_NUMBER, passed all the tests and is now available for download at $ARTE_URL" 
+    TEXT='{"text":"'"$MESSAGE"'"}'
+    curl -X POST -H 'Content-type: application/json' --data "$TEXT" https://hooks.slack.com/services/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
+
+
 fi
 
 
