@@ -39,20 +39,20 @@ SLACK_HOOK=$4
 # Pull latest from the FHE repo, master branch
 git checkout slack-notification-artifactory-upload
 # Build the Docker image for Ubuntu
-#./BuildDockerImage.sh ubuntu
+./BuildDockerImage.sh ubuntu
 # Shut everything down before we start
 ./StopToolkit.sh
 # Run the toolkit container based on the Ubuntu image
 ./RunToolkit.sh -l -s ubuntu
 # Test sample runs as expected
-#docker exec local-fhe-toolkit-ubuntu /bin/bash -c " \
-#    cd /opt/IBM/FHE-Workspace; \
-#    mkdir build; cd build; \
-#    cmake ../examples/BGV_country_db_lookup;\
-#    make;\
-#    cd ..;\
-#    chmod 755 examples/BGV_country_db_lookup/runtest.sh;\
-#    ./examples/BGV_country_db_lookup/runtest.sh;"
+docker exec local-fhe-toolkit-ubuntu /bin/bash -c " \
+    cd /opt/IBM/FHE-Workspace; \
+    mkdir build; cd build; \
+    cmake ../examples/BGV_country_db_lookup;\
+    make;\
+    cd ..;\
+    chmod 755 examples/BGV_country_db_lookup/runtest.sh;\
+    ./examples/BGV_country_db_lookup/runtest.sh;"
 # Shut everything down 
 ./StopToolkit.sh
 
@@ -90,6 +90,7 @@ else
     BUILD_TYPE="amd64"
 fi
 
+#Make A Notification in the Slack Channel about a new artifact in the repo
 pushd scripts/jenkins
 ./fhe_artifactory_notification_script.sh $SLACK_HOOK "UBUNTU" $BUILD_TYPE $ARTE_URL
 
