@@ -9,9 +9,15 @@ generate_post_message()
 {
   cat <<EOF
 {
-  "text":"A New Build of $BUILD_KIND for $BUILD_TYPE based on Github commit:$COMMIT_NUMBER, passed all the tests and is now available for docker pull at <$ARTE_URL>"
+  "text":"A new build of $BUILD_KIND for $BUILD_TYPE based on GitHub commit: $COMMIT_NUMBER, passed all the tests and is now available for docker pull at <$ARTE_URL>"
 }
 EOF
+}
+
+get_commit_url()
+{
+  #Make HTTPS
+  BASE_URL="git config --get remote.origin.url | sed -e 's/:/\//g'| sed -e 's/git@/https:\/\//g'"
 }
 
 
