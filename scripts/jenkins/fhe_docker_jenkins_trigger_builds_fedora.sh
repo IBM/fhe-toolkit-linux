@@ -32,6 +32,7 @@ source ConfigConstants.sh
 ARTE_USER=$1
 ARTE_PWD=$2
 BUILD_TYPE=$3
+SLACK_HOOK=$4
 
 # Pull latest from the FHE repo, master branch
 git checkout master
@@ -56,6 +57,7 @@ docker exec local-fhe-toolkit-fedora /bin/bash -c " \
 NOW=$(date +'%m-%d-%Y')
 NIGHTLY_SUFFIX="nightly-${NOW}"
 VERSION="$HElib_version.$TOOLKIT_VERSION"
+ARTE_URL=""
 
 #Login to Artifactory using the fhe user
 echo "DOCKER LOGIN"
@@ -66,16 +68,24 @@ echo $ARTE_PWD | docker login -u $ARTE_USER --password-stdin "sys-ibm-fhe-team-l
 #If this is a s390 machine, then tag and push for S390
 if [[ "$BUILD_TYPE" == "S390" ]]; then
     echo "Tagging for S390"
-    docker tag "local/fhe-toolkit-fedora-s390x:latest" "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-s390x:$VERSION-$NIGHTLY_SUFFIX"
+    ARTE_URL="sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-s390x:$VERSION-$NIGHTLY_SUFFIX"
+    docker tag "local/fhe-toolkit-fedora-s390x:latest" $ARTE_URL
     echo "tagging it"
     #Push and save the newly tagged build in Artifactory
-    docker push "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-s390x:$VERSION-$NIGHTLY_SUFFIX"
+    docker push $ARTE_URL
     echo "pushing it"
+    BUILD_TYPE="s390x"
 else
     #This is an x86 machine, so tag and push for x86
-    docker tag "local/fhe-toolkit-fedora-amd64:latest" "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-amd64:$VERSION-$NIGHTLY_SUFFIX"
+    ARTE_URL="sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-amd64:$VERSION-$NIGHTLY_SUFFIX"
+    docker tag "local/fhe-toolkit-fedora-amd64:latest" $ARTE_URL
     echo "tagging it"
     #Push and save the newly tagged build in Artifactory
-    docker push "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-amd64:$VERSION-$NIGHTLY_SUFFIX"
+    docker push $ARTE_URL
+    BUILD_TYPE="amd64"
     echo "pushing it"
 fi
+
+#Make A Notification in the Slack Channel about a new artifact in the repo
+pushd scripts/jenkins
+./fhe_artifactory_notification_script.sh $SLACK_HOOK "UBUNTU" $BUILD_TYPE $ARTE_URL
