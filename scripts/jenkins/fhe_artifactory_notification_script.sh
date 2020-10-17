@@ -18,11 +18,9 @@ EOF
 get_commit_url()
 {
   #Make HTTPS
-  suffix=".git"
-  GIT_BASE=$(git config --get remote.origin.url)
-  GIT_BASE=${GIT_BASE%"$suffix"}
+  SUFFIX=".git"
   BASE_URL=$(git config --get remote.origin.url | sed -e 's/:/\//g'| sed -e 's/git@/https:\/\//g')
-  GIT_BASE=${BASE_URL%"$suffix"}
+  GIT_BASE=${BASE_URL%"$SUFFIX"}
   origin_head=$(git ls-remote --heads $(git config --get remote.origin.url) | grep "refs/heads/master" | cut -f 1)
   COMMIT_URL=$GIT_BASE"/commit/$origin_head"
   echo $COMMIT_URL
