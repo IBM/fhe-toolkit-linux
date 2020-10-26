@@ -42,8 +42,8 @@ ${bold}Usage: $SCRIPTNAME [options] CONTAINER_OS${normal}
 ${bold}CONTAINER_OS${normal}   Selects the name of the operating system platform to
                build the FHE Toolkit container.
                Available OS are:
-               x86_64/amd64: {ubuntu, fedora, centos}
-               s390x:        {ubuntu, fedora}
+               x86_64/amd64: {ubuntu, fedora, centos, alpine}
+               s390x:        {ubuntu, fedora, alpine}
 
 ${bold}OPTIONS:${normal}
 -h             Displays this help information.
@@ -115,18 +115,19 @@ get_Boost(){
     then
       echo " FATAL: There was an issue downloading boost_$2 from dl.bintray.com."
     fi
+
+    # Now we untar whatever we fetched...
+    echo "INFO: Uncompressing Boost..."
+    tar --no-same-owner -xf boost-$1.tar.gz
+    if [ $? -ne 0 ]; then
+      echo " "
+      echo " FATAL: Aborting. There was an issue extracting files from boost-$1.tar.gz"
+      echo " "
+      exit -1
+    fi
+    # Rename download and remove tar file
+    mv boost_$2 boost
   fi
-  # Now we untar whatever we fetched...
-  echo "INFO: Uncompressing Boost..."
-  tar --no-same-owner -xf boost-$1.tar.gz
-  if [ $? -ne 0 ]; then
-    echo " "
-    echo " FATAL: Aborting. There was an issue extracting files from boost-$1.tar.gz"
-    echo " "
-    exit -1
-  fi
-  # Rename download and remove tar file
-  mv boost_$2 boost 
   #rm boost-$1.tar.gz
 }
 
@@ -201,6 +202,10 @@ if [ $ARCH == "s390x" ]; then
       build="FEDORA"
       platform="fedora"
       release="32"
+  elif [[ "$platform" = "alpine" ]]; then
+      build="ALPINE"
+      platform="alpine"
+      release="3.12"  
   else
       echo " "
       echo "  Invalid platform: $platform Please specify a supported platform: <fedora>, <ubuntu>"
@@ -222,6 +227,10 @@ else
       build="UBUNTU"
       platform="ubuntu"
       release="20.04"
+    elif [[ "$platform" = "alpine" ]]; then
+      build="ALPINE"
+      platform="alpine"
+      release="3.12"  
     else
       echo " "
       echo "  Invalid platform: $platform Please specify a support platform: <fedora>, <centos>, <ubuntu>"

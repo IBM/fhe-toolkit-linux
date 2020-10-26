@@ -22,14 +22,17 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-# Go to the top level of the Repo
+# Navigate to the top level of the Repo
 pushd ../../
 set -x 
 set -u
 set -e
 
+source ConfigConstants.sh
 ARTE_USER=$1
 ARTE_PWD=$2
+BUILD_TYPE=$3
+SLACK_HOOK=$4
 
 # Pull latest from the FHE repo, master branch
 git checkout master
@@ -51,14 +54,38 @@ docker exec local-fhe-toolkit-fedora /bin/bash -c " \
 # Shut everything down 
 ./StopToolkit.sh
 
+NOW=$(date +'%m-%d-%Y')
+NIGHTLY_SUFFIX="nightly-${NOW}"
+VERSION="$HElib_version.$TOOLKIT_VERSION"
+ARTE_URL=""
+
 #Login to Artifactory using the fhe user
 echo "DOCKER LOGIN"
 #This works but its an alternate login version
 #docker login -u $ARTE_USER -p $ARTE_PWD "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com"
 echo $ARTE_PWD | docker login -u $ARTE_USER --password-stdin "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com"
-#Tag the docker build for storage in Artifactory
-docker tag "local/fhe-toolkit-fedora-amd64:latest" "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-amd64:v1.0.2-latest"
-echo "tagging it"
-#Push and save the newly tagged build in Artifactory
-docker push "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-amd64:v1.0.2-latest"
-echo "pushing it"
+
+#If this is a s390 machine, then tag and push for S390
+if [[ "$BUILD_TYPE" == "S390" ]]; then
+    echo "Tagging for S390"
+    ARTE_URL="sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-s390x:$VERSION-$NIGHTLY_SUFFIX"
+    docker tag "local/fhe-toolkit-fedora-s390x:latest" $ARTE_URL
+    echo "tagging it"
+    #Push and save the newly tagged build in Artifactory
+    docker push $ARTE_URL
+    echo "pushing it"
+    BUILD_TYPE="s390x"
+else
+    #This is an x86 machine, so tag and push for x86
+    ARTE_URL="sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/fedora/fhe-toolkit-fedora-amd64:$VERSION-$NIGHTLY_SUFFIX"
+    docker tag "local/fhe-toolkit-fedora-amd64:latest" $ARTE_URL
+    echo "tagging it"
+    #Push and save the newly tagged build in Artifactory
+    docker push $ARTE_URL
+    BUILD_TYPE="amd64"
+    echo "pushing it"
+fi
+
+#Make A Notification in the Slack Channel about a new artifact in the repo
+pushd scripts/jenkins
+./fhe_artifactory_notification_script.sh $SLACK_HOOK "UBUNTU" $BUILD_TYPE $ARTE_URL

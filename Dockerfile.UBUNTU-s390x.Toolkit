@@ -1,6 +1,8 @@
 ARG HElib_tag
 FROM $HElib_tag
+ARG HElib_cmake_lists_version
 ENV container docker
+ENV HELIB_CMAKE_LISTS_VERSON=$HElib_cmake_lists_version
 LABEL maintainer="Flavio Bergamaschi <flavio@uk.ibm.com>"
 
 # Docker Container for Ubuntu FHE IDE and Example Code Toolkit
@@ -62,8 +64,8 @@ RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension ms-vscode
 RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension twxs.cmake --force
 # set code-server to create a self signed cert
 RUN sed -i.bak 's/cert: false/cert: true/' /home/fhe/.config/code-server/config.yaml
-# Update VSCode user settings
-RUN echo "{\"extensions.autoUpdate\": false}" > /opt/IBM/IDE-Data/User/settings.json
+# Update code-server user settings
+RUN echo "{\"extensions.autoUpdate\": false,\n\"workbench.colorTheme\": \"Dark\"}" > /opt/IBM/IDE-Data/User/settings.json
 
 # Set the default command to launch the VS Project as a web application
 CMD ["code-server",  "--bind-addr", "0.0.0.0:8443", "--user-data-dir", "/opt/IBM/IDE-Data/", "/opt/IBM/FHE-Workspace", "--auth", "none", "--disable-telemetry"]

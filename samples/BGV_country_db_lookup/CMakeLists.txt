@@ -17,11 +17,13 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_EXTENSIONS OFF)
 ## Require full C++ standard
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+## Rely on the Environment variable to dictate which version of helib to use
+set(HELIB_VERSION ${HELIB_CMAKE_LISTS_VERSON})
 
 project(BGV_country_db_lookup
        	LANGUAGES CXX)
 
-find_package(helib 1.0.0 REQUIRED)
+find_package(helib ${HELIB_VERSION} REQUIRED)
 
 add_executable(BGV_country_db_lookup BGV_country_db_lookup.cpp)
 

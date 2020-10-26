@@ -3,11 +3,11 @@ FROM $HElib_tag
 ARG HElib_cmake_lists_version
 ENV container docker
 ENV HELIB_CMAKE_LISTS_VERSON=$HElib_cmake_lists_version
-LABEL maintainer="Flavio Bergamaschi <flavio@uk.ibm.com>"
+LABEL maintainer="Liz Maple <liz@uk.ibm.com>"
 
-# Docker Container for Ubuntu FHE IDE and Example Code Toolkit
+# Docker Container for Alpine FHE IDE and Example Code Toolkit
 
-# The vscode server runs on HTTPS port 443 so expose it
+# The code-server runs on HTTPS port 8443 so expose it
 EXPOSE 8443/tcp
 
 # Set root user for installation
@@ -15,27 +15,12 @@ USER root
 WORKDIR /root
 
 # Install pre-reqs for building code-server
-RUN yum -y install \
-    python      \
-    python3     \
-    pkg-config  \ 
-    xterm       \
-    libX11-devel      \
-    libxkbfile-devel \
-    libsecret-devel
-
-RUN yum clean packages
-
-# Istall Node.js v12+
-RUN curl -fsSL https://nodejs.org/dist/v12.18.2/node-v12.18.2-linux-s390x.tar.xz | tar --no-same-owner -Jxf -
-RUN cp -pr ./node-v12.18.2-linux-s390x/bin     \
-           ./node-v12.18.2-linux-s390x/include \
-           ./node-v12.18.2-linux-s390x/lib     \
-           ./node-v12.18.2-linux-s390x/share   \
-           /usr/local
+RUN apk add --no-cache openssl python3 pkgconfig xterm libx11-dev libxkbfile-dev libsecret-dev nodejs yarn
 
 # Install code-server so we can access vscode from a container context...
-RUN curl -fsSL https://code-server.dev/install.sh | sh 2>&1
+RUN yarn global add node-gyp 
+RUN yarn global add node-pty 
+RUN yarn global add code-server
 
 # Create a directory to hold the VSCode user data when running as root
 RUN mkdir -p /opt/IBM/IDE-Data
@@ -57,14 +42,15 @@ RUN cp -rp /opt/IBM/FHE-distro/HElib/examples /opt/IBM/FHE-Workspace
 # Copy over additional examples into the FHE-Workspace from the github checkout on this host
 COPY --chown=fhe:fhe ./samples/ /opt/IBM/FHE-Workspace/examples/
 
-
-# Install code-server extensions
-#RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension ms-vscode.cpptools --force
+# Install VSCode extensions
+RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension ms-vscode.cpptools@0.29.0 --force
 RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension ms-vscode.cmake-tools --force
 RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension twxs.cmake --force
+
 # set code-server to create a self signed cert
 RUN sed -i.bak 's/cert: false/cert: true/' /home/fhe/.config/code-server/config.yaml
-# Update code-server user settings
+
+# Update VSCode user settings
 RUN echo "{\"extensions.autoUpdate\": false,\n\"workbench.colorTheme\": \"Dark\"}" > /opt/IBM/IDE-Data/User/settings.json
 
 # Set the default command to launch the VS Project as a web application

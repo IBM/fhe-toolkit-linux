@@ -1,6 +1,5 @@
 #/bin/bash 
 
-
 # MIT License
 # 
 # Copyright (c) 2020 International Business Machines
@@ -23,12 +22,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-
 # Navigate to the top level of the Repo
 pushd ../../
 set -x 
 set -u
 set -e
+
 
 source ConfigConstants.sh
 ARTE_USER=$1
@@ -38,14 +37,14 @@ SLACK_HOOK=$4
 
 # Pull latest from the FHE repo, master branch
 git checkout master
-# Build the Docker image for Ubuntu
-./BuildDockerImage.sh ubuntu
+# Build the Docker image for Alpine
+./BuildDockerImage.sh alpine
 # Shut everything down before we start
 ./StopToolkit.sh
-# Run the toolkit container based on the Ubuntu image
-./RunToolkit.sh -l -s ubuntu
+# Run the toolkit container based on the Alpine image
+./RunToolkit.sh -l -s alpine
 # Test sample runs as expected
-docker exec local-fhe-toolkit-ubuntu /bin/bash -c " \
+docker exec local-fhe-toolkit-alpine /bin/bash -c " \
     cd /opt/IBM/FHE-Workspace; \
     mkdir build; cd build; \
     cmake ../examples/BGV_country_db_lookup;\
@@ -55,6 +54,7 @@ docker exec local-fhe-toolkit-ubuntu /bin/bash -c " \
     ./examples/BGV_country_db_lookup/runtest.sh;"
 # Shut everything down 
 ./StopToolkit.sh
+
 
 NOW=$(date +'%m-%d-%Y')
 NIGHTLY_SUFFIX="nightly-${NOW}"
@@ -69,29 +69,25 @@ echo $ARTE_PWD | docker login -u $ARTE_USER --password-stdin "sys-ibm-fhe-team-l
 #If this is a s390 machine, then tag and push for S390
 if [[ "$BUILD_TYPE" == "S390" ]]; then
     echo "Tagging for S390"
+    ARTE_URL="sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/alpine/fhe-toolkit-alpine-s390x:$VERSION-$NIGHTLY_SUFFIX"
     #Tag the docker build for storage in Artifactory
-    ARTE_URL="sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/ubuntu/fhe-toolkit-ubuntu-s390x:$VERSION-$NIGHTLY_SUFFIX"
-    docker tag "local/fhe-toolkit-ubuntu-s390x:latest" $ARTE_URL
+    docker tag "local/fhe-toolkit-alpine-s390x:latest" $ARTE_URL
     echo "tagging it"
     #Push and save the newly tagged build in Artifactory
     docker push $ARTE_URL
     echo "pushing it"
     BUILD_TYPE="s390x"
 else
-#This is an x86 machine, so tag and push for x86
-    ARTE_URL="sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/ubuntu/fhe-toolkit-ubuntu-amd64:$VERSION-$NIGHTLY_SUFFIX"
-    echo "Tagging for x86"
     #Tag the docker build for storage in Artifactory
-    docker tag "local/fhe-toolkit-ubuntu-amd64:latest" $ARTE_URL
+    ARTE_URL="sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/alpine/fhe-toolkit-alpine-amd64:$VERSION-$NIGHTLY_SUFFIX"
+    docker tag "local/fhe-toolkit-alpine-amd64:latest" $ARTE_URL
     echo "tagging it"
     #Push and save the newly tagged build in Artifactory
     docker push $ARTE_URL
-    echo "pushing it"
     BUILD_TYPE="amd64"
+    echo "pushing it"
 fi
 
 #Make A Notification in the Slack Channel about a new artifact in the repo
 pushd scripts/jenkins
 ./fhe_artifactory_notification_script.sh $SLACK_HOOK "UBUNTU" $BUILD_TYPE $ARTE_URL
-
-
