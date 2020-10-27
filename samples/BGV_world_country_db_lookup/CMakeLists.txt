@@ -1,9 +1,8 @@
-#!/bin/bash
-
+#
 # MIT License
-# 
+#
 # Copyright (c) 2020 International Business Machines
-# 
+#
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
 # in the Software without restriction, including without limitation the rights
@@ -21,28 +20,29 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
+#
 
-country_capitals=('Albania:Tirana' 'Austria:Vienna' 'Belarus:Minsk' 'Southampton:Country')
+project(BGV_world_country_db_lookup)
+ENABLE_LANGUAGE(CXX)
 
-# Number of queries
-rc=${#country_capitals[@]}
+# We need a recent cmake
+cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
-for country_capital in "${country_capitals[@]}"; do
-  # Capture the result value for comparison
-  query="${country_capital%:*}"
-  capital=$( $PWD/build/BGV_country_db_lookup <<< $query | awk '/Query result:/{ print $3 }' )
+# We rely on HELib...
+find_package(helib 1.0.0 REQUIRED)
 
-  echo "$query returns '$capital'"
-  if [ "$capital" = "${country_capital#*:}" ]; then 
-    let rc--;
-  else
-    echo "Test failed.."
-    echo "Expected: $country_capital"
-    echo "Actual: $query:$capital"
-    echo ""
-  fi
-done
+# We rely on HDF5 for data access...
+find_package(HDF5 REQUIRED COMPONENTS CXX)
+include_directories(${HDF5_INCLUDE_DIR})
 
-# This will return the overall pass or fail
-echo $rc
-exit $rc
+# We rely on Boost C++
+find_package(Boost REQUIRED COMPONENTS filesystem)
+
+set( CMAKE_CXX_FLAGS "-Werror -fopenmp" )
+
+# Build the BGV_world_country_db_lookup object from the C++ source files.
+add_executable(BGV_world_country_db_lookup BGV_world_country_db_lookup.cpp)
+
+
+# Link credit_card_fraud, hdf5, helib, boost, and hedge_hebase
+target_link_libraries(BGV_world_country_db_lookup -lhedge_hebase ${HDF5_LIBRARIES} helib ${Boost_LIBRARIES})

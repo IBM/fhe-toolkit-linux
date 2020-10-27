@@ -57,7 +57,7 @@ int main(int argc, char* argv[])
   // Size of NTL thread pool (default =1)
   unsigned long nthreads = 1;
   // input database file name
-  string db_filename = "./countries_dataset.csv";
+  string db_filename = "/opt/IBM/FHE-Workspace/examples/BGV_world_country_db_lookup/world_countries_dataset.csv";
   // debug output (default no debug output)
   bool debug = false;
 
@@ -190,7 +190,7 @@ void run(HeContext& he, const string& db_filename, bool debug)
 
   // Read in query from the command line
   string query_string;
-  cout << "\nPlease enter the name of an European Country: ";
+  cout << "\nPlease enter the name of a Country: ";
 
   getline(cin, query_string);
 
