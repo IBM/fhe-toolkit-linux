@@ -39,10 +39,9 @@ const string serverContext = outDir + "/server_context.bin";
 const string encryptedModelFile = outDir + "/encrypted_model.bin";
 
 // paths from which to load the plain model, samples and labels
-const string baseDir = "/opt/IBM/FHE-Workspace/examples/credit_card_fraud";
-const string plainModelFile = baseDir + "/data/model_42098.h5";
-const string plainSamplesFile = baseDir + "/data/x_test.h5";
-const string plainLabelsFile = baseDir + "/data/y_test.h5";
+const string plainModelFile = "./model_42098.h5";
+const string plainSamplesFile = "./x_test.h5";
+const string plainLabelsFile = "./y_test.h5";
 
 double classificationThreshold =
     0.5; // used to separate positive from negative samples
