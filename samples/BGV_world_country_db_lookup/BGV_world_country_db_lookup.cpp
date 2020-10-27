@@ -195,7 +195,7 @@ void run(HeContext& he, const string& db_filename, bool debug)
   getline(cin, query_string);
 
   cout << "Looking for the Capital of " << query_string << endl;
-  cout << "This may take few minutes ... " << endl;
+  cout << "This may take a few minutes ... " << endl;
 
   HELIB_NTIMER_START(timer_TotalQuery);
   HELIB_NTIMER_START(timer_EncryptQuery);

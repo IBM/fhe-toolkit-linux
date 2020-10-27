@@ -243,7 +243,7 @@ int main(int argc, char* argv[])
   // std::cin >> query_string;
   std::getline(std::cin, query_string);
   std::cout << "Looking for the Capital of " << query_string << std::endl;
-  std::cout << "This may take few minutes ... " << std::endl;
+  std::cout << "This may take a few minutes ... " << std::endl;
 
   HELIB_NTIMER_START(timer_TotalQuery);
 
