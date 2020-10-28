@@ -34,20 +34,6 @@ source ConfigConstants.sh
 
 BUILD_TYPE=$1
 
-if [[ "$BUILD_TYPE" == "S390" ]]; then
-     echo 'S390 Stuff $BUILD_TYPE'
-     test_toolkit "ubuntu"
-     test_toolkit "fedora"
-     test_toolkit "alpine"
-   
-else 
-     test_toolkit "ubuntu"
-     test_toolkit "fedora"
-     test_toolkit "alpine"
-     test_toolkit "centos"
-fi
-
-
 test_toolkit() 
 {
     LINUX_FLAVOR=$1
@@ -57,7 +43,7 @@ test_toolkit()
     ./StopToolkit.sh
     # Run the toolkit container based on the Ubuntu image
     ./RunToolkit.sh -l -s $LINUX_FLAVOR
-    LOCAL_DOCKER_IMAGE="local-fhe-toolkit-{$LINUX_FLAVOR}"
+    LOCAL_DOCKER_IMAGE="local-fhe-toolkit-$LINUX_FLAVOR"
     # Test sample runs as expected
     docker exec $LOCAL_DOCKER_IMAGE /bin/bash -c " \
        cd /opt/IBM/FHE-Workspace; \
@@ -70,3 +56,16 @@ test_toolkit()
     # Shut everything down 
     ./StopToolkit.sh
 }
+
+if [[ "$BUILD_TYPE" == "S390" ]]; then
+     echo 'S390 Stuff $BUILD_TYPE'
+     test_toolkit "ubuntu"
+     test_toolkit "fedora"
+     test_toolkit "alpine"
+   
+else 
+     test_toolkit "ubuntu"
+     test_toolkit "fedora"
+     test_toolkit "alpine"
+     test_toolkit "centos"
+fi
