@@ -88,4 +88,4 @@ fi
 
 #Make A Notification in the Slack Channel about a new artifact in the repo
 pushd scripts/jenkins
-./fhe_artifactory_notification_script.sh $SLACK_HOOK "UBUNTU" $BUILD_TYPE $ARTE_URL
+./fhe_artifactory_notification_script.sh $SLACK_HOOK "Fedora" $BUILD_TYPE $ARTE_URL
