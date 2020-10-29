@@ -34,6 +34,8 @@ source ConfigConstants.sh
 ARTE_USER=$1
 ARTE_PWD=$2
 BUILD_TYPE=$3
+SLACK_HOOK=$4
+PR_NUMBER=$5
 
 test_toolkit() 
 {
@@ -73,4 +75,4 @@ fi
 
 pushd scripts/jenkins
 
-./fhe_artifactory_push_script.sh $ARTE_USER $ARTE_PWD $BUILD_TYPE $PR_NUM
+./fhe_artifactory_push_script.sh $ARTE_USER $ARTE_PWD $BUILD_TYPE $PR_NUMBER
