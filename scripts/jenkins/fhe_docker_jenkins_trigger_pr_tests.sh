@@ -31,8 +31,9 @@ set -u
 set -e
 
 source ConfigConstants.sh
-
-BUILD_TYPE=$1
+ARTE_USER=$1
+ARTE_PWD=$2
+BUILD_TYPE=$3
 
 test_toolkit() 
 {
@@ -69,3 +70,7 @@ else
      test_toolkit "alpine"
      test_toolkit "centos"
 fi
+
+pushd scripts/jenkins
+
+./fhe_artifactory_push_script.sh $ARTE_USER $ARTE_PWD $BUILD_TYPE $PR_NUM
