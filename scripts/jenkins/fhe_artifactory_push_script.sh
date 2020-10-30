@@ -27,6 +27,7 @@ ARTE_USER=$1
 ARTE_PWD=$2
 BUILD_TYPE=$3
 PR_NUM=$4
+LINUX_VERSION=$5
 
 NOW=$(date +'%m-%d-%Y')
 NIGHTLY_SUFFIX="nightly-${NOW}"
@@ -42,7 +43,7 @@ echo $ARTE_PWD | docker login -u $ARTE_USER --password-stdin "sys-ibm-fhe-team-l
 #If this is a s390 machine, then tag and push for S390
 if [[ "$BUILD_TYPE" == "S390" ]]; then
     echo "Tagging for S390"
-    ARTE_URL="sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/alpine/fhe-toolkit-alpine-s390x:$VERSION-$PR_NUM"
+    ARTE_URL="sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/$LINUX_VERSION/fhe-toolkit-$LINUX_VERSION-s390x:$VERSION-$PR_NUM"
     #Tag the docker build for storage in Artifactory
     echo "tagging it"
     #Push and save the newly tagged build in Artifactory
@@ -51,7 +52,7 @@ if [[ "$BUILD_TYPE" == "S390" ]]; then
     BUILD_TYPE="s390x"
 else
     #Tag the docker build for storage in Artifactory
-    ARTE_URL="sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/alpine/fhe-toolkit-alpine-amd64:$VERSION-$PR_NUM"
+    ARTE_URL="sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/$LINUX_VERSION/fhe-toolkit-$LINUX_VERSION-amd64:$VERSION-$PR_NUM"
     echo "tagging it"
     #Push and save the newly tagged build in Artifactory
     docker push $ARTE_URL

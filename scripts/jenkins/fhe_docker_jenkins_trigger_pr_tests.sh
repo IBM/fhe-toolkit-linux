@@ -56,8 +56,13 @@ test_toolkit()
        cd ..;\
        chmod 755 examples/BGV_country_db_lookup/runtest.sh;\
        ./examples/BGV_country_db_lookup/runtest.sh;"
+
     # Shut everything down 
     ./StopToolkit.sh
+
+    pushd scripts/jenkins
+    ./fhe_artifactory_push_script.sh $ARTE_USER $ARTE_PWD $BUILD_TYPE $PR_NUMBER $LINUX_FLAVOR
+
 }
 
 if [[ "$BUILD_TYPE" == "S390" ]]; then
@@ -73,6 +78,4 @@ else
      test_toolkit "centos"
 fi
 
-pushd scripts/jenkins
-
-./fhe_artifactory_push_script.sh $ARTE_USER $ARTE_PWD $BUILD_TYPE $PR_NUMBER
+ 
