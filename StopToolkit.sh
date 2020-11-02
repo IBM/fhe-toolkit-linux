@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-HElib_version='v1.0.2'
+source ConfigConstants.sh
 
 # Retrieve Container ID and Image Name of running toolkit
 CONTAINER_ID=$(docker ps -a -q --filter name=fhe-toolkit --format="{{.ID}}")
