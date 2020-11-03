@@ -40,6 +40,8 @@ PR_NUMBER=$5
 test_toolkit() 
 {
     LINUX_FLAVOR=$1
+    echo "WE Are here"
+    pwd
     # Build the Docker image for Ubuntu
     ./BuildDockerImage.sh $LINUX_FLAVOR
     # Shut everything down before we start
