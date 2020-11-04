@@ -64,6 +64,7 @@ test_toolkit()
 
     pushd scripts/jenkins
     ./fhe_artifactory_push_script.sh $ARTE_USER $ARTE_PWD $BUILD_TYPE $PR_NUMBER $LINUX_FLAVOR
+    pushd ../../
 
 }
 
