@@ -1,6 +1,5 @@
 #/bin/bash 
 
-
 # MIT License
 # 
 # Copyright (c) 2020 International Business Machines
@@ -23,62 +22,41 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-
-# Navigate to the top level of the Repo
 pushd ../../
-set -x 
-set -u
-set -e
-
 source ConfigConstants.sh
 ARTE_USER=$1
 ARTE_PWD=$2
 BUILD_TYPE=$3
-SLACK_HOOK=$4
-PR_NUMBER=$5
+PR_NUM=$4
+LINUX_VERSION=$5
 
-test_toolkit() 
-{
-    LINUX_FLAVOR=$1
-    echo "WE Are here"
-    pwd
-    # Build the Docker image for Ubuntu
-    ./BuildDockerImage.sh $LINUX_FLAVOR
-    # Shut everything down before we start
-    ./StopToolkit.sh
-    # Run the toolkit container based on the Ubuntu image
-    ./RunToolkit.sh -l -s $LINUX_FLAVOR
-    LOCAL_DOCKER_IMAGE="local-fhe-toolkit-$LINUX_FLAVOR"
-    # Test sample runs as expected
-    docker exec $LOCAL_DOCKER_IMAGE /bin/bash -c " \
-       cd /opt/IBM/FHE-Workspace; \
-       mkdir build; cd build; \
-       cmake ../examples/BGV_country_db_lookup;\
-       make;\
-       cd ..;\
-       chmod 755 examples/BGV_country_db_lookup/runtest.sh;\
-       ./examples/BGV_country_db_lookup/runtest.sh;"
+NOW=$(date +'%m-%d-%Y')
+NIGHTLY_SUFFIX="nightly-${NOW}"
+VERSION="$HElib_version.$TOOLKIT_VERSION"
+PR_SUFFIX="pr-${PR_NUM}"
+ARTE_URL=""
 
-    # Shut everything down 
-    ./StopToolkit.sh
+#Login to Artifactory using the fhe user
+echo "DOCKER LOGIN"
+#docker login -u $ARTE_USER -p $ARTE_PWD "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com"
+echo $ARTE_PWD | docker login -u $ARTE_USER --password-stdin "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com"
 
-    pushd scripts/jenkins
-    ./fhe_artifactory_push_script.sh $ARTE_USER $ARTE_PWD $BUILD_TYPE $PR_NUMBER $LINUX_FLAVOR
-    pushd ../../
-
-}
-
+#If this is a s390 machine, then tag and push for S390
 if [[ "$BUILD_TYPE" == "S390" ]]; then
-     echo 'S390 Stuff $BUILD_TYPE'
-     test_toolkit "ubuntu"
-     test_toolkit "fedora"
-     test_toolkit "alpine"
-   
-else 
-     test_toolkit "ubuntu"
-     test_toolkit "fedora"
-     test_toolkit "alpine"
-     test_toolkit "centos"
+    echo "Tagging for S390"
+    ARTE_URL="sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/$LINUX_VERSION/fhe-toolkit-$LINUX_VERSION-s390x:$VERSION-$PR_NUM"
+    #Tag the docker build for storage in Artifactory
+    echo "tagging it"
+    #Push and save the newly tagged build in Artifactory
+    docker push $ARTE_URL
+    echo "pushing it"
+    BUILD_TYPE="s390x"
+else
+    #Tag the docker build for storage in Artifactory
+    ARTE_URL="sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/$LINUX_VERSION/fhe-toolkit-$LINUX_VERSION-amd64:$VERSION-$PR_NUM"
+    echo "tagging it"
+    #Push and save the newly tagged build in Artifactory
+    docker push $ARTE_URL
+    BUILD_TYPE="amd64"
+    echo "pushing it"
 fi
-
- 
