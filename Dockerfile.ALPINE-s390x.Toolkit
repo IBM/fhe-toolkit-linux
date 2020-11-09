@@ -36,9 +36,10 @@ WORKDIR /home/fhe
 
 RUN mkdir /opt/IBM/FHE-Workspace/.vscode
 COPY ./IDE_Config /opt/IBM/FHE-Workspace/.vscode 
-
+#switch back to ROOT to fix the permissions
 USER root
 RUN chown -R fhe:fhe /opt/IBM/FHE-Workspace/.vscode
+#switch to FHE again to make the dir
 USER fhe
 RUN mkdir -p /opt/IBM/FHE-Workspace/examples
 RUN cp -rp /opt/IBM/FHE-distro/HElib/examples /opt/IBM/FHE-Workspace
