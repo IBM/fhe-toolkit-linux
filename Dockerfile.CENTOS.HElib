@@ -67,9 +67,10 @@ RUN ./bootstrap.sh --with-libraries=filesystem,system,thread && \
     cd .. && \
     rm -rf boost
 
-# Build and install hedge_hebase as system library in /usr/local
-COPY ./DEPENDENCIES/hedge              /opt/IBM/FHE-distro/hedge
-WORKDIR /opt/IBM/FHE-distro/hedge
+# Build and install ML-HElib as system library in /usr/local
+COPY ./DEPENDENCIES/ML-HElib/              /opt/IBM/FHE-distro/ML-HElib/
+WORKDIR /opt/IBM/FHE-distro/ML-HElib
+RUN mv src/ml-helib/ src/hedge/
 RUN ./install_system_wide.sh && \
     ldconfig
 

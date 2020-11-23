@@ -22,7 +22,7 @@
 # SOFTWARE.
 #
 
-project(hedge_tutorial)
+project(ml_helib_tutorials)
 ENABLE_LANGUAGE(CXX)
 
 # We need a recent cmake
@@ -40,11 +40,11 @@ find_package(Boost REQUIRED COMPONENTS filesystem)
 
 set( CMAKE_CXX_FLAGS "-Werror -fopenmp" )
 
-# Build the hedge_tutorial object from the C++ source files.
-add_executable(hedge_tutorial tutorial_helib.cpp
+# Build the ml_helib_tutorials object from the C++ source files.
+add_executable(ml_helib_tutorials tutorial_helib.cpp
                               tut_1_basics.cpp
                               tut_2_plaintexts.cpp
                               tut_3_io.cpp)
 
-# Link hedge_tutorial, hdf5, helib, boost, and hedge_hebase
-target_link_libraries(hedge_tutorial -lhedge_hebase ${HDF5_LIBRARIES} helib ${Boost_LIBRARIES})
+# Link ml_helib_tutorials, hdf5, helib, boost, and hedge_hebase
+target_link_libraries(ml_helib_tutorials -lhedge_hebase ${HDF5_LIBRARIES} helib ${Boost_LIBRARIES})

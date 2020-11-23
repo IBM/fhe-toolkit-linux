@@ -50,7 +50,7 @@ void TestUtils::createOutputDirectory()
   FileUtils::createCleanDir(outputDirectory);
 }
 
-const std::string TestUtils::outputDirectory = "./output";
+const std::string TestUtils::outputDirectory = "/home/fhe/ml-helib/output";
 
 HeContextFactory* TestUtils::heContextFactory = NULL;
 double TestUtils::eps = 1e-5;
