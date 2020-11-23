@@ -22,7 +22,6 @@ DEPENDENCIES/boost-1.72.0.tar.gz
 
 # Ignore examples folder
 samples/*
-!samples/hedge_*
 
 # Prerequisites
 *.d
