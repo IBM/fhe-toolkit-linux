@@ -35,7 +35,7 @@ BUILD_TYPE=$3
 SLACK_HOOK=$4
 
 # Pull latest from the FHE repo, master branch
-git checkout master
+git checkout master 
 # Build the Docker image for Fedora
 ./BuildDockerImage.sh fedora
 # Shut everything down before we start
@@ -88,4 +88,4 @@ fi
 
 #Make A Notification in the Slack Channel about a new artifact in the repo
 pushd scripts/jenkins
-./fhe_artifactory_notification_script.sh $SLACK_HOOK "UBUNTU" $BUILD_TYPE $ARTE_URL
+./fhe_artifactory_notification_script.sh $SLACK_HOOK "Fedora" $BUILD_TYPE $ARTE_URL

@@ -22,56 +22,41 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-# Navigate to the top level of the Repo
 pushd ../../
-set -x 
-set -u
-set -e
-
 source ConfigConstants.sh
 ARTE_USER=$1
 ARTE_PWD=$2
 BUILD_TYPE=$3
-SLACK_HOOK=$4
-
-# Pull latest from the FHE repo, master branch
-git checkout master
-# Build the Docker image for CentOS
-./BuildDockerImage.sh centos
-# Shut everything down before we start
-./StopToolkit.sh
-# Run the toolkit container based on the CentOS image
-./RunToolkit.sh -l -s centos
-# Test sample runs as expected
-docker exec local-fhe-toolkit-centos /bin/bash -c " \
-    cd /opt/IBM/FHE-Workspace; \
-    mkdir build; cd build; \
-    cmake ../examples/BGV_country_db_lookup;\
-    make;\
-    cd ..;\
-    chmod 755 examples/BGV_country_db_lookup/runtest.sh;\
-    ./examples/BGV_country_db_lookup/runtest.sh;"
-# Shut everything down 
-./StopToolkit.sh
-
+PR_NUM=$4
+LINUX_VERSION=$5
 
 NOW=$(date +'%m-%d-%Y')
 NIGHTLY_SUFFIX="nightly-${NOW}"
 VERSION="$HElib_version.$TOOLKIT_VERSION"
-ARTE_URL="sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/centos/fhe-toolkit-centos-amd64:$VERSION-$NIGHTLY_SUFFIX"
+PR_SUFFIX="pr-${PR_NUM}"
+ARTE_URL=""
 
 #Login to Artifactory using the fhe user
 echo "DOCKER LOGIN"
 #docker login -u $ARTE_USER -p $ARTE_PWD "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com"
 echo $ARTE_PWD | docker login -u $ARTE_USER --password-stdin "sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com"
-#Tag the docker build for storage in Artifactory
-docker tag "local/fhe-toolkit-centos-amd64:latest" $ARTE_URL
-echo "tagging it"
-#Push and save the newly tagged build in Artifactory
-docker push $ARTE_URL
-echo "pushing it"
-BUILD_TYPE="amd64"
 
-#Make A Notification in the Slack Channel about a new artifact in the repo
-pushd scripts/jenkins
-./fhe_artifactory_notification_script.sh $SLACK_HOOK "CentOS" $BUILD_TYPE $ARTE_URL
+#If this is a s390 machine, then tag and push for S390
+if [[ "$BUILD_TYPE" == "S390" ]]; then
+    echo "Tagging for S390"
+    ARTE_URL="sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/$LINUX_VERSION/fhe-toolkit-$LINUX_VERSION-s390x:$VERSION-$PR_NUM"
+    #Tag the docker build for storage in Artifactory
+    echo "tagging it"
+    #Push and save the newly tagged build in Artifactory
+    docker push $ARTE_URL
+    echo "pushing it"
+    BUILD_TYPE="s390x"
+else
+    #Tag the docker build for storage in Artifactory
+    ARTE_URL="sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/$LINUX_VERSION/fhe-toolkit-$LINUX_VERSION-amd64:$VERSION-$PR_NUM"
+    echo "tagging it"
+    #Push and save the newly tagged build in Artifactory
+    docker push $ARTE_URL
+    BUILD_TYPE="amd64"
+    echo "pushing it"
+fi
