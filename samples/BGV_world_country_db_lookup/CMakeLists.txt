@@ -29,7 +29,7 @@ ENABLE_LANGUAGE(CXX)
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 
 # We rely on HELib...
-find_package(helib 1.0.0 REQUIRED)
+find_package(helib ${HELIB_VERSION} REQUIRED)
 
 # We rely on HDF5 for data access...
 find_package(HDF5 REQUIRED COMPONENTS CXX)

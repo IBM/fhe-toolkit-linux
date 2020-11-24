@@ -34,3 +34,5 @@ Boost_version='1.72.0'
 Boost_filename='1_72_0'
 TEST_VAR_NAME='20.1.8'
 TOOLKIT_VERSION='0'
+# ML-HElib
+MLHElib_version='0.1.0'

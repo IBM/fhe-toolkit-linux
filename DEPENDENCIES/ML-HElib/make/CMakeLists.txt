@@ -29,7 +29,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 
-project(hedge_hebase VERSION 0.1.0 LANGUAGES CXX)
+project(hedge_hebase VERSION ${MLHElib_version} LANGUAGES CXX)
 
 include_directories(../src/)
 include_directories(../test/util/)
@@ -47,7 +47,7 @@ set(CMAKE_VERBOSE_MAKEFILE TRUE)
 set( CMAKE_CXX_FLAGS "-Werror -fopenmp" )
 
 # Import Boost
-find_package(Boost 1.72.0 EXACT REQUIRED COMPONENTS filesystem system thread)
+find_package(Boost ${Boost_version} EXACT REQUIRED COMPONENTS filesystem system thread)
 
 # Hedge main files
 set(IMPL_SOURCES
