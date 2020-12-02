@@ -12,6 +12,8 @@ assumes you have a working internet connection, a functioning `git`
 installation and a working, and recent `Docker` installation in your system and the 
 necessary user privileges to run `docker` commands. At present Docker version 19 or higher is required. Older versions of Docker are known not to work properly with our system, and there are no plans by the maintainers to support older Docker versions. 
 
+A working internet connection is required to build the toolkit as some dependencies are fetched from external sources at build time. Similarly a working internet connection is required if a user opts to use a pre-built image from DockerHub.
+
 ## Step 1: Cloning the IBM FHE Toolkit Repository
 First, from a terminal
 window, issue the following command to clone this git repo:
