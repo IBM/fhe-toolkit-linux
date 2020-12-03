@@ -19,6 +19,8 @@ RUN export DEBIAN_FRONTEND=noninteractive
 
 # Install code-server so we can access the IDE from a container context...
 RUN curl -fsSL https://code-server.dev/install.sh | sh
+#Install cpptools from the latest vsix version which we are pinning to becuase we have issues getting it to install normally - 12.03.2020 - greg
+ADD https://github.com/microsoft/vscode-cpptools/releases/download/1.1.2/cpptools-linux.vsix /opt/IBM/FHE-Workspace/
 
 # Create a directory to hold the VSCode user data
 RUN mkdir -p /opt/IBM/IDE-Data
@@ -39,9 +41,13 @@ RUN cp -rp /opt/IBM/FHE-distro/HElib/examples /opt/IBM/FHE-Workspace
 
 # Copy over additional examples into the FHE-Workspace from the github checkout on this host
 COPY --chown=fhe:fhe ./samples/ /opt/IBM/FHE-Workspace/examples/
+COPY --chown=fhe:fhe cpptools-linux.vsix /opt/IBM/FHE-Workspace/cpptools.vsix
 
 # Install code-server extensions
-RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension ms-vscode.cpptools@0.29.0 --force
+#We are installing the cpptools from a specific vsix version manually because it fails to install the traditional way. This version is 1.1.2 which is the latest at this time 12.02.2020 - greg 
+#https://github.com/microsoft/vscode-cpptools/releases/download/1.1.2/cpptools-linux.vsix
+RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension /opt/IBM/FHE-Workspace/cpptools-linux.vsix --force; exit 0
+#RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension /opt/IBM/FHE-Workspace/cpptools.vsix --force; exit 0
 RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension ms-vscode.cmake-tools --force
 RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension twxs.cmake --force
 # set code-server to create a self signed cert
