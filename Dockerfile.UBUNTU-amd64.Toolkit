@@ -39,9 +39,11 @@ RUN cp -rp /opt/IBM/FHE-distro/HElib/examples /opt/IBM/FHE-Workspace
 
 # Copy over additional examples into the FHE-Workspace from the github checkout on this host
 COPY --chown=fhe:fhe ./samples/ /opt/IBM/FHE-Workspace/examples/
+COPY --chown=fhe:fhe cpptools-linux.vsix /opt/IBM/FHE-Workspace/cpptools.vsix
 
 # Install code-server extensions
-RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension ms-vscode.cpptools@0.29.0 --force
+#We are installing the cpptools from a specific vsix version manually because it fails to install the other way. This version is 1.1.2 
+RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension /opt/IBM/FHE-Workspace/cpptools.vsix --force; exit 0
 RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension ms-vscode.cmake-tools --force
 RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension twxs.cmake --force
 # set code-server to create a self signed cert
