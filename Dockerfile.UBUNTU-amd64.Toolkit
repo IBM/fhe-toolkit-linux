@@ -43,6 +43,7 @@ COPY --chown=fhe:fhe cpptools-linux.vsix /opt/IBM/FHE-Workspace/cpptools.vsix
 
 # Install code-server extensions
 #We are installing the cpptools from a specific vsix version manually because it fails to install the other way. This version is 1.1.2 
+#https://github.com/microsoft/vscode-cpptools/releases/download/1.1.2/cpptools-linux.vsix
 RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension /opt/IBM/FHE-Workspace/cpptools.vsix --force; exit 0
 RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension ms-vscode.cmake-tools --force
 RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension twxs.cmake --force
