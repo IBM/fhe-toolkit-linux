@@ -95,7 +95,7 @@ void HelibCiphertext::multiplyRaw(const AbstractCiphertext& other)
   HEDGE_TIMER("HelibCiphertext::multiplyRaw");
   const HelibCiphertext& castedOther =
       dynamic_cast<const HelibCiphertext&>(other);
-  ctxt *= castedOther.ctxt;
+  ctxt.multLowLvl(castedOther.ctxt);
 }
 
 void HelibCiphertext::addPlain(const AbstractPlaintext& plain)
