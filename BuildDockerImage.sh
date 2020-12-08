@@ -309,7 +309,7 @@ echo " Phase 2: Building Base Environment $flags"
 echo ""
 echo "==============================================================="
 PlatformRelease=${platform}:${release}
-HElib_tag=sys-ibm-fhe-team-zcx-conda-docker-local.artifactory.swg-devops.com/encrypt-poc:1.0
+HElib_tag=local/helib-${platform_tag}:${HElib_version}
 FHEKit_tag=local/fhe-toolkit-${platform_tag}:${HElib_version}
 FHEKit_tag_latest=local/fhe-toolkit-${platform_tag}
 FHEKit_latest=local/fhe-toolkit-${platform}
