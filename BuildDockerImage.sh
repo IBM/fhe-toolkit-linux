@@ -309,7 +309,7 @@ echo " Phase 2: Building Base Environment $flags"
 echo ""
 echo "==============================================================="
 PlatformRelease=${platform}:${release}
-HElib_tag=local/helib-${platform_tag}:${HElib_version}
+HElib_tag=sys-ibm-fhe-team-zcx-conda-docker-local.artifactory.swg-devops.com/encrypt-poc:1.0
 FHEKit_tag=local/fhe-toolkit-${platform_tag}:${HElib_version}
 FHEKit_tag_latest=local/fhe-toolkit-${platform_tag}
 FHEKit_latest=local/fhe-toolkit-${platform}
@@ -318,6 +318,10 @@ FHEKit_latest=local/fhe-toolkit-${platform}
 # Change to $BASEDIR directory and build an HElib Docker image
 #
 cd $BASEDIR
+echo " "
+echo "name of the docker image "
+echo "$HElib_tag"
+echo " "
 if ! docker build -f ./Dockerfile.$build.HElib -t $HElib_tag --build-arg PlatformRelease=$PlatformRelease . $flags
 then
   echo " "
