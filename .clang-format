@@ -14,5 +14,5 @@ BreakBeforeBraces: Mozilla # Changed to break after class/struct/function/..., b
 PenaltyReturnTypeOnItsOwnLine: 1000 # Changed from 60 to avoid break after return type
 AllowAllArgumentsOnNextLine: false # Changed to avoid all call arguments on next line
 AllowAllParametersOfDeclarationOnNextLine: false # Changed to avoid all function parameters on next line
-#Standard: c++14 # This should validate the input to c++14 standard, but it is not supported in clang-9. For future use.
+#Standard: c++17 # This should validate the input to c++17 standard, but it is not supported in clang-9. For future use.
 ...
