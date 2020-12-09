@@ -90,12 +90,13 @@ else
     echo "pushing it"
     BUILD_TYPE="amd64"
 fi
+# Shut everything down 
+./StopToolkit.sh
 
 #Make A Notification in the Slack Channel about a new artifact in the repo
 pushd scripts/jenkins
 ./fhe_artifactory_notification_script.sh $SLACK_HOOK "Ubuntu" $BUILD_TYPE $ARTE_URL
 
-# Shut everything down 
-./StopToolkit.sh
+
 
 
