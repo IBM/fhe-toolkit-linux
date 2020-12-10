@@ -52,14 +52,15 @@ docker exec local-fhe-toolkit-alpine /bin/bash -c " \
     cd ..;\
     chmod 755 examples/BGV_country_db_lookup/runtest.sh;\
     ./examples/BGV_country_db_lookup/runtest.sh;"
-# Shut everything down 
-./StopToolkit.sh
 
 
 NOW=$(date +'%m-%d-%Y')
 NIGHTLY_SUFFIX="nightly-${NOW}"
 VERSION="$HElib_version.$TOOLKIT_VERSION"
 ARTE_URL=""
+
+# Shut everything down 
+./StopToolkit.sh
 
 #Login to Artifactory using the fhe user
 echo "DOCKER LOGIN"
@@ -87,7 +88,10 @@ else
     BUILD_TYPE="amd64"
     echo "pushing it"
 fi
+# Shut everything down 
+./StopToolkit.sh
 
 #Make A Notification in the Slack Channel about a new artifact in the repo
 pushd scripts/jenkins
 ./fhe_artifactory_notification_script.sh $SLACK_HOOK "Alpine" $BUILD_TYPE $ARTE_URL
+

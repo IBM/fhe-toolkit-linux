@@ -51,14 +51,17 @@ docker exec local-fhe-toolkit-centos /bin/bash -c " \
     cd ..;\
     chmod 755 examples/BGV_country_db_lookup/runtest.sh;\
     ./examples/BGV_country_db_lookup/runtest.sh;"
-# Shut everything down 
-./StopToolkit.sh
+
 
 
 NOW=$(date +'%m-%d-%Y')
 NIGHTLY_SUFFIX="nightly-${NOW}"
 VERSION="$HElib_version.$TOOLKIT_VERSION"
 ARTE_URL="sys-ibm-fhe-team-linux-docker-local.artifactory.swg-devops.com/centos/fhe-toolkit-centos-amd64:$VERSION-$NIGHTLY_SUFFIX"
+
+
+# Shut everything down 
+./StopToolkit.sh
 
 #Login to Artifactory using the fhe user
 echo "DOCKER LOGIN"
@@ -72,6 +75,11 @@ docker push $ARTE_URL
 echo "pushing it"
 BUILD_TYPE="amd64"
 
+# Shut everything down 
+./StopToolkit.sh
+
 #Make A Notification in the Slack Channel about a new artifact in the repo
 pushd scripts/jenkins
 ./fhe_artifactory_notification_script.sh $SLACK_HOOK "CentOS" $BUILD_TYPE $ARTE_URL
+
+
