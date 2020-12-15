@@ -1,0 +1,16 @@
+var searchData=
+[
+  ['abstractbitwiseevaluator',['AbstractBitwiseEvaluator',['../classhelayers_1_1_abstract_bitwise_evaluator.html',1,'helayers']]],
+  ['abstractciphertext',['AbstractCiphertext',['../classhelayers_1_1_abstract_ciphertext.html',1,'helayers']]],
+  ['abstractencoder',['AbstractEncoder',['../classhelayers_1_1_abstract_encoder.html',1,'helayers']]],
+  ['abstractfunctionevaluator',['AbstractFunctionEvaluator',['../classhelayers_1_1_abstract_function_evaluator.html',1,'helayers']]],
+  ['abstractplaintext',['AbstractPlaintext',['../classhelayers_1_1_abstract_plaintext.html',1,'helayers']]],
+  ['add',['add',['../classhelayers_1_1_bitwise_evaluator.html#ad491f381e65e2199be3fdeb5b0d693f0',1,'helayers::BitwiseEvaluator::add()'],['../classhelayers_1_1_c_tile.html#a053bdc6712b1f0d66064d16c35039889',1,'helayers::CTile::add()'],['../classhelayers_1_1_cipher_matrix.html#a16edd2dd0feaa0bef8d3439d9e5f86c8',1,'helayers::CipherMatrix::add()']]],
+  ['addplain',['addPlain',['../classhelayers_1_1_c_tile.html#a4d21e30fd9e7574fbabc53c5f00854ad',1,'helayers::CTile']]],
+  ['addplainraw',['addPlainRaw',['../classhelayers_1_1_c_tile.html#a2e32f155938ebbd99967df53140501d1',1,'helayers::CTile']]],
+  ['addraw',['addRaw',['../classhelayers_1_1_c_tile.html#a6ccd08a025528918680a33a439aed432',1,'helayers::CTile']]],
+  ['addscalar',['addScalar',['../classhelayers_1_1_c_tile.html#a2c7e42ad421978e6c25f50f75c92309d',1,'helayers::CTile::addScalar(int scalar)'],['../classhelayers_1_1_c_tile.html#a992fd94db56abedcbc21b55314744866',1,'helayers::CTile::addScalar(double scalar)']]],
+  ['appendcols',['appendCols',['../classhelayers_1_1_double_matrix.html#a563d228d13c699343962065b48871068',1,'helayers::DoubleMatrix::appendCols()'],['../classhelayers_1_1_double_matrix_array.html#ad637e61e45f36199fe2db38ed9a19314',1,'helayers::DoubleMatrixArray::appendCols()']]],
+  ['appendrows',['appendRows',['../classhelayers_1_1_double_matrix.html#a5b40082888b2f6a9c1860eaff3719e0c',1,'helayers::DoubleMatrix::appendRows()'],['../classhelayers_1_1_double_matrix_array.html#a9c3f46c745d2966ea648f1ea69e49ac1',1,'helayers::DoubleMatrixArray::appendRows()']]],
+  ['assertequals',['assertEquals',['../classhelayers_1_1_encoder.html#a6ffe47bf9ea8fc69ba96a4a86ece4a48',1,'helayers::Encoder::assertEquals(const CTile &amp;c, const std::string &amp;title, const std::vector&lt; int &gt; &amp;expectedVals, double eps=1e-6, bool percent=false) const '],['../classhelayers_1_1_encoder.html#a68946b23d5bb8af596d41ad00e3b5d08',1,'helayers::Encoder::assertEquals(const CTile &amp;c, const std::string &amp;title, const std::vector&lt; long &gt; &amp;expectedVals, double eps=1e-6, bool percent=false) const '],['../classhelayers_1_1_encoder.html#afe30f40dba1a7eb67b42f592a334f058',1,'helayers::Encoder::assertEquals(const CTile &amp;c, const std::string &amp;title, const std::vector&lt; double &gt; &amp;expectedVals, double eps=1e-6, bool percent=false) const '],['../classhelayers_1_1_encoder.html#ae55d10e82a3214c1ed928e7d9ea23c15',1,'helayers::Encoder::assertEquals(const CTile &amp;c, const std::string &amp;title, const std::vector&lt; std::complex&lt; double &gt;&gt; &amp;expectedVals, double eps=1e-6, bool percent=false) const ']]]
+];

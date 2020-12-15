@@ -53,6 +53,8 @@ docker exec local-fhe-toolkit-alpine /bin/bash -c " \
     chmod 755 examples/BGV_country_db_lookup/runtest.sh;\
     ./examples/BGV_country_db_lookup/runtest.sh;"
 
+# Run ML-HElib unit tests and samples tests
+docker exec local-fhe-toolkit-alpine /opt/IBM/FHE-distro/ML-HElib/test_mlhelib.sh
 
 NOW=$(date +'%m-%d-%Y')
 NIGHTLY_SUFFIX="nightly-${NOW}"
