@@ -35,7 +35,7 @@ BUILD_TYPE=$3
 SLACK_HOOK=$4
 
 # Pull latest from the FHE repo, master branch
-git checkout helib_1_3_0
+git checkout master
 # Build the Docker image for CentOS
 ./BuildDockerImage.sh centos
 # Shut everything down before we start
