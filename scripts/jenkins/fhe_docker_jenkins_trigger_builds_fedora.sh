@@ -42,15 +42,6 @@ git checkout master
 ./StopToolkit.sh
 # Run the toolkit container based on the Fedora image
 ./RunToolkit.sh -l -s fedora
-# Test sample runs as expected
-docker exec local-fhe-toolkit-fedora /bin/bash -c " \
-    cd /opt/IBM/FHE-Workspace; \
-    mkdir build; cd build; \
-    cmake ../examples/BGV_country_db_lookup;\
-    make;\
-    cd ..;\
-    chmod 755 examples/BGV_country_db_lookup/runtest.sh;\
-    ./examples/BGV_country_db_lookup/runtest.sh;"
 
 # Run ML-HElib unit tests and samples tests
 docker exec local-fhe-toolkit-fedora /opt/IBM/FHE-distro/ML-HElib/test_mlhelib.sh
