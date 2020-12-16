@@ -40,7 +40,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt install -y \
 RUN DEBIAN_FRONTEND=noninteractive apt install -y libgmp-dev
 
 # Install HDF5 dependency for FHE ML library
-RUN DEBIAN_FRONTEND=noninteractive apt install -y libhdf5-dev libhdf5-103
+RUN DEBIAN_FRONTEND=noninteractive apt install -y libhdf5-dev libhdf5-103;exit 0
 
 # Cleanup unnecessary and downloaded packages (.deb) during installation
 RUN DEBIAN_FRONTEND=noninteractive apt autoremove -y
