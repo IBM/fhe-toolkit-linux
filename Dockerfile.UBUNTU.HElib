@@ -1,5 +1,5 @@
 ARG PlatformRelease
-FROM sys-ibm-fhe-team-zcx-conda-docker-local.artifactory.swg-devops.com/encrypt-poc:1.0
+FROM sys-ibm-fhe-team-zcx-conda-docker-local.artifactory.swg-devops.com/base-s390-python/python-base-tf:2.2.0
 ENV container docker
 LABEL maintainer="Flavio Bergamaschi <flavio@uk.ibm.com>"
 
