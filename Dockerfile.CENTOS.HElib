@@ -25,7 +25,7 @@ RUN yum clean packages
 RUN yum -y install curl boost-devel
 # These commands are needed for HDF5 which the Encryption ML Demo relies on...
 RUN dnf install -y 'dnf-command(config-manager)'
-RUN dnf config-manager -y --set-enabled PowerTools
+RUN dnf config-manager -y --set-enabled powertools
 RUN dnf install -y hdf5-devel
 RUN yum clean packages
 

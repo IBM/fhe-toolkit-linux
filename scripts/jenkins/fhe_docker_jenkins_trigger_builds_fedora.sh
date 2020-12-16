@@ -35,7 +35,7 @@ BUILD_TYPE=$3
 SLACK_HOOK=$4
 
 # Pull latest from the FHE repo, master branch
-git checkout master 
+git checkout master
 # Build the Docker image for Fedora
 ./BuildDockerImage.sh fedora
 # Shut everything down before we start
@@ -51,13 +51,15 @@ docker exec local-fhe-toolkit-fedora /bin/bash -c " \
     cd ..;\
     chmod 755 examples/BGV_country_db_lookup/runtest.sh;\
     ./examples/BGV_country_db_lookup/runtest.sh;"
-# Shut everything down 
-./StopToolkit.sh
+
 
 NOW=$(date +'%m-%d-%Y')
 NIGHTLY_SUFFIX="nightly-${NOW}"
 VERSION="$HElib_version.$TOOLKIT_VERSION"
 ARTE_URL=""
+
+# Shut everything down 
+./StopToolkit.sh
 
 #Login to Artifactory using the fhe user
 echo "DOCKER LOGIN"
@@ -85,7 +87,11 @@ else
     BUILD_TYPE="amd64"
     echo "pushing it"
 fi
+# Shut everything down 
+./StopToolkit.sh
 
 #Make A Notification in the Slack Channel about a new artifact in the repo
 pushd scripts/jenkins
 ./fhe_artifactory_notification_script.sh $SLACK_HOOK "Fedora" $BUILD_TYPE $ARTE_URL
+
+

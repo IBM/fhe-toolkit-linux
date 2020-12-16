@@ -57,7 +57,8 @@ get_NTL(){
   echo "Checking for cached NTL download..."
   if [ ! -f ntl-$1.tar.gz ]; then 
       echo "INFO: Attempting to download NTL with the curl command..."
-      if ! curl $CURL_FIX_ZCX -o ntl-$1.tar.gz https://www.shoup.net/ntl/ntl-$1.tar.gz
+      if ! curl $CURL_FIX_ZCX -L -o ntl-$1.tar.gz "https://libntl.org/ntl-$1.tar.gz"
+      #https://libntl.org/ntl-11.4.3.tar.gz
       then
         echo " FATAL: There was an issue downloading NTL-$1 from www.shoup.net."
       fi 

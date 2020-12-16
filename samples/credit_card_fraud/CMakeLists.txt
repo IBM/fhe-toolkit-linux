@@ -9,6 +9,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License. See accompanying LICENSE file.
 
+## Use -std=c++17 as default.
+set(CMAKE_CXX_STANDARD 17)
+
 ## Rely on the Environment variable to dictate which version of helib to use
 set(HELIB_VERSION ${HELIB_CMAKE_LISTS_VERSON})
 
