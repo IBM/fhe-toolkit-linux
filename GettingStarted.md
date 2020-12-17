@@ -90,7 +90,7 @@ Click "Build" in the CMake Tools status bar to build the selected target.
 When the build has finished, click "Launch" in the CMake Tools status bar to launch the selected target in the terminal window.
 
 Each demonstration application is in a self contained directory in the examples folder in the IDE. Each demo application directory contains a *README.md* that explains how to run the demo and what you should
-expect for results. For instance, the <a href="samples/BGV_country_db_lookup/README.md" target="_blank">BGV Country Database Lookup Example Documentation</a> contains the information to run a complete example of a privacy preserving search against an encrypted database. The database is a key value store prepopulated with the english names of countries and their capital cities from the continent of Europe. Selecting the country will perform a search of the matching capital. 
+expect for results. For instance, the <a href="samples/BGV_world_country_db_lookup/README.md" target="_blank">BGV World Country Database Lookup Example Documentation</a> contains the information to run a complete example of a privacy preserving search against an encrypted database. The database is a key value store prepopulated with the english names of countries and their capital cities from the continent of Europe. Selecting the country will perform a search of the matching capital. 
 
 ![Step six image](/Documentation/Images/Step_7A.png?raw=true "example running")
 
@@ -135,7 +135,7 @@ In the terminal, change to the `build` directory and run the example program.
 
 ```bash
 cd build
-./BGV_country_db_lookup
+./BGV_world_country_db_lookup
 ```
 
 ![Step eight image](/Documentation/Images/Step_9C.png?raw=true "example")
