@@ -242,7 +242,7 @@ else
   fi
 fi
 
-platform_tag=$platform-$ARCH
+platform_tag=$platform-"pythonbase"-$ARCH
 
 ################################################################
 # Check for required utilities: curl, git, tar, docker
