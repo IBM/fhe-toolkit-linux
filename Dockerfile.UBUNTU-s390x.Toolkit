@@ -19,8 +19,6 @@ RUN export DEBIAN_FRONTEND=noninteractive
 
 # Install pre-reqs for building code-server
 RUN DEBIAN_FRONTEND=noninteractive apt install -y \
-    python      \
-    python3     \
     pkg-config  \ 
     xterm       \
     libx11-dev  \
