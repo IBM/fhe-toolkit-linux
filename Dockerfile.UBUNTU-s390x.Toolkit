@@ -58,6 +58,9 @@ RUN cp -rp /opt/IBM/FHE-distro/HElib/examples /opt/IBM/FHE-Workspace
 # Copy over additional  examples into the FHE-Workspace from the github checkout on this host
 COPY --chown=fhe:fhe ./samples/ /opt/IBM/FHE-Workspace/examples/
 
+ENV HELAYERS_DATA_SETS_DIR="/opt/IBM/FHE-Workspace/examples/data/"
+ENV HELAYERS_EXAMPLES_DIR="/opt/IBM/FHE-Workspace/examples/"
+
 # Install code-server extensions
 #RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension ms-vscode.cpptools --force
 RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension ms-vscode.cmake-tools --force
