@@ -8,7 +8,7 @@ mkdir -p /tmp/output
 HELAYERS_TESTS_OUTPUT_DIR=/tmp/output ./run_all_tests.sh --no_make
 
 echo "Testing sample BGV_world_country_db_lookup"
-cd /opt/IBM/FHE-Workspace/examples/BGV_world_country_db_lookup
+cd /opt/IBM/FHE-Workspace/examples
 mkdir -p build
 cd build
 cmake ..
