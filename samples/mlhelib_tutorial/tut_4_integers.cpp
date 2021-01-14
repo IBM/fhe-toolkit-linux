@@ -42,7 +42,7 @@ void tut_4_integers()
   // First, we initialize the library
   // As before, this performs all the required setup.
   // NOTE: We're using an insecure demo setup
-  shared_ptr<HeContext> hePtr = HelibContext::create(DEMO_BGV_24);
+  shared_ptr<HeContext> hePtr = HelibContext::create(HELIB_NOT_SECURE_BGV_24);
 
   // This will print the details of the underlying scheme:
   // name, configuration params, and security level.

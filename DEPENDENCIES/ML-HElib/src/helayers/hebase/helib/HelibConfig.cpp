@@ -33,23 +33,30 @@ void HelibConfig::initPreset(HelibPreset preset)
   m = 0;
   L = 0;
   switch (preset) {
-  case DEMO_CKKS_32_FAST:
-    m = 32 * 4;
+  case HELIB_NOT_SECURE_CKKS_512_FAST:
+    m = 512 * 4;
     r = 52;
     L = 1024;
     break;
-  case SECURE_CKKS_8192:
+
+  case HELIB_CKKS_8192:
     m = 8192 * 4;
     r = 40;
     L = 200;
     break;
-  case SECURE_CKKS_16384:
+  case HELIB_CKKS_16384:
     m = 16384 * 4;
-    r = 40;
-    L = 560;
+    r = 50;
+    L = 700;
     break;
 
-  case DEMO_BGV_24:
+  case HELIB_CKKS_32768:
+    m = 32768 * 4;
+    r = 50;
+    L = 700;
+    break;
+
+  case HELIB_NOT_SECURE_BGV_24:
     p = 4999;
     r = 1; // Hensel lifting
     m = 32109;

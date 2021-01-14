@@ -39,17 +39,6 @@ const string clientContext = outDir + "/client_context.bin";
 const string serverContext = outDir + "/server_context.bin";
 
 /*
- * define the number of slots in each ciphertext object.
- * a value of 512 slots produces a low security level, just for the demo
- * a value of 16384 slots produces a security level of 88.
- * a value of 32768 slots produces a security level of 287 with a relatively
- * long setup time and big model.
- * */
-int numSlots = 512;
-//  int numSlots = 16384;
-//  int numSlots = 32768;
-
-/*
  * create an HELIB context for both the client and the server, and save contexts
  * into files
  * client context contains a secret key while server context does not
@@ -58,30 +47,31 @@ void createContexts()
 {
 
   cout << "Initalizing HElib . . ." << endl;
-  HelibConfig conf;
-  conf.m = numSlots * 2 * 2;
-  if (numSlots == 16384 || numSlots == 32768) {
-    conf.r = 50;
-    conf.L = 700;
-  } else if (numSlots == 512) {
-    conf.r = 52;
-    conf.L = 1024;
-  } else
-    throw runtime_error("configuration not tested for given number of slots");
 
-  HelibCkksContext he;
-  he.init(conf);
-  he.printSignature(cout);
+  shared_ptr<HeContext> hePtr;
+
+  // Preset configuration with 512 slots: low security level, but fast, just for
+  // the demo
+  hePtr = HelibContext::create(HELIB_NOT_SECURE_CKKS_512_FAST);
+
+  // Preset configuration with 16384 slots: mediocre security
+  // hePtr = HelibContext::create(HELIB_CKKS_16384);
+
+  // Preset configuration with 32768 slots: high security
+  // hePtr = HelibContext::create(HELIB_CKKS_32768);
+
+  // Print details, including security level
+  hePtr->printSignature(cout);
 
   cout << "Clearing " << outDir << endl;
   FileUtils::createCleanDir(outDir);
   cout << "Saving client side context to " << clientContext << endl;
   bool withSecretKey = true;
-  he.saveToFile(clientContext, withSecretKey); // save client context
+  hePtr->saveToFile(clientContext, withSecretKey); // save client context
 
   cout << "Saving server side context to " << serverContext << endl;
   withSecretKey = false;
-  he.saveToFile(serverContext, withSecretKey); // save server context
+  hePtr->saveToFile(serverContext, withSecretKey); // save server context
 }
 
 /*

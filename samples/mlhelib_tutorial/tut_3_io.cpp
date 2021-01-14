@@ -34,11 +34,12 @@ void tut_3_clientDecrypt();
 
 const std::string outDir = getExamplesOutputDir();
 
+// This tutorial demonstrates I/O operations
 void tut_3_io()
 {
 
   // As in tut_1_basics, let's choose a default HE CKKS setup
-  shared_ptr<HeContext> hePtr = HelibContext::create(SECURE_CKKS_8192);
+  shared_ptr<HeContext> hePtr = HelibContext::create(HELIB_CKKS_8192);
 
   // Let's also make sure we have enough security
   always_assert(hePtr->getSecurityLevel() >= 128);

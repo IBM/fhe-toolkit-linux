@@ -32,21 +32,25 @@ namespace helayers {
 /// Named preset configurations
 enum HelibPreset
 {
-  /// An insecure, fast, 32 slots CKKS configuration
-  DEMO_CKKS_32_FAST,
+  /// An insecure, fast, 512 slots CKKS configuration
+  HELIB_NOT_SECURE_CKKS_512_FAST,
 
-  /// A secure CKKS configuration with 8192 slots
+  /// A CKKS configuration with 8192 slots
   /// NOTE: Always verify the actual security matches requirements
-  SECURE_CKKS_8192,
+  HELIB_CKKS_8192,
 
-  /// A secure CKKS configuration with 16384 slots
-  /// Higher depth, allowing for heavier tasks.
+  /// A CKKS configuration with 16384 slots
+  /// Higher depth and higher precision allowing for heavier tasks.
   /// NOTE: Always verify the actual security matches requirements
-  SECURE_CKKS_16384,
+  HELIB_CKKS_16384,
+
+  /// A CKKS configuration with 32768 slots
+  /// NOTE: Always verify the actual security matches requirements
+  HELIB_CKKS_32768,
 
   /// An insecure, fast, 24 slots BGV configuration (integers)
   /// For integer numbers in the range 0...4998
-  DEMO_BGV_24
+  HELIB_NOT_SECURE_BGV_24
 };
 
 /// A class for holding HElib configuration parameters.

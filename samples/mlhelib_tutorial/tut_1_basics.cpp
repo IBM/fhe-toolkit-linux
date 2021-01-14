@@ -41,7 +41,7 @@ void tut_1_basics()
   // This performs all the required setup.
   // NOTE: this also generates a public-private key pair,
   // so it's ready now for use.
-  shared_ptr<HeContext> hePtr = HelibContext::create(SECURE_CKKS_8192);
+  shared_ptr<HeContext> hePtr = HelibContext::create(HELIB_CKKS_8192);
 
   // The SECURE_CKKS_8192 preset is a configuration where
   // Each ciphertext has 8192 slots, i.e., it can hold 8192 numbers.
