@@ -22,8 +22,6 @@
 * SOFTWARE.
 */
 
-#include <cassert>
-
 #include "helayers/hebase/helib/HelibCkksContext.h"
 #include "helayers/hebase/hebase.h"
 
@@ -36,14 +34,13 @@ void tut_2_plaintexts()
 {
 
   // As in tut_1_basics, let's choose a default HE CKKS setup
-  HelibCkksContext helib;
-  helib.init(HelibConfig::createCkks8192());
+  shared_ptr<HeContext> hePtr = HelibContext::create(HELIB_CKKS_8192);
 
   // Let's also make sure we have enough security
-  always_assert(helib.getSecurityLevel() >= 128);
+  always_assert(hePtr->getSecurityLevel() >= 128);
 
   // and do some work
-  tut_2_run(helib);
+  tut_2_run(*hePtr);
 }
 
 void tut_2_run(HeContext& he)

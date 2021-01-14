@@ -23,6 +23,8 @@
 */
 
 #include "HelibContext.h"
+#include "HelibCkksContext.h"
+#include "HelibBgvContext.h"
 
 using namespace std;
 using namespace helib;
@@ -37,6 +39,32 @@ HelibContext::HelibContext() : HeContext()
 HelibContext::~HelibContext()
 {
   // TODO Auto-generated destructor stub
+}
+
+shared_ptr<HelibContext> HelibContext::create(HelibPreset preset)
+{
+  HelibConfig conf;
+  conf.initPreset(preset);
+  shared_ptr<HelibContext> he;
+  if (conf.p == -1)
+    he = make_shared<HelibCkksContext>();
+  else
+    he = make_shared<HelibBgvContext>();
+
+  he->init(conf);
+  return he;
+}
+
+void HelibContext::init(const HelibConfig& conf)
+{
+  throw runtime_error("not implemented");
+}
+
+void HelibContext::initPreset(HelibPreset preset)
+{
+  HelibConfig conf;
+  conf.initPreset(preset);
+  init(conf);
 }
 
 int HelibContext::getTopChainIndex() const
@@ -63,6 +91,8 @@ void HelibContext::debugPrint(const std::string& title,
 
 void HelibContext::save(std::ostream& out, bool withSecretKey)
 {
+  HeContext::save(out, withSecretKey);
+
   config.save(out);
   out.write((char*)&withSecretKey, sizeof(withSecretKey));
   out.write((char*)&mirrored, sizeof(mirrored));
@@ -72,8 +102,6 @@ void HelibContext::save(std::ostream& out, bool withSecretKey)
     writeSecKeyBinary(out, *secretKey);
   else
     writePubKeyBinary(out, *publicKey);
-
-  HeContext::save(out, withSecretKey);
 }
 
 void HelibContext::saveSecretKey(std::ostream& out)
@@ -95,6 +123,8 @@ void HelibContext::loadSecretKey(std::istream& in)
 
 void HelibContext::load(std::istream& in)
 {
+  HeContext::load(in);
+
   if (context != NULL)
     throw runtime_error("This context is already initialized");
   config.load(in);
@@ -113,8 +143,6 @@ void HelibContext::load(std::istream& in)
     readPubKeyBinary(in, *publicKey);
     secretKey = NULL;
   }
-
-  HeContext::load(in);
 }
 
 void HelibContext::init(const HeConfigRequirement& req)

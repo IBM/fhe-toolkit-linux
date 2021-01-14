@@ -73,6 +73,8 @@ public:
 
   void conjugate() override;
 
+  void conjugateRaw() override;
+
   // rotate right
   void rotate(int n) override;
 

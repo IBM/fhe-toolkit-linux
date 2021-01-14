@@ -77,6 +77,11 @@ void HelibBgvCiphertext::conjugate()
   // does nothing
 }
 
+void HelibBgvCiphertext::conjugateRaw()
+{
+  // does nothing
+}
+
 void HelibBgvCiphertext::rotate(int n)
 {
   HELAYERS_TIMER("HelibBgvCiphertext::rotate");

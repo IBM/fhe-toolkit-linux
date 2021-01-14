@@ -68,6 +68,8 @@ public:
   /// @param[in] c To check whether it is signed.
   bool getIsSigned(const CTile& c) const;
 
+  CTile hamming(const CTile& c, int from = 0, int to = -1) const;
+
   // CTile abs(const CTile &c) const;
 
   /// Returns a vector of the bits of "c".

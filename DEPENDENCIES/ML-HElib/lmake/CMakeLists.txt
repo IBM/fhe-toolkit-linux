@@ -73,6 +73,7 @@ set(HEBASE_SOURCES ${IMPL_SOURCES}
 ../src/helayers/hebase/PTile.cpp
 ../src/helayers/hebase/HelayersTimer.cpp
 ../src/helayers/hebase/utils/JsonWrapper.cpp
+../src/helayers/hebase/utils/BinIoUtils.cpp
 ../src/helayers/hebase/utils/JsonSubtree.cpp
 ../src/helayers/hebase/utils/HelayersConfig.cpp
 )

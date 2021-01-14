@@ -32,55 +32,147 @@
 
 namespace helayers {
 
-/** A class for holding an array of matrices.
- *
- * It used for handling a batch of matrices, and can
- * perform SIMD (single instruction multiple data) ops on all of them.
- * For example, matrix multiplication with another DoubleMatrixArray
- * means multiplying the corresponding i'th matrix in each array.
- *
- * It can also be described as a 3d tensor.
- *
- */
+///@brief A class for holding an array of matrices.
+/// It used for handling a batch of matrices, and can
+/// perform SIMD (single instruction multiple data) ops on all of them.
+/// For example, matrix multiplication with another DoubleMatrixArray
+/// means multiplying the corresponding i'th matrix in each array.
+/// It can also be described as a 3d tensor.
 class DoubleMatrixArray
 {
   std::vector<DoubleMatrix> mats;
 
 public:
+  ///@brief Construct an empty DoubleMatrixArray object
   DoubleMatrixArray();
+
+  ///@brief Construct DoubleMatrixArray of given size, filled with zeroes.
+  ///
+  ///@param rows Number of rows
+  ///@param cols Number of columns
+  ///@param len  Length of third dimension
   DoubleMatrixArray(int rows, int cols, int len);
+
+  ///@brief Construct a new DoubleMatrixArray, initialized from text stream
+  ///
+  /// The file is expected to have the following format:
+  /// [[mat_{1,1,1}, . . . , mat_{1,n,1}]
+  /// [mat_{2,1,1}, . . . , mat_{2,n,1}]
+  /// ...
+  /// [mat_{m,1,1}, . . . , mat_{m,n,1}],
+  /// ...
+  /// [mat_{1,1,k}, . . . , mat_{1,n,k}]
+  /// [mat_{2,1,k}, . . . , mat_{2,n,k}]
+  /// ...
+  /// [mat_{m,1,k}, . . . , mat_{m,n,k}]]
+  ///@param matricesFile Stream to read from
   DoubleMatrixArray(std::ifstream& matricesFile);
+
+  ///@brief Construct a new DoubleMatrixArray with a given matrix duplicated a
+  /// number of times.
+  ///
+  ///@param len Size of the third dimension.
+  ///@param fixedMatrix The matrix to be duplicated.
   DoubleMatrixArray(int len,
                     const std::vector<std::vector<double>>& fixedMatrix);
+
+  ///@brief Construct a new DoubleMatrixArray with a given matrix duplicated a
+  /// number of times.
+  ///
+  ///@param len Size of the third dimension.
+  ///@param fixedMatrix The matrix to be duplicated.
   DoubleMatrixArray(int len,
                     const std::vector<std::vector<float>>& fixedMatrix);
+
+  ///@brief Construct a new DoubleMatrixArray with a given matrix duplicated a
+  /// number of times.
+  ///
+  ///@param len Size of the third dimension.
+  ///@param fixedMatrix The matrix to be duplicated.
   DoubleMatrixArray(int len, const DoubleMatrix& fixedMatrix);
+
+  ///@brief Construct a new DoubleMatrixArray from a given tensor.
+  ///
+  ///@param tensor A 3d tensor containing the values.
   DoubleMatrixArray(const boost::numeric::ublas::tensor<double>& tensor);
+
   virtual ~DoubleMatrixArray();
 
+  ///@brief Initializes to a given size, filled with zeroes.
+  /// Overwrites existing state.
+  ///@param rows Number of rows
+  ///@param cols Number of columns
+  ///@param len  Length of third dimension
   void init(int rows, int cols, int len);
 
+  ///@brief Initializes to a given matrix duplicated a
+  /// number of times.
+  /// Overwrites existing state.
+  ///@param len Size of the third dimension.
+  ///@param fixedMatrix The matrix to be duplicated.
   void init(int len, const std::vector<std::vector<double>>& fixedMatrix);
 
+  ///@brief Initializes to a given matrix duplicated a
+  /// number of times.
+  /// Overwrites existing state.
+  ///@param len Size of the third dimension.
+  ///@param fixedMatrix The matrix to be duplicated.
   void init(int len, const std::vector<std::vector<float>>& fixedMatrix);
 
+  ///@brief Initializes to a given matrix duplicated a
+  /// number of times.
+  /// Overwrites existing state.
+  ///@param len Size of the third dimension.
+  ///@param fixedMatrix The matrix to be duplicated.
   void init(int len, const DoubleMatrix& fixedMatrix);
 
+  ///@brief Initializes to a given tensor.
+  ///
+  ///@param tensor A 3d tensor containing the values.
   void init(const boost::numeric::ublas::tensor<double>& tensor);
 
+  ///@brief Initialize to values loaded from h5 file.
+  ///
+  /// Loads a single matrix from h5 file, and duplicates it along third
+  /// dimension.
+  ///
+  ///@param len Number of duplicates along third dimension
+  ///@param h5File h5 file to load from
+  ///@param path path inside h5 file
   void initFromH5File(int len,
                       const std::string& h5File,
                       const std::string& path);
 
+  ///@brief Save to binary stream.
+  ///
+  ///@param stream stream to save to.
   std::streamoff save(std::ostream& stream) const;
+
+  ///@brief Load from binary stream.
+  ///
+  ///@param stream stream to load from
   std::streamoff load(std::istream& stream);
 
+  ///@brief Loads a single matrix to a specific position along the third
+  /// dimension.
+  ///
+  ///@param matrixIndex The position along the third dimension to load to
+  ///@param h5File h5 file to load from
+  ///@param path path inside h5 file
   void loadMatrix(int matrixIndex,
                   const std::string& h5File,
                   const std::string& path);
 
+  ///@brief Returns the content of this object as a 3d tensor
   boost::numeric::ublas::tensor<double> getTensor() const;
 
+  ///@brief Returns the result of convolution between this object and given
+  /// filters.
+  /// Filters are expected to have the same 3d dimension size as this object.
+  /// The convolution is computed in SIMD fashion for each matrix and filter.
+  ///@param filter Filter to compute convolution with.
+  ///@param strideRows Convolution stride along rows
+  ///@param strideCol Convolution stride along column
   DoubleMatrixArray getConvolution(const DoubleMatrixArray& filter,
                                    int strideRows,
                                    int strideCol) const;

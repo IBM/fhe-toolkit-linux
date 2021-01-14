@@ -40,7 +40,13 @@ namespace helayers {
 class HelibCkksContext : public HelibContext
 {
 
+private:
   const helib::EncryptedArrayCx* ea = NULL;
+  bool enableConjugate = true;
+
+protected:
+  /// A helper function for init() method
+  void initCommon(helib::Context* context);
 
 public:
   /// Constructs an empty object.
@@ -52,10 +58,22 @@ public:
   void init(unsigned long m,
             unsigned long r,
             unsigned long L,
-            unsigned long c = 2);
+            unsigned long c = 2,
+            bool enableConjugate = true);
 
-  /// Initialized context with given configuration
-  void init(const HelibConfig& conf);
+  /// Initializes context with given configuration
+  /// @param[in] conf user configuration
+  void init(const HelibConfig& conf) override;
+
+  /// Initializes context with given context and keys
+  /// @param[in] conf user configuration
+  /// @param[in] userContext user context
+  /// @param[in] userSecretKey user secret key
+  /// @param[in] userPublicKey user public key
+  void init(const HelibConfig& conf,
+            helib::Context* userContext,
+            helib::SecKey* userSecretKey,
+            helib::PubKey* userPublicKey);
 
   /// Do not use. Should be made private.
   std::shared_ptr<AbstractCiphertext> createAbstractCipher() override;
@@ -69,11 +87,16 @@ public:
   /// Returns encrypted array object
   inline const helib::EncryptedArrayCx& getEncryptedArray() { return *ea; }
 
+  bool getEnableConjugate() const { return enableConjugate; }
+
   /// Loads from binary stream
   void load(std::istream& out) override;
 
   /// Returns scheme name
   std::string getSchemeName() const override { return "CKKS"; }
+
+  /// See parent method
+  std::shared_ptr<HeContext> clone() const override;
 };
 }
 

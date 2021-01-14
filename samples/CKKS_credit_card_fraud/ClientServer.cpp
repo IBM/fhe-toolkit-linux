@@ -48,19 +48,16 @@ double classificationThreshold =
 
 // Client methods
 
-Client::Client(HeContext& he, const string& dataDir)
-    : he(he), currentBatch(0), dataDir(dataDir)
-{
-}
+Client::Client(const string& dataDir) : currentBatch(0), dataDir(dataDir) {}
 
 Client::~Client() {}
 
 void Client::init()
 {
   cout << "CLIENT: loading client side context . . ." << endl;
-  he.loadFromFile(clientContext);
-  he.printSignature(cout);
-  batchSize = he.slotCount();
+  he = HeContext::loadHeContextFromFile(clientContext);
+  he->printSignature(cout);
+  batchSize = he->slotCount();
 
   cout << "CLIENT: loading plain model . . ." << endl;
 
@@ -72,7 +69,7 @@ void Client::init()
                   batchSize);
 
   cout << "CLIENT: encrypting plain model . . ." << endl;
-  SimpleNeuralNet netHe(he);
+  SimpleNeuralNet netHe(*he);
   netHe.initFromNet(plainNet);
 
   cout << "CLIENT: saving encrypted model . . ." << endl;
@@ -97,37 +94,34 @@ void Client::init()
 void Client::encryptAndSaveSamples(int batch,
                                    const string& encryptedSamplesFile) const
 {
-  const CipherMatrixEncoder encoder(he);
+  const CipherMatrixEncoder encoder(*he);
 
   cout << "CLIENT: encrypting plain samples . . ." << endl;
-  HELAYERS_TIMER_PUSH("Encrypt_plain_samples");
+  HELAYERS_TIMER_PUSH("data-encrypt");
   const DoubleMatrixArray plainSamples = ts->getSamples(batch);
-  CipherMatrix encryptedSamples(he);
+  CipherMatrix encryptedSamples(*he);
   encoder.encodeEncrypt(encryptedSamples, plainSamples.getTensor());
   HELAYERS_TIMER_POP();
 
   cout << "CLIENT: saving encrypted samples . . ." << endl;
-  HELAYERS_TIMER_PUSH("Save_encrypted_samples");
   ofstream ofs(encryptedSamplesFile, ios::out | ios::binary);
   encryptedSamples.save(ofs);
   ofs.close();
-  HELAYERS_TIMER_POP();
 }
 
 void Client::decryptPredictions(const string& encryptedPredictionsFile)
 {
-  CipherMatrixEncoder encoder(he);
+  CipherMatrixEncoder encoder(*he);
   encoder.getEncoder().setDecryptAddedNoiseEnabled(false);
   cout << "CLIENT: loading encrypted predictions . . ." << endl;
-  HELAYERS_TIMER_PUSH("Load_encrypted_predictions");
-  CipherMatrix encryptedPredictions(he);
+
+  CipherMatrix encryptedPredictions(*he);
   ifstream ifs(encryptedPredictionsFile, ios::in | ios::binary);
   encryptedPredictions.load(ifs);
   ifs.close();
-  HELAYERS_TIMER_POP();
 
   cout << "CLIENT: decrypting predictions . . ." << endl;
-  HELAYERS_TIMER_PUSH("Decrypt_encrypted_predictions");
+  HELAYERS_TIMER_PUSH("data-decrypt");
   DoubleMatrixArray plainPredictions(
       encoder.decryptDecodeDouble(encryptedPredictions));
   allPredictions.push_back(plainPredictions);
@@ -194,20 +188,17 @@ void Client::assessResults()
 }
 
 // Server methods
-
-Server::Server(HeContext& he) : he(he) {}
-
 Server::~Server() {}
 
 void Server::init()
 {
   cout << "SERVER: loading server side context . . ." << endl;
-  he.loadFromFile(serverContext);
-  he.printSignature(cout);
+  he = HeContext::loadHeContextFromFile(serverContext);
+  he->printSignature(cout);
 
   cout << "SERVER: loading encrypted model . . ." << endl;
   ifstream ifs(encryptedModelFile, ios::in | ios::binary);
-  SimpleNeuralNet net(he);
+  SimpleNeuralNet net(*he);
   net.load(ifs);
   ifs.close();
 
@@ -218,24 +209,21 @@ void Server::processEncryptedSamples(
     const string& encryptedSamplesFile,
     const string& encryptedPredictionsFile) const
 {
-  const CipherMatrixEncoder encoder(he);
+  const CipherMatrixEncoder encoder(*he);
 
   cout << "SERVER: loading encrypted samples . . ." << endl;
-  HELAYERS_TIMER_PUSH("Load_encrypted_samples");
-  CipherMatrix encryptedSamples(he);
+
+  CipherMatrix encryptedSamples(*he);
   ifstream ifs(encryptedSamplesFile, ios::in | ios::binary);
   encryptedSamples.load(ifs);
   ifs.close();
-  HELAYERS_TIMER_POP();
 
   cout << "SERVER: predicting over encrypted samples . . ." << endl;
-  CipherMatrix encryptedPredictions(he);
+  CipherMatrix encryptedPredictions(*he);
   encryptedNet->predict(encryptedSamples, encryptedPredictions);
 
   cout << "SERVER: saving encrypted predictions . . ." << endl;
-  HELAYERS_TIMER_PUSH("Save_encrypted_predictions");
   ofstream ofs(encryptedPredictionsFile, ios::out | ios::binary);
   encryptedPredictions.save(ofs);
   ofs.close();
-  HELAYERS_TIMER_POP();
 }

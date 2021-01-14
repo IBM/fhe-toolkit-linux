@@ -24,6 +24,7 @@
 
 #include "JsonWrapper.h"
 #include "JsonSubtree.h"
+#include "BinIoUtils.h"
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
 
@@ -33,13 +34,19 @@ namespace helayers {
 
 JsonWrapper::~JsonWrapper() { clear(); }
 
+void JsonWrapper::init()
+{
+  clear();
+  pt = new boost::property_tree::ptree();
+}
+
 void JsonWrapper::load(const char* inBuf, int len)
 {
   string str(inBuf, inBuf + len);
   load(str);
 }
 
-void JsonWrapper::load(const std::string& in)
+void JsonWrapper::load(const string& in)
 {
   stringstream str(in);
   load(str);
@@ -65,22 +72,40 @@ void JsonWrapper::print(ostream& out, bool pretty) const
   boost::property_tree::write_json(out, *pt, pretty);
 }
 
-string JsonWrapper::getString(const std::string& key) const
+string JsonWrapper::getString(const string& key) const
 {
   assertInitialized();
   return pt->get<string>(key);
 }
 
-int JsonWrapper::getInt(const std::string& key) const
+int JsonWrapper::getInt(const string& key) const
 {
   assertInitialized();
   return pt->get<int>(key);
 }
 
-double JsonWrapper::getDouble(const std::string& key) const
+double JsonWrapper::getDouble(const string& key) const
 {
   assertInitialized();
   return pt->get<double>(key);
+}
+
+void JsonWrapper::setString(const string& key, const string& value)
+{
+  assertInitialized();
+  pt->put<string>(key, value);
+}
+
+void JsonWrapper::setInt(const string& key, int value)
+{
+  assertInitialized();
+  pt->put<int>(key, value);
+}
+
+void JsonWrapper::setDouble(const string& key, double value)
+{
+  assertInitialized();
+  pt->put<double>(key, value);
 }
 
 std::ostream& operator<<(ostream& out, const JsonWrapper& jw)
@@ -99,11 +124,7 @@ string JsonWrapper::toString() const
 
 void JsonWrapper::loadFromBinary(std::istream& in)
 {
-  int sz;
-  in.read(reinterpret_cast<char*>(&sz), sizeof(sz));
-  char buff[sz];
-  in.read(buff, sizeof(char) * sz);
-  string data(buff);
+  string data = BinIoUtils::readString(in);
   load(data);
 }
 
@@ -111,9 +132,7 @@ void JsonWrapper::writeToBinary(std::ostream& out) const
 {
   assertInitialized();
   string data = toString();
-  int sz = data.size() + 1;
-  out.write(reinterpret_cast<const char*>(&sz), sizeof(sz));
-  out.write(data.c_str(), sizeof(char) * sz);
+  BinIoUtils::writeString(out, data);
 }
 
 bool JsonWrapper::isInitialized() const { return pt != NULL; }

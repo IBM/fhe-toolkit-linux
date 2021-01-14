@@ -31,26 +31,29 @@
 #include <string>
 #include <sstream>
 #include <mutex>
+#include <iostream>
 
 #ifndef NO_INTERNAL_HELAYERS_PROFILING
 
 #define HELAYERS_TIMER(title) helayers::HelayersTimer _helayers_timer(title)
-#define HELAYERS_TIMER_SECTION(title) helayers::HelayersTimer::Guard guard(title)
+#define HELAYERS_TIMER_SECTION(title)                                          \
+  helayers::HelayersTimer::Guard guard(title)
 #define HELAYERS_TIMER_PUSH(title) helayers::HelayersTimer::push(title)
 #define HELAYERS_TIMER_POP() helayers::HelayersTimer::pop()
 #define HELAYERS_TIMER_POP_COUNT(count) helayers::HelayersTimer::pop(count)
 
-#define HELAYERS_TIMER_PRINT_STATE(title) helayers::HelayersTimer::printState(title)
+#define HELAYERS_TIMER_PRINT_STATE(title)                                      \
+  helayers::HelayersTimer::printState(title)
 #define HELAYERS_TIMER_RESTART(title) _helayers_timer.restart(title)
 #define HELAYERS_TIMER_STOP() _helayers_timer.stop()
 
-#define HELAYERS_TIMER_PRINT_MEASURE_SUMMARY(sectionName)                         \
+#define HELAYERS_TIMER_PRINT_MEASURE_SUMMARY(sectionName)                      \
   helayers::HelayersTimer::printMeasureSummary(sectionName)
 
-#define HELAYERS_TIMER_PRINT_MEASURES_SUMMARY()                                   \
+#define HELAYERS_TIMER_PRINT_MEASURES_SUMMARY()                                \
   helayers::HelayersTimer::printMeasuresSummary()
 
-#define HELAYERS_TIMER_PRINT_MEASURES_SUMMARY_FLAT()                              \
+#define HELAYERS_TIMER_PRINT_MEASURES_SUMMARY_FLAT()                           \
   helayers::HelayersTimer::printMeasuresSummaryFlat()
 
 #else
@@ -117,9 +120,10 @@ class HelayersTimer
       return *this;
     }
 
-    void printTopMeasureSummary(int depth) const;
-    void printMeasureSummary(const std::string& sectionName) const;
-    void printMeasuresSummary(int depth);
+    void printTopMeasureSummary(int depth, std::ostream& out) const;
+    void printMeasureSummary(const std::string& sectionName,
+                             std::ostream& out) const;
+    void printMeasuresSummary(int depth, std::ostream& out);
     void addToFlat(std::map<std::string, SectionInfo>& flat);
 
     SectionInfo& find(const std::string& title, const std::string& prefix);
@@ -159,11 +163,17 @@ public:
 
   void stop();
 
-  static void printMeasureSummary(const std::string& sectionName);
+  /// Prints an overview of run time.
+  /// Prints specific timer results commong to typical runs.
+  /// @param[in] out stream to print to (default=cout)
+  static void printOverview(std::ostream& out = std::cout);
 
-  static void printMeasuresSummary();
+  static void printMeasureSummary(const std::string& sectionName,
+                                  std::ostream& out = std::cout);
 
-  static void printMeasuresSummaryFlat();
+  static void printMeasuresSummary(std::ostream& out = std::cout);
+
+  static void printMeasuresSummaryFlat(std::ostream& out = std::cout);
 
   static std::string getDurationAsString(std::int64_t microsecs);
 

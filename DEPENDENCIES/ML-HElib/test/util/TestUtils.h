@@ -54,6 +54,9 @@ public:
   static void setLowNumSlots(helayers::HeContext& h) { set("lowNumSlots", h); }
   static helayers::HeContext& getLowNumSlots() { return get("lowNumSlots"); }
 
+  static void setFastParams(helayers::HeContext& h) { set("fastParams", h); }
+  static helayers::HeContext& getFastParams() { return get("fastParams"); }
+
   static void setFastDeepParams(helayers::HeContext& h)
   {
     set("fastDeepParams", h);

@@ -22,52 +22,26 @@
 * SOFTWARE.
 */
 
-#ifndef SRC_HELAYERS_HELIBBGVCIPHER_H_
-#define SRC_HELAYERS_HELIBBGVCIPHER_H_
+#include <vector>
+#include "BinIoUtils.h"
 
-#include "HelibBgvContext.h"
-#include "HelibCiphertext.h"
+using namespace std;
 
 namespace helayers {
 
-class HelibBgvCiphertext : public HelibCiphertext
+void BinIoUtils::writeString(std::ostream& out, const std::string& str)
 {
-  HelibBgvContext& he;
-
-  HelibBgvCiphertext(const HelibBgvCiphertext& src) = default;
-
-  std::shared_ptr<AbstractCiphertext> doClone() const override;
-
-  friend class HelibBgvEncoder;
-  friend class HelibBgvNativeFunctionEvaluator;
-
-public:
-  HelibBgvCiphertext(HelibBgvContext& h) : HelibCiphertext(h), he(h) {}
-
-  virtual ~HelibBgvCiphertext();
-
-  std::shared_ptr<HelibBgvCiphertext> clone() const
-  {
-    return std::static_pointer_cast<HelibBgvCiphertext>(doClone());
-  }
-
-  void addPlainRaw(const AbstractPlaintext& plain) override;
-
-  void subPlainRaw(const AbstractPlaintext& plain) override;
-
-  void multiplyPlainRaw(const AbstractPlaintext& plain) override;
-
-  void conjugate() override;
-
-  void conjugateRaw() override;
-
-  // rotate right
-  void rotate(int n) override;
-
-  void negate() override;
-
-  int slotCount() const override;
-};
+  int sz = str.size() + 1;
+  out.write(reinterpret_cast<const char*>(&sz), sizeof(sz));
+  out.write(str.c_str(), sizeof(char) * sz);
 }
 
-#endif /* SRC_HELAYERS_HELIBBGVCIPHER_H_ */
+std::string BinIoUtils::readString(std::istream& in)
+{
+  int sz;
+  in.read(reinterpret_cast<char*>(&sz), sizeof(sz));
+  char buff[sz];
+  in.read(buff, sizeof(char) * sz);
+  return string(buff);
+}
+}
