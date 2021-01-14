@@ -38,11 +38,10 @@ void tut_3_io()
 {
 
   // As in tut_1_basics, let's choose a default HE CKKS setup
-  HelibCkksContext helib;
-  helib.init(HelibConfig::createCkks8192());
+  shared_ptr<HeContext> hePtr = HelibContext::create(SECURE_CKKS_8192);
 
   // Let's also make sure we have enough security
-  always_assert(helib.getSecurityLevel() >= 128);
+  always_assert(hePtr->getSecurityLevel() >= 128);
 
   // Let's create a clean directory for this tutorial's output files:
   FileUtils::createCleanDir(outDir);
@@ -50,16 +49,16 @@ void tut_3_io()
   // This call bundles all required info into a given file.
   // including both secret key and public key.
   cout << "Saving client context . . ." << endl;
-  helib.saveToFile(outDir + "/clientFile.bin", true);
+  hePtr->saveToFile(outDir + "/clientFile.bin", true);
 
   // This call bundles all required info into a given file,
   // **execpt the secret key **.
   cout << "Saving server context . . ." << endl;
-  helib.saveToFile(outDir + "/serverFile.bin", false);
+  hePtr->saveToFile(outDir + "/serverFile.bin", false);
 
   // And we can also separately store the secret key if we wish
   cout << "Saving secret key . . ." << endl;
-  helib.saveSecretKeyToFile(outDir + "/secretKey.bin");
+  hePtr->saveSecretKeyToFile(outDir + "/secretKey.bin");
 
   // All the above methods have a version that writes to an ostream object.
 
@@ -77,15 +76,11 @@ void tut_3_clientEncrypt()
 {
 
   // First we'll load the context (which includes both keys).
-  // Note that we have to explicitly write the concrete class that was used when
-  // it was saved.
-  // In future vesions we'll allow loading through HeContext.
-  HelibCkksContext helib;
-  cout << "Loading client context . . ." << endl;
-  helib.loadFromFile(outDir + "/clientFile.bin");
+  shared_ptr<HeContext> hePtr =
+      HeContext::loadHeContextFromFile(outDir + "/clientFile.bin");
 
-  // Now let's switch to being scheme oblivious:
-  HeContext& he = helib;
+  // For convenience
+  HeContext& he = *hePtr;
 
   // we'll encrypt the vector (1,2,3).
   vector<double> data{1, 2, 3};
@@ -106,11 +101,11 @@ void tut_3_clientEncrypt()
 void tut_3_serverRun()
 {
   // Now we'll load the server file, not having the secret key
-  HelibCkksContext helib;
-  cout << "Loading server context . . ." << endl;
-  helib.loadFromFile(outDir + "/serverFile.bin");
-  // Switch to being scheme oblivious:
-  HeContext& he = helib;
+  shared_ptr<HeContext> hePtr =
+      HeContext::loadHeContextFromFile(outDir + "/serverFile.bin");
+
+  // For convenience
+  HeContext& he = *hePtr;
 
   // Let's load our data
   CTile c(he);
@@ -143,11 +138,11 @@ void tut_3_serverRun()
 void tut_3_clientDecrypt()
 {
   // Finally, let's load client side context again
-  HelibCkksContext helib;
-  cout << "Loading client context . . ." << endl;
-  helib.loadFromFile(outDir + "/clientFile.bin");
-  // Switch to being scheme oblivious:
-  HeContext& he = helib;
+  shared_ptr<HeContext> hePtr =
+      HeContext::loadHeContextFromFile(outDir + "/clientFile.bin");
+
+  // For convenience
+  HeContext& he = *hePtr;
 
   // Let's load our processed data
   CTile c(he);

@@ -50,13 +50,11 @@ public:
   HelibBgvContext();
   virtual ~HelibBgvContext();
 
-  virtual void init(unsigned long p,
-                    unsigned long m,
-                    unsigned long r,
-                    unsigned long L);
+  void init(unsigned long p, unsigned long m, unsigned long r, unsigned long L);
+
   /// Initializes context with given configuration
   /// @param[in] conf user configuration
-  void init(const HelibConfig& conf);
+  void init(const HelibConfig& conf) override;
 
   /// Initializes context with given context and keys
   /// @param[in] conf user configuration

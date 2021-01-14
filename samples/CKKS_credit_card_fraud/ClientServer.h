@@ -33,7 +33,7 @@
 class Client
 {
 
-  helayers::HeContext* he;
+  std::shared_ptr<helayers::HeContext> he;
 
   std::shared_ptr<helayers::TrainingSetPlain> ts;
 
@@ -81,7 +81,7 @@ public:
 class Server
 {
 
-  helayers::HeContext* he;
+  std::shared_ptr<helayers::HeContext> he;
 
   std::shared_ptr<helayers::SimpleNeuralNet> encryptedNet;
 

@@ -50,6 +50,15 @@ public:
 
   void init(const HeConfigRequirement& req) override;
 
+  static std::shared_ptr<HelibContext> create(HelibPreset preset);
+
+  ///@brief Initalizes with a given preset. See list of presets in HelibConfig.h
+  ///
+  ///@param preset Preset configuration name
+  void initPreset(HelibPreset preset);
+
+  virtual void init(const HelibConfig& conf);
+
   int getTopChainIndex() const override;
 
   inline int slotCount() const override { return nslots; }

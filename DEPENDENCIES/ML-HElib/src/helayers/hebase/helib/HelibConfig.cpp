@@ -26,22 +26,38 @@
 
 namespace helayers {
 
-HelibConfig HelibConfig::createCkks16384()
+void HelibConfig::initPreset(HelibPreset preset)
 {
-  HelibConfig hc;
-  hc.m = 16384 * 4;
-  hc.r = 40;
-  hc.L = 560;
-  return hc;
-}
+  p = -1;
+  c = 2;
+  m = 0;
+  L = 0;
+  switch (preset) {
+  case DEMO_CKKS_32_FAST:
+    m = 32 * 4;
+    r = 52;
+    L = 1024;
+    break;
+  case SECURE_CKKS_8192:
+    m = 8192 * 4;
+    r = 40;
+    L = 200;
+    break;
+  case SECURE_CKKS_16384:
+    m = 16384 * 4;
+    r = 40;
+    L = 560;
+    break;
 
-HelibConfig HelibConfig::createCkks8192()
-{
-  HelibConfig hc;
-  hc.m = 8192 * 4;
-  hc.r = 40;
-  hc.L = 200;
-  return hc;
+  case DEMO_BGV_24:
+    p = 4999;
+    r = 1; // Hensel lifting
+    m = 32109;
+    L = 500;
+    break;
+  default:
+    throw std::invalid_argument("Unknown preset");
+  }
 }
 
 void HelibConfig::load(std::istream& in)

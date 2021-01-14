@@ -41,27 +41,17 @@ void tut_4_integers()
 {
   // First, we initialize the library
   // As before, this performs all the required setup.
-  // NOTE: this also generates a public-private key pair,
-  // so it's ready now for use.
-  int p = 4999;  // Plaintext prime modulus
-  int r = 1;     // Hensel lifting
-  int m = 32109; // Cyclotomic polynomial - defines \phi(m)
-  int L = 500;   // Max circuit depth
-  HelibBgvContext helib;
-  helib.init(p, m, r, L);
+  // NOTE: We're using an insecure demo setup
+  shared_ptr<HeContext> hePtr = HelibContext::create(DEMO_BGV_24);
 
   // This will print the details of the underlying scheme:
   // name, configuration params, and security level.
   cout << "Using scheme: " << endl;
-  helib.printSignature();
-
-  // This configuration is actually not secure.
-  // But we use it only for demo purposes.
-  // always_assert(helib.getSecurityLevel() >= 128);
+  hePtr->printSignature();
 
   // we'll send our initialized context as input to this run()
   // function to do some work with it.
-  tut_4_run(helib);
+  tut_4_run(*hePtr);
 }
 
 void tut_4_run(HeContext& he)

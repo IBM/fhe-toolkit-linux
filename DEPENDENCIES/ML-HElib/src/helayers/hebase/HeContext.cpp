@@ -64,7 +64,7 @@ void HeContext::loadFromFile(const std::string& fileName)
   in.close();
 }
 
-HeContext* HeContext::clone() const
+std::shared_ptr<HeContext> HeContext::clone() const
 {
   throw runtime_error("clone not implemented for this context");
 }
@@ -126,26 +126,27 @@ shared_ptr<AbstractFunctionEvaluator> HeContext::getFunctionEvaluator()
   return make_shared<AbstractFunctionEvaluator>(*this);
 }
 
-HeContext* HeContext::loadHeContextFromFile(const std::string& fileName)
+std::shared_ptr<HeContext> HeContext::loadHeContextFromFile(
+    const std::string& fileName)
 {
   ifstream in;
   in.open(fileName);
   if (in.fail())
     throw runtime_error("Failed to open file " + fileName);
   in.exceptions(std::ifstream::failbit | std::ifstream::badbit);
-  HeContext* res = loadHeContext(in);
+  std::shared_ptr<HeContext> res = loadHeContext(in);
   in.close();
   return res;
 }
 
-HeContext* HeContext::loadHeContext(istream& in)
+std::shared_ptr<HeContext> HeContext::loadHeContext(istream& in)
 {
   string key = BinIoUtils::readString(in);
   ContextMap& map = getRegisteredHeContextMap();
   ContextMap::iterator it = map.find(key);
   if (it == map.end())
     throw runtime_error("File contains unrecognized context " + key);
-  HeContext* res = it->second->clone();
+  std::shared_ptr<HeContext> res = it->second->clone();
   in.seekg(0);
   res->load(in);
   return res;

@@ -29,6 +29,26 @@
 
 namespace helayers {
 
+/// Named preset configurations
+enum HelibPreset
+{
+  /// An insecure, fast, 32 slots CKKS configuration
+  DEMO_CKKS_32_FAST,
+
+  /// A secure CKKS configuration with 8192 slots
+  /// NOTE: Always verify the actual security matches requirements
+  SECURE_CKKS_8192,
+
+  /// A secure CKKS configuration with 16384 slots
+  /// Higher depth, allowing for heavier tasks.
+  /// NOTE: Always verify the actual security matches requirements
+  SECURE_CKKS_16384,
+
+  /// An insecure, fast, 24 slots BGV configuration (integers)
+  /// For integer numbers in the range 0...4998
+  DEMO_BGV_24
+};
+
 /// A class for holding HElib configuration parameters.
 /// It doesn't yet cover all of HElib flags.
 struct HelibConfig
@@ -43,13 +63,8 @@ struct HelibConfig
 
   bool enableConjugate = false;
 
-  /// CKKS configuration with 8192 slots, low multiplication depth.
-  /// NOTE: check if resulting security level suites your needs.
-  static HelibConfig createCkks8192();
-
-  /// CKKS configuration with 16384 slots and high multiplication depth.
-  /// NOTE: check if resulting security level suites your needs.
-  static HelibConfig createCkks16384();
+  ///@brief Initializes configuration based on preset.
+  void initPreset(HelibPreset preset);
 
   void load(std::istream& in);
   void save(std::ostream& out) const;

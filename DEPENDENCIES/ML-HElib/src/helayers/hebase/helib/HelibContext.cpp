@@ -23,6 +23,8 @@
 */
 
 #include "HelibContext.h"
+#include "HelibCkksContext.h"
+#include "HelibBgvContext.h"
 
 using namespace std;
 using namespace helib;
@@ -37,6 +39,32 @@ HelibContext::HelibContext() : HeContext()
 HelibContext::~HelibContext()
 {
   // TODO Auto-generated destructor stub
+}
+
+shared_ptr<HelibContext> HelibContext::create(HelibPreset preset)
+{
+  HelibConfig conf;
+  conf.initPreset(preset);
+  shared_ptr<HelibContext> he;
+  if (conf.p == -1)
+    he = make_shared<HelibCkksContext>();
+  else
+    he = make_shared<HelibBgvContext>();
+
+  he->init(conf);
+  return he;
+}
+
+void HelibContext::init(const HelibConfig& conf)
+{
+  throw runtime_error("not implemented");
+}
+
+void HelibContext::initPreset(HelibPreset preset)
+{
+  HelibConfig conf;
+  conf.initPreset(preset);
+  init(conf);
 }
 
 int HelibContext::getTopChainIndex() const

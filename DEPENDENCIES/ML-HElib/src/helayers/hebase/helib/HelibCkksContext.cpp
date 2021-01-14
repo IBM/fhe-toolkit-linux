@@ -49,9 +49,9 @@ HelibCkksContext::~HelibCkksContext()
   // TODO Auto-generated destructor stub
 }
 
-HelibCkksContext* HelibCkksContext::clone() const
+std::shared_ptr<HeContext> HelibCkksContext::clone() const
 {
-  return new HelibCkksContext();
+  return make_shared<HelibCkksContext>();
 }
 
 void HelibCkksContext::init(unsigned long m,

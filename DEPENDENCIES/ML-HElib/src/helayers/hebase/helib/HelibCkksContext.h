@@ -63,7 +63,7 @@ public:
 
   /// Initializes context with given configuration
   /// @param[in] conf user configuration
-  void init(const HelibConfig& conf);
+  void init(const HelibConfig& conf) override;
 
   /// Initializes context with given context and keys
   /// @param[in] conf user configuration
@@ -96,7 +96,7 @@ public:
   std::string getSchemeName() const override { return "CKKS"; }
 
   /// See parent method
-  HelibCkksContext* clone() const override;
+  std::shared_ptr<HeContext> clone() const override;
 };
 }
 

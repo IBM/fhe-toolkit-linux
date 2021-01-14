@@ -260,12 +260,13 @@ public:
   /// Returns a pointer to a context initialized from file.
   /// Context type is dynamically determined by content of file.
   /// @param[in] fileName file to read from
-  static HeContext* loadHeContextFromFile(const std::string& fileName);
+  static std::shared_ptr<HeContext> loadHeContextFromFile(
+      const std::string& fileName);
 
   /// Returns a pointer to a context initialized from stream.
   /// Context type is dynamically determined by content of stream.
   /// @param[in] in stream to read from
-  static HeContext* loadHeContext(std::istream& in);
+  static std::shared_ptr<HeContext> loadHeContext(std::istream& in);
 
   /// Registers a context object for the purpose of dynamic loading.
   /// Don't call this directly. Use REGISTER_CONTEXT (see above)
@@ -273,7 +274,7 @@ public:
 
   /// Returns an uninitialized context of the same type. Used for dynamic
   /// type loading among others.
-  virtual HeContext* clone() const;
+  virtual std::shared_ptr<HeContext> clone() const;
 };
 }
 

@@ -36,29 +36,29 @@ void tut_1_run(HeContext& he);
 
 void tut_1_basics()
 {
-
   // First, we initialize the underlying HE library.
-  // We use one of the supplied default configuration.
+  // We use one of the supplied preset configurations.
   // This performs all the required setup.
   // NOTE: this also generates a public-private key pair,
   // so it's ready now for use.
-  HelibCkksContext helib;
-  helib.init(HelibConfig::createCkks8192());
-  // The createCkks8192() method returns a configuration with
-  // Each ciphertext has 8129 slots, i.e., it can hold 8192 numbers.
+  shared_ptr<HeContext> hePtr = HelibContext::create(SECURE_CKKS_8192);
+
+  // The SECURE_CKKS_8192 preset is a configuration where
+  // Each ciphertext has 8192 slots, i.e., it can hold 8192 numbers.
   // In CKKS, each number can be a complex number.
+  // IMPORTANT: Even though the preset name contains the word 'SECURE' it's
+  // always required to test that the resulting security matches your needs.
+  // Security levels may vary with different library versions.
+  always_assert(hePtr->getSecurityLevel() >= 128);
 
   // This will print the details of the underlying scheme:
   // name, configuration params, and security level.
   cout << "Using scheme: " << endl;
-  helib.printSignature();
-
-  // Let's also make sure we have enough security
-  always_assert(helib.getSecurityLevel() >= 128);
+  hePtr->printSignature();
 
   // we'll send our initialized context as input to this run()
   // function to do some work with it.
-  tut_1_run(helib);
+  tut_1_run(*hePtr);
 }
 
 void tut_1_run(HeContext& he)
@@ -79,7 +79,6 @@ void tut_1_run(HeContext& he)
 
   // And a CTile object - this is our ciphertext object.
   CTile c1(he);
-
   // We'll now encrypt vals1 into c:
   // In HE encryption actually involves two steps: encode, then encrypt.
   // The following method does both.
