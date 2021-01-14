@@ -27,7 +27,7 @@
 
 // In this tutorial we'll use a different scheme.
 // So far we used CKKS that works with complex numbers,
-// Here we'll configure HElib's BGV as the underlyin scheme,
+// Here we'll configure HElib's BGV as the underlying scheme,
 // which works with integer numbers.
 // Hence it has some limitations, and some
 // additional operators.

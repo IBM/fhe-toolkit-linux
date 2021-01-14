@@ -43,10 +43,10 @@ void tut_1_basics()
   // so it's ready now for use.
   shared_ptr<HeContext> hePtr = HelibContext::create(HELIB_CKKS_8192);
 
-  // The SECURE_CKKS_8192 preset is a configuration where
+  // The HELIB_CKKS_8192 preset is a configuration where
   // Each ciphertext has 8192 slots, i.e., it can hold 8192 numbers.
   // In CKKS, each number can be a complex number.
-  // IMPORTANT: Even though the preset name contains the word 'SECURE' it's
+  // IMPORTANT: It's
   // always required to test that the resulting security matches your needs.
   // Security levels may vary with different library versions.
   always_assert(hePtr->getSecurityLevel() >= 128);

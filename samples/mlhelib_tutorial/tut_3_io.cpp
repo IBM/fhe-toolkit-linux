@@ -77,6 +77,7 @@ void tut_3_clientEncrypt()
 {
 
   // First we'll load the context (which includes both keys).
+  cout << "Loading client context . . ." << endl;
   shared_ptr<HeContext> hePtr =
       HeContext::loadHeContextFromFile(outDir + "/clientFile.bin");
 
@@ -102,6 +103,7 @@ void tut_3_clientEncrypt()
 void tut_3_serverRun()
 {
   // Now we'll load the server file, not having the secret key
+  cout << "Loading server context . . ." << endl;
   shared_ptr<HeContext> hePtr =
       HeContext::loadHeContextFromFile(outDir + "/serverFile.bin");
 
@@ -139,6 +141,7 @@ void tut_3_serverRun()
 void tut_3_clientDecrypt()
 {
   // Finally, let's load client side context again
+  cout << "Loading client context . . ." << endl;
   shared_ptr<HeContext> hePtr =
       HeContext::loadHeContextFromFile(outDir + "/clientFile.bin");
 
