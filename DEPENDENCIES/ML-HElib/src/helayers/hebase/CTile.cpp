@@ -168,7 +168,6 @@ void CTile::debugPrint(const string& title,
                        int verbose,
                        ostream& out) const
 {
-  cout << "===========================================================" << endl;
   return impl->debugPrint(title, maxElements, verbose, out);
 }
 }
