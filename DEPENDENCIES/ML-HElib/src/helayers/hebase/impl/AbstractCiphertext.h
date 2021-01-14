@@ -113,6 +113,8 @@ public:
 
   virtual void conjugate() = 0;
 
+  virtual void conjugateRaw() = 0;
+
   virtual void negate() = 0;
 
   // rotate left

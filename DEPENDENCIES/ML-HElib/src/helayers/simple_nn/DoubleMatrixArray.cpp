@@ -23,7 +23,7 @@
 */
 
 #include "DoubleMatrixArray.h"
-#include <cassert>
+#include "helayers/hebase/hebase.h"
 #include <fstream>
 #include <sstream>
 #include <string>
@@ -463,7 +463,7 @@ void DoubleMatrixArray::testSameAlongDepth(const std::string& title,
   }
   if (maxDiff > eps) {
     cerr << "ERROR: " << title << " maxDiff=" << maxDiff << endl;
-    assert(0);
+    always_assert(0);
   }
   cout << "OK: " << title << " maxDiff=" << maxDiff << " ( " << et
        << " elements tested)" << endl;

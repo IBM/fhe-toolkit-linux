@@ -61,26 +61,28 @@ void HelibBgvContext::init(const HelibConfig& conf)
     throw runtime_error("This context is already initialized");
 
   config = conf;
-
   traits.setArithmeticModulus(config.p);
   context = new Context(config.m, config.p, config.r);
   buildModChain(*context, config.L, config.c);
-  // Print the context
-  //  context->zMStar.printout();
-  //  std::cout << std::endl;
-
   secretKey = new helib::SecKey(*context);
-
   secretKey->GenSecKey();
-
   addSome1DMatrices(*secretKey);
-
   publicKey = secretKey;
-
   ea = context->ea;
-
   nslots = ea->size();
-  //  std::cout << "Number of slots: " << nslots << std::endl;
+}
+
+void HelibBgvContext::init(const HelibConfig& conf,
+                           helib::Context* userContext,
+                           helib::SecKey* userSecretKey,
+                           helib::PubKey* userPublicKey)
+{
+  config = conf;
+  context = userContext;
+  secretKey = userSecretKey;
+  publicKey = userPublicKey;
+  ea = context->ea;
+  nslots = ea->size();
 }
 
 shared_ptr<AbstractCiphertext> HelibBgvContext::createAbstractCipher()

@@ -22,52 +22,28 @@
 * SOFTWARE.
 */
 
-#ifndef SRC_HELAYERS_HELIBBGVCIPHER_H_
-#define SRC_HELAYERS_HELIBBGVCIPHER_H_
+#ifndef SRC_HELAYERS_BINIOUTILS_H
+#define SRC_HELAYERS_BINIOUTILS_H
 
-#include "HelibBgvContext.h"
-#include "HelibCiphertext.h"
+#include <iostream>
+#include <string>
 
 namespace helayers {
 
-class HelibBgvCiphertext : public HelibCiphertext
+/// Utlities for IO operations on binary streams
+class BinIoUtils
 {
-  HelibBgvContext& he;
-
-  HelibBgvCiphertext(const HelibBgvCiphertext& src) = default;
-
-  std::shared_ptr<AbstractCiphertext> doClone() const override;
-
-  friend class HelibBgvEncoder;
-  friend class HelibBgvNativeFunctionEvaluator;
 
 public:
-  HelibBgvCiphertext(HelibBgvContext& h) : HelibCiphertext(h), he(h) {}
+  /// Writes a string to a binary stream
+  /// @param[in] out Stream out write to
+  /// @param[in] str The string to write
+  static void writeString(std::ostream& out, const std::string& str);
 
-  virtual ~HelibBgvCiphertext();
-
-  std::shared_ptr<HelibBgvCiphertext> clone() const
-  {
-    return std::static_pointer_cast<HelibBgvCiphertext>(doClone());
-  }
-
-  void addPlainRaw(const AbstractPlaintext& plain) override;
-
-  void subPlainRaw(const AbstractPlaintext& plain) override;
-
-  void multiplyPlainRaw(const AbstractPlaintext& plain) override;
-
-  void conjugate() override;
-
-  void conjugateRaw() override;
-
-  // rotate right
-  void rotate(int n) override;
-
-  void negate() override;
-
-  int slotCount() const override;
+  /// Returns a string read from a binary stream
+  /// @param[in] in Stream out read from
+  static std::string readString(std::istream& in);
 };
 }
 
-#endif /* SRC_HELAYERS_HELIBBGVCIPHER_H_ */
+#endif /* SRC_HELAYERS_BINIOUTILS_H */

@@ -70,6 +70,8 @@ streamoff CTile::load(istream& stream) { return impl->load(stream); }
 
 void CTile::conjugate() { impl->conjugate(); }
 
+void CTile::conjugateRaw() { impl->conjugateRaw(); }
+
 void CTile::rotate(int n) { impl->rotate(n); }
 
 void CTile::innerSum(int rot1, int rot2, bool reverse)

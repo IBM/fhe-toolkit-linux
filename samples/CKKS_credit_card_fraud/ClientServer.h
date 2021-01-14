@@ -29,10 +29,11 @@
 #include "helayers/simple_nn/SimpleNeuralNet.h"
 #include "helayers/simple_nn/TrainingSetPlain.h"
 
+/// A class representing the client side
 class Client
 {
 
-  helayers::HeContext& he;
+  std::shared_ptr<helayers::HeContext> he;
 
   std::shared_ptr<helayers::TrainingSetPlain> ts;
 
@@ -47,32 +48,44 @@ class Client
   const std::string& dataDir;
 
 public:
-  Client(helayers::HeContext& he, const std::string& dataDir);
+  /// Construct a client.
+  /// @param[in] dataDir folder where input data is
+  Client(const std::string& dataDir);
 
   ~Client();
 
+  /// Initialize: Load he context, load network, load training set,
+  /// Encrypt network and save it to file to be sent to server.
   void init();
 
+  /// Encrypt a batch of samples and save to file to be sent to server.
+  /// @param[in] batch Batch number
+  /// @param[in] encryptedSamplesFile File name to write to
   void encryptAndSaveSamples(int batch,
                              const std::string& encryptedSamplesFile) const;
 
+  /// Loads a batch of predictions from file, decrypt them, and store results
+  /// in a member for assessment.
+  /// @param[in] encryptePredictionsFile File name to read from
   void decryptPredictions(const std::string& encryptedPredictionsFile);
 
+  /// Assess received predictions compared with training set's labels (the
+  /// ground truth).
   void assessResults();
 
+  /// Total number of batches in training set.
   int getNumBatches() const { return numBatches; }
 };
 
+/// A class representing the server side
 class Server
 {
 
-  helayers::HeContext& he;
+  std::shared_ptr<helayers::HeContext> he;
 
   std::shared_ptr<helayers::SimpleNeuralNet> encryptedNet;
 
 public:
-  Server(helayers::HeContext& he);
-
   ~Server();
 
   void init();

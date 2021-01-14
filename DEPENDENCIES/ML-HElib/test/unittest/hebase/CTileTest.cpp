@@ -979,42 +979,47 @@ TEST(CTileTest, operationsWithComplex)
 
   c1.add(c2); // 3-2i
   const std::vector<complex<double>> vals1 = enc.decryptDecodeComplex(c1);
-  EXPECT_FLOAT_EQ(3, vals1[0].real());
-  EXPECT_FLOAT_EQ(-2, vals1[0].imag());
+  EXPECT_NEAR(3, vals1[0].real(), TestUtils::getEps());
+  EXPECT_NEAR(-2, vals1[0].imag(), TestUtils::getEps());
 
   c1.sub(c3); // -1-i
   const std::vector<complex<double>> vals2 = enc.decryptDecodeComplex(c1);
 
-  EXPECT_FLOAT_EQ(-1, vals2[0].real());
-  EXPECT_FLOAT_EQ(-1, vals2[0].imag());
+  EXPECT_NEAR(-1, vals2[0].real(), TestUtils::getEps());
+  EXPECT_NEAR(-1, vals2[0].imag(), TestUtils::getEps());
 
   c2.multiply(c3); // 5-14i
   const std::vector<complex<double>> vals3 = enc.decryptDecodeComplex(c2);
-  EXPECT_FLOAT_EQ(5, vals3[0].real());
-  EXPECT_FLOAT_EQ(-14, vals3[0].imag());
+  EXPECT_NEAR(5, vals3[0].real(), TestUtils::getEps());
+  EXPECT_NEAR(-14, vals3[0].imag(), TestUtils::getEps());
 
   c3.square(); // 15-8i
   const std::vector<complex<double>> vals4 = enc.decryptDecodeComplex(c3);
-  EXPECT_FLOAT_EQ(15, vals4[0].real());
-  EXPECT_FLOAT_EQ(-8, vals4[0].imag());
+  EXPECT_NEAR(15, vals4[0].real(), TestUtils::getEps());
+  EXPECT_NEAR(-8, vals4[0].imag(), TestUtils::getEps());
 
   c4.innerSum(1, 4);
   const std::vector<complex<double>> vals5 = enc.decryptDecodeComplex(c4);
-  EXPECT_FLOAT_EQ(12, vals5[0].real());
-  EXPECT_FLOAT_EQ(16, vals5[0].imag());
-  EXPECT_FLOAT_EQ(9, vals5[1].real());
-  EXPECT_FLOAT_EQ(12, vals5[1].imag());
-  EXPECT_FLOAT_EQ(6, vals5[2].real());
-  EXPECT_FLOAT_EQ(8, vals5[2].imag());
-  EXPECT_FLOAT_EQ(3, vals5[3].real());
-  EXPECT_FLOAT_EQ(4, vals5[3].imag());
+  EXPECT_NEAR(12, vals5[0].real(), TestUtils::getEps());
+  EXPECT_NEAR(16, vals5[0].imag(), TestUtils::getEps());
+  EXPECT_NEAR(9, vals5[1].real(), TestUtils::getEps());
+  EXPECT_NEAR(12, vals5[1].imag(), TestUtils::getEps());
+  EXPECT_NEAR(6, vals5[2].real(), TestUtils::getEps());
+  EXPECT_NEAR(8, vals5[2].imag(), TestUtils::getEps());
+  EXPECT_NEAR(3, vals5[3].real(), TestUtils::getEps());
+  EXPECT_NEAR(4, vals5[3].imag(), TestUtils::getEps());
   EXPECT_NEAR(0, vals5[4].real(), TestUtils::getEps());
   EXPECT_NEAR(0, vals5[4].imag(), TestUtils::getEps());
 
   c4.conjugate(); // 12-16i
   const std::vector<complex<double>> vals6 = enc.decryptDecodeComplex(c4);
-  EXPECT_FLOAT_EQ(12, vals6[0].real());
-  EXPECT_FLOAT_EQ(-16, vals6[0].imag());
+  EXPECT_NEAR(12, vals6[0].real(), TestUtils::getEps());
+  EXPECT_NEAR(-16, vals6[0].imag(), TestUtils::getEps());
+
+  c4.multiply(c1); // (12-16i)(-1-i) = -28 + 4 i
+  const std::vector<complex<double>> vals7 = enc.decryptDecodeComplex(c4);
+  EXPECT_NEAR(-28, vals7[0].real(), TestUtils::getEps());
+  EXPECT_NEAR(4, vals7[0].imag(), TestUtils::getEps());
 }
 
 TEST(CTileTest, highScaleMultiply)

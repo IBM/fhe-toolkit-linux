@@ -106,7 +106,18 @@ double HelibCkksCiphertext::getScale() const
 
 void HelibCkksCiphertext::conjugate()
 {
-  HELAYERS_TIMER("HelibCkksCiphertext::conjugate");
+  HELAYERS_TIMER_SECTION("HelibCkksCiphertext::conjugate");
+  conjugateRaw();
+  ctxt.reLinearize();
+}
+
+void HelibCkksCiphertext::conjugateRaw()
+{
+  HELAYERS_TIMER_SECTION("HelibCkksCiphertext::conjugateRaw");
+  if (!he.getEnableConjugate()) {
+    throw runtime_error("conjugate operation is not enabled");
+  }
+
   ctxt.complexConj();
 }
 

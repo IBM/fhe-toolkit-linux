@@ -27,11 +27,14 @@
 #include "HelibCkksCiphertext.h"
 #include "HelibCkksPlaintext.h"
 #include "HelibCkksEncoder.h"
+#include "helayers/hebase/HelayersTimer.h"
 
 using namespace helib;
 using namespace std;
 
 namespace helayers {
+
+REGISTER_HE_CONTEXT(HelibCkksContext);
 
 HelibCkksContext::HelibCkksContext()
 {
@@ -46,10 +49,16 @@ HelibCkksContext::~HelibCkksContext()
   // TODO Auto-generated destructor stub
 }
 
+std::shared_ptr<HeContext> HelibCkksContext::clone() const
+{
+  return make_shared<HelibCkksContext>();
+}
+
 void HelibCkksContext::init(unsigned long m,
                             unsigned long r,
                             unsigned long L,
-                            unsigned long c)
+                            unsigned long c,
+                            bool enableConjugate)
 {
   if (context != NULL)
     throw runtime_error("This context is already initialized");
@@ -59,11 +68,13 @@ void HelibCkksContext::init(unsigned long m,
   hc.L = L;
   hc.r = r;
   hc.c = c;
+  hc.enableConjugate = enableConjugate;
   init(hc);
 }
 
 void HelibCkksContext::init(const HelibConfig& conf)
 {
+  HELAYERS_TIMER_SECTION("context-init");
   if (context != NULL)
     throw runtime_error("This context is already initialized");
 
@@ -72,22 +83,36 @@ void HelibCkksContext::init(const HelibConfig& conf)
 
   context = new Context(config.m, p, config.r);
   buildModChain(*context, config.L, config.c);
-  // Print the context
-  //  context->zMStar.printout();
-  //  std::cout << std::endl;
-
   secretKey = new helib::SecKey(*context);
-
   secretKey->GenSecKey();
-
   addSome1DMatrices(*secretKey);
-
+  enableConjugate = conf.enableConjugate;
+  if (conf.enableConjugate) {
+    addFrbMatrices(*secretKey);
+  }
   publicKey = secretKey;
 
-  ea = &context->ea->getCx();
+  initCommon(context);
+}
 
+void HelibCkksContext::init(const HelibConfig& conf,
+                            helib::Context* userContext,
+                            helib::SecKey* userSecretKey,
+                            helib::PubKey* userPublicKey)
+{
+  if (context != NULL)
+    throw runtime_error("This context is already initialized");
+  context = userContext;
+  secretKey = userSecretKey;
+  publicKey = userPublicKey;
+  config = conf;
+  initCommon(context);
+}
+
+void HelibCkksContext::initCommon(helib::Context* context)
+{
+  ea = &context->ea->getCx();
   nslots = ea->size();
-  //  std::cout << "Number of slots: " << nslots << std::endl;
 }
 
 shared_ptr<AbstractCiphertext> HelibCkksContext::createAbstractCipher()

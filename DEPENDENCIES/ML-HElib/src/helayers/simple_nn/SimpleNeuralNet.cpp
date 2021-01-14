@@ -67,6 +67,7 @@ streamoff SimpleNeuralNet::load(istream& stream)
 void SimpleNeuralNet::initFromNet(const SimpleNeuralNetPlain& net,
                                   int baseChainIndex)
 {
+  HELAYERS_TIMER_SECTION("model-encrypt");
   if (!he.getTraits().getAutomaticallyManagesChainIndices() &&
       baseChainIndex == -1)
     baseChainIndex = he.getTopChainIndex();
@@ -79,6 +80,7 @@ void SimpleNeuralNet::initFromNet(const SimpleNeuralNetPlain& net,
 void SimpleNeuralNet::predict(const CipherMatrix& input,
                               CipherMatrix& output) const
 {
+  HELAYERS_TIMER_SECTION("model-predict");
   output = sal.forward(fcl3.forward(
       sal.forward(fcl2.forward(sal.forward(fcl1.forward(input))))));
 }

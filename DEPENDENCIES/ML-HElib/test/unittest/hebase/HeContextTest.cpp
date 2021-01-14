@@ -64,7 +64,6 @@ static void saveLoadTest(bool withSecKey)
   }
 
   shared_ptr<HeContext> he2 = TestUtils::heContextFactory->create();
-
   // Load the original heContext into a new one
   he2->loadFromFile(contextFile);
 
@@ -136,7 +135,13 @@ static void saveLoadTest(bool withSecKey)
   }
 }
 
-TEST(HeContextTest, saveLoadNoSecKey) { saveLoadTest(false); }
+TEST(HeContextTest, saveLoadNoSecKey)
+{
+  cout << "Note: when running with some contexts this test might produce "
+          "warnings. That's ok. "
+       << endl;
+  saveLoadTest(false);
+}
 
 TEST(HeContextTest, saveLoadWithSecKey) { saveLoadTest(true); }
 } // namespace helayerstest

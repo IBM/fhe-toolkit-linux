@@ -39,17 +39,6 @@ const string clientContext = outDir + "/client_context.bin";
 const string serverContext = outDir + "/server_context.bin";
 
 /*
- * define the number of slots in each ciphertext object.
- * a value of 512 slots produces a low security level, just for the demo
- * a value of 16384 slots produces a security level of 88.
- * a value of 32768 slots produces a security level of 287 with a relatively
- * long setup time and big model.
- * */
-int numSlots = 512;
-//  int numSlots = 16384;
-//  int numSlots = 32768;
-
-/*
  * create an HELIB context for both the client and the server, and save contexts
  * into files
  * client context contains a secret key while server context does not
@@ -58,30 +47,31 @@ void createContexts()
 {
 
   cout << "Initalizing HElib . . ." << endl;
-  HelibConfig conf;
-  conf.m = numSlots * 2 * 2;
-  if (numSlots == 16384 || numSlots == 32768) {
-    conf.r = 50;
-    conf.L = 700;
-  } else if (numSlots == 512) {
-    conf.r = 52;
-    conf.L = 1024;
-  } else
-    throw runtime_error("configuration not tested for given number of slots");
 
-  HelibCkksContext he;
-  he.init(conf);
-  he.printSignature(cout);
+  shared_ptr<HeContext> hePtr;
+
+  // Preset configuration with 512 slots: low security level, but fast, just for
+  // the demo
+  hePtr = HelibContext::create(HELIB_NOT_SECURE_CKKS_512_FAST);
+
+  // Preset configuration with 16384 slots: mediocre security
+  // hePtr = HelibContext::create(HELIB_CKKS_16384);
+
+  // Preset configuration with 32768 slots: high security
+  // hePtr = HelibContext::create(HELIB_CKKS_32768);
+
+  // Print details, including security level
+  hePtr->printSignature(cout);
 
   cout << "Clearing " << outDir << endl;
   FileUtils::createCleanDir(outDir);
   cout << "Saving client side context to " << clientContext << endl;
   bool withSecretKey = true;
-  he.saveToFile(clientContext, withSecretKey); // save client context
+  hePtr->saveToFile(clientContext, withSecretKey); // save client context
 
   cout << "Saving server side context to " << serverContext << endl;
   withSecretKey = false;
-  he.saveToFile(serverContext, withSecretKey); // save server context
+  hePtr->saveToFile(serverContext, withSecretKey); // save server context
 }
 
 /*
@@ -104,24 +94,17 @@ int main(int argc, char** argv)
 
   cout << "*** Starting inference demo ***" << endl;
 
-  HELIB_NTIMER_START(client_side_setup);
   // creating HELIB context for both client and server, save them to files
   createContexts();
 
   // init client
-  HelibCkksContext clientEmptyHe;
-  Client client(clientEmptyHe, dataDir);
+  Client client(dataDir);
   client.init();
-  HELIB_NTIMER_STOP(client_side_setup);
 
   // init server
-  HELIB_NTIMER_START(server_side_setup);
-  HelibCkksContext serverEmptyHe;
-  Server server(serverEmptyHe);
+  Server server;
   server.init();
-  HELIB_NTIMER_STOP(server_side_setup);
 
-  HELIB_NTIMER_START(total_inference_time);
   // go over each batch of samples
   int iterations =
       runAll ? client.getNumBatches() : min(24, client.getNumBatches());
@@ -130,7 +113,6 @@ int main(int argc, char** argv)
     cout << endl
          << "*** Performing inference on batch " << i + 1 << "/" << iterations
          << " ***" << endl;
-    HELIB_NTIMER_START(time_for_single_batch);
     // define names of files to be used to save encrypted batch of samples and
     // their correspondent predictions
     const string encryptedSamplesFile =
@@ -152,12 +134,12 @@ int main(int argc, char** argv)
     // analyze the server's predictions so far with respect to the expected
     // labels
     client.assessResults();
-    HELIB_NTIMER_STOP(time_for_single_batch);
-    helib::printNamedTimer(std::cout, "time_for_single_batch");
+
+    // Print prediciton timing statistics
+    HELAYERS_TIMER_PRINT_MEASURE_SUMMARY("model-predict");
   }
 
-  HELIB_NTIMER_STOP(total_inference_time);
-  helib::printNamedTimer(std::cout, "client_side_setup");
-  helib::printNamedTimer(std::cout, "server_side_setup");
-  helib::printNamedTimer(std::cout, "total_inference_time");
+  cout << endl << "All done!" << endl << endl;
+  // Print overview timing of entire run
+  HelayersTimer::printOverview();
 }
