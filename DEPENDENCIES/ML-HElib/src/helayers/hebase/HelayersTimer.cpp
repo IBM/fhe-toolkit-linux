@@ -85,7 +85,10 @@ HelayersTimer::SectionInfo& HelayersTimer::SectionInfo::find(
   return n->second.find(cont, prefix + key + ".");
 }
 
-HelayersTimer::HelayersTimer(const string& title) : HelayersTimer() { restart(title); }
+HelayersTimer::HelayersTimer(const string& title) : HelayersTimer()
+{
+  restart(title);
+}
 
 HelayersTimer::~HelayersTimer() { stop(); }
 
@@ -161,14 +164,18 @@ int HelayersTimer::getSum(const std::string& title)
   return top.find(title, "").sum;
 }
 
-void HelayersTimer::printMeasureSummary(const string& sectionName)
+void HelayersTimer::printMeasureSummary(const string& sectionName,
+                                        std::ostream& out)
 {
-  top.printMeasureSummary(sectionName);
+  top.printMeasureSummary(sectionName, out);
 }
 
-void HelayersTimer::printMeasuresSummary() { top.printMeasuresSummary(-1); }
+void HelayersTimer::printMeasuresSummary(std::ostream& out)
+{
+  top.printMeasuresSummary(-1, out);
+}
 
-void HelayersTimer::printMeasuresSummaryFlat()
+void HelayersTimer::printMeasuresSummaryFlat(std::ostream& out)
 {
   cout << "Flat summary:" << endl;
   std::map<std::string, SectionInfo> flat;
@@ -176,7 +183,7 @@ void HelayersTimer::printMeasuresSummaryFlat()
   for (std::map<string, SectionInfo>::iterator iter = flat.begin();
        iter != flat.end();
        ++iter)
-    iter->second.printMeasuresSummary(0);
+    iter->second.printMeasuresSummary(0, out);
 }
 
 int64_t HelayersTimer::getProcessCPUTime()
@@ -242,56 +249,58 @@ void HelayersTimer::SectionInfo::addToFlat(map<string, SectionInfo>& flat)
   }
 }
 
-void HelayersTimer::SectionInfo::printTopMeasureSummary(int depth) const
+void HelayersTimer::SectionInfo::printTopMeasureSummary(int depth,
+                                                        std::ostream& out) const
 {
   for (int i = 0; i < depth; ++i)
-    cout << "---";
+    out << "---";
   if (depth > 0)
-    cout << " ";
-  cout << name << "=" << getDurationAsString(sum);
+    out << " ";
+  out << name << "=" << getDurationAsString(sum) << " (secs)";
   if (count == 0) {
-    cout << " (0)";
+    out << " (0)";
   } else {
     const double mean = ((double)sum) / count;
     const double var = (((double)sumSquares) / count) - (mean * mean);
 
-    cout << " ( " << getDurationAsString(mean);
+    out << " ( " << getDurationAsString(mean);
     if (count > 1) {
       const int SD = (int)((var > 0) ? sqrt(var) : 0);
-      cout << "+-" << getDurationAsString(SD);
+      out << "+-" << getDurationAsString(SD);
     }
-    cout << " X " << count << ")";
+    out << " X " << count << ")";
   }
-  cout << "   [CPU: " << getDurationAsString(sumCPU) << ", " << std::fixed
-       << std::setprecision(2) << (((double)sumCPU / (double)sum) * 100.0)
-       << "%]";
-  cout << endl;
+  out << "   [CPU: " << getDurationAsString(sumCPU) << ", " << std::fixed
+      << std::setprecision(2) << (((double)sumCPU / (double)sum) * 100.0)
+      << "%]";
+  out << endl;
 }
 
-void HelayersTimer::SectionInfo::printMeasureSummary(
-    const string& sectionName) const
+void HelayersTimer::SectionInfo::printMeasureSummary(const string& sectionName,
+                                                     std::ostream& out) const
 {
   if (name == sectionName) {
-    printTopMeasureSummary(0);
+    printTopMeasureSummary(0, out);
   }
 
   for (std::map<string, SectionInfo>::const_iterator iter = subSections.begin();
        iter != subSections.end();
        ++iter)
-    iter->second.printMeasureSummary(sectionName);
+    iter->second.printMeasureSummary(sectionName, out);
 }
 
-void HelayersTimer::SectionInfo::printMeasuresSummary(int depth)
+void HelayersTimer::SectionInfo::printMeasuresSummary(int depth,
+                                                      std::ostream& out)
 {
 
   if (depth >= 0) {
-    printTopMeasureSummary(depth);
+    printTopMeasureSummary(depth, out);
   }
 
   for (std::map<string, SectionInfo>::iterator iter = subSections.begin();
        iter != subSections.end();
        ++iter)
-    iter->second.printMeasuresSummary(depth + 1);
+    iter->second.printMeasuresSummary(depth + 1, out);
 }
 
 string HelayersTimer::getDurationAsString(int64_t microsecs)
@@ -321,5 +330,15 @@ void HelayersTimer::printState(const std::string& title)
     cout << si->name << endl;
     si = si->parent;
   }
+}
+
+void HelayersTimer::printOverview(std::ostream& out)
+{
+  out << "Timing statistics overview:" << endl;
+  printMeasureSummary("context-init", out);
+  printMeasureSummary("model-encrypt", out);
+  printMeasureSummary("data-encrypt", out);
+  printMeasureSummary("model-predict", out);
+  printMeasureSummary("data-decrypt", out);
 }
 }

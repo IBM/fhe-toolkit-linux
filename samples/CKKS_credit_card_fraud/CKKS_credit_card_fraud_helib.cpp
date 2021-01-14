@@ -104,24 +104,17 @@ int main(int argc, char** argv)
 
   cout << "*** Starting inference demo ***" << endl;
 
-  HELIB_NTIMER_START(client_side_setup);
   // creating HELIB context for both client and server, save them to files
   createContexts();
 
   // init client
-  HelibCkksContext clientEmptyHe;
-  Client client(clientEmptyHe, dataDir);
+  Client client(dataDir);
   client.init();
-  HELIB_NTIMER_STOP(client_side_setup);
 
   // init server
-  HELIB_NTIMER_START(server_side_setup);
-  HelibCkksContext serverEmptyHe;
-  Server server(serverEmptyHe);
+  Server server;
   server.init();
-  HELIB_NTIMER_STOP(server_side_setup);
 
-  HELIB_NTIMER_START(total_inference_time);
   // go over each batch of samples
   int iterations =
       runAll ? client.getNumBatches() : min(24, client.getNumBatches());
@@ -130,7 +123,6 @@ int main(int argc, char** argv)
     cout << endl
          << "*** Performing inference on batch " << i + 1 << "/" << iterations
          << " ***" << endl;
-    HELIB_NTIMER_START(time_for_single_batch);
     // define names of files to be used to save encrypted batch of samples and
     // their correspondent predictions
     const string encryptedSamplesFile =
@@ -152,12 +144,12 @@ int main(int argc, char** argv)
     // analyze the server's predictions so far with respect to the expected
     // labels
     client.assessResults();
-    HELIB_NTIMER_STOP(time_for_single_batch);
-    helib::printNamedTimer(std::cout, "time_for_single_batch");
+
+    // Print prediciton timing statistics
+    HELAYERS_TIMER_PRINT_MEASURE_SUMMARY("model-predict");
   }
 
-  HELIB_NTIMER_STOP(total_inference_time);
-  helib::printNamedTimer(std::cout, "client_side_setup");
-  helib::printNamedTimer(std::cout, "server_side_setup");
-  helib::printNamedTimer(std::cout, "total_inference_time");
+  cout << endl << "All done!" << endl << endl;
+  // Print overview timing of entire run
+  HelayersTimer::printOverview();
 }

@@ -41,7 +41,9 @@ struct HelibConfig
   ///   Number of columns of Key-Switching matix (default = 2 or 3)
   unsigned long c = 2;
 
-  /// CKKS configuration with 8129 slots, low multiplication depth.
+  bool enableConjugate = false;
+
+  /// CKKS configuration with 8192 slots, low multiplication depth.
   /// NOTE: check if resulting security level suites your needs.
   static HelibConfig createCkks8192();
 

@@ -29,6 +29,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <map>
 #include "HeTraits.h"
 #include "utils/JsonWrapper.h"
 
@@ -59,6 +60,15 @@ struct HeConfigRequirement
   }
 };
 
+/// Use this macro to register a context class type for dynamic type loading.
+/// Put this macro in the cpp file. The class must override the clone()
+/// method for this to work.
+/// It creates a static level variable, ensuring it will be initialized before
+/// main.
+#define REGISTER_HE_CONTEXT(heContextClass)                                    \
+  static bool heContextClass##_static_entry =                                  \
+      HeContext::internalRegisterContext(new heContextClass())
+
 /// An abstract main class representing an underlying HE library & scheme,
 /// configured, initialized, and ready to start working.
 ///
@@ -82,6 +92,17 @@ struct HeConfigRequirement
 class HeContext
 {
   double defaultScale = 1;
+
+  typedef std::map<std::string, const HeContext*> ContextMap;
+
+  /// returns registered context map.
+  /// Used instead of a static member to ensure it's already initialized when
+  /// needed.
+  static ContextMap& getRegisteredHeContextMap();
+
+  /// Returns a string that identifies a concrete HeContext class for the
+  /// purpose of dynamic loading.
+  std::string getContextFileHeaderCode() const;
 
 protected:
   HeTraits traits;
@@ -235,6 +256,24 @@ public:
   {
     throw std::runtime_error("not implemented");
   };
+
+  /// Returns a pointer to a context initialized from file.
+  /// Context type is dynamically determined by content of file.
+  /// @param[in] fileName file to read from
+  static HeContext* loadHeContextFromFile(const std::string& fileName);
+
+  /// Returns a pointer to a context initialized from stream.
+  /// Context type is dynamically determined by content of stream.
+  /// @param[in] in stream to read from
+  static HeContext* loadHeContext(std::istream& in);
+
+  /// Registers a context object for the purpose of dynamic loading.
+  /// Don't call this directly. Use REGISTER_CONTEXT (see above)
+  static bool internalRegisterContext(const HeContext* context);
+
+  /// Returns an uninitialized context of the same type. Used for dynamic
+  /// type loading among others.
+  virtual HeContext* clone() const;
 };
 }
 

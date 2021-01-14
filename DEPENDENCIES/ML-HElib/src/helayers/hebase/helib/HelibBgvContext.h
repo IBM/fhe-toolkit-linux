@@ -54,8 +54,19 @@ public:
                     unsigned long m,
                     unsigned long r,
                     unsigned long L);
-
+  /// Initializes context with given configuration
+  /// @param[in] conf user configuration
   void init(const HelibConfig& conf);
+
+  /// Initializes context with given context and keys
+  /// @param[in] conf user configuration
+  /// @param[in] userContext user context
+  /// @param[in] userSecretKey user secret key
+  /// @param[in] userPublicKey user public key
+  void init(const HelibConfig& conf,
+            helib::Context* userContext,
+            helib::SecKey* userSecretKey,
+            helib::PubKey* userPublicKey);
 
   /// Returns a pointer to HelibBgvCiphertext, initialized with this
   /// HelibBgvContext.

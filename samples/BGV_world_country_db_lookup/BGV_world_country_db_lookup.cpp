@@ -39,14 +39,16 @@
 #include <fstream>
 #include <helib/ArgMap.h>
 #include <NTL/BasicThreadPool.h>
-#include <cassert>
 
 using namespace helayers;
 using namespace std;
 
 // Forward declarations. These functions are explained later.
 vector<pair<string, string>> read_csv(string filename, int maxLen);
-void run(HeContext& he, const string& db_filename, bool debug);
+void run(HeContext& he,
+         const string& db_filename,
+         const std::string& countryName,
+         bool debug);
 bool isPowerOf2(int v);
 vector<int> stringToAscii(const string& val);
 
@@ -74,6 +76,8 @@ int main(int argc, char* argv[])
   // debug output (default no debug output)
   bool debug = false;
 
+  string countryName = "";
+
   helib::ArgMap amap;
   amap.arg("m", m, "Cyclotomic polynomial ring");
   amap.arg("p", p, "Plaintext prime modulus");
@@ -83,6 +87,7 @@ int main(int argc, char* argv[])
   amap.arg("nthreads", nthreads, "Size of NTL thread pool");
   amap.arg(
       "db_filename", db_filename, "Qualified name for the database filename");
+  amap.arg("country", countryName, "Country to search for");
   amap.toggle().arg("-debug", debug, "Toggle debug output", "");
   amap.parse(argc, argv);
 
@@ -125,12 +130,15 @@ int main(int argc, char* argv[])
 
   // Helib-BGV is now ready to start doing some HE work.
   // which we'll do in the follwing function, defined below
-  run(he, db_filename, debug);
+  run(he, db_filename, countryName, debug);
 
   return 0;
 }
 
-void run(HeContext& he, const string& db_filename, bool debug)
+void run(HeContext& he,
+         const string& db_filename,
+         const std::string& countryName,
+         bool debug)
 {
 
   // The run function receives an abstract HeContext class.
@@ -145,10 +153,10 @@ void run(HeContext& he, const string& db_filename, bool debug)
   // assert exists:
   // We require the plaintext to be over modular arithmetic.
   // We'll rely on that later.
-  assert(he.getTraits().getIsModularArithmetic());
+  always_assert(he.getTraits().getIsModularArithmetic());
   // Since we store ascii codes, we need it at least to be able
   // to handle the numbers 0...127
-  assert(he.getTraits().getArithmeticModulus() >= 127);
+  always_assert(he.getTraits().getArithmeticModulus() >= 127);
 
   // Next, print the security level
   // Note: This will be negligible to improve performance time.
@@ -203,9 +211,11 @@ void run(HeContext& he, const string& db_filename, bool debug)
 
   // Read in query from the command line
   string query_string;
-  cout << "\nPlease enter the name of a Country: ";
-
-  getline(cin, query_string);
+  if (countryName == "") {
+    cout << "\nPlease enter the name of a Country: ";
+    getline(cin, query_string);
+  } else
+    query_string = countryName;
 
   cout << "Looking for the Capital of " << query_string << endl;
   cout << "This may take a few minutes ... " << endl;

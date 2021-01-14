@@ -22,8 +22,6 @@
 * SOFTWARE.
 */
 
-#include <cassert>
-
 #include "helayers/hebase/helib/HelibCkksContext.h"
 #include "helayers/hebase/hebase.h"
 

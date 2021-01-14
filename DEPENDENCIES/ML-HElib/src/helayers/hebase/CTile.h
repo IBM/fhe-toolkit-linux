@@ -88,7 +88,13 @@ public:
 
   ///  Conjugates contents of this CTile in place, elementwise.
   ///  For non-complex numbers this has no effect.
+  ///  Depending on scheme, this may perform some additional
+  ///  light-weight tasks allowing for a smooth sequence of operations. Use
+  ///  conjugateRaw() to get the scheme's raw addition operation.
   void conjugate();
+
+  /// See conjugate().
+  void conjugateRaw();
 
   ///  Rotate left.
   ///  For an offset of n, the element at slots 10 will move to slot 10-n.

@@ -48,6 +48,11 @@ public:
   virtual std::shared_ptr<AbstractCiphertext> getFlippedMSB(
       const AbstractCiphertext& c) const = 0;
 
+  virtual std::shared_ptr<AbstractCiphertext> hamming(
+      const AbstractCiphertext& c,
+      int from = 0,
+      int to = -1) const = 0;
+
   // Updates "c" to treat its stored binary value as a value in 2s complement
   // representation. Note that calling this function might change the value of
   // c.

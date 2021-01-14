@@ -49,6 +49,9 @@ class JsonWrapper
 public:
   ~JsonWrapper();
 
+  /// Initializes an empty object
+  void init();
+
   /// Loads json data from given char buffer
   ///  @param[in] inBuf buffer to read from
   ///  @param[in] len length of buffer
@@ -92,6 +95,24 @@ public:
   /// several keys delimited by .
   /// @param[in] key key name or path delimited by .
   double getDouble(const std::string& key) const;
+
+  /// Sets a string value into a key name, or a path containing several keys
+  /// delimited by .
+  /// @param[in] key key name or path delimited by .
+  /// @param[in] value the string value to put under the given key
+  void setString(const std::string& key, const std::string& value);
+
+  /// Sets an integer value into a key name, or a path containing several keys
+  /// delimited by .
+  /// @param[in] key key name or path delimited by .
+  /// @param[in] value the integer value to put under the given key
+  void setInt(const std::string& key, int value);
+
+  /// Sets a double value into a key name, or a path containing several keys
+  /// delimited by .
+  /// @param[in] key key name or path delimited by .
+  /// @param[in] value the double value to put under the given key
+  void setDouble(const std::string& key, double value);
 
   /// Returns a string containing this json data
   std::string toString() const;

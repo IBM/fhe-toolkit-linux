@@ -23,8 +23,7 @@
 */
 
 #include "DoubleMatrix.h"
-//#include "DoubleMatrixArray.h"
-#include <cassert>
+#include "helayers/hebase/hebase.h"
 #include <stdlib.h>
 #include <algorithm>
 #include <iomanip>
@@ -46,7 +45,7 @@ DoubleMatrix::DoubleMatrix() : m(0, 0) {}
 
 DoubleMatrix::DoubleMatrix(int r, int c, double fixedVal) : m(r, c, fixedVal) {}
 
-DoubleMatrix::DoubleMatrix(vector<double> v, int matrixRows)
+DoubleMatrix::DoubleMatrix(const std::vector<double> v, int matrixRows)
 {
   int matrixCols = (v.size() + matrixRows - 1) / matrixRows;
   m.resize(matrixRows, matrixCols);
@@ -112,12 +111,12 @@ DoubleMatrix::DoubleMatrix(ifstream& matrixFile)
   init(inputVals);
 }
 
-DoubleMatrix::DoubleMatrix(const vector<vector<float>>& matrix)
+DoubleMatrix::DoubleMatrix(const std::vector<std::vector<float>>& matrix)
 {
   init(matrix);
 }
 
-DoubleMatrix::DoubleMatrix(const vector<vector<double>>& matrix)
+DoubleMatrix::DoubleMatrix(const std::vector<std::vector<double>>& matrix)
 {
   init(matrix);
 }
@@ -138,6 +137,18 @@ DoubleMatrix::DoubleMatrix(const std::vector<std::vector<double>>& matrix,
 DoubleMatrix::DoubleMatrix(const string& h5File, const string& path)
 {
   load(h5File, path);
+}
+
+DoubleMatrix::DoubleMatrix(const boost::numeric::ublas::tensor<double>& t)
+{
+  if (t.order() != 2)
+    throw runtime_error(
+        "DoubleMatrix can be initialized only from a 2-dimensional tensor");
+  auto shape = t.extents();
+  m.resize(t.size(0), t.size(1), false);
+  for (size_t i = 0; i < t.size(0); ++i)
+    for (size_t j = 0; j < t.size(1); ++j)
+      m(i, j) = t.at(i, j);
 }
 
 void DoubleMatrix::load(const string& h5File, const string& path)
@@ -161,7 +172,7 @@ void DoubleMatrix::load(const string& h5File, const string& path)
   transpose();
 }
 
-vector<vector<double>> DoubleMatrix::getVals() const
+std::vector<std::vector<double>> DoubleMatrix::getVals() const
 {
   vector<vector<double>> res(rows());
   for (int i = 0; i < rows(); ++i) {
@@ -173,10 +184,22 @@ vector<vector<double>> DoubleMatrix::getVals() const
   return res;
 }
 
+boost::numeric::ublas::tensor<double> DoubleMatrix::getTensor() const
+{
+  boost::numeric::ublas::tensor<double> res{(long unsigned int)rows(),
+                                            (long unsigned int)cols()};
+  for (int i = 0; i < rows(); ++i) {
+    for (int j = 0; j < cols(); ++j) {
+      res.at(i, j) = m(i, j);
+    }
+  }
+  return res;
+}
+
 void DoubleMatrix::elementMultiply(const DoubleMatrix& other)
 {
-  assert(rows() == other.rows());
-  assert(cols() == other.cols());
+  always_assert(rows() == other.rows());
+  always_assert(cols() == other.cols());
   m = boost::numeric::ublas::element_prod(m, other.m);
 }
 
@@ -370,7 +393,7 @@ void DoubleMatrix::multiply(const DoubleMatrix& other)
   *this = getMultiply(other);
 }
 
-void DoubleMatrix::appendRow(const vector<double>& vec)
+void DoubleMatrix::appendRow(const std::vector<double>& vec)
 {
   if ((vec.size() != cols()) && (rows() != 0)) {
     throw invalid_argument("mismatching dims");
@@ -410,7 +433,7 @@ void DoubleMatrix::appendRows(const DoubleMatrix& other)
   }
 }
 
-void DoubleMatrix::init(vector<vector<float>> matrix)
+void DoubleMatrix::init(std::vector<std::vector<float>> matrix)
 {
   m.resize(matrix.size(), matrix[0].size(), false);
   for (size_t i = 0; i < m.size1(); ++i) {
@@ -420,7 +443,7 @@ void DoubleMatrix::init(vector<vector<float>> matrix)
   }
 }
 
-void DoubleMatrix::init(vector<vector<double>> matrix)
+void DoubleMatrix::init(std::vector<std::vector<double>> matrix)
 {
   m.resize(matrix.size(), matrix[0].size(), false);
   for (size_t i = 0; i < m.size1(); ++i) {
@@ -493,7 +516,7 @@ streamoff DoubleMatrix::load(istream& stream)
   return streamEndPos - streamStartPos;
 }
 
-void DoubleMatrix::flattenIntoVec(vector<double>& vv) const
+void DoubleMatrix::flattenIntoVec(std::vector<double>& vv) const
 {
   for (int i = 0; i < rows(); ++i) {
     for (int j = 0; j < cols(); ++j) {
@@ -502,14 +525,14 @@ void DoubleMatrix::flattenIntoVec(vector<double>& vv) const
   }
 }
 
-vector<double> DoubleMatrix::getFlatten() const
+std::vector<double> DoubleMatrix::getFlatten() const
 {
   vector<double> res;
   flattenIntoVec(res);
   return res;
 }
 
-void DoubleMatrix::unFlatten(const vector<double>& v)
+void DoubleMatrix::unFlatten(const std::vector<double>& v)
 {
   if (v.size() != size()) {
     throw invalid_argument("mismatching dims");
@@ -673,43 +696,6 @@ string DoubleMatrix::niceFormat(double v)
   out << std::fixed << v;
   return out.str();
   // return to_string(v);
-}
-
-DoubleMatrix DoubleMatrix::smartUnFlatten(const vector<double>& vals,
-                                          int innerDup,
-                                          int outerDup,
-                                          int valsPerRow,
-                                          int cols)
-{
-  assert(cols >= valsPerRow * innerDup);
-  int rows = (vals.size() * outerDup + valsPerRow - 1) / valsPerRow;
-  DoubleMatrix res(rows, cols);
-  int row = 0;
-  int col = 0;
-  int valsInRow = 0;
-  for (int odup = 0; odup < outerDup; ++odup) {
-    for (size_t i = 0; i < vals.size(); ++i) {
-      for (int dup = 0; dup < innerDup; ++dup) {
-        res.set(row, col, vals[i]);
-        ++col;
-      }
-      ++valsInRow;
-      if (valsInRow >= valsPerRow) {
-        valsInRow = 0;
-        ++row;
-        col = 0;
-      }
-    }
-  }
-  return res;
-}
-
-DoubleMatrix DoubleMatrix::smartReFlatten(int innerDup,
-                                          int outerDup,
-                                          int valsPerRow,
-                                          int cols)
-{
-  return smartUnFlatten(getFlatten(), innerDup, outerDup, valsPerRow, cols);
 }
 
 void DoubleMatrix::clear() { m.resize(0, 0, false); }

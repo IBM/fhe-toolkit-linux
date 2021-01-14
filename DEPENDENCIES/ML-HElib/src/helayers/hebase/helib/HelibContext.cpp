@@ -63,6 +63,8 @@ void HelibContext::debugPrint(const std::string& title,
 
 void HelibContext::save(std::ostream& out, bool withSecretKey)
 {
+  HeContext::save(out, withSecretKey);
+
   config.save(out);
   out.write((char*)&withSecretKey, sizeof(withSecretKey));
   out.write((char*)&mirrored, sizeof(mirrored));
@@ -72,8 +74,6 @@ void HelibContext::save(std::ostream& out, bool withSecretKey)
     writeSecKeyBinary(out, *secretKey);
   else
     writePubKeyBinary(out, *publicKey);
-
-  HeContext::save(out, withSecretKey);
 }
 
 void HelibContext::saveSecretKey(std::ostream& out)
@@ -95,6 +95,8 @@ void HelibContext::loadSecretKey(std::istream& in)
 
 void HelibContext::load(std::istream& in)
 {
+  HeContext::load(in);
+
   if (context != NULL)
     throw runtime_error("This context is already initialized");
   config.load(in);
@@ -113,8 +115,6 @@ void HelibContext::load(std::istream& in)
     readPubKeyBinary(in, *publicKey);
     secretKey = NULL;
   }
-
-  HeContext::load(in);
 }
 
 void HelibContext::init(const HeConfigRequirement& req)

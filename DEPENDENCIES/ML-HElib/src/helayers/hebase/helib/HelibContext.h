@@ -27,6 +27,8 @@
 
 #include "helayers/hebase/HeContext.h"
 #include "helib/helib.h"
+#include "helib/binaryArith.h"
+#include "helib/intraSlot.h"
 #include "HelibConfig.h"
 
 namespace helayers {

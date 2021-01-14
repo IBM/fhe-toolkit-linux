@@ -62,6 +62,13 @@ bool BitwiseEvaluator::getIsSigned(const CTile& c) const
   return impl->getIsSigned(*c.impl);
 }
 
+CTile BitwiseEvaluator::hamming(const CTile& c, int from, int to) const
+{
+  CTile res(h);
+  res.impl = impl->hamming(*c.impl);
+  return res;
+}
+
 vector<CTile> BitwiseEvaluator::split(const CTile& c) const
 {
   vector<shared_ptr<AbstractCiphertext>> res = impl->split(*c.impl);
