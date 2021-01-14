@@ -51,7 +51,7 @@ test_toolkit()
     LOCAL_DOCKER_IMAGE="local-fhe-toolkit-$LINUX_FLAVOR"
     # Test sample runs as expected
     # Run ML-HElib unit tests and samples tests
-    docker exec local-fhe-toolkit-ubuntu /opt/IBM/FHE-distro/ML-HElib/test_mlhelib.sh
+    docker exec $LOCAL_DOCKER_IMAGE /opt/IBM/FHE-distro/ML-HElib/test_mlhelib.sh
 
     # Shut everything down 
     ./StopToolkit.sh
