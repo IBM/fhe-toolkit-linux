@@ -37,7 +37,7 @@ BUILD_TYPE=$3
 SLACK_HOOK=$4
 
 # Pull latest from the FHE repo, master branch
-git checkout master
+git checkout mlhelib
 # Build the Docker image for Ubuntu
 ./BuildDockerImage.sh ubuntu
 # Shut everything down before we start

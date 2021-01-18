@@ -27,10 +27,10 @@
 # NTL Library 
 NTL_version='11.4.3'
 #HELib Library
-HElib_version='v1.3.0'
-HElib_cmake_lists_version='1.3.0'
+HElib_version='v1.3.1'
+HElib_cmake_lists_version='1.3.1'
 # Boost Library
 Boost_version='1.72.0'
 Boost_filename='1_72_0'
 TEST_VAR_NAME='20.1.8'
-TOOLKIT_VERSION='1'
+TOOLKIT_VERSION='2'
