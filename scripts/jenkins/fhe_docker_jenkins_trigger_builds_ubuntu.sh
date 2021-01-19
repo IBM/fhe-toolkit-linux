@@ -37,22 +37,16 @@ BUILD_TYPE=$3
 SLACK_HOOK=$4
 
 # Pull latest from the FHE repo, master branch
-git checkout master
+git checkout mlhelib
 # Build the Docker image for Ubuntu
 ./BuildDockerImage.sh ubuntu
 # Shut everything down before we start
 ./StopToolkit.sh
 # Run the toolkit container based on the Ubuntu image
 ./RunToolkit.sh -l -s ubuntu
-# Test sample runs as expected
-docker exec local-fhe-toolkit-ubuntu /bin/bash -c " \
-    cd /opt/IBM/FHE-Workspace; \
-    mkdir build; cd build; \
-    cmake ../examples/BGV_country_db_lookup;\
-    make;\
-    cd ..;\
-    chmod 755 examples/BGV_country_db_lookup/runtest.sh;\
-    ./examples/BGV_country_db_lookup/runtest.sh;"
+
+# Run ML-HElib unit tests and samples tests
+docker exec local-fhe-toolkit-ubuntu /opt/IBM/FHE-distro/ML-HElib/test_mlhelib.sh
 
 NOW=$(date +'%m-%d-%Y')
 NIGHTLY_SUFFIX="nightly-${NOW}"

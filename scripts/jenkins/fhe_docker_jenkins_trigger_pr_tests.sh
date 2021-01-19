@@ -50,14 +50,8 @@ test_toolkit()
     ./RunToolkit.sh -l -s $LINUX_FLAVOR
     LOCAL_DOCKER_IMAGE="local-fhe-toolkit-$LINUX_FLAVOR"
     # Test sample runs as expected
-    docker exec $LOCAL_DOCKER_IMAGE /bin/bash -c " \
-       cd /opt/IBM/FHE-Workspace; \
-       mkdir build; cd build; \
-       cmake ../examples/BGV_country_db_lookup;\
-       make;\
-       cd ..;\
-       chmod 755 examples/BGV_country_db_lookup/runtest.sh;\
-       ./examples/BGV_country_db_lookup/runtest.sh;"
+    # Run ML-HElib unit tests and samples tests
+    docker exec $LOCAL_DOCKER_IMAGE /opt/IBM/FHE-distro/ML-HElib/test_mlhelib.sh
 
     # Shut everything down 
     ./StopToolkit.sh

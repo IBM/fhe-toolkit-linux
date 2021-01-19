@@ -1,0 +1,9 @@
+bin/*
+CMakeFiles/*
+googletest*
+lib/*
+output/*
+cmake_install.cmake
+CMakeCache.txt
+Makefile
+helib.log
