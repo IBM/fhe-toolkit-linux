@@ -177,51 +177,97 @@ public:
                                    int strideRows,
                                    int strideCol) const;
 
+  ///@brief Returns the size of third dimension
   inline int size() const { return mats.size(); }
+
+  ///@brief Returns the i'th matrix, or i'th slice along third dimension
+  ///
+  ///@param i Index along third dimension
   inline const DoubleMatrix& getMat(int i) const { return mats[i]; }
+
+  ///@brief Returns the i'th matrix, or i'th slice along third dimension
+  ///
+  ///@param i Index along third dimension
   inline DoubleMatrix& getMat(int i) { return mats[i]; }
+
+  ///@brief Returns number of rows, or size of first dimension
   inline int rows() const { return size() == 0 ? 0 : getMat(0).rows(); }
+
+  ///@brief Returns number of columns, or size of second dimension
   inline int cols() const { return size() == 0 ? 0 : getMat(0).cols(); }
 
-  /** Returns the result of multiplying this with other according to the rule of
-   * matrix
-   * multiplication.
-   *
-   * Both arrays should have the same depth.
-   *
-   * Returns an object res such that
-   * res.getMat(i)=this.getMat(i)*other.getMat(i) */
+  ///@brief Returns the result of multiplying this with other according to the
+  /// rules of
+  /// matrixmultiplication.
+  /// Both arrays should have the same depth.
+  /// Returns an object res such that
+  /// res.getMat(i)=this.getMat(i)*other.getMat(i)
+  ///@param other other object to multiply with
   DoubleMatrixArray getMatrixMultiply(const DoubleMatrixArray& other) const;
 
+  ///@brief Returns a DoubleMatrixArray with every matrix transposed.
   DoubleMatrixArray getTranspose() const;
+
   // returns a slice along the rows/column dims.
   // end indices are exclusive
+
+  ///@brief Returns a DoubleMatrixArray with every matrix sliced.
+  ///
+  /// @param row1 First row index
+  /// @param col1 First column index
+  /// @param row2 Last row index (exclusive)
+  /// @param col2 Last column index (exclusive)
   DoubleMatrixArray getSubMatrix(int row1, int col1, int row2, int col2) const;
 
-  // returns a submatrix of a single element (with depth);
+  ///@brief Returns a DoubleMatrixArray with a (1x1) slice of every matrix.
+  ///
+  /// @param row Row index
+  /// @param col Column index
   DoubleMatrixArray getSubMatrix(int row, int col) const;
 
-  /** Returns the submatrix of the specified column */
+  ///@brief Returns a DoubleMatrixArray with a column slice of every matrix.
+  ///@param col Column index
   DoubleMatrixArray getColumn(int col) const;
 
-  // reduces the rows to a single row by calculating the mean of each column
+  ///@brief Returns a DoubleMatrixArray with the rows reduced to a single row by
+  /// calculating the mean of each column
   DoubleMatrixArray getMeanAlongRows() const;
-  // reduces the columns to a single column by calculating the mean of each row
+
+  ///@brief Returns a DoubleMatrixArray with the columns reduced to a single
+  /// column by calculating the mean of each row
   DoubleMatrixArray getMeanAlongCols() const;
-  // reduces the matrices to a single matrix containing the mean of all matrices
+
+  ///@brief Returns a DoubleMatrixArray reduced to a single matrix containing
+  /// the mean of all matrices
   DoubleMatrixArray getMeanInDepth() const;
-  // reduces the rows to a single row by calculating the sum of each column
+
+  ///@brief Returns a DoubleMatrixArray with the rows reduced to a single row by
+  /// calculating the sum of each column
   DoubleMatrixArray getSumAlongRows() const;
-  // reduces the cols to a single col by calculating the sum of each row
+
+  ///@brief Returns a DoubleMatrixArray with the cols reduced to a single col by
+  /// calculating the sum of each row
   DoubleMatrixArray getSumAlongCols() const;
-  // reduces the matrices to a signle matrix containing the sum of all matrices
+
+  ///@brief Returns a DoubleMatrixArray reduced to a single matrix containing
+  /// the sum of all matrices
   DoubleMatrixArray getSumInDepth() const;
 
+  ///@brief Returns a DoubleMatrixArray resulting from multiplying this object
+  /// with a scalar.
+  ///@param scalar Scalar to multiyply with
   DoubleMatrixArray getMultiplyByScalar(double scalar) const;
 
+  ///@brief Appends all elements to given vector.
+  /// Dimension order: Cols, Rows, Depth (cols runs first)
+  ///
+  ///@param vec  Output vector
   void flattenIntoVec(std::vector<double>& vec) const;
 
+  ///@brief Transposes each matrix in this double matrix array
   void transpose();
+
+  ///@brief Elementwise square all elements
   void square();
 
   void add(const DoubleMatrixArray& other);
