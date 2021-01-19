@@ -7,8 +7,18 @@ Privacy preserving search is a common scenario to demonstrate the benefits of ho
 
 With respect to realism of data, the dataset takes into account all countries. In a real use case, this could be information on customers or financial records for example. This is an educational example so a small dataset was needed to ensure timely responses and that it was relevant for all users.
 
+## Build
+Change directory to the example's home directory, then execute:
+
+    cmake .
+    make
+
 ## Run and Validate
-Depending on the toolkit you are using, select or type in a Country name. For example Sweden, Germany, Czech Republic. For countries in the United Kingdom, use one of: England, Scotland, Wales and Northern Ireland.
+Run the country capital lookup over the encrypted dataset:
+
+    ./BGV_world_country_db_lookup
+
+Type in a Country name. For example Sweden, Germany, Czech Republic. For countries in the United Kingdom, use one of: England, Scotland, Wales and Northern Ireland.
 
 Please note: there is no fuzzy matching, the spelling of the country name has to be exact.
 

@@ -28,6 +28,7 @@
 #include "HelibCkksPlaintext.h"
 #include "HelibCkksEncoder.h"
 #include "helayers/hebase/HelayersTimer.h"
+#include "helayers/hebase/AlwaysAssert.h"
 
 using namespace helib;
 using namespace std;
@@ -77,6 +78,7 @@ void HelibCkksContext::init(const HelibConfig& conf)
   HELAYERS_TIMER_SECTION("context-init");
   if (context != NULL)
     throw runtime_error("This context is already initialized");
+  always_assert(conf.p == -1, "p must be set to -1 in CKKS");
 
   config = conf;
   unsigned long p = -1;
@@ -86,7 +88,6 @@ void HelibCkksContext::init(const HelibConfig& conf)
   secretKey = new helib::SecKey(*context);
   secretKey->GenSecKey();
   addSome1DMatrices(*secretKey);
-  enableConjugate = conf.enableConjugate;
   if (conf.enableConjugate) {
     addFrbMatrices(*secretKey);
   }
@@ -102,6 +103,8 @@ void HelibCkksContext::init(const HelibConfig& conf,
 {
   if (context != NULL)
     throw runtime_error("This context is already initialized");
+  always_assert(conf.p == -1, "p must be set to -1 in CKKS");
+
   context = userContext;
   secretKey = userSecretKey;
   publicKey = userPublicKey;

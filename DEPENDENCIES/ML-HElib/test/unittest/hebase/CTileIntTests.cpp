@@ -199,7 +199,7 @@ TEST(CTileIntTest, totalProduct)
   enc.encodeEncrypt(c3, std::vector<double>{3});
 
   std::vector<CTile> cipherVals{c1, c2, c3};
-  std::vector<double> expectedVal = {6}; 
+  std::vector<double> expectedVal = {6};
   eval.totalProduct(result, cipherVals);
   enc.assertEquals(result, "totalProduct", expectedVal, TestUtils::getEps());
 }
@@ -383,8 +383,8 @@ TEST(CTileIntTest, rotate)
 TEST(CTileIntTest, square)
 {
   HeContext& he = TestUtils::getHighNumSlots();
-
-  std::vector<double> v1{1, 2, 3, 4};
+  always_assert(he.slotCount() >= 4);
+  std::vector<double> v1{1, 2, 3};
   CTile c1(he);
   Encoder enc(he);
   enc.encodeEncrypt(c1, v1);
@@ -395,8 +395,7 @@ TEST(CTileIntTest, square)
   EXPECT_NEAR(1, vals[0], TestUtils::getEps());
   EXPECT_NEAR(4, vals[1], TestUtils::getEps());
   EXPECT_NEAR(9, vals[2], TestUtils::getEps());
-  EXPECT_NEAR(16, vals[3], TestUtils::getEps());
-  EXPECT_NEAR(0, vals[4], TestUtils::getEps());
+  EXPECT_NEAR(0, vals[3], TestUtils::getEps());
 }
 
 TEST(CTileIntTest, encrypt)
@@ -456,7 +455,8 @@ TEST(CTileIntTest, innerSum)
 TEST(CTileIntTest, sumExpBySquaringRightToLeft)
 {
   HeContext& he = TestUtils::getHighNumSlots();
-
+  // This test works for either 4 or larger than 8 slot counts
+  always_assert(he.slotCount() == 4 || he.slotCount() >= 8);
   std::vector<double> v{1, 2, 3, 4};
   CTile c(he);
 
@@ -478,7 +478,8 @@ TEST(CTileIntTest, sumExpBySquaringRightToLeft)
   EXPECT_FLOAT_EQ(expectedSum1, vals1[1]);
   EXPECT_FLOAT_EQ(expectedSum2, vals1[2]);
   EXPECT_FLOAT_EQ(expectedSum3, vals1[3]);
-  EXPECT_NEAR(0, vals1[4], TestUtils::getEps());
+  if (he.slotCount() >= 8)
+    EXPECT_NEAR(0, vals1[4], TestUtils::getEps());
 
   c1 = c;
   c1.sumExpBySquaringRightToLeft(3);
@@ -502,6 +503,8 @@ TEST(CTileIntTest, sumExpBySquaringRightToLeft)
 TEST(CTileIntTest, sumExpBySquaringLeftToRight)
 {
   HeContext& he = TestUtils::getHighNumSlots();
+  // This test works for either 4 or larger than 8 slot counts
+  always_assert(he.slotCount() == 4 || he.slotCount() >= 8);
   std::vector<double> v{1, 2, 3, 4};
   CTile c(he);
 
@@ -523,7 +526,8 @@ TEST(CTileIntTest, sumExpBySquaringLeftToRight)
   EXPECT_FLOAT_EQ(expectedSum1, vals1[1]);
   EXPECT_FLOAT_EQ(expectedSum2, vals1[2]);
   EXPECT_FLOAT_EQ(expectedSum3, vals1[3]);
-  EXPECT_NEAR(0, vals1[4], TestUtils::getEps());
+  if (he.slotCount() >= 8)
+    EXPECT_NEAR(0, vals1[4], TestUtils::getEps());
 
   c1 = c;
   c1.sumExpBySquaringLeftToRight(3);

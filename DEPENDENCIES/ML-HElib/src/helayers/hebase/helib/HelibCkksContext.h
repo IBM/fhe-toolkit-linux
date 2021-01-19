@@ -42,7 +42,6 @@ class HelibCkksContext : public HelibContext
 
 private:
   const helib::EncryptedArrayCx* ea = NULL;
-  bool enableConjugate = true;
 
 protected:
   /// A helper function for init() method
@@ -87,7 +86,7 @@ public:
   /// Returns encrypted array object
   inline const helib::EncryptedArrayCx& getEncryptedArray() { return *ea; }
 
-  bool getEnableConjugate() const { return enableConjugate; }
+  bool getEnableConjugate() const { return config.enableConjugate; }
 
   /// Loads from binary stream
   void load(std::istream& out) override;

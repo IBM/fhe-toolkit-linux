@@ -65,12 +65,18 @@ struct HelibConfig
   ///   Number of columns of Key-Switching matix (default = 2 or 3)
   unsigned long c = 2;
 
+  /// Whether conjugate operation will be enabled in HelibCKKS.
   bool enableConjugate = false;
 
   ///@brief Initializes configuration based on preset.
   void initPreset(HelibPreset preset);
 
+  ///@brief Loads this HelibConfig from a binary stream.
+  ///@param in The stream to load from.
   void load(std::istream& in);
+
+  ///@brief Saves this HelibConfig to a binary stream.
+  ///@param out The stream to save to.
   void save(std::ostream& out) const;
 };
 
