@@ -98,7 +98,7 @@ void Client::encryptAndSaveSamples(int batch,
 
   cout << "CLIENT: encrypting plain samples . . ." << endl;
   HELAYERS_TIMER_PUSH("data-encrypt");
-  const DoubleMatrixArray plainSamples = ts->getSamples(batch);
+  const DoubleMatrixArray& plainSamples = ts->getSamples(batch);
   CipherMatrix encryptedSamples(*he);
   encoder.encodeEncrypt(encryptedSamples, plainSamples.getTensor());
   HELAYERS_TIMER_POP();
@@ -141,8 +141,8 @@ void Client::assessResults()
   // go over each batch and count hits
   for (int i = 0; i < currentBatch; ++i) {
 
-    const DoubleMatrixArray labels = ts->getLabels(i);
-    const DoubleMatrixArray predictions = allPredictions.at(i);
+    const DoubleMatrixArray& labels = ts->getLabels(i);
+    const DoubleMatrixArray& predictions = allPredictions.at(i);
 
     size_t samplesToCheck = labels.size();
     if (i == numBatches - 1) // last batch may partially be populated with

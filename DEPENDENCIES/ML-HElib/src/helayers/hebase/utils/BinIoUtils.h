@@ -35,14 +35,49 @@ class BinIoUtils
 {
 
 public:
-  /// Writes a string to a binary stream
-  /// @param[in] out Stream out write to
-  /// @param[in] str The string to write
+  ///@brief Writes a string to a binary stream
+  ///
+  ///@param out Stream to write to
+  ///@param str The string to write
   static void writeString(std::ostream& out, const std::string& str);
 
-  /// Returns a string read from a binary stream
-  /// @param[in] in Stream out read from
+  ///@brief Writes a double to a binary stream
+  ///
+  ///@param out Stream to write to
+  ///@param val The double to write
+  static void writeDouble(std::ostream& out, double val);
+
+  ///@brief Writes an int to a binary stream
+  ///
+  ///@param out Stream to write to
+  ///@param val The int to write
+  static void writeInt(std::ostream& out, int val);
+
+  ///@brief Writes a size_t to a binary stream
+  ///
+  ///@param out Stream to write to
+  ///@param val The size_t to write
+  static void writeSizeT(std::ostream& out, size_t val);
+
+  ///@brief Returns a string read from a binary stream
+  ///
+  ///@param in Stream to read from
   static std::string readString(std::istream& in);
+
+  ///@brief Returns a double read from a binary stream
+  ///
+  ///@param in Stream to read from
+  static double readDouble(std::istream& in);
+
+  ///@brief Returns an int read from a binary stream
+  ///
+  ///@param in Stream to read from
+  static int readInt(std::istream& in);
+
+  ///@brief Returns a size_t read from a binary stream
+  ///
+  ///@param in Stream to read from
+  static size_t readSizeT(std::istream& in);
 };
 }
 

@@ -42,8 +42,8 @@ streamoff CipherMatrix::save(ostream& stream) const
   size_t numRows = tiles.size(0);
   size_t numCols = tiles.size(1);
 
-  stream.write(reinterpret_cast<const char*>(&numRows), sizeof(int));
-  stream.write(reinterpret_cast<const char*>(&numCols), sizeof(int));
+  stream.write(reinterpret_cast<const char*>(&numRows), sizeof(size_t));
+  stream.write(reinterpret_cast<const char*>(&numCols), sizeof(size_t));
   stream.write(reinterpret_cast<const char*>(&numFilledSlots), sizeof(int));
 
   for (size_t i = 0; i < numRows; i++) {
@@ -61,10 +61,10 @@ streamoff CipherMatrix::load(istream& stream)
 
   streampos streamStartPos = stream.tellg();
 
-  int numRows, numCols;
+  size_t numRows, numCols;
 
-  stream.read(reinterpret_cast<char*>(&numRows), sizeof(int));
-  stream.read(reinterpret_cast<char*>(&numCols), sizeof(int));
+  stream.read(reinterpret_cast<char*>(&numRows), sizeof(size_t));
+  stream.read(reinterpret_cast<char*>(&numCols), sizeof(size_t));
   stream.read(reinterpret_cast<char*>(&numFilledSlots), sizeof(int));
 
   basic_extents<size_t> extents(std::vector<size_t>{

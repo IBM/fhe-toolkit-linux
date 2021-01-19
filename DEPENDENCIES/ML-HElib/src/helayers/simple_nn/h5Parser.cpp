@@ -196,7 +196,7 @@ std::vector<double> H5Parser::parseBias(string path) const
   for (int i = 0; i < elmnts; i++)
     out.push_back(data[i]);
 
-  delete data;
+  delete[] data;
   dataspace.close();
   datatype.close();
   dataset.close();
@@ -246,7 +246,7 @@ std::vector<std::vector<double>> H5Parser::parseFC(string path) const
       v[i][j] = md[i][j];
 
   delete[] md;
-  delete data;
+  delete[] data;
   dataspace.close();
   datatype.close();
   dataset.close();
@@ -307,7 +307,7 @@ std::vector<std::vector<std::vector<double>>> H5Parser::parseFilters(
         filters[d][i][j] = data[indx++];
       }
 
-  delete data;
+  delete[] data;
   dataspace.close();
   datatype.close();
   dataset.close();

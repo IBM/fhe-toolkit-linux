@@ -31,11 +31,11 @@
 
 namespace helayers {
 
-struct BatchPlain
+struct SimpleBatchPlain
 {
   DoubleMatrixArray samples;
   DoubleMatrixArray labels;
-  BatchPlain() {}
+  SimpleBatchPlain() {}
 };
 
 /** A class for holding data for inference.
@@ -57,7 +57,7 @@ class TrainingSetPlain
   int numLabels;
   int numClasses;
   int numSamples;
-  std::vector<BatchPlain> batches;
+  std::vector<SimpleBatchPlain> batches;
 
   void loadSamples(const std::string& sampleFile,
                    const std::string& sampleWeights);

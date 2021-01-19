@@ -36,6 +36,21 @@ void BinIoUtils::writeString(std::ostream& out, const std::string& str)
   out.write(str.c_str(), sizeof(char) * sz);
 }
 
+void BinIoUtils::writeDouble(std::ostream& out, double val)
+{
+  out.write(reinterpret_cast<const char*>(&val), sizeof(double));
+}
+
+void BinIoUtils::writeInt(std::ostream& out, int val)
+{
+  out.write(reinterpret_cast<const char*>(&val), sizeof(int));
+}
+
+void BinIoUtils::writeSizeT(std::ostream& out, size_t val)
+{
+  out.write(reinterpret_cast<const char*>(&val), sizeof(size_t));
+}
+
 std::string BinIoUtils::readString(std::istream& in)
 {
   int sz;
@@ -43,5 +58,26 @@ std::string BinIoUtils::readString(std::istream& in)
   char buff[sz];
   in.read(buff, sizeof(char) * sz);
   return string(buff);
+}
+
+double BinIoUtils::readDouble(std::istream& in)
+{
+  double val;
+  in.read(reinterpret_cast<char*>(&val), sizeof(double));
+  return val;
+}
+
+int BinIoUtils::readInt(std::istream& in)
+{
+  int val;
+  in.read(reinterpret_cast<char*>(&val), sizeof(int));
+  return val;
+}
+
+size_t BinIoUtils::readSizeT(std::istream& in)
+{
+  size_t val;
+  in.read(reinterpret_cast<char*>(&val), sizeof(size_t));
+  return val;
 }
 }

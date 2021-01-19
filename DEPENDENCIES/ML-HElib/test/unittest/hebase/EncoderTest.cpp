@@ -35,224 +35,25 @@ using namespace helayers;
 
 namespace helayerstest {
 
-static void decode(vector<double>& d, const Encoder& enc, const PTile& p)
+static void verifyDecode(const PTile& p,
+                         vector<complex<double>> expected,
+                         const Encoder& enc)
 {
-  d = enc.decodeDouble(p);
-}
+  vector<complex<double>> complexRes = enc.decodeComplex(p);
+  vector<double> doubleRes = enc.decodeDouble(p);
+  vector<int> intRes = enc.decodeInt(p);
+  vector<long> longRes = enc.decodeLong(p);
 
-static void decode(vector<int>& d, const Encoder& enc, const PTile& p)
-{
-  d = enc.decodeInt(p);
-}
-
-static void decode(vector<long>& d, const Encoder& enc, const PTile& p)
-{
-  d = enc.decodeLong(p);
-}
-
-static void decryptDecode(vector<double>& d, const Encoder& enc, const CTile& c)
-{
-  d = enc.decryptDecodeDouble(c);
-}
-
-static void decryptDecode(vector<int>& d, const Encoder& enc, const CTile& c)
-{
-  d = enc.decryptDecodeInt(c);
-}
-
-static void decryptDecode(vector<long>& d, const Encoder& enc, const CTile& c)
-{
-  d = enc.decryptDecodeLong(c);
-}
-
-template <typename T>
-static void encodeValsTest(vector<T>& v1,
-                           vector<double>& v2,
-                           vector<T>& expectedVals,
-                           bool floatComparison)
-{
-  HeContext& he = TestUtils::getHighNumSlots();
-  Encoder enc(he);
-  CTile c1(he);
-  enc.encodeEncrypt(c1, v1);
-
-  PTile p(he);
-
-  high_resolution_clock::time_point t1 = high_resolution_clock::now();
-  enc.encode(p, v2);
-  high_resolution_clock::time_point t2 = high_resolution_clock::now();
-  c1.multiplyPlain(p);
-  high_resolution_clock::time_point t3 = high_resolution_clock::now();
-
-  cout << "encode: " << duration_cast<microseconds>(t2 - t1).count() << endl;
-  cout << "multiplyPlain: " << duration_cast<microseconds>(t3 - t2).count()
-       << endl;
-
-  std::vector<double> vals;
-  std::vector<T> vals2;
-  decode(vals, enc, p);
-  decryptDecode(vals2, enc, c1);
-
-  for (size_t i = 0; i < v1.size(); i++) {
-    EXPECT_NEAR(v2[i], vals[i], TestUtils::getEps());
-  }
-
-  for (size_t i = 0; i < v2.size(); i++) {
-
-    if (fabs(expectedVals[i] - vals2[i]) > 1e-4) {
-      cout << "i = " << i << endl;
-      cout << "v1[i] = " << v1[i];
-      cout << ", v2[i] = " << v2[i] << endl;
-    }
-    if (floatComparison) {
-      EXPECT_NEAR(expectedVals[i], vals2[i], TestUtils::getEps());
-    } else {
-      EXPECT_EQ(expectedVals[i], vals2[i]);
-    }
+  for (size_t i = 0; i < expected.size(); i++) {
+    EXPECT_NEAR(complexRes[i].real(), expected[i].real(), TestUtils::getEps());
+    EXPECT_NEAR(complexRes[i].imag(), expected[i].imag(), TestUtils::getEps());
+    EXPECT_NEAR(doubleRes[i], expected[i].real(), TestUtils::getEps());
+    EXPECT_EQ(intRes[i], lround(complexRes[i].real()));
+    EXPECT_EQ(longRes[i], lround(complexRes[i].real()));
   }
 }
 
-template <typename T>
-static void encodeValTest(vector<double>& v1,
-                          T v2,
-                          vector<T>& expectedVals,
-                          bool floatComparison)
-{
-  HeContext& he = TestUtils::getHighNumSlots();
-  Encoder enc(he);
-  CTile c1(he);
-  enc.encodeEncrypt(c1, v1);
-
-  PTile p(he);
-
-  high_resolution_clock::time_point t1 = high_resolution_clock::now();
-  enc.encode(p, v2);
-  high_resolution_clock::time_point t2 = high_resolution_clock::now();
-  c1.multiplyPlain(p);
-  high_resolution_clock::time_point t3 = high_resolution_clock::now();
-
-  cout << "encode: " << duration_cast<microseconds>(t2 - t1).count() << endl;
-  cout << "multiplyPlain: " << duration_cast<microseconds>(t3 - t2).count()
-       << endl;
-
-  std::vector<T> vals, vals2;
-  decode(vals, enc, p);
-  decryptDecode(vals2, enc, c1);
-
-  for (size_t i = 0; i < v1.size(); i++) {
-    if (floatComparison) {
-      EXPECT_NEAR(v2, vals[i], TestUtils::getEps());
-    } else {
-      EXPECT_EQ(v2, vals[i]);
-    }
-  }
-
-  for (size_t i = 0; i < expectedVals.size(); i++) {
-    if (floatComparison) {
-      EXPECT_NEAR(expectedVals[i], vals2[i], TestUtils::getEps());
-    } else {
-      EXPECT_EQ(expectedVals[i], vals2[i]);
-    }
-  }
-}
-
-TEST(EncoderTest, encodeAndDecode)
-{
-  HeContext& he = TestUtils::getHighNumSlots();
-  Encoder enc(he);
-
-  std::vector<double> v{2.51, 3.2, -5.3};
-  std::vector<long> vLong{3, 3, -5};
-  std::vector<int> vInt{3, 3, -5};
-
-  PTile p(he);
-  enc.encode(p, v);
-
-  const std::vector<double> valsDouble = enc.decodeDouble(p);
-  const std::vector<int> valsInt = enc.decodeInt(p);
-  const std::vector<long> valsLong = enc.decodeLong(p);
-
-  for (size_t i = 0; i < v.size(); i++) {
-    EXPECT_FLOAT_EQ(v[i], valsDouble[i]);
-    EXPECT_EQ(vLong[i], valsLong[i]);
-    EXPECT_EQ(vInt[i], valsInt[i]);
-  }
-}
-
-TEST(EncoderTest, encodeVals)
-{
-  HeContext& he = TestUtils::getHighNumSlots();
-  Encoder enc(he);
-
-  std::vector<double> v1(he.slotCount()), v2(he.slotCount()),
-      expectedVals(he.slotCount());
-  std::vector<int> v1Int(he.slotCount()), expectedValsInt(he.slotCount());
-  std::vector<long> v1Long(he.slotCount()), expectedValsLong(he.slotCount());
-
-  for (size_t i = 0; i < v1.size(); i++) {
-    v1[i] = (double)(rand() % 1000) / 100;
-    v2[i] = (double)(rand() % 1000) / 100;
-
-    v1Int[i] = (int)v1[i];
-    v1Long[i] = (long)v1[i];
-
-    double tmp = ((double)v1Int[i]) * v2[i];
-
-    // If the value after the decimal point of "tmp" is exactly 0.5, slightly
-    // offset v2
-    // to prevent small noise from causing rounding errors.
-    if (tmp - (int)tmp == 0.5) {
-      v2[i] += 1e-3;
-      tmp = ((double)v1Int[i]) * v2[i];
-    }
-
-    expectedVals[i] = v1[i] * v2[i];
-
-    expectedValsInt[i] = lround(tmp);
-    expectedValsLong[i] = lround(tmp);
-  }
-
-  double originalEps = TestUtils::getEps();
-
-  // A temporary hack - diff is larger than expected on the test below.
-  TestUtils::setEps(originalEps * 10);
-  encodeValsTest<double>(v1, v2, expectedVals, true);
-  TestUtils::setEps(originalEps);
-
-  // encodeValsTest<int>(v1Int, v2, expectedValsInt, false);
-  // encodeValsTest<long>(v1Long, v2, expectedValsLong, false);
-}
-
-TEST(EncoderTest, encodeVal)
-{
-  HeContext& he = TestUtils::getHighNumSlots();
-  vector<double> v1(he.slotCount()), expectedVals(he.slotCount());
-  vector<int> expectedValsInt(he.slotCount());
-  double v2 = (double)(rand() % 1000) / 100;
-  int v2Int = (int)v2;
-
-  for (size_t i = 0; i < v1.size(); i++) {
-    v1[i] = (double)(rand() % 1000) / 100;
-
-    double tmp = v1[i] * v2Int;
-
-    if (tmp - (int)tmp == 0.5) {
-      // If the value after the decimal point of "tmp" is exactly 0.5, slightly
-      // offset v2
-      // to prevent small noise from causing rounding errors.
-      v1[i] += 0.5;
-    }
-
-    expectedVals[i] = v1[i] * v2;
-
-    expectedValsInt[i] = lround(tmp);
-  }
-
-  encodeValTest<double>(v1, v2, expectedVals, true);
-  // encodeValTest<int>(v1, v2Int, expectedValsInt, false);
-}
-
-TEST(EncoderTest, encodeAndDecodeComplex)
+TEST(EncoderTest, encodeComplex)
 {
   HeContext& he = TestUtils::getHighNumSlots();
 
@@ -262,15 +63,67 @@ TEST(EncoderTest, encodeAndDecodeComplex)
 
   Encoder enc(he);
 
-  using namespace std::complex_literals;
-  std::vector<complex<double>> v{2. + 2i, 2. + 2i, 2. + 2i};
+  std::vector<complex<double>> v{2. + 2i, 3.4 + 2.2i, -2.003 + 0.003i};
 
   PTile p(he);
   enc.encode(p, v);
 
-  const std::vector<complex<double>> vals = enc.decodeComplex(p);
-  EXPECT_FLOAT_EQ(2, vals[0].real());
-  EXPECT_FLOAT_EQ(2, vals[0].imag());
+  verifyDecode(p, v, enc);
+}
+
+TEST(EncoderTest, encodeDoubles)
+{
+  HeContext& he = TestUtils::getHighNumSlots();
+  Encoder enc(he);
+
+  std::vector<double> v{2.51, 3.2, -5.3};
+
+  std::vector<complex<double>> vComplex{v[0], v[1], v[2]};
+
+  PTile p(he);
+  enc.encode(p, v);
+
+  verifyDecode(p, vComplex, enc);
+}
+
+TEST(EncoderTest, encodeIntegers)
+{
+  HeContext& he = TestUtils::getHighNumSlots();
+  Encoder enc(he);
+
+  vector<int> vInt{2, 3, -5};
+  vector<long> vLong{2, 3, -5};
+  std::vector<complex<double>> vComplex(3);
+  for (size_t i = 0; i < vComplex.size(); i++) {
+    vComplex[i] = static_cast<complex<double>>(vInt[i]);
+  }
+
+  PTile pInt(he), pLong(he);
+  enc.encode(pInt, vInt);
+  enc.encode(pLong, vLong);
+
+  verifyDecode(pInt, vComplex, enc);
+  verifyDecode(pLong, vComplex, enc);
+}
+
+TEST(EncodeTest, encodeSingleVal)
+{
+  HeContext& he = TestUtils::getHighNumSlots();
+  Encoder enc(he);
+
+  double valDouble = -5.4;
+  int valInt = -5;
+
+  vector<complex<double>> expected1(he.slotCount(), valDouble);
+  vector<complex<double>> expected2(he.slotCount(), valInt);
+
+  PTile pDouble(he), pInt(he);
+
+  enc.encode(pDouble, valDouble);
+  enc.encode(pInt, valInt);
+
+  verifyDecode(pDouble, expected1, enc);
+  verifyDecode(pInt, expected2, enc);
 }
 
 TEST(EncoderTest, encryptAndDecryptDouble)
