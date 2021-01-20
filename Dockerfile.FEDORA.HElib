@@ -63,9 +63,9 @@ RUN ./bootstrap.sh --with-libraries=filesystem,system,thread && \
 WORKDIR /opt/IBM/FHE-distro/HElib/documentation
 RUN doxygen Doxyfile
 
-# Build and install simple_ml_helib as system library in /usr/local
-COPY ./DEPENDENCIES/simple_ml_helib    /opt/IBM/FHE-distro/simple_ml_helib
-WORKDIR /opt/IBM/FHE-distro/simple_ml_helib
+# Build and install ML-HElib as system library in /usr/local
+COPY ./DEPENDENCIES/ML-HElib    /opt/IBM/FHE-distro/ML-HElib
+WORKDIR /opt/IBM/FHE-distro/ML-HElib
 RUN /bin/bash ./install_system_wide.sh && \
     ldconfig
 
