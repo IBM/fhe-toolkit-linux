@@ -75,6 +75,7 @@ RUN  mkdir ./build && \
     make install && \
     ldconfig
 
+#Generate the docs of HElib from their source
 WORKDIR /opt/IBM/FHE-distro/HElib/documentation
 RUN doxygen Doxyfile
 

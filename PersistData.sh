@@ -66,7 +66,7 @@ ${bold}Usage: $scriptname [options] CONTAINER_IMG${normal}
 ${bold}CONTAINER_IMG${normal}     Selects the name of toolkit container image to persist data from.
                   This should be the IBMCOM pre-built toolkit from Docker Hub 
                   or the locally built toolkit tagged container name. This script
-                  exects this container image name to exist in the local docker image catalog.
+                  expects this container image name to exist in the local docker image catalog.
                   Supported container OS are:
                   x86_64/amd64: {ubuntu, fedora, centos, alpine}
                   s390x:        {ubuntu}

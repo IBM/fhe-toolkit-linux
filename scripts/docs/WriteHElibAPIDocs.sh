@@ -23,12 +23,9 @@
 # SOFTWARE.
 
 
-# The purpose of this script is to setup a persistent location where FHE toolkit
-# source code and IDe configuration can persist across container instantiations.
-# It is not needed if sandbox mode is used (i.e., when no persistence is desired)
-# 
-# Most users will want to persist their source code changes, and this script sets
-# up a location within the host file system to persist some state.
+# The purpose of this script is to create documentation local on the host where FHE toolkit
+# source code and IDe configuration can stored for quick reference.
+
 
 # Initialize the container image name and id as empty for further consistency checks
 ToolkitImageName=""
@@ -42,8 +39,58 @@ normal=$(tput sgr0)
 BASEDIR="$PWD"/$(dirname $0)
 SCRIPTNAME=$(basename $0)
 
+print_usage(){
+  cat <<EOF
+
+${bold}Usage: $scriptname [options] CONTAINER_IMG${normal}
+
+${bold}CONTAINER_IMG${normal}     Selects the name of toolkit container image to render the documentation from.
+                  This should be the IBMCOM pre-built toolkit from Docker Hub 
+                  or the locally built toolkit tagged container name. This script
+                  expects this container image name to exist in the local docker image catalog.
+                  Supported container OS are:
+                  x86_64/amd64: {ubuntu, fedora, centos, alpine}
+                  s390x:        {ubuntu}
+
+${bold}Options:${normal}
+-h                Displays this help information.
+
+${bold}Example:${normal}
+
+To render documentation from a local toolkit build:
+WriteHElibAPIDocs.sh local/fhe-toolkit-ubuntu
+
+To render documentation from a fetched toolkit build:
+WriteHElibAPIDocs.sh ibmcom/fhe-toolkit-fedora
+
+
+EOF
+}
+
 #move up two directories so we get back to the root directory
 pushd ../../
+
+# The number of parameters passed to this script
+NPARAM=$#
+
+while getopts ":h" opt; do
+  case ${opt} in
+    h ) # Usage
+      print_usage
+      exit 0
+      ;;
+    \? ) # Usage
+      print_usage
+      exit 0
+      ;;
+    : ) # Invalid option. Print usage
+      echo "Invalid option: -$OPTARG requires an argument" 1>&2
+      print_usage
+      exit -1
+      ;;
+  esac
+done
+
 # The default location on this host where the project docs will live
 DOCS_BASE_PATH="$PWD"/Documentation/docs
 DOCS_HELIB_PATH="$DOCS_BASE_PATH/helib"
