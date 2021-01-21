@@ -1,0 +1,13 @@
+name: Greetings
+
+on: [pull_request, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: 'Thank you very much for helping us to improve the quality of our software. The FHE Toolkit develiopment team want to sincerely thank you for submitting your first issue and joining our technical community! We will get started on your issue immediately.'
+        pr-message: 'Thank you so much for sending your first pull request! We are actively trying to grow this community and cannot do it without talented contributors like you who care about quality software and the power of homomorphic encryption. Achievement unlocked, you have leveled up!'
