@@ -83,8 +83,15 @@ void HelibCkksContext::init(const HelibConfig& conf)
   config = conf;
   unsigned long p = -1;
 
-  context = new Context(config.m, p, config.r);
-  buildModChain(*context, config.L, config.c);
+  context = ContextBuilder<BGV>()
+                .m(config.m)
+                .p(config.p)
+                .r(config.r)
+                .c(config.c)
+                .bits(config.L)
+                .buildPtr();
+
+  // buildModChain(*context, config.L, config.c);
   secretKey = new helib::SecKey(*context);
   secretKey->GenSecKey();
   addSome1DMatrices(*secretKey);
@@ -114,7 +121,7 @@ void HelibCkksContext::init(const HelibConfig& conf,
 
 void HelibCkksContext::initCommon(helib::Context* context)
 {
-  ea = &context->ea->getCx();
+  ea = &context->getEA().getCx();
   nslots = ea->size();
 }
 
@@ -136,7 +143,7 @@ shared_ptr<AbstractEncoder> HelibCkksContext::getEncoder()
 void HelibCkksContext::load(std::istream& in)
 {
   HelibContext::load(in);
-  ea = &context->ea->getCx();
+  ea = &context->getEA().getCx();
   nslots = ea->size();
 }
 }

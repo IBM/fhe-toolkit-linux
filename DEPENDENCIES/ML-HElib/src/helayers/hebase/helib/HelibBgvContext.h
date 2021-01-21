@@ -42,7 +42,7 @@ class HelibBgvContext : public HelibContext
 {
 
   unsigned long p;
-  std::shared_ptr<const helib::EncryptedArray> ea = NULL;
+  const helib::EncryptedArray* ea = NULL;
 
   // double defaultScale = 100;
 

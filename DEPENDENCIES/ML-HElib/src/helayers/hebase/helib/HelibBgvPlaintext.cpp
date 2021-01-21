@@ -23,6 +23,7 @@
 */
 
 #include "HelibBgvPlaintext.h"
+#include "helayers/hebase/utils/BinIoUtils.h"
 
 using namespace std;
 using namespace helib;
@@ -38,7 +39,7 @@ streamoff HelibBgvPlaintext::save(ostream& stream) const
 {
   streampos streamStartPos = stream.tellp();
 
-  serialize<BGV>(stream, pt);
+  writePtxtToBinary(stream, pt);
 
   streampos streamEndPos = stream.tellp();
 
@@ -49,7 +50,7 @@ streamoff HelibBgvPlaintext::load(istream& stream)
 {
   streampos streamStartPos = stream.tellg();
 
-  deserialize<BGV>(stream, pt);
+  readPtxtFromBinary(stream, pt, heContext.getContext());
 
   streampos streamEndPos = stream.tellg();
 
@@ -70,5 +71,22 @@ const helib::Ptxt<helib::BGV>& HelibBgvPlaintext::getPlaintext() const
 {
 
   return pt;
+}
+
+void HelibBgvPlaintext::writePtxtToBinary(std::ostream& stream,
+                                          const helib::Ptxt<helib::BGV>& pt)
+{
+  stringstream out;
+  pt.writeToJSON(out);
+  BinIoUtils::writeString(stream, out.str());
+}
+
+void HelibBgvPlaintext::readPtxtFromBinary(std::istream& stream,
+                                           helib::Ptxt<helib::BGV>& pt,
+                                           const helib::Context& context)
+{
+  string data = BinIoUtils::readString(stream);
+  stringstream in(data);
+  pt = Ptxt<BGV>::readFromJSON(in, context);
 }
 }
