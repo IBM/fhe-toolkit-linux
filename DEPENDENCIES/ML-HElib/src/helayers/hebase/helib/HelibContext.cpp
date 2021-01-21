@@ -96,12 +96,12 @@ void HelibContext::save(std::ostream& out, bool withSecretKey)
   config.save(out);
   out.write((char*)&withSecretKey, sizeof(withSecretKey));
   out.write((char*)&mirrored, sizeof(mirrored));
-  writeContextBaseBinary(out, *context);
-  writeContextBinary(out, *context);
+  context->writeTo(out);
+  // writeContextBinary(out, *context);
   if (withSecretKey)
-    writeSecKeyBinary(out, *secretKey);
+    secretKey->writeTo(out);
   else
-    writePubKeyBinary(out, *publicKey);
+    publicKey->writeTo(out);
 }
 
 void HelibContext::saveSecretKey(std::ostream& out)
@@ -109,7 +109,7 @@ void HelibContext::saveSecretKey(std::ostream& out)
   if (!hasSecretKey()) {
     throw runtime_error("this HeContext does not have a secret key");
   }
-  writeSecKeyBinary(out, *secretKey);
+  secretKey->writeTo(out);
 }
 
 void HelibContext::loadSecretKey(std::istream& in)
@@ -117,8 +117,7 @@ void HelibContext::loadSecretKey(std::istream& in)
   if (hasSecretKey()) {
     throw runtime_error("this HeContext already has a secret key");
   }
-  secretKey = new SecKey(*context);
-  readSecKeyBinary(in, *secretKey);
+  secretKey = new SecKey(SecKey::readFrom(in, *context));
 }
 
 void HelibContext::load(std::istream& in)
@@ -131,16 +130,16 @@ void HelibContext::load(std::istream& in)
   bool withSecretKey;
   in.read((char*)&withSecretKey, sizeof(withSecretKey));
   in.read((char*)&mirrored, sizeof(mirrored));
-  context = buildContextFromBinary(in).release();
-  readContextBinary(in, *context);
+  context = Context::readPtrFrom(in);
+  // readContextBinary(in, *context);
 
   if (withSecretKey) {
-    secretKey = new SecKey(*context);
-    readSecKeyBinary(in, *secretKey);
+    secretKey = new SecKey(SecKey::readFrom(in, *context));
     publicKey = (helib::PubKey*)secretKey;
   } else {
-    publicKey = new PubKey(*context);
-    readPubKeyBinary(in, *publicKey);
+
+    publicKey = new PubKey(PubKey::readFrom(in, *context));
+    // readPubKeyBinary(in, *publicKey);
     secretKey = NULL;
   }
 }

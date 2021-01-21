@@ -23,6 +23,7 @@
 */
 
 #include "HelibCkksPlaintext.h"
+#include "helayers/hebase/utils/BinIoUtils.h"
 
 using namespace std;
 using namespace helib;
@@ -38,7 +39,10 @@ streamoff HelibCkksPlaintext::save(ostream& stream) const
 {
   streampos streamStartPos = stream.tellp();
 
-  serialize<CKKS>(stream, pt);
+  stringstream out;
+  pt.writeToJSON(out);
+
+  BinIoUtils::writeString(stream, out.str());
 
   streampos streamEndPos = stream.tellp();
 
@@ -49,7 +53,10 @@ streamoff HelibCkksPlaintext::load(istream& stream)
 {
   streampos streamStartPos = stream.tellg();
 
-  deserialize<CKKS>(stream, pt);
+  string data = BinIoUtils::readString(stream);
+
+  stringstream in(data);
+  pt = Ptxt<CKKS>::readFromJSON(in, heContext.getContext());
 
   streampos streamEndPos = stream.tellg();
 
