@@ -38,6 +38,7 @@ SLACK_HOOK=$4
 
 # Pull latest from the FHE repo, master branch
 git checkout helib_2_0_0
+
 # Build the Docker image for Ubuntu
 ./BuildDockerImage.sh ubuntu
 # Shut everything down before we start

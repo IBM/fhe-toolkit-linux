@@ -13,6 +13,9 @@ RUN apk update && apk upgrade
 # Install the compilation toolchain and additional packages we need..
 RUN apk add --no-cache autoconf bash xz curl wget tar git gcc g++ cmake make diffutils file patchelf vim
 
+# Install Doxygen so we can build the docs inside the container
+RUN apk add --no-cache doxygen 
+
 # Install GMP dependency
 RUN apk add --no-cache gmp-dev
 
@@ -42,6 +45,10 @@ RUN  mkdir ./build && \
     make -j4 && \
     make install && \
     ldconfig /
+
+#Generate the docs of HElib from their source
+WORKDIR /opt/IBM/FHE-distro/HElib/documentation
+RUN doxygen Doxyfile
 
 # Download, build and install Boost as system library in /usr/local
 COPY ./DEPENDENCIES/boost              /opt/IBM/FHE-distro/boost

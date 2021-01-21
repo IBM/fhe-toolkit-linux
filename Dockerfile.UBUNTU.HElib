@@ -17,6 +17,11 @@ RUN export DEBIAN_FRONTEND=noninteractive
 RUN DEBIAN_FRONTEND=noninteractive apt update
 RUN DEBIAN_FRONTEND=noninteractive apt dist-upgrade -y
 
+# Install Doxygen so we can build the docs inside the container
+RUN apt-get update \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    doxygen
+
 # Install tzdata package
 RUN DEBIAN_FRONTEND=noninteractive apt install -y tzdata
 # Set UTC timezone
@@ -70,6 +75,10 @@ RUN  mkdir ./build && \
     make install && \
     ldconfig
 
+#Generate the docs of HElib from their source
+WORKDIR /opt/IBM/FHE-distro/HElib/documentation
+RUN doxygen Doxyfile
+
 # Download, build and install Boost as system library in /usr/local
 COPY ./DEPENDENCIES/boost              /opt/IBM/FHE-distro/boost
 WORKDIR /opt/IBM/FHE-distro/boost
@@ -94,7 +103,6 @@ WORKDIR /home/fhe
 USER fhe
 RUN mkdir -p /home/fhe/FHE_Examples
 RUN cp -pr /opt/IBM/FHE-distro/HElib/examples/. /home/fhe/FHE_Examples
-
 
 
 CMD ["/usr/bin/bash"]
