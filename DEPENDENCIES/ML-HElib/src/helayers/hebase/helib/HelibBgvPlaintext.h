@@ -71,6 +71,13 @@ public:
   int slotCount() const override;
 
   const helib::Ptxt<helib::BGV>& getPlaintext() const;
+
+  static void writePtxtToBinary(std::ostream& out,
+                                const helib::Ptxt<helib::BGV>& pt);
+
+  static void readPtxtFromBinary(std::istream& out,
+                                 helib::Ptxt<helib::BGV>& pt,
+                                 const helib::Context& context);
 };
 }
 
