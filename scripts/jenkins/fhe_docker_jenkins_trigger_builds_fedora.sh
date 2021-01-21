@@ -35,11 +35,7 @@ BUILD_TYPE=$3
 SLACK_HOOK=$4
 
 # Pull latest from the FHE repo, master branch
-<<<<<<< HEAD
-git checkout mlhelib
-=======
 git checkout helib_2_0_0
->>>>>>> upstream/helib_2_0_0
 # Build the Docker image for Fedora
 ./BuildDockerImage.sh fedora
 # Shut everything down before we start
