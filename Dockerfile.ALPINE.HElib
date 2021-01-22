@@ -65,6 +65,11 @@ WORKDIR /opt/IBM/FHE-distro/ML-HElib
 RUN /bin/bash ./install_system_wide.sh && \
     ldconfig /
 
+#Generate the docs of ML-HElib from their source
+WORKDIR /opt/IBM/FHE-distro/ML-HElib/documentation
+RUN doxygen Doxyfile
+
+
 # Create user fhe:fhe with no login
 RUN adduser --uid 5000 --disabled-password fhe
 WORKDIR /home/fhe
