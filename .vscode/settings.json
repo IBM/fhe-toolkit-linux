@@ -1,7 +1,3 @@
 {
-    "files.associations": {
-        "stdexcept": "cpp",
-        "random": "cpp",
-        "*.ipp": "cpp"
-    }
+
 }

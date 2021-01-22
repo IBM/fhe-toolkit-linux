@@ -14,7 +14,7 @@ RUN yum clean packages
 # Setup the toolchain
 RUN yum -y install epel-release
 RUN yum repolist
-RUN yum -y install autoconf xz curl wget tar cmake git gcc gcc-c++ make diffutils file patchelf vim
+RUN yum -y install autoconf xz curl wget tar cmake git gcc gcc-c++ make diffutils file patchelf bats vim
 RUN yum clean packages
 
 # Install GMP dependency

@@ -13,6 +13,11 @@ RUN apk update && apk upgrade
 # Install the compilation toolchain and additional packages we need..
 RUN apk add --no-cache autoconf bash xz curl wget tar git gcc g++ cmake make diffutils file patchelf vim
 
+RUN apk add coreutils ncurses
+RUN curl -#L https://github.com/bats-core/bats-core/archive/master.zip | unzip -
+RUN bash bats-core-master/install.sh /usr/local
+RUN rm -rf ./bats-core-master
+
 # Install Doxygen so we can build the docs inside the container
 RUN apk add --no-cache doxygen 
 
