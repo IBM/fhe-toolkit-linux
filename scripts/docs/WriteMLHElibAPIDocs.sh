@@ -26,7 +26,6 @@
 # The purpose of this script is to create documentation local on the host where FHE toolkit
 # source code and IDe configuration can stored for quick reference.
 
-
 # Initialize the container image name and id as empty for further consistency checks
 ToolkitImageName=""
 ToolkitImageId=""
@@ -58,10 +57,10 @@ ${bold}Options:${normal}
 ${bold}Example:${normal}
 
 To render documentation from a local toolkit build:
-WriteHElibAPIDocs.sh local/fhe-toolkit-ubuntu
+WriteMLHElibAPIDocs.sh local/fhe-toolkit-ubuntu
 
 To render documentation from a fetched toolkit build:
-WriteHElibAPIDocs.sh ibmcom/fhe-toolkit-fedora
+WriteMLHElibAPIDocs.sh ibmcom/fhe-toolkit-fedora
 
 
 EOF
@@ -93,7 +92,7 @@ done
 
 # The default location on this host where the project docs will live
 DOCS_BASE_PATH="$PWD"/Documentation/docs
-DOCS_HELIB_PATH="$DOCS_BASE_PATH/helib"
+DOCS_HELIB_PATH="$DOCS_BASE_PATH/ml-helib"
 
 # Since we have one parameter, let's initialize the container image
 ToolkitImageName=$1
@@ -128,8 +127,8 @@ echo "Creating Documentation and adding it Locally: ${DOCS_BASE_PATH}"
     echo "        image in your system"
     echo " "
     exit -9
-  else # Copy the upstream HElib Documentation to the local docs space ...
-    if ! docker cp $ToolkitImageId:/opt/IBM/FHE-distro/HElib/documentation/html/. "$DOCS_HELIB_PATH/"
+  else # Copy the generated ML-HElib Documentation to the local docs space ...
+    if ! docker cp $ToolkitImageId:/opt/IBM/FHE-distro/ML-HElib/documentation/ML-HElib/html/. "$DOCS_HELIB_PATH/"
     then
       echo " "
       echo "FATAL:  Failed copying Documentation from container image to local directory on host"
