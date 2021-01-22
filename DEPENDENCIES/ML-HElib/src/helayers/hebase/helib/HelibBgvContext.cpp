@@ -62,13 +62,21 @@ void HelibBgvContext::init(const HelibConfig& conf)
 
   config = conf;
   traits.setArithmeticModulus(config.p);
-  context = new Context(config.m, config.p, config.r);
-  buildModChain(*context, config.L, config.c);
+
+  context = ContextBuilder<BGV>()
+                .m(config.m)
+                .p(config.p)
+                .r(config.r)
+                .c(config.c)
+                .bits(config.L)
+                .buildPtr();
+
+  // buildModChain(*context, config.L, config.c);
   secretKey = new helib::SecKey(*context);
   secretKey->GenSecKey();
   addSome1DMatrices(*secretKey);
   publicKey = secretKey;
-  ea = context->ea;
+  ea = &context->getEA();
   nslots = ea->size();
 }
 
@@ -81,7 +89,7 @@ void HelibBgvContext::init(const HelibConfig& conf,
   context = userContext;
   secretKey = userSecretKey;
   publicKey = userPublicKey;
-  ea = context->ea;
+  ea = &context->getEA();
   nslots = ea->size();
 }
 
@@ -116,7 +124,7 @@ void HelibBgvContext::printSignature(std::ostream& out) const
 void HelibBgvContext::load(std::istream& in)
 {
   HelibContext::load(in);
-  ea = context->ea;
+  ea = &context->getEA();
   nslots = ea->size();
 }
 }

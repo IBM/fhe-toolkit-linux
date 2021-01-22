@@ -35,7 +35,7 @@ streamoff HelibCiphertext::save(ostream& stream) const
   HELAYERS_TIMER("HelibCiphertext::save");
   streampos streamStartPos = stream.tellp();
 
-  ctxt.write(stream);
+  ctxt.writeTo(stream);
 
   streampos streamEndPos = stream.tellp();
 
