@@ -208,7 +208,7 @@ public:
   /// Load secret key from the given istream. \n
   /// @param[in] istream the binary stream to load from.
   /// @throw runtime_error if this HeContext already has a secret key. i.e.
-  ///        hasSecretKey() is ture.
+  ///        hasSecretKey() is true.
   virtual void loadSecretKey(std::istream& in) = 0;
 
   ///  Saves this context to a file in binary form.
@@ -222,16 +222,16 @@ public:
   ///  @param[in] fileName file to read from
   void loadFromFile(const std::string& fileName);
 
-  /// save secret key to the given file. \n
+  /// Save secret key to the given file. \n
   /// @param[out] fileName the path of the file to save to.
   /// @throw runtime_error if this HeContext doesn't have a secret key. i.e.
   ///        hasSecretKey() is false.
   void saveSecretKeyToFile(const std::string& fileName);
 
-  /// load secret key from the given file. \n
+  /// Load secret key from the given file. \n
   /// @param[in] fileName the path of the file to load from
   /// @throw runtime_error if this HeContext already has a secret key. i.e.
-  ///        hasSecretKey() is ture.
+  ///        hasSecretKey() is true.
   void loadSecretKeyFromFile(const std::string& fileName);
 
   /// Returns default scale used in encoding (where applicable).
