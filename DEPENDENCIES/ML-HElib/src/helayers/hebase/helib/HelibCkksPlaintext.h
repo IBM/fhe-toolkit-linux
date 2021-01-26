@@ -30,12 +30,15 @@
 
 namespace helayers {
 
+///@brief Concrete implementation of AbstractPlaintext API for HElib's CKKS
+/// scheme.
 class HelibCkksPlaintext : public AbstractPlaintext
 {
   HelibCkksContext& heContext;
 
   helib::Ptxt<helib::CKKS> pt;
 
+  /// @brief A default copy constructor.
   HelibCkksPlaintext(const HelibCkksPlaintext& src) = default;
 
   std::shared_ptr<AbstractPlaintext> doClone() const override;
@@ -43,6 +46,7 @@ class HelibCkksPlaintext : public AbstractPlaintext
   friend class HelibCkksEncoder;
 
 public:
+  /// @brief A constructor.
   HelibCkksPlaintext(HelibCkksContext& h)
       : AbstractPlaintext(h), heContext(h), pt(h.getContext())
   {
@@ -50,27 +54,42 @@ public:
 
   ~HelibCkksPlaintext() override{};
 
+  /// @brief Copies this HelibCkksPlaintext and returns a pointer to the new
+  /// copied object as shared_ptr<HelibCkksPlaintext>.
   std::shared_ptr<HelibCkksPlaintext> clone() const
   {
     return std::static_pointer_cast<HelibCkksPlaintext>(doClone());
   }
 
+  /// @brief Saves this HelibCkksPlaintext to the receieved binary stream.
+  /// @param stream The binary stream to save to.
   std::streamoff save(std::ostream& stream) const override;
 
+  /// @brief Loads this HelibCkksPlaintext from the receieved binary stream.
+  /// @param stream The binary stream to load from.
   std::streamoff load(std::istream& stream) override;
 
+  /// @brief This function has no effect in this implementation of plaintext.
   void reduceChainIndex() override;
 
+  /// @brief This function has no effect in this implementation of plaintext.
   void setChainIndex(const AbstractPlaintext& other) override;
 
+  /// @brief This function has no effect in this implementation of plaintext.
   void setChainIndex(int chainIndex) override;
 
+  /// @brief Returns an arbitrary value.
   int getChainIndex() const override;
 
+  /// @brief Returns the number of slots of this plaintext.
   int slotCount() const override;
 
+  /// @brief Returns the internal plaintext object of the underlying Helib CKKS
+  /// scheme.
   const helib::Ptxt<helib::CKKS>& getPlaintext() const;
 
+  /// @brief Returns the internal plaintext object of the underlying Helib CKKS
+  /// scheme.
   const helib::Ptxt<helib::CKKS>& getRaw() const { return pt; }
 };
 }
