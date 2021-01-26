@@ -103,7 +103,7 @@ then
   exit -3
 fi
 
-DOCS_BASE_PATH="$PWD"/$2
+DOCS_BASE_PATH=$2
 DOCS_HELIB_PATH="$DOCS_BASE_PATH/ml-helib"
 
 echo "Creating Documentation and adding it Locally: ${DOCS_BASE_PATH}"
