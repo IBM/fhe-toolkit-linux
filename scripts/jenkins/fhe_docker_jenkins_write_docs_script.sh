@@ -37,4 +37,9 @@ cd fhe-toolkit-linux
 #Call Write ML Helib Api Docs script so we generate docs and write them to the html folder
 ./RenderMLhelibAPI.sh local/fhe-toolkit-ubuntu html
 
-#git checkout jenkins-make-docs
+git add --all
+git commit -m "test commit for docs"
+git push origin gh-pages
+pushd ../
+pwd
+rm -rf fhe-toolkit-linux
