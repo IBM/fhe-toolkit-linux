@@ -25,12 +25,13 @@
 
 # Navigate to the top level of the Repo
 pushd ../../
+pwd
 set -x 
 set -u
 set -e
 
 # Checkout specifically the gh-pages branch, so we can push our docs to it
 git checkout gh-pages
-
+pwd
 #Call Write ML Helib Api Docs script so we generate docs and write them to the html folder
 ./WriteMLHElibAPIDocs.sh local/fhe-toolkit-ubuntu ./html
