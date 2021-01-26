@@ -33,5 +33,6 @@ set -e
 # Checkout specifically the gh-pages branch, so we can push our docs to it
 git checkout gh-pages
 pwd
+ls
 #Call Write ML Helib Api Docs script so we generate docs and write them to the html folder
 ./WriteMLHElibAPIDocs.sh local/fhe-toolkit-ubuntu ./html
