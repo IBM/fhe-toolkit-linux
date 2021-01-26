@@ -30,21 +30,35 @@ set -x
 set -u
 set -e
 
-#Remove any previous lingering files from the last build
+
+#Remove any previous lingering files from the last build in case it wasn't removed
 if [ -d "fhe-toolkit-linux" ]; then
     rm -rf fhe-toolkit-linux
 fi
 
-# Checkout specifically the gh-pages branch, so we can push our docs to it
-git clone -b gh-pages --single-branch git@github.com:IBM/fhe-toolkit-linux.git
-ls
-cd fhe-toolkit-linux
-#Call Write ML Helib Api Docs script so we generate docs and write them to the html folder
-./RenderMLhelibAPI.sh local/fhe-toolkit-ubuntu html
+H_FILES='.h'
+CPP_FILES='.cpp'
+GIT_LOG=$(git log --since="24 hours ago" --name-only)
+echo $GIT_LOG
 
-git add --all
-git commit -m "test commit for docs"
-git push origin gh-pages
-pushd ../
-pwd
-rm -rf fhe-toolkit-linux
+#Check to see if the .h files or the .cpp files were changed recently otherwise do nothing
+if [[ "$GIT_LOG" == *"$H_FILES"* || "$GIT_LOG" == *"$CPP_FILES"* ]; then 
+    echo "CHANGES WERE MADE SO RE-GENERATE THE DOCS"
+    # Checkout specifically the gh-pages branch, so we can push our docs to it
+    git clone -b gh-pages --single-branch git@github.com:IBM/fhe-toolkit-linux.git
+
+    cd fhe-toolkit-linux
+    #Call Write ML Helib Api Docs script so we generate docs and write them to the html folder
+    ./RenderMLhelibAPI.sh local/fhe-toolkit-ubuntu html
+
+    git add --all
+    git commit -m "test commit for docs"
+    git push origin gh-pages
+    pushd ../
+    pwd
+    rm -rf fhe-toolkit-linux
+fi
+
+
+
+
