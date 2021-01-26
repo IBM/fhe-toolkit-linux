@@ -31,10 +31,9 @@ set -u
 set -e
 
 # Checkout specifically the gh-pages branch, so we can push our docs to it
-git checkout gh-pages
-pwd
+git clone -b gh-pages git@github.com:IBM/fhe-toolkit-linux.gitpwd
 ls
 #Call Write ML Helib Api Docs script so we generate docs and write them to the html folder
 ./RenderMLhelibAPI.sh local/fhe-toolkit-ubuntu ./html
 
-git checkout jenkins-make-docs
+#git checkout jenkins-make-docs
