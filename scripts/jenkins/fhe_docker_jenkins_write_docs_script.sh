@@ -33,4 +33,4 @@ set -e
 git checkout gh-pages
 
 #Call Write ML Helib Api Docs script so we generate docs and write them to the html folder
-./WriteMLHElibAPIDocs local/fhe-toolkit-ubuntu ./html
+git restore master WriteMLHElibAPIDocs local/fhe-toolkit-ubuntu ./html
