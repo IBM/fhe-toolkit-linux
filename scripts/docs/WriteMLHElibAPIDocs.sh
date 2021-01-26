@@ -92,7 +92,7 @@ done
 
 # The default location on this host where the project docs will live
 DOCS_BASE_PATH="$PWD"/Documentation/docs
-DOCS_HELIB_PATH="$DOCS_BASE_PATH/ml-helib"
+
 
 # Since we have one parameter, let's initialize the container image
 ToolkitImageName=$1
@@ -104,6 +104,9 @@ then
   print_usage
   exit -3
 fi
+
+DOCS_BASE_PATH=$2
+DOCS_HELIB_PATH="$DOCS_BASE_PATH/ml-helib"
 
 echo "Creating Documentation and adding it Locally: ${DOCS_BASE_PATH}"
   if ! mkdir -p "$DOCS_HELIB_PATH/"
