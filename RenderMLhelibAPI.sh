@@ -66,8 +66,6 @@ WriteMLHElibAPIDocs.sh ibmcom/fhe-toolkit-fedora
 EOF
 }
 
-#move up two directories so we get back to the root directory
-pushd ../../
 
 # The number of parameters passed to this script
 NPARAM=$#
