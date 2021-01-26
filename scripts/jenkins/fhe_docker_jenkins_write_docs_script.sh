@@ -35,6 +35,6 @@ git checkout gh-pages
 pwd
 ls
 #Call Write ML Helib Api Docs script so we generate docs and write them to the html folder
-./WriteMLHElibAPIDocs.sh local/fhe-toolkit-ubuntu ./html
+./RenderMLhelibAPI.sh local/fhe-toolkit-ubuntu ./html
 
 git checkout jenkins-make-docs
