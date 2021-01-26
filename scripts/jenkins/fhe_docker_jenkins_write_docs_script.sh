@@ -42,7 +42,7 @@ GIT_LOG=$(git log --since="24 hours ago" --name-only)
 echo $GIT_LOG
 
 #Check to see if the .h files or the .cpp files were changed recently otherwise do nothing
-if [[ "$GIT_LOG" == *"$H_FILES"* || "$GIT_LOG" == *"$CPP_FILES"* ]; then 
+if [[ "$GIT_LOG" == *"$H_FILES"* || "$GIT_LOG" == *"$CPP_FILES"* ]]; then 
     echo "CHANGES WERE MADE SO RE-GENERATE THE DOCS"
     # Checkout specifically the gh-pages branch, so we can push our docs to it
     git clone -b gh-pages --single-branch git@github.com:IBM/fhe-toolkit-linux.git
@@ -57,6 +57,8 @@ if [[ "$GIT_LOG" == *"$H_FILES"* || "$GIT_LOG" == *"$CPP_FILES"* ]; then
     pushd ../
     pwd
     rm -rf fhe-toolkit-linux
+else
+    echo "NO CHANGES TO CODE SO NO Need to REGENEATE DOCS"
 fi
 
 
