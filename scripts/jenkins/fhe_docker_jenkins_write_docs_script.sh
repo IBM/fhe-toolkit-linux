@@ -24,7 +24,7 @@
 # SOFTWARE.
 
 # Navigate to the top level of the Repo
-pushd ../docs
+pushd ../../
 set -x 
 set -u
 set -e
@@ -33,6 +33,4 @@ set -e
 git checkout gh-pages
 
 #Call Write ML Helib Api Docs script so we generate docs and write them to the html folder
-git restore jenkins-make-docs WriteMLHElibAPIDocs.sh 
-
 ./WriteMLHElibAPIDocs.sh local/fhe-toolkit-ubuntu ./html
