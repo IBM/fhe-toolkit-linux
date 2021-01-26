@@ -30,6 +30,7 @@
 
 namespace helayers {
 
+///@brief A concrete implementation of Encoder API for HElib's BGV scheme.
 class HelibBgvEncoder : public AbstractEncoder
 {
 

@@ -30,6 +30,10 @@
 
 namespace helayers {
 
+///@brief Internal abstract implementation of an encoder, do not use directly.
+/// Used as parent class for concrete classes implementing encoders in
+/// various schemes.
+/// Do not use directly, use a Encoder class instead.
 class AbstractEncoder
 {
 

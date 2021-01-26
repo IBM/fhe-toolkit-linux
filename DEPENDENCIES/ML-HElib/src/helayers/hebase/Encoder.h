@@ -80,6 +80,9 @@ public:
   /// behaviour for libraries that supports this feature is to have it enabled.
   /// Decrypt added noise is relevant to CKKS scheme for the purpose of ensuring
   /// security.
+  /// reference: "On the Security of Homomorphic Encryption on Approximate
+  ///             Numbers", Baiyu Li and Daniele Micciancio,
+  ///             https://eprint.iacr.org/2020/1533.pdf
   /// @param[in] val A boolean indicating whether to enable the decrypt added
   /// noise.
   void setDecryptAddedNoiseEnabled(bool val);

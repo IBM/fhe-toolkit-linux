@@ -34,6 +34,10 @@
 
 namespace helayers {
 
+///@brief Internal abstract implementation of a plaintext, do not use directly.
+/// Used as parent class for concrete classes implementing plaintexts in
+/// various schemes.
+/// Do not use directly, use a PTile class instead.
 class AbstractPlaintext
 {
 

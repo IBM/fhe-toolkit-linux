@@ -91,7 +91,6 @@ void HelibCkksContext::init(const HelibConfig& conf)
                 .bits(config.L)
                 .buildPtr();
 
-  // buildModChain(*context, config.L, config.c);
   secretKey = new helib::SecKey(*context);
   secretKey->GenSecKey();
   addSome1DMatrices(*secretKey);

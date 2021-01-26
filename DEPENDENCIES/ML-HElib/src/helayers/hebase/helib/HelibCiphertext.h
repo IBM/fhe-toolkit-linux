@@ -30,6 +30,7 @@
 
 namespace helayers {
 
+///@brief Implementation of CTile API with concrete subclasses for HElib scheme.
 class HelibCiphertext : public AbstractCiphertext
 {
 

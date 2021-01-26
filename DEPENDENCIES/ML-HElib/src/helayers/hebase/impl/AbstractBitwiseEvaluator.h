@@ -31,6 +31,7 @@
 
 namespace helayers {
 
+///@brief For internal use.
 class AbstractBitwiseEvaluator
 {
 
