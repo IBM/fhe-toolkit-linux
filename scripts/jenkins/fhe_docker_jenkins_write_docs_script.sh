@@ -35,6 +35,6 @@ git clone -b gh-pages --single-branch git@github.com:IBM/fhe-toolkit-linux.git
 ls
 cd fhe-toolkit-linux
 #Call Write ML Helib Api Docs script so we generate docs and write them to the html folder
-./RenderMLhelibAPI.sh local/fhe-toolkit-ubuntu ./html
+./RenderMLhelibAPI.sh local/fhe-toolkit-ubuntu ./html/test
 
 #git checkout jenkins-make-docs
