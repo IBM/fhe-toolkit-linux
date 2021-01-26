@@ -33,4 +33,4 @@ set -e
 git checkout gh-pages
 
 #Call Write ML Helib Api Docs script so we generate docs and write them to the html folder
-git restore jenkins-make-docs WriteMLHElibAPIDocs local/fhe-toolkit-ubuntu ./html
+git restore jenkins-make-docs WriteMLHElibAPIDocs.sh local/fhe-toolkit-ubuntu ./html
