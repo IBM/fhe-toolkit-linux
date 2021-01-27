@@ -57,7 +57,6 @@ if [[ "$GIT_LOG" == *"$H_FILES"* || "$GIT_LOG" == *"$CPP_FILES"* ]]; then
     #Call Write ML Helib Api Docs script so we generate docs and write them to the html folder
     ./RenderMLhelibAPI.sh local/fhe-toolkit-ubuntu html
 
-    git add --all
     echo `git add -A && git commit -m "Re-Generated Docs from this commit {$COMMIT_NUMBER}"`
     echo `git push origin gh-pages`
     pushd ../
