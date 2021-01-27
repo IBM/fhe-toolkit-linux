@@ -1,6 +1,26 @@
 # Prerequisites
 *.d
 
+#Prevent unwanted stuff in this repo, we only want docs and scripts to generate the docs bro!
+DEPENDENCIES/*
+DEPENDENCIES
+# Ignore examples folder
+#samples/*
+Documentation/docs/*
+IDE_Config
+scripts
+
+*.code-workspace
+FHE-Toolkit-Workspace/*
+
+# Block from accidentally contirbuting a FHE-Workspace
+FHE-Workspace
+
+## Build generated
+build/
+DerivedData/
+
+
 # Compiled Object files
 *.slo
 *.lo
