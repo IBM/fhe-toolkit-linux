@@ -47,6 +47,8 @@ class HeTraits
 public:
   void intersect(const HeTraits& other);
 
+/// A class currently lacking information
+/// This has no information
   inline void setSupportsBootstrapping(bool val)
   {
     supportsBootstrapping = val;

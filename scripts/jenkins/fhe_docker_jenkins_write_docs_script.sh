@@ -53,7 +53,6 @@ if [[ "$GIT_LOG" == *"$H_FILES"* || "$GIT_LOG" == *"$CPP_FILES"* ]]; then
     git clone -b gh-pages --single-branch git@github.com:IBM/fhe-toolkit-linux.git
     #CD into the new Toolkit linux directory
     cd fhe-toolkit-linux
-
     #Call Write ML Helib Api Docs script so we generate docs and write them to the html folder
     ./RenderMLhelibAPI.sh local/fhe-toolkit-ubuntu html
 
