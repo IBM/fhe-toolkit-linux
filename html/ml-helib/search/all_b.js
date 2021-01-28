@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['ml_2dhelib_20documentation_20_28beta_20version_29_172',['ML-HElib Documentation (Beta version)',['../index.html',1,'']]],
+  ['ml_2dhelib_20api_20documentation_172',['ML-HElib API Documentation',['../index.html',1,'']]],
   ['max_173',['max',['../classhelayers_1_1_bitwise_evaluator.html#a3500df743ea7fca4ad37ad6e0fb0309b',1,'helayers::BitwiseEvaluator']]],
   ['meanalongcols_174',['meanAlongCols',['../classhelayers_1_1_double_matrix.html#acf13ae0adc304f86256145050aea0e7a',1,'helayers::DoubleMatrix']]],
   ['meanalongrows_175',['meanAlongRows',['../classhelayers_1_1_double_matrix.html#a99f244642e8ad282e7eaaf8bf0fa998d',1,'helayers::DoubleMatrix']]],
