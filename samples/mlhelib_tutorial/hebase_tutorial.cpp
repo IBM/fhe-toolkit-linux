@@ -22,6 +22,12 @@
 * SOFTWARE.
 */
 
+//
+// INFO: The API used to create these examples can be found online 
+// ML-HElib: https://ibm.github.io/fhe-toolkit-linux”
+// HElib: https://ibm.github.io/fhe-toolkit-linux/html/helib/index.html
+//
+
 #include <iostream>
 
 #include "hebase_tutorial.h"

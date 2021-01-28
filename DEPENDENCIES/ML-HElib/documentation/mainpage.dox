@@ -2,7 +2,7 @@
 
 namespace helayers {
 /**
-@mainpage ML-HElib Documentation (Beta version)
+@mainpage ML-HElib API Documentation
 
 Simplified ML library using HElib. API is subject to rapid change.
 

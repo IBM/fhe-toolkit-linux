@@ -24,6 +24,12 @@ If you want to dive right in and get started installing a pre-built container av
 
 If you want to build and deploy the toolkit from scratch and perhaps customize the container to your needs, please see the [Getting Started Advanced Document](GettingStarted.Advanced.md).
 
+## Documentation
+
+If you are looking for Documentation to our APIs or more information about individual classes or methods, that can be found here 
+
+* [ML-HElib API Docs](https://ibm.github.io/fhe-toolkit-linux/)
+* [HELib API Docs](https://ibm.github.io/fhe-toolkit-linux/html/helib/index.html)
 
 ## Feedback Survey
  
