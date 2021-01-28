@@ -29,6 +29,12 @@
 
 namespace helayers {
 
+///@brief Internal abstract implementation of function evaluation, do not use
+/// directly.
+/// Used as parent class for concrete classes implementing function evaluators
+/// in
+/// various schemes.
+/// Do not use directly, use a NativeFunctionEvaluator class instead.
 class AbstractFunctionEvaluator
 {
 
@@ -41,7 +47,10 @@ public:
   AbstractFunctionEvaluator& operator=(const AbstractFunctionEvaluator& src) =
       delete;
   virtual void powerInPlace(AbstractCiphertext& cipher, int p) const;
-  virtual void totalProduct(AbstractCiphertext& result, const std::vector<std::shared_ptr<helayers::AbstractCiphertext>>& multiplicands) const;
+  virtual void totalProduct(
+      AbstractCiphertext& result,
+      const std::vector<std::shared_ptr<helayers::AbstractCiphertext>>&
+          multiplicands) const;
 };
 }
 

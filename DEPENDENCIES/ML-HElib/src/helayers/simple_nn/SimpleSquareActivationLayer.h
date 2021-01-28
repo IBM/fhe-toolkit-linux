@@ -30,6 +30,8 @@
 
 namespace helayers {
 
+///@brief A layer implementing a simple version of square activation, that
+/// squares the encrypted input provided to it in the forward pass.
 class SimpleSquareActivationLayer : public SimpleLayer
 {
 

@@ -41,6 +41,7 @@ class AbstractEncoder;
 class AbstractFunctionEvaluator;
 class AbstractBitwiseEvaluator;
 
+///@brief For internal use.
 struct HeConfigRequirement
 {
   int securityLevel;

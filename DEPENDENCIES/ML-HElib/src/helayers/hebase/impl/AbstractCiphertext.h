@@ -35,6 +35,10 @@
 
 namespace helayers {
 
+///@brief Internal abstract implementation of a ciphertext, do not use directly.
+/// Used as parent class for concrete classes implementing ciphertexts in
+/// various schemes.
+/// Do not use directly, use a CTile class instead.
 class AbstractCiphertext
 {
 

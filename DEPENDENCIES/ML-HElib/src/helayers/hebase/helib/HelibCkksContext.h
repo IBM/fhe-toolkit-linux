@@ -28,15 +28,14 @@
 #include "HelibContext.h"
 
 namespace helayers {
+///@brief An implementation of HeContext for Helib's CKKS scheme.
 
-/** An implementation of HeContext for CKKS scheme in HElib.
- *
- * It can be either initialized via parameters, via an HelibConfig,
- * or loaded from a file.
- *
- * It is recommended not to use directly after initialization, but
- * use an HeContext reference instead.
- */
+/// It can be either initialized via parameters, via an HelibConfig,
+/// or loaded from a file.
+
+/// It is recommended not to use directly after initialization, but
+/// use an HeContext reference instead.
+
 class HelibCkksContext : public HelibContext
 {
 

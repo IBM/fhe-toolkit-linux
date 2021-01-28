@@ -31,6 +31,8 @@
 
 namespace helayers {
 
+///@brief An implementation of HeContext API with concrete subclasses for
+/// HElib scheme.
 class HelibContext : public HeContext
 {
 protected:

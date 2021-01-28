@@ -102,26 +102,6 @@ public:
   ///  @param[in] n rotate offset
   void rotate(int n);
 
-  void innerSum(int rot1, int rot2, bool reverse = false);
-
-  /// Summarizes n slots of this ciphertext.
-  /// After summing, slot i will contain the sum of slots i, i+1, i+2, . . .,
-  /// i+n-1,
-  /// where indices are cyclic, i.e., roll back to the start if run out over the
-  /// edge.
-  /// Summation is done similar to left-to-right repeated squaring algorithm.
-  ///  @param[in] n number of elements to summarize
-  void sumExpBySquaringLeftToRight(int n);
-
-  /// Summarizes n slots of this ciphertext.
-  /// After summing, slot i will contain the sum of slots i, i+1, i+2, . . .,
-  /// i+n-1,
-  /// where indices are cyclic, i.e., roll back to the start if run out over the
-  /// edge.
-  /// Summation is done similar to right-to-left repeated squaring algorithm.
-  ///  @param[in] n number of elements to summarize
-  void sumExpBySquaringRightToLeft(int n);
-
   /// Add content of another ciphertext to this one, elementwise.
   /// Result is stored in place.
   /// Depending on scheme, this may perform some additional
@@ -294,6 +274,35 @@ public:
   /// A CTile represents a ciphertext consisting of multuple slots.
   /// This method returns the number of slots in this object.
   int slotCount() const;
+
+  ///@brief  Computes the inner sum of some of the ciphertext's slots.
+  /// Performs the computation by repeated rotations and additions, with
+  /// rotations rot1, 2*rot1, 4*rot2, up to rot2 (exclusive).
+  /// Using this method properly is complicated, and is used by some higher
+  /// level
+  /// algorithms.
+  ///@param rot1 First rotation in the rotate-and-add loop
+  ///@param rot2 Last rotation (exclusive) in the rotate-and-add loop
+  ///@param reverse If true, flips all rotations (left to right and vice versa)
+  void innerSum(int rot1, int rot2, bool reverse = false);
+
+  /// Summarizes n slots of this ciphertext.
+  /// After summing, slot i will contain the sum of slots i, i+1, i+2, . . .,
+  /// i+n-1,
+  /// where indices are cyclic, i.e., roll back to the start if run out over the
+  /// edge.
+  /// Summation is done similar to left-to-right repeated squaring algorithm.
+  ///  @param[in] n number of elements to summarize
+  void sumExpBySquaringLeftToRight(int n);
+
+  /// Summarizes n slots of this ciphertext.
+  /// After summing, slot i will contain the sum of slots i, i+1, i+2, . . .,
+  /// i+n-1,
+  /// where indices are cyclic, i.e., roll back to the start if run out over the
+  /// edge.
+  /// Summation is done similar to right-to-left repeated squaring algorithm.
+  ///  @param[in] n number of elements to summarize
+  void sumExpBySquaringRightToLeft(int n);
 
   /// Returns true if this CTile does not include an encryption of any value,
   /// and false otherwise.

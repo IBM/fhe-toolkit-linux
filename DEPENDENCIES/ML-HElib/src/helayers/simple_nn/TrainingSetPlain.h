@@ -31,6 +31,7 @@
 
 namespace helayers {
 
+///@brief A structure to hold the plain samples and labels of a single batch.
 struct SimpleBatchPlain
 {
   DoubleMatrixArray samples;
@@ -38,18 +39,16 @@ struct SimpleBatchPlain
   SimpleBatchPlain() {}
 };
 
-/** A class for holding data for inference.
- *
- * It may hold just the inputs, or both inputs and expected outputs
- * (usually refered to as labels, or ground truth).
- *
- * If it contains both it can be used for training, or for estimating
- * the accuracy of a given model. Otherwise it can only be used for inference.
- *
- * It loads the data from an h5 file, and divides it to batches
- * according to a specified batch size.
- *
- */
+///@brief A class for holding data for inference.
+///
+/// It may hold just the inputs, or both inputs and expected outputs
+/// (usually refered to as labels, or ground truth).
+///
+/// If it contains both it can be used for training, or for estimating
+/// the accuracy of a given model. Otherwise it can only be used for inference.
+///
+/// It loads the data from an h5 file, and divides it to batches
+/// according to a specified batch size.
 class TrainingSetPlain
 {
 

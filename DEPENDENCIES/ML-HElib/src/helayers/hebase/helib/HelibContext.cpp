@@ -97,7 +97,7 @@ void HelibContext::save(std::ostream& out, bool withSecretKey)
   out.write((char*)&withSecretKey, sizeof(withSecretKey));
   out.write((char*)&mirrored, sizeof(mirrored));
   context->writeTo(out);
-  // writeContextBinary(out, *context);
+
   if (withSecretKey)
     secretKey->writeTo(out);
   else
@@ -131,15 +131,12 @@ void HelibContext::load(std::istream& in)
   in.read((char*)&withSecretKey, sizeof(withSecretKey));
   in.read((char*)&mirrored, sizeof(mirrored));
   context = Context::readPtrFrom(in);
-  // readContextBinary(in, *context);
 
   if (withSecretKey) {
     secretKey = new SecKey(SecKey::readFrom(in, *context));
     publicKey = (helib::PubKey*)secretKey;
   } else {
-
     publicKey = new PubKey(PubKey::readFrom(in, *context));
-    // readPubKeyBinary(in, *publicKey);
     secretKey = NULL;
   }
 }
