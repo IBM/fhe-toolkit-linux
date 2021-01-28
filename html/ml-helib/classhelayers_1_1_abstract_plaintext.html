@@ -85,14 +85,19 @@ $(function() {
 <div class="title">helayers::AbstractPlaintext Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Internal abstract implementation of a plaintext, do not use directly.  
+ <a href="classhelayers_1_1_abstract_plaintext.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_abstract_plaintext_8h_source.html">AbstractPlaintext.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for helayers::AbstractPlaintext:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classhelayers_1_1_abstract_plaintext.png" usemap="#helayers::AbstractPlaintext_map" alt=""/>
   <map id="helayers::AbstractPlaintext_map" name="helayers::AbstractPlaintext_map">
-<area href="classhelayers_1_1_helib_bgv_plaintext.html" alt="helayers::HelibBgvPlaintext" shape="rect" coords="0,56,170,80"/>
-<area href="classhelayers_1_1_helib_ckks_plaintext.html" alt="helayers::HelibCkksPlaintext" shape="rect" coords="180,56,350,80"/>
+<area href="classhelayers_1_1_helib_bgv_plaintext.html" title="Concrete implementation of AbstractPlaintext API for HElib&#39;s BGV scheme." alt="helayers::HelibBgvPlaintext" shape="rect" coords="0,56,170,80"/>
+<area href="classhelayers_1_1_helib_ckks_plaintext.html" title="Concrete implementation of AbstractPlaintext API for HElib&#39;s CKKS scheme." alt="helayers::HelibCkksPlaintext" shape="rect" coords="180,56,350,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -144,7 +149,10 @@ Protected Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>AbstractPlaintext</b> (const <a class="el" href="classhelayers_1_1_abstract_plaintext.html">AbstractPlaintext</a> &amp;src)=default</td></tr>
 <tr class="separator:a5d9e61d408a9ade7815d7c69a8ab72b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Internal abstract implementation of a plaintext, do not use directly. </p>
+<p>Used as parent class for concrete classes implementing plaintexts in various schemes. Do not use directly, use a <a class="el" href="classhelayers_1_1_p_tile.html" title="A class representing an encoded (unencrypted) plaintext.">PTile</a> class instead. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>/opt/IBM/FHE-distro/ML-HElib/src/helayers/hebase/impl/<a class="el" href="_abstract_plaintext_8h_source.html">AbstractPlaintext.h</a></li>
 <li>/opt/IBM/FHE-distro/ML-HElib/src/helayers/hebase/impl/AbstractPlaintext.cpp</li>
 </ul>

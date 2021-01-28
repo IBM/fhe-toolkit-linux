@@ -113,63 +113,74 @@ $(function() {
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span>helayers {</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classhelayers_1_1_helib_bgv_plaintext.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="classhelayers_1_1_helib_bgv_plaintext.html">HelibBgvPlaintext</a> : <span class="keyword">public</span> <a class="code" href="classhelayers_1_1_abstract_plaintext.html">AbstractPlaintext</a></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <a class="code" href="classhelayers_1_1_helib_bgv_context.html">HelibBgvContext</a>&amp; heContext;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classhelayers_1_1_helib_bgv_plaintext.html">   35</a></span>&#160;<span class="keyword">class </span><a class="code" href="classhelayers_1_1_helib_bgv_plaintext.html">HelibBgvPlaintext</a> : <span class="keyword">public</span> <a class="code" href="classhelayers_1_1_abstract_plaintext.html">AbstractPlaintext</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  helib::Ptxt&lt;helib::BGV&gt; pt;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="classhelayers_1_1_helib_bgv_context.html">HelibBgvContext</a>&amp; heContext;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <a class="code" href="classhelayers_1_1_helib_bgv_plaintext.html">HelibBgvPlaintext</a>(<span class="keyword">const</span> <a class="code" href="classhelayers_1_1_helib_bgv_plaintext.html">HelibBgvPlaintext</a>&amp; src) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  helib::Ptxt&lt;helib::BGV&gt; pt;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  std::shared_ptr&lt;AbstractPlaintext&gt; doClone() <span class="keyword">const override</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classhelayers_1_1_helib_bgv_encoder.html">HelibBgvEncoder</a>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <a class="code" href="classhelayers_1_1_helib_bgv_plaintext.html">HelibBgvPlaintext</a>(<a class="code" href="classhelayers_1_1_helib_bgv_context.html">HelibBgvContext</a>&amp; h)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      : <a class="code" href="classhelayers_1_1_abstract_plaintext.html">AbstractPlaintext</a>(h), heContext(h), pt(h.getContext())</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  ~<a class="code" href="classhelayers_1_1_helib_bgv_plaintext.html">HelibBgvPlaintext</a>()<span class="keyword"> override</span>{};</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  std::shared_ptr&lt;HelibBgvPlaintext&gt; clone()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">  </span>{</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span> std::static_pointer_cast&lt;HelibBgvPlaintext&gt;(doClone());</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  std::streamoff save(std::ostream&amp; stream) <span class="keyword">const override</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  std::streamoff load(std::istream&amp; stream) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordtype">void</span> reduceChainIndex() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordtype">void</span> setChainIndex(<span class="keyword">const</span> <a class="code" href="classhelayers_1_1_abstract_plaintext.html">AbstractPlaintext</a>&amp; other) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <a class="code" href="classhelayers_1_1_helib_bgv_plaintext.html">HelibBgvPlaintext</a>(<span class="keyword">const</span> <a class="code" href="classhelayers_1_1_helib_bgv_plaintext.html">HelibBgvPlaintext</a>&amp; src) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  std::shared_ptr&lt;AbstractPlaintext&gt; doClone() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classhelayers_1_1_helib_bgv_encoder.html">HelibBgvEncoder</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classhelayers_1_1_helib_bgv_plaintext.html#a234c7de634399d1950221a3ce1bc82da">   53</a></span>&#160;  <a class="code" href="classhelayers_1_1_helib_bgv_plaintext.html#a234c7de634399d1950221a3ce1bc82da">HelibBgvPlaintext</a>(<a class="code" href="classhelayers_1_1_helib_bgv_context.html">HelibBgvContext</a>&amp; h)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      : <a class="code" href="classhelayers_1_1_abstract_plaintext.html">AbstractPlaintext</a>(h), heContext(h), pt(h.getContext())</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  ~<a class="code" href="classhelayers_1_1_helib_bgv_plaintext.html">HelibBgvPlaintext</a>()<span class="keyword"> override</span>{};</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classhelayers_1_1_helib_bgv_plaintext.html#a191b85ce7c334d8f457014e14b5507a5">   62</a></span>&#160;  std::shared_ptr&lt;HelibBgvPlaintext&gt; <a class="code" href="classhelayers_1_1_helib_bgv_plaintext.html#a191b85ce7c334d8f457014e14b5507a5">clone</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> std::static_pointer_cast&lt;HelibBgvPlaintext&gt;(doClone());</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  }</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordtype">void</span> setChainIndex(<span class="keywordtype">int</span> chainIndex) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordtype">int</span> getChainIndex() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  std::streamoff <a class="code" href="classhelayers_1_1_helib_bgv_plaintext.html#abc5f7937b2f75fc42536d254baff48ff">save</a>(std::ostream&amp; stream) <span class="keyword">const override</span>;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keywordtype">int</span> slotCount() <span class="keyword">const override</span>;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keyword">const</span> helib::Ptxt&lt;helib::BGV&gt;&amp; getPlaintext() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  std::streamoff <a class="code" href="classhelayers_1_1_helib_bgv_plaintext.html#a1feb178ee8d956c326524da93e1194f0">load</a>(std::istream&amp; stream) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> writePtxtToBinary(std::ostream&amp; out,</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                                <span class="keyword">const</span> helib::Ptxt&lt;helib::BGV&gt;&amp; pt);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classhelayers_1_1_helib_bgv_plaintext.html#a600bdc4b89975a670e4e4835ee1f003a">reduceChainIndex</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> readPtxtFromBinary(std::istream&amp; out,</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                                 helib::Ptxt&lt;helib::BGV&gt;&amp; pt,</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                                 <span class="keyword">const</span> helib::Context&amp; context);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;};</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classhelayers_1_1_helib_bgv_plaintext.html#a9f23517447ff1386f42d4a721e328a6a">setChainIndex</a>(<span class="keyword">const</span> <a class="code" href="classhelayers_1_1_abstract_plaintext.html">AbstractPlaintext</a>&amp; other) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classhelayers_1_1_helib_bgv_plaintext.html#a9f23517447ff1386f42d4a721e328a6a">setChainIndex</a>(<span class="keywordtype">int</span> chainIndex) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SRC_HELAYERS_HELIBBGVPLAIN_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordtype">int</span> <a class="code" href="classhelayers_1_1_helib_bgv_plaintext.html#a58fe00ca91b46d6fcadacfa2c6e7db9b">getChainIndex</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keywordtype">int</span> <a class="code" href="classhelayers_1_1_helib_bgv_plaintext.html#a4f6482064015bebe562b4e2286c4bbda">slotCount</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="keyword">const</span> helib::Ptxt&lt;helib::BGV&gt;&amp; <a class="code" href="classhelayers_1_1_helib_bgv_plaintext.html#a0dedbb3cf3cc7dd69bddd1666ea5ddef">getPlaintext</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classhelayers_1_1_helib_bgv_plaintext.html#ab3735babfa956f86a7ab7a0ea20cb6b2">writePtxtToBinary</a>(std::ostream&amp; out,</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                                <span class="keyword">const</span> helib::Ptxt&lt;helib::BGV&gt;&amp; pt);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classhelayers_1_1_helib_bgv_plaintext.html#acfc7e409391a47be2b52c6a437c18d55">readPtxtFromBinary</a>(std::istream&amp; in,</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                                 helib::Ptxt&lt;helib::BGV&gt;&amp; pt,</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                                 <span class="keyword">const</span> helib::Context&amp; context);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;};</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SRC_HELAYERS_HELIBBGVPLAIN_H_ */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclasshelayers_1_1_abstract_plaintext_html"><div class="ttname"><a href="classhelayers_1_1_abstract_plaintext.html">helayers::AbstractPlaintext</a></div><div class="ttdef"><b>Definition:</b> AbstractPlaintext.h:37</div></div>
+<div class="ttc" id="aclasshelayers_1_1_helib_bgv_plaintext_html_a58fe00ca91b46d6fcadacfa2c6e7db9b"><div class="ttname"><a href="classhelayers_1_1_helib_bgv_plaintext.html#a58fe00ca91b46d6fcadacfa2c6e7db9b">helayers::HelibBgvPlaintext::getChainIndex</a></div><div class="ttdeci">int getChainIndex() const override</div><div class="ttdoc">Returns an arbitrary value.</div><div class="ttdef"><b>Definition:</b> HelibBgvPlaintext.cpp:66</div></div>
+<div class="ttc" id="aclasshelayers_1_1_abstract_plaintext_html"><div class="ttname"><a href="classhelayers_1_1_abstract_plaintext.html">helayers::AbstractPlaintext</a></div><div class="ttdoc">Internal abstract implementation of a plaintext, do not use directly.</div><div class="ttdef"><b>Definition:</b> AbstractPlaintext.h:41</div></div>
+<div class="ttc" id="aclasshelayers_1_1_helib_bgv_plaintext_html_a600bdc4b89975a670e4e4835ee1f003a"><div class="ttname"><a href="classhelayers_1_1_helib_bgv_plaintext.html#a600bdc4b89975a670e4e4835ee1f003a">helayers::HelibBgvPlaintext::reduceChainIndex</a></div><div class="ttdeci">void reduceChainIndex() override</div><div class="ttdoc">This function has no effect in this implementation of plaintext.</div><div class="ttdef"><b>Definition:</b> HelibBgvPlaintext.cpp:60</div></div>
+<div class="ttc" id="aclasshelayers_1_1_helib_bgv_plaintext_html_abc5f7937b2f75fc42536d254baff48ff"><div class="ttname"><a href="classhelayers_1_1_helib_bgv_plaintext.html#abc5f7937b2f75fc42536d254baff48ff">helayers::HelibBgvPlaintext::save</a></div><div class="ttdeci">std::streamoff save(std::ostream &amp;stream) const override</div><div class="ttdoc">Saves this HelibBgvPlaintext to the receieved binary stream.</div><div class="ttdef"><b>Definition:</b> HelibBgvPlaintext.cpp:38</div></div>
+<div class="ttc" id="aclasshelayers_1_1_helib_bgv_plaintext_html_a4f6482064015bebe562b4e2286c4bbda"><div class="ttname"><a href="classhelayers_1_1_helib_bgv_plaintext.html#a4f6482064015bebe562b4e2286c4bbda">helayers::HelibBgvPlaintext::slotCount</a></div><div class="ttdeci">int slotCount() const override</div><div class="ttdoc">Returns the number of slots of this plaintext.</div><div class="ttdef"><b>Definition:</b> HelibBgvPlaintext.cpp:68</div></div>
 <div class="ttc" id="aclasshelayers_1_1_helib_bgv_context_html"><div class="ttname"><a href="classhelayers_1_1_helib_bgv_context.html">helayers::HelibBgvContext</a></div><div class="ttdoc">An implementation of HeContext for BGV scheme in HElib.</div><div class="ttdef"><b>Definition:</b> HelibBgvContext.h:41</div></div>
-<div class="ttc" id="aclasshelayers_1_1_helib_bgv_encoder_html"><div class="ttname"><a href="classhelayers_1_1_helib_bgv_encoder.html">helayers::HelibBgvEncoder</a></div><div class="ttdef"><b>Definition:</b> HelibBgvEncoder.h:33</div></div>
-<div class="ttc" id="aclasshelayers_1_1_helib_bgv_plaintext_html"><div class="ttname"><a href="classhelayers_1_1_helib_bgv_plaintext.html">helayers::HelibBgvPlaintext</a></div><div class="ttdef"><b>Definition:</b> HelibBgvPlaintext.h:33</div></div>
+<div class="ttc" id="aclasshelayers_1_1_helib_bgv_plaintext_html_a234c7de634399d1950221a3ce1bc82da"><div class="ttname"><a href="classhelayers_1_1_helib_bgv_plaintext.html#a234c7de634399d1950221a3ce1bc82da">helayers::HelibBgvPlaintext::HelibBgvPlaintext</a></div><div class="ttdeci">HelibBgvPlaintext(HelibBgvContext &amp;h)</div><div class="ttdoc">A constructor.</div><div class="ttdef"><b>Definition:</b> HelibBgvPlaintext.h:53</div></div>
+<div class="ttc" id="aclasshelayers_1_1_helib_bgv_plaintext_html_a0dedbb3cf3cc7dd69bddd1666ea5ddef"><div class="ttname"><a href="classhelayers_1_1_helib_bgv_plaintext.html#a0dedbb3cf3cc7dd69bddd1666ea5ddef">helayers::HelibBgvPlaintext::getPlaintext</a></div><div class="ttdeci">const helib::Ptxt&lt; helib::BGV &gt; &amp; getPlaintext() const</div><div class="ttdoc">Returns the internal plaintext object of the underlying Helib BGV scheme.</div><div class="ttdef"><b>Definition:</b> HelibBgvPlaintext.cpp:70</div></div>
+<div class="ttc" id="aclasshelayers_1_1_helib_bgv_encoder_html"><div class="ttname"><a href="classhelayers_1_1_helib_bgv_encoder.html">helayers::HelibBgvEncoder</a></div><div class="ttdoc">A concrete implementation of Encoder API for HElib's BGV scheme.</div><div class="ttdef"><b>Definition:</b> HelibBgvEncoder.h:34</div></div>
+<div class="ttc" id="aclasshelayers_1_1_helib_bgv_plaintext_html_a191b85ce7c334d8f457014e14b5507a5"><div class="ttname"><a href="classhelayers_1_1_helib_bgv_plaintext.html#a191b85ce7c334d8f457014e14b5507a5">helayers::HelibBgvPlaintext::clone</a></div><div class="ttdeci">std::shared_ptr&lt; HelibBgvPlaintext &gt; clone() const</div><div class="ttdoc">Copies this HelibBgvPlaintext and returns a pointer to the new copied object as shared_ptr&lt;HelibBgvPl...</div><div class="ttdef"><b>Definition:</b> HelibBgvPlaintext.h:62</div></div>
+<div class="ttc" id="aclasshelayers_1_1_helib_bgv_plaintext_html"><div class="ttname"><a href="classhelayers_1_1_helib_bgv_plaintext.html">helayers::HelibBgvPlaintext</a></div><div class="ttdoc">Concrete implementation of AbstractPlaintext API for HElib's BGV scheme.</div><div class="ttdef"><b>Definition:</b> HelibBgvPlaintext.h:35</div></div>
+<div class="ttc" id="aclasshelayers_1_1_helib_bgv_plaintext_html_ab3735babfa956f86a7ab7a0ea20cb6b2"><div class="ttname"><a href="classhelayers_1_1_helib_bgv_plaintext.html#ab3735babfa956f86a7ab7a0ea20cb6b2">helayers::HelibBgvPlaintext::writePtxtToBinary</a></div><div class="ttdeci">static void writePtxtToBinary(std::ostream &amp;out, const helib::Ptxt&lt; helib::BGV &gt; &amp;pt)</div><div class="ttdoc">Writes the given helib::Ptxt into the given binary stream.</div><div class="ttdef"><b>Definition:</b> HelibBgvPlaintext.cpp:76</div></div>
+<div class="ttc" id="aclasshelayers_1_1_helib_bgv_plaintext_html_a9f23517447ff1386f42d4a721e328a6a"><div class="ttname"><a href="classhelayers_1_1_helib_bgv_plaintext.html#a9f23517447ff1386f42d4a721e328a6a">helayers::HelibBgvPlaintext::setChainIndex</a></div><div class="ttdeci">void setChainIndex(const AbstractPlaintext &amp;other) override</div><div class="ttdoc">This function has no effect in this implementation of plaintext.</div><div class="ttdef"><b>Definition:</b> HelibBgvPlaintext.cpp:62</div></div>
+<div class="ttc" id="aclasshelayers_1_1_helib_bgv_plaintext_html_a1feb178ee8d956c326524da93e1194f0"><div class="ttname"><a href="classhelayers_1_1_helib_bgv_plaintext.html#a1feb178ee8d956c326524da93e1194f0">helayers::HelibBgvPlaintext::load</a></div><div class="ttdeci">std::streamoff load(std::istream &amp;stream) override</div><div class="ttdoc">Loads this HelibBgvPlaintext from the receieved binary stream.</div><div class="ttdef"><b>Definition:</b> HelibBgvPlaintext.cpp:49</div></div>
+<div class="ttc" id="aclasshelayers_1_1_helib_bgv_plaintext_html_acfc7e409391a47be2b52c6a437c18d55"><div class="ttname"><a href="classhelayers_1_1_helib_bgv_plaintext.html#acfc7e409391a47be2b52c6a437c18d55">helayers::HelibBgvPlaintext::readPtxtFromBinary</a></div><div class="ttdeci">static void readPtxtFromBinary(std::istream &amp;in, helib::Ptxt&lt; helib::BGV &gt; &amp;pt, const helib::Context &amp;context)</div><div class="ttdoc">Reads the given helib::Ptxt object from the given binary stream.</div><div class="ttdef"><b>Definition:</b> HelibBgvPlaintext.cpp:84</div></div>
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->
 </div>

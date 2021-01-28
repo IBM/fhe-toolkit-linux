@@ -113,30 +113,32 @@ $(function() {
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span>helayers {</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classhelayers_1_1_file_utils.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="classhelayers_1_1_file_utils.html">FileUtils</a></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <a class="code" href="classhelayers_1_1_file_utils.html">FileUtils</a>();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> makeDir(<span class="keyword">const</span> std::string&amp; dirName);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classhelayers_1_1_file_utils.html#a3596167d278be3625d3ed30e238a9ee2">createDir</a>(<span class="keyword">const</span> std::string&amp; dirName);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classhelayers_1_1_file_utils.html#a5fa758c428f26b9708ad7a0a06369069">createCleanDir</a>(<span class="keyword">const</span> std::string&amp; dirName);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">long</span> <a class="code" href="classhelayers_1_1_file_utils.html#a3c5b9c2be619569dee13ae085cd4f700">reportFileSize</a>(<span class="keyword">const</span> std::string&amp; path,</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                             <span class="keyword">const</span> std::string&amp; logicalName = <span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classhelayers_1_1_file_utils.html#ad8ed5d15ba6e292941830b52c2d785e6">fileExists</a>(<span class="keyword">const</span> std::string&amp; filepath);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SRC_HELAYERS_FILEUTILS_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classhelayers_1_1_file_utils.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="classhelayers_1_1_file_utils.html">FileUtils</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <a class="code" href="classhelayers_1_1_file_utils.html">FileUtils</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="comment">// This function assumes a directory with the given name does not already</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="comment">// exists</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> makeDir(<span class="keyword">const</span> std::string&amp; dirName);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classhelayers_1_1_file_utils.html#a3596167d278be3625d3ed30e238a9ee2">createDir</a>(<span class="keyword">const</span> std::string&amp; dirName);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classhelayers_1_1_file_utils.html#a5fa758c428f26b9708ad7a0a06369069">createCleanDir</a>(<span class="keyword">const</span> std::string&amp; dirName);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">long</span> <a class="code" href="classhelayers_1_1_file_utils.html#a3c5b9c2be619569dee13ae085cd4f700">reportFileSize</a>(<span class="keyword">const</span> std::string&amp; path,</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                             <span class="keyword">const</span> std::string&amp; logicalName = <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classhelayers_1_1_file_utils.html#ad8ed5d15ba6e292941830b52c2d785e6">fileExists</a>(<span class="keyword">const</span> std::string&amp; filepath);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SRC_HELAYERS_FILEUTILS_H */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclasshelayers_1_1_file_utils_html_a3c5b9c2be619569dee13ae085cd4f700"><div class="ttname"><a href="classhelayers_1_1_file_utils.html#a3c5b9c2be619569dee13ae085cd4f700">helayers::FileUtils::reportFileSize</a></div><div class="ttdeci">static long reportFileSize(const std::string &amp;path, const std::string &amp;logicalName=&quot;&quot;)</div><div class="ttdoc">Prints the size of the given directory.</div><div class="ttdef"><b>Definition:</b> FileUtils.cpp:87</div></div>
-<div class="ttc" id="aclasshelayers_1_1_file_utils_html"><div class="ttname"><a href="classhelayers_1_1_file_utils.html">helayers::FileUtils</a></div><div class="ttdef"><b>Definition:</b> FileUtils.h:33</div></div>
-<div class="ttc" id="aclasshelayers_1_1_file_utils_html_ad8ed5d15ba6e292941830b52c2d785e6"><div class="ttname"><a href="classhelayers_1_1_file_utils.html#ad8ed5d15ba6e292941830b52c2d785e6">helayers::FileUtils::fileExists</a></div><div class="ttdeci">static bool fileExists(const std::string &amp;filepath)</div><div class="ttdoc">returns true iff the file of the given path exists</div><div class="ttdef"><b>Definition:</b> FileUtils.cpp:108</div></div>
+<div class="ttc" id="aclasshelayers_1_1_file_utils_html"><div class="ttname"><a href="classhelayers_1_1_file_utils.html">helayers::FileUtils</a></div><div class="ttdoc">A class implementing methods to work with files.</div><div class="ttdef"><b>Definition:</b> FileUtils.h:34</div></div>
+<div class="ttc" id="aclasshelayers_1_1_file_utils_html_ad8ed5d15ba6e292941830b52c2d785e6"><div class="ttname"><a href="classhelayers_1_1_file_utils.html#ad8ed5d15ba6e292941830b52c2d785e6">helayers::FileUtils::fileExists</a></div><div class="ttdeci">static bool fileExists(const std::string &amp;filepath)</div><div class="ttdoc">Returns true iff the file of the given path exists.</div><div class="ttdef"><b>Definition:</b> FileUtils.cpp:108</div></div>
 <div class="ttc" id="aclasshelayers_1_1_file_utils_html_a5fa758c428f26b9708ad7a0a06369069"><div class="ttname"><a href="classhelayers_1_1_file_utils.html#a5fa758c428f26b9708ad7a0a06369069">helayers::FileUtils::createCleanDir</a></div><div class="ttdeci">static void createCleanDir(const std::string &amp;dirName)</div><div class="ttdoc">Creates a clean directory with the given name.</div><div class="ttdef"><b>Definition:</b> FileUtils.cpp:66</div></div>
 <div class="ttc" id="aclasshelayers_1_1_file_utils_html_a3596167d278be3625d3ed30e238a9ee2"><div class="ttname"><a href="classhelayers_1_1_file_utils.html#a3596167d278be3625d3ed30e238a9ee2">helayers::FileUtils::createDir</a></div><div class="ttdeci">static void createDir(const std::string &amp;dirName)</div><div class="ttdoc">Creates a directory with the given name, if it does not exist.</div><div class="ttdef"><b>Definition:</b> FileUtils.cpp:52</div></div>
 <!-- HTML footer for doxygen 1.8.8-->

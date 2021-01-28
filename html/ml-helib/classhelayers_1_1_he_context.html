@@ -97,9 +97,9 @@ Inheritance diagram for helayers::HeContext:</div>
  <div class="center">
   <img src="classhelayers_1_1_he_context.png" usemap="#helayers::HeContext_map" alt=""/>
   <map id="helayers::HeContext_map" name="helayers::HeContext_map">
-<area href="classhelayers_1_1_helib_context.html" alt="helayers::HelibContext" shape="rect" coords="87,56,252,80"/>
+<area href="classhelayers_1_1_helib_context.html" title="An implementation of HeContext API with concrete subclasses for HElib scheme." alt="helayers::HelibContext" shape="rect" coords="87,56,252,80"/>
 <area href="classhelayers_1_1_helib_bgv_context.html" title="An implementation of HeContext for BGV scheme in HElib." alt="helayers::HelibBgvContext" shape="rect" coords="0,112,165,136"/>
-<area href="classhelayers_1_1_helib_ckks_context.html" title="An implementation of HeContext for CKKS scheme in HElib." alt="helayers::HelibCkksContext" shape="rect" coords="175,112,340,136"/>
+<area href="classhelayers_1_1_helib_ckks_context.html" title="An implementation of HeContext for Helib&#39;s CKKS scheme." alt="helayers::HelibCkksContext" shape="rect" coords="175,112,340,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -243,7 +243,7 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An abstract main class representing an underlying HE library &amp; scheme, configured, initialized, and ready to start working. </p>
-<p>Upon initaliation, use on of the inheriting concrete classes such as <a class="el" href="classhelayers_1_1_helib_ckks_context.html" title="An implementation of HeContext for CKKS scheme in HElib.">HelibCkksContext</a>. Then continue with a generic reference to <a class="el" href="classhelayers_1_1_he_context.html" title="An abstract main class representing an underlying HE library &amp; scheme, configured,...">HeContext</a> to allow scheme obliviousness</p>
+<p>Upon initaliation, use on of the inheriting concrete classes such as <a class="el" href="classhelayers_1_1_helib_ckks_context.html" title="An implementation of HeContext for Helib&#39;s CKKS scheme.">HelibCkksContext</a>. Then continue with a generic reference to <a class="el" href="classhelayers_1_1_he_context.html" title="An abstract main class representing an underlying HE library &amp; scheme, configured,...">HeContext</a> to allow scheme obliviousness</p>
 <p>This class bundles together all the data structures required for performing HE operations, including the keys. It either contains a public/private key pair, allowing all operations including decryption, or just the public key allowing everything but decryption.</p>
 <p>It is used as input in constructor of many other classes in this library. For example, to create a ciphertext using the library represent by an <a class="el" href="classhelayers_1_1_he_context.html" title="An abstract main class representing an underlying HE library &amp; scheme, configured,...">HeContext</a>, write: <a class="el" href="classhelayers_1_1_c_tile.html" title="A class representing a ciphertext.">CTile</a> c(he);</p>
 <p>It can be further used to query various properties of the underlying scheme and library. </p>

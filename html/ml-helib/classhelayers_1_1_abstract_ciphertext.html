@@ -85,15 +85,20 @@ $(function() {
 <div class="title">helayers::AbstractCiphertext Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Internal abstract implementation of a ciphertext, do not use directly.  
+ <a href="classhelayers_1_1_abstract_ciphertext.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_abstract_ciphertext_8h_source.html">AbstractCiphertext.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for helayers::AbstractCiphertext:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classhelayers_1_1_abstract_ciphertext.png" usemap="#helayers::AbstractCiphertext_map" alt=""/>
   <map id="helayers::AbstractCiphertext_map" name="helayers::AbstractCiphertext_map">
-<area href="classhelayers_1_1_helib_ciphertext.html" alt="helayers::HelibCiphertext" shape="rect" coords="95,56,275,80"/>
-<area href="classhelayers_1_1_helib_bgv_ciphertext.html" alt="helayers::HelibBgvCiphertext" shape="rect" coords="0,112,180,136"/>
-<area href="classhelayers_1_1_helib_ckks_ciphertext.html" alt="helayers::HelibCkksCiphertext" shape="rect" coords="190,112,370,136"/>
+<area href="classhelayers_1_1_helib_ciphertext.html" title="Implementation of CTile API with concrete subclasses for HElib scheme." alt="helayers::HelibCiphertext" shape="rect" coords="95,56,275,80"/>
+<area href="classhelayers_1_1_helib_bgv_ciphertext.html" title="A concrete implementation of CTile API for HElib&#39;s BGV scheme." alt="helayers::HelibBgvCiphertext" shape="rect" coords="0,112,180,136"/>
+<area href="classhelayers_1_1_helib_ckks_ciphertext.html" title="A concrete implementation of CTile API for Helib&#39;s CKKS scheme." alt="helayers::HelibCkksCiphertext" shape="rect" coords="190,112,370,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -244,7 +249,10 @@ Protected Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>AbstractCiphertext</b> (const <a class="el" href="classhelayers_1_1_abstract_ciphertext.html">AbstractCiphertext</a> &amp;src)=default</td></tr>
 <tr class="separator:aa96eec110eb176692526ee122a2903d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Internal abstract implementation of a ciphertext, do not use directly. </p>
+<p>Used as parent class for concrete classes implementing ciphertexts in various schemes. Do not use directly, use a <a class="el" href="classhelayers_1_1_c_tile.html" title="A class representing a ciphertext.">CTile</a> class instead. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>/opt/IBM/FHE-distro/ML-HElib/src/helayers/hebase/impl/<a class="el" href="_abstract_ciphertext_8h_source.html">AbstractCiphertext.h</a></li>
 <li>/opt/IBM/FHE-distro/ML-HElib/src/helayers/hebase/impl/AbstractCiphertext.cpp</li>
 </ul>

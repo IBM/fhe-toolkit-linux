@@ -86,7 +86,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>An implementation of <a class="el" href="classhelayers_1_1_he_context.html" title="An abstract main class representing an underlying HE library &amp; scheme, configured,...">HeContext</a> for CKKS scheme in HElib.  
+<p>An implementation of <a class="el" href="classhelayers_1_1_he_context.html" title="An abstract main class representing an underlying HE library &amp; scheme, configured,...">HeContext</a> for Helib's CKKS scheme.  
  <a href="classhelayers_1_1_helib_ckks_context.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_helib_ckks_context_8h_source.html">HelibCkksContext.h</a>&gt;</code></p>
@@ -96,7 +96,7 @@ Inheritance diagram for helayers::HelibCkksContext:</div>
  <div class="center">
   <img src="classhelayers_1_1_helib_ckks_context.png" usemap="#helayers::HelibCkksContext_map" alt=""/>
   <map id="helayers::HelibCkksContext_map" name="helayers::HelibCkksContext_map">
-<area href="classhelayers_1_1_helib_context.html" alt="helayers::HelibContext" shape="rect" coords="0,56,165,80"/>
+<area href="classhelayers_1_1_helib_context.html" title="An implementation of HeContext API with concrete subclasses for HElib scheme." alt="helayers::HelibContext" shape="rect" coords="0,56,165,80"/>
 <area href="classhelayers_1_1_he_context.html" title="An abstract main class representing an underlying HE library &amp; scheme, configured,..." alt="helayers::HeContext" shape="rect" coords="0,0,165,24"/>
   </map>
 </div></div>
@@ -278,7 +278,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classhelayers_1_1_helib_context"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classhelayers_1_1_helib_context')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classhelayers_1_1_helib_context.html">helayers::HelibContext</a></td></tr>
 <tr class="memitem:ab06ef5aed76a56d8a9cbd29d243637b2 inherit pub_static_methods_classhelayers_1_1_helib_context"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classhelayers_1_1_helib_context.html">HelibContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelayers_1_1_helib_context.html#ab06ef5aed76a56d8a9cbd29d243637b2">create</a> (HelibPreset preset)</td></tr>
-<tr class="memdesc:ab06ef5aed76a56d8a9cbd29d243637b2 inherit pub_static_methods_classhelayers_1_1_helib_context"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="classhelayers_1_1_helib_context.html">HelibContext</a> for either CKKS or BGV, based on a preset configuration.  <a href="classhelayers_1_1_helib_context.html#ab06ef5aed76a56d8a9cbd29d243637b2">More...</a><br /></td></tr>
+<tr class="memdesc:ab06ef5aed76a56d8a9cbd29d243637b2 inherit pub_static_methods_classhelayers_1_1_helib_context"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <a class="el" href="classhelayers_1_1_helib_context.html" title="An implementation of HeContext API with concrete subclasses for HElib scheme.">HelibContext</a> for either CKKS or BGV, based on a preset configuration.  <a href="classhelayers_1_1_helib_context.html#ab06ef5aed76a56d8a9cbd29d243637b2">More...</a><br /></td></tr>
 <tr class="separator:ab06ef5aed76a56d8a9cbd29d243637b2 inherit pub_static_methods_classhelayers_1_1_helib_context"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_static_methods_classhelayers_1_1_he_context"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classhelayers_1_1_he_context')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classhelayers_1_1_he_context.html">helayers::HeContext</a></td></tr>
 <tr class="memitem:a1adb75564b77dfee1c21315e017aa268 inherit pub_static_methods_classhelayers_1_1_he_context"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classhelayers_1_1_he_context.html">HeContext</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelayers_1_1_he_context.html#a1adb75564b77dfee1c21315e017aa268">loadHeContextFromFile</a> (const std::string &amp;fileName)</td></tr>
@@ -315,9 +315,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>mirrored</b> = false<
 <tr class="separator:aeabc00b46efb378693d326c78dcdadf2 inherit pro_attribs_classhelayers_1_1_he_context"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>An implementation of <a class="el" href="classhelayers_1_1_he_context.html" title="An abstract main class representing an underlying HE library &amp; scheme, configured,...">HeContext</a> for CKKS scheme in HElib. </p>
-<p>It can be either initialized via parameters, via an <a class="el" href="structhelayers_1_1_helib_config.html" title="A class for holding HElib configuration parameters.">HelibConfig</a>, or loaded from a file.</p>
-<p>It is recommended not to use directly after initialization, but use an <a class="el" href="classhelayers_1_1_he_context.html" title="An abstract main class representing an underlying HE library &amp; scheme, configured,...">HeContext</a> reference instead. </p>
+<div class="textblock"><p>An implementation of <a class="el" href="classhelayers_1_1_he_context.html" title="An abstract main class representing an underlying HE library &amp; scheme, configured,...">HeContext</a> for Helib's CKKS scheme. </p>
+<p>It can be either initialized via parameters, via an <a class="el" href="structhelayers_1_1_helib_config.html" title="A class for holding HElib configuration parameters.">HelibConfig</a>, or loaded from a file. It is recommended not to use directly after initialization, but use an <a class="el" href="classhelayers_1_1_he_context.html" title="An abstract main class representing an underlying HE library &amp; scheme, configured,...">HeContext</a> reference instead. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ace6ba95965e493838443f73f73f2720e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ace6ba95965e493838443f73f73f2720e">&#9670;&nbsp;</a></span>init() <span class="overload">[1/2]</span></h2>

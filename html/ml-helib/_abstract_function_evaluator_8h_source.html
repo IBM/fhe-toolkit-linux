@@ -112,27 +112,30 @@ $(function() {
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>helayers {</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classhelayers_1_1_abstract_function_evaluator.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="classhelayers_1_1_abstract_function_evaluator.html">AbstractFunctionEvaluator</a></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <a class="code" href="classhelayers_1_1_he_context.html">HeContext</a>&amp; he;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="classhelayers_1_1_abstract_function_evaluator.html">AbstractFunctionEvaluator</a>(<a class="code" href="classhelayers_1_1_he_context.html">HeContext</a>&amp; he);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  ~<a class="code" href="classhelayers_1_1_abstract_function_evaluator.html">AbstractFunctionEvaluator</a>();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <a class="code" href="classhelayers_1_1_abstract_function_evaluator.html">AbstractFunctionEvaluator</a>(<span class="keyword">const</span> <a class="code" href="classhelayers_1_1_abstract_function_evaluator.html">AbstractFunctionEvaluator</a>&amp; src) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <a class="code" href="classhelayers_1_1_abstract_function_evaluator.html">AbstractFunctionEvaluator</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classhelayers_1_1_abstract_function_evaluator.html">AbstractFunctionEvaluator</a>&amp; src) =</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> powerInPlace(<a class="code" href="classhelayers_1_1_abstract_ciphertext.html">AbstractCiphertext</a>&amp; cipher, <span class="keywordtype">int</span> p) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> totalProduct(<a class="code" href="classhelayers_1_1_abstract_ciphertext.html">AbstractCiphertext</a>&amp; result, <span class="keyword">const</span> std::vector&lt;std::shared_ptr&lt;helayers::AbstractCiphertext&gt;&gt;&amp; multiplicands) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SRC_HELAYERS_ABSTRACTFUNCTIONEVALUATOR_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classhelayers_1_1_abstract_function_evaluator.html">   38</a></span>&#160;<span class="keyword">class </span><a class="code" href="classhelayers_1_1_abstract_function_evaluator.html">AbstractFunctionEvaluator</a></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <a class="code" href="classhelayers_1_1_he_context.html">HeContext</a>&amp; he;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <a class="code" href="classhelayers_1_1_abstract_function_evaluator.html">AbstractFunctionEvaluator</a>(<a class="code" href="classhelayers_1_1_he_context.html">HeContext</a>&amp; he);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  ~<a class="code" href="classhelayers_1_1_abstract_function_evaluator.html">AbstractFunctionEvaluator</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <a class="code" href="classhelayers_1_1_abstract_function_evaluator.html">AbstractFunctionEvaluator</a>(<span class="keyword">const</span> <a class="code" href="classhelayers_1_1_abstract_function_evaluator.html">AbstractFunctionEvaluator</a>&amp; src) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <a class="code" href="classhelayers_1_1_abstract_function_evaluator.html">AbstractFunctionEvaluator</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classhelayers_1_1_abstract_function_evaluator.html">AbstractFunctionEvaluator</a>&amp; src) =</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> powerInPlace(<a class="code" href="classhelayers_1_1_abstract_ciphertext.html">AbstractCiphertext</a>&amp; cipher, <span class="keywordtype">int</span> p) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> totalProduct(</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <a class="code" href="classhelayers_1_1_abstract_ciphertext.html">AbstractCiphertext</a>&amp; result,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <span class="keyword">const</span> std::vector&lt;std::shared_ptr&lt;helayers::AbstractCiphertext&gt;&gt;&amp;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;          multiplicands) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;};</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SRC_HELAYERS_ABSTRACTFUNCTIONEVALUATOR_H */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclasshelayers_1_1_he_context_html"><div class="ttname"><a href="classhelayers_1_1_he_context.html">helayers::HeContext</a></div><div class="ttdoc">An abstract main class representing an underlying HE library &amp; scheme, configured,...</div><div class="ttdef"><b>Definition:</b> HeContext.h:92</div></div>
-<div class="ttc" id="aclasshelayers_1_1_abstract_function_evaluator_html"><div class="ttname"><a href="classhelayers_1_1_abstract_function_evaluator.html">helayers::AbstractFunctionEvaluator</a></div><div class="ttdef"><b>Definition:</b> AbstractFunctionEvaluator.h:32</div></div>
-<div class="ttc" id="aclasshelayers_1_1_abstract_ciphertext_html"><div class="ttname"><a href="classhelayers_1_1_abstract_ciphertext.html">helayers::AbstractCiphertext</a></div><div class="ttdef"><b>Definition:</b> AbstractCiphertext.h:38</div></div>
+<div class="ttc" id="aclasshelayers_1_1_he_context_html"><div class="ttname"><a href="classhelayers_1_1_he_context.html">helayers::HeContext</a></div><div class="ttdoc">An abstract main class representing an underlying HE library &amp; scheme, configured,...</div><div class="ttdef"><b>Definition:</b> HeContext.h:93</div></div>
+<div class="ttc" id="aclasshelayers_1_1_abstract_function_evaluator_html"><div class="ttname"><a href="classhelayers_1_1_abstract_function_evaluator.html">helayers::AbstractFunctionEvaluator</a></div><div class="ttdoc">Internal abstract implementation of function evaluation, do not use directly.</div><div class="ttdef"><b>Definition:</b> AbstractFunctionEvaluator.h:38</div></div>
+<div class="ttc" id="aclasshelayers_1_1_abstract_ciphertext_html"><div class="ttname"><a href="classhelayers_1_1_abstract_ciphertext.html">helayers::AbstractCiphertext</a></div><div class="ttdoc">Internal abstract implementation of a ciphertext, do not use directly.</div><div class="ttdef"><b>Definition:</b> AbstractCiphertext.h:42</div></div>
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->
 </div>

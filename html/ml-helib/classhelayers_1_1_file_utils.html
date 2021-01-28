@@ -84,6 +84,11 @@ $(function() {
 <div class="title">helayers::FileUtils Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class implementing methods to work with files.  
+ <a href="classhelayers_1_1_file_utils.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_file_utils_8h_source.html">FileUtils.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -97,10 +102,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:a3c5b9c2be619569dee13ae085cd4f700"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the size of the given directory.  <a href="classhelayers_1_1_file_utils.html#a3c5b9c2be619569dee13ae085cd4f700">More...</a><br /></td></tr>
 <tr class="separator:a3c5b9c2be619569dee13ae085cd4f700"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8ed5d15ba6e292941830b52c2d785e6"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelayers_1_1_file_utils.html#ad8ed5d15ba6e292941830b52c2d785e6">fileExists</a> (const std::string &amp;filepath)</td></tr>
-<tr class="memdesc:ad8ed5d15ba6e292941830b52c2d785e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns true iff the file of the given path exists  <a href="classhelayers_1_1_file_utils.html#ad8ed5d15ba6e292941830b52c2d785e6">More...</a><br /></td></tr>
+<tr class="memdesc:ad8ed5d15ba6e292941830b52c2d785e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true iff the file of the given path exists.  <a href="classhelayers_1_1_file_utils.html#ad8ed5d15ba6e292941830b52c2d785e6">More...</a><br /></td></tr>
 <tr class="separator:ad8ed5d15ba6e292941830b52c2d785e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class implementing methods to work with files. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a5fa758c428f26b9708ad7a0a06369069"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5fa758c428f26b9708ad7a0a06369069">&#9670;&nbsp;</a></span>createCleanDir()</h2>
 
@@ -128,7 +135,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Creates a clean directory with the given name. </p>
 <p>If there is a directory with the given name already, all of its content is cleaned. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">dirName</td><td>The name of the directory to create. </td></tr>
+    <tr><td class="paramname">dirName</td><td>The name of the directory to create. </td></tr>
   </table>
   </dd>
 </dl>
@@ -168,7 +175,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Creates a directory with the given name, if it does not exist. </p>
 <p>If there is a directory with the given name already, does nothing. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">dirName</td><td>The name of the directory to create. </td></tr>
+    <tr><td class="paramname">dirName</td><td>The name of the directory to create. </td></tr>
   </table>
   </dd>
 </dl>
@@ -199,10 +206,10 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>returns true iff the file of the given path exists </p>
+<p>Returns true iff the file of the given path exists. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>The relative path of the checked file </td></tr>
+    <tr><td class="paramname">path</td><td>The relative path of the checked file </td></tr>
   </table>
   </dd>
 </dl>
@@ -246,8 +253,8 @@ Static Public Member Functions</h2></td></tr>
 <p>Prints the size of the given directory. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>The relative path of the directory to report its size. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">logicalName</td><td>The title used in the size report message. If empty, "path" is used instead. </td></tr>
+    <tr><td class="paramname">path</td><td>The relative path of the directory to report its size. </td></tr>
+    <tr><td class="paramname">logicalName</td><td>The title used in the size report message. If empty, "path" is used instead. </td></tr>
   </table>
   </dd>
 </dl>

@@ -84,13 +84,18 @@ $(function() {
 <div class="title">helayers::AbstractFunctionEvaluator Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Internal abstract implementation of function evaluation, do not use directly.  
+ <a href="classhelayers_1_1_abstract_function_evaluator.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_abstract_function_evaluator_8h_source.html">AbstractFunctionEvaluator.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for helayers::AbstractFunctionEvaluator:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classhelayers_1_1_abstract_function_evaluator.png" usemap="#helayers::AbstractFunctionEvaluator_map" alt=""/>
   <map id="helayers::AbstractFunctionEvaluator_map" name="helayers::AbstractFunctionEvaluator_map">
-<area href="classhelayers_1_1_helib_bgv_native_function_evaluator.html" alt="helayers::HelibBgvNativeFunctionEvaluator" shape="rect" coords="0,56,257,80"/>
+<area href="classhelayers_1_1_helib_bgv_native_function_evaluator.html" title="Concrete implementation of NativeFunctionEvaluator API for HElib&#39;s BGV scheme." alt="helayers::HelibBgvNativeFunctionEvaluator" shape="rect" coords="0,56,257,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -112,7 +117,10 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>powerInPlace<
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>totalProduct</b> (<a class="el" href="classhelayers_1_1_abstract_ciphertext.html">AbstractCiphertext</a> &amp;result, const std::vector&lt; std::shared_ptr&lt; <a class="el" href="classhelayers_1_1_abstract_ciphertext.html">helayers::AbstractCiphertext</a> &gt;&gt; &amp;multiplicands) const</td></tr>
 <tr class="separator:aa045cdc9819ecf1e6f759505ca32b733"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Internal abstract implementation of function evaluation, do not use directly. </p>
+<p>Used as parent class for concrete classes implementing function evaluators in various schemes. Do not use directly, use a <a class="el" href="classhelayers_1_1_native_function_evaluator.html" title="Class for holding functions supplied directly by underlying schemes.">NativeFunctionEvaluator</a> class instead. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>/opt/IBM/FHE-distro/ML-HElib/src/helayers/hebase/impl/<a class="el" href="_abstract_function_evaluator_8h_source.html">AbstractFunctionEvaluator.h</a></li>
 <li>/opt/IBM/FHE-distro/ML-HElib/src/helayers/hebase/impl/AbstractFunctionEvaluator.cpp</li>
 </ul>
