@@ -30,6 +30,7 @@
 
 namespace helayers {
 
+///@brief A concrete implementation of CTile API for HElib's BGV scheme.
 class HelibBgvCiphertext : public HelibCiphertext
 {
   HelibBgvContext& he;

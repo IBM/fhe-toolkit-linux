@@ -30,6 +30,7 @@
 
 namespace helayers {
 
+///@brief A concrete implementation of CTile API for Helib's CKKS scheme.
 class HelibCkksCiphertext : public HelibCiphertext
 {
 private:

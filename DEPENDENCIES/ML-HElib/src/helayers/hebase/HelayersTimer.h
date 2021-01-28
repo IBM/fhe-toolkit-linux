@@ -138,8 +138,8 @@ class HelayersTimer
   static bool multiThreadMode;
 
 public:
-  // Define a HelayersTimer::Guard local variable to automatically push a timer
-  // section and pop it when the scope ends.
+  /// @brief Defines a HelayersTimer::Guard local variable to automatically push
+  /// a timer section and pop it when the scope ends.
   class Guard
   {
   public:

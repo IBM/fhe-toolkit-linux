@@ -30,6 +30,7 @@
 
 namespace helayers {
 
+///@brief A concrete implementation of Encoder API for Helib's CKKS scheme.
 class HelibCkksEncoder : public AbstractEncoder
 {
 

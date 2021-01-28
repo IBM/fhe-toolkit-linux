@@ -30,37 +30,41 @@
 
 namespace helayers {
 
+/// @brief A class implementing methods to work with files.
 class FileUtils
 {
 
   FileUtils();
 
+  /// @brief Creates a new directory with name "dirName".
+  // This function assumes a directory with the given name does not already
+  // exists
   static void makeDir(const std::string& dirName);
 
 public:
-  /// Creates a directory with the given name, if it does not exist.
+  /// @brief Creates a directory with the given name, if it does not exist.
   /// If there is a directory with the given name already, does nothing.
-  /// @param[in] dirName The name of the directory to create.
+  /// @param dirName The name of the directory to create.
   static void createDir(const std::string& dirName);
 
-  /// Creates a clean directory with the given name.
+  /// @brief Creates a clean directory with the given name.
   /// If there is a directory with the given name already, all of its content is
   /// cleaned.
-  /// @param[in] dirName The name of the directory to create.
+  /// @param dirName The name of the directory to create.
   /// @throw runtime_error If the length of "dirName" is less than 3.
   static void createCleanDir(const std::string& dirName);
 
-  /// Prints the size of the given directory.
-  /// @param[in] path        The relative path of the directory to report its
+  /// @brief Prints the size of the given directory.
+  /// @param path        The relative path of the directory to report its
   /// size.
-  /// @param[in] logicalName The title used in the size report message. If
+  /// @param logicalName The title used in the size report message. If
   /// empty,
   ///                        "path" is used instead.
   static long reportFileSize(const std::string& path,
                              const std::string& logicalName = "");
 
-  /// returns true iff the file of the given path exists
-  /// @param[in] path        The relative path of the checked file
+  /// @brief Returns true iff the file of the given path exists
+  /// @param path        The relative path of the checked file
   static bool fileExists(const std::string& filepath);
 };
 }

@@ -28,14 +28,19 @@
 #define SRC_HELAYERS_HELIBBGVNATIVEFUNCTIONEVALUATOR_H
 
 namespace helayers {
+
+///@brief Concrete implementation of NativeFunctionEvaluator API for HElib's BGV
+/// scheme.
 class HelibBgvNativeFunctionEvaluator : public AbstractFunctionEvaluator
 {
 
 public:
   HelibBgvNativeFunctionEvaluator(HeContext& he);
   void powerInPlace(AbstractCiphertext& cipher, int p) const override;
-  void totalProduct(AbstractCiphertext& result, const std::vector<std::shared_ptr<helayers::AbstractCiphertext>>& absMultiplicands) const override;
-
+  void totalProduct(
+      AbstractCiphertext& result,
+      const std::vector<std::shared_ptr<helayers::AbstractCiphertext>>&
+          absMultiplicands) const override;
 };
 }
 #endif /* SRC_HELAYERS_HELIBBGVNATIVEFUNCTIONEVALUATOR_H */
