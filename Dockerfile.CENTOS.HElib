@@ -14,7 +14,7 @@ RUN yum clean packages
 # Setup the toolchain
 RUN yum -y install epel-release
 RUN yum repolist
-RUN yum -y install autoconf xz curl wget tar cmake git gcc gcc-c++ make diffutils file patchelf vim
+RUN yum -y install autoconf xz curl wget tar git gcc gcc-c++ make diffutils file patchelf vim python3 python2 openssl-devel
 RUN yum clean packages
 
 # Install GMP dependency
@@ -28,6 +28,17 @@ RUN dnf install -y 'dnf-command(config-manager)'
 RUN dnf config-manager -y --set-enabled powertools
 RUN dnf install -y hdf5-devel
 RUN yum clean packages
+
+RUN git clone https://github.com/bats-core/bats-core.git && \
+    cd bats-core && \
+    ./install.sh /usr/local
+
+RUN wget https://github.com/Kitware/CMake/releases/download/v3.17.3/cmake-3.17.3.tar.gz && \
+     tar -zxvf cmake-3.17.3.tar.gz && \
+     cd cmake-3.17.3 && \
+     ./bootstrap && \
+     make && \
+     make install
 
 # Create dependencies build environment and copy NTL and HElib distros into it.
 RUN mkdir -p /opt/IBM/FHE-distro
