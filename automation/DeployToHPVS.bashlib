@@ -1,0 +1,1685 @@
+#
+# Copyright (C) 2021 IBM. All Rights Reserved.
+#
+# See the LICENSE file in the root directory
+# of this source tree for licensing information.
+#
+
+#
+# DeployToHPVS.bashlib
+# --------------------
+#     Subroutines to be used by the DeployToHPVS.sh shell script
+# 
+# Author(s)
+# ---------
+#     Lei A.B. Wang <wlwangwl@cn.ibm.com>
+#     Dan FitzGerald <danfitz@us.ibm.com>                    
+#
+# Notes
+# -----
+#   1. These are a series of BASH script subroutines and will not work on
+#      their own.
+#
+#   2. By default, all commands executed by these functions are silenced
+#      except for when a nonzero RC is returned.  To display the commands
+#      being executed and their output, issue: `export DEPLOY_TO_HPVS_DEBUG=1`.
+#
+
+# Global variable tracking the topmost PID of this script
+export SCRIPT_PID=$$
+
+# Global variable containing the current working directory at the time of
+# program invocation
+CWD_ON_ENTRY=$(pwd)
+
+# Register our script to catch TERM signals and handle them by issuing "exit 1"
+trap "exit 1" TERM
+
+#
+# Write a "FATAL" message to STDERR and exit with RC=1
+#
+# Input Parameters:
+#   $1 - String message to print
+#
+# Global Variables Used:
+#   registryURL - URL of the Docker registry
+#
+# Return Values:
+#   Successful
+#       The message will be printed to STDERR and the program will terminate
+#       with RC=1.  The CWD will be set to the value it was on program
+#       invocation.
+#
+#   Error
+#       This routine will not fail
+#
+fatal_error() {
+    set +x
+    echo -e "FATAL:   $1" 1>&2
+    if [[ "$(pwd)" != "$CWD_ON_ENTRY" ]] ; then cd $CWD_ON_ENTRY ; fi
+    
+    docker_logout
+    
+    # Issue a TERM signal, which will be caught and terminate the script w\ RC=1
+    kill -s TERM $SCRIPT_PID
+}
+
+#
+# Write a "FATAL" message to STDERR, display program usage information, and
+# terminate the program with RC=1
+#
+# Input Parameters:
+#   $1 - String message to print
+#
+# Global Variables Used:
+#   MANPAGE
+#
+# Return Values:
+#   Successful
+#       The message will be printed to STDERR and the program will terminate
+#       with RC=1.  The CWD will be set to the value it was on program
+#       invocation.
+#
+#   Error
+#       This routine will not fail
+#
+print_fatal_and_usage(){
+    set +x
+    echo -e "FATAL:   $1" 1>&2
+    echo ""
+    print_usage "${MANPAGE}"
+    if [[ "$(pwd)" != "$CWD_ON_ENTRY" ]] ; then cd $CWD_ON_ENTRY ; fi
+    
+    # Issue a TERM signal, which will be caught and terminate the script w\ RC=1
+    kill -s TERM $SCRIPT_PID
+}
+
+#
+# Write an "INFO" message to STDOUT
+#
+# Input Parameters:
+#   $1 - String message to print
+#
+# Global Variables Used:
+#   None.
+#
+# Return Values:
+#   Successful
+#       RC = 0
+#
+#   Error
+#       This routine will not fail
+#
+write_info(){
+    old_setting=${-//[^x]/}
+    set +x
+    echo -e "INFO:    $1"
+    if [[ -n "$old_setting" ]]; then set -x; else set +x; fi
+    return 0
+}
+
+#
+# Write an "ERROR" message to STDOUT
+#
+# Input Parameters:
+#   $1 - String message to print
+#
+# Global Variables Used:
+#   None.
+#
+# Return Values:
+#   Successful
+#       RC = 0
+#
+#   Error
+#       This routine will not fail
+#
+write_error(){
+    old_setting=${-//[^x]/}
+    set +x
+    echo -e "ERROR:   $1"
+    if [[ -n "$old_setting" ]]; then set -x; else set +x; fi
+    return 0
+}
+
+#
+# Write a "SUCCESS" message to STDOUT
+#
+# Input Parameters:
+#   $1 - String message to print
+#
+# Global Variables Used:
+#   None.
+#
+# Return Values:
+#   Successful
+#       RC = 0
+#
+#   Error
+#       This routine will not fail
+#
+write_success(){
+    old_setting=${-//[^x]/}
+    set +x
+    echo -e "SUCCESS: $1"
+    if [[ -n "$old_setting" ]]; then set -x; else set +x; fi
+    return 0
+}
+
+#
+# Write a "LOG" message to STDOUT
+#
+# Input Parameters:
+#   $1 - String message to print
+#
+# Global Variables Used:
+#   None.
+#
+# Return Values:
+#   Successful
+#       RC = 0
+#
+#   Error
+#       This routine will not fail
+#
+write_log(){
+    old_setting=${-//[^x]/}
+    set +x
+    echo -e "LOG:     $1"
+    if [[ -n "$old_setting" ]]; then set -x; else set +x; fi
+    return 0
+}
+
+#
+# Write a "DEBUG" message to STDOUT
+#
+# Input Parameters:
+#   $1 - String message to print
+#
+# Global Variables Used:
+#   None.
+#
+# Return Values:
+#   Successful
+#       RC = 0
+#
+#   Error
+#       This routine will not fail
+#
+write_debug(){
+    old_setting=${-//[^x]/}
+    set +x
+    echo -e "DEBUG:   $1"
+    if [[ -n "$old_setting" ]]; then set -x; else set +x; fi
+    return 0
+}
+
+#
+# Rewrite the value of a configuration variable within a configuration file
+#
+# Input Parameters:
+#   $1 - Path to configuration file
+#   $2 - Name of configuration variable
+#   $3 - New value of configuration variable
+#
+# Global Variables Used:
+#   None.
+#
+# Return Values:
+#   Successful
+#       RC = 0
+#
+#   Error
+#       This routine will not fail
+#
+change_config_var(){
+    
+    # Escape forward slashes so they don't foul up sed
+    escaped=$(echo "${3}" | sed -e 's/\//\\&/g')
+    
+    run_command "sed --in-place 's/^\#\?"${2}"\=.*$/"${2}"\="${escaped}"/' "${1}
+    if [[ $? != 0 ]]; then
+        fatal_error "Error writing to configuration file '${1}'"
+    fi
+    return 0
+}
+
+#
+# Prompt for a user response, possibly permitting a default value
+#
+# Input Parameters:
+#   $1 - Prompt text (a terminating colon will be added)
+#   $2 - `true` if we are to allow a default value, `false` otherwise
+#   $3 - String of default value, if applicable.  If $2 == `true` and no value
+#        is passed for $3, then the default value will be the empty string.
+#
+# Global Variables Used:
+#   PROMPT_USER_READARGS
+#       Arguments to pass to the `read` command
+#   USERINPUT
+#
+# Return Values:
+#   Successful
+#       RC = 0
+#       Response is in $USERINPUT
+#
+#   Error
+#       A "FATAL" message is written to STDERR, then execution terminates with
+#       RC=1.  The CWD will be set to the value it was on program
+#       invocation.
+#
+# Notes:
+#   1.  A value of 'default' will be printed as "[default]" in the prompt
+#       message, but the value of $USERINPUT will be set to "" on exit.
+#
+prompt_user(){
+    
+    # Set the default value string
+    if [[ "${2}" == true ]]; then
+        local defaultValue=""
+        if [[ -n ${3} ]]; then
+            defaultValue="${3}"
+        fi
+    elif [[ "${2}" != false ]]; then
+        fatal_error "Internal error: bad function call"
+    fi
+    
+    # Determine the prompt text
+    local prompt="${1}:"
+    if [[ -n ${defaultValue} ]]; then
+        if [[ "$defaultValue" == "" ]]; then
+            prompt="${prompt} [<empty string>]"
+        else
+            prompt="${prompt} [${defaultValue}]"
+        fi
+    fi
+
+    while [ true ] ; do
+        echo "${prompt}"
+        read ${PROMPT_USER_READARGS} USERINPUT
+        
+        # Check for empty string
+        if [[ -z "$USERINPUT" ]]; then
+            
+            # Case 1: We allow for default values
+            if [[ -n ${defaultValue} ]]; then
+                if [[ "${defaultValue}" == "default" ]]; then
+                    defaultValue=""
+                fi
+                USERINPUT="${defaultValue}"   
+                break
+            
+            # Case 2: We do not allow for default values
+            else
+                write_error "A value is required"
+            fi
+        
+        # Nonempty string
+        else
+            break
+        fi
+    done
+    
+    return 0
+}
+
+#
+# Prompt for and verify a filepath
+#
+# Input Parameters:
+#   $1 - Prompt text (a terminating colon will be added)
+#   $2 - Boolean; 'true' if user can have an empty response
+#
+# Global Variables Used:
+#   USERINPUT
+#
+# Return Values:
+#   Successful
+#       RC = 0
+#           Response is in $USERINPUT
+#
+#   Error
+#       This routine will not fail
+#
+prompt_for_path(){
+    local stoploop=false
+    local responseRequired=false
+    
+    if [[ -n ${2} ]] && [[ "${2}" == true ]]; then
+        responseRequired=true
+    fi
+
+    while [ "$stoploop" == false ] ; do
+        echo "${1}:"
+        read USERINPUT
+        
+        # Check for empty string
+        if [[ -z "$USERINPUT" ]]; then
+            if [[ "$responseRequired" == true ]]; then
+                USERINPUT=""
+                stoploop=true
+            else
+                write_error "A value is required"
+            fi
+        
+        # Make sure that this is a valid path
+        elif [[ -e "$USERINPUT" ]]; then
+            stoploop=true
+        
+        # Print a message if this is not a valid path
+        else
+            write_error "No file found at path '${USERINPUT}'"
+        fi
+    done
+    
+    return 0
+}
+
+#
+# Prompt for and verify a passphrase
+#
+# Input Parameters:
+#   $1 - Prompt text (a terminating colon will be added)
+#   $2 - Boolean; 'true' if we should ask for password confirmation, 'false'
+#        otherwise
+#
+# Global Variables Used:
+#   USERINPUT
+#
+# Return Values:
+#   Successful
+#       RC = 0
+#       Response is in $USERINPUT
+#
+#   Error
+#       A "FATAL" message is written to STDERR, then execution terminates with
+#       RC=1.  The CWD will be set to the value it was on program
+#       invocation.
+#
+prompt_for_passphrase(){
+    local confirmPassword=false
+    local password1
+    local password2
+    local counter=0
+    
+    if [[ -n ${2} ]]; then
+        if [[ "${2}" == true ]]; then
+            confirmPassword=true
+        elif [[ "${2}" == false ]]; then
+            confirmPassword=false
+        else
+            fatal_error "Internal error: bad function call"
+        fi
+    fi
+    
+    while [  $counter -lt 3 ]; do
+        echo "${1}:"
+        read -s password1
+        
+        # If we are not supposed to be confirming the password, then
+        # out of here.  Yes, I'm aware that this is crappy code.
+        if [[ "${confirmPassword}" == false ]]; then
+            USERINPUT=${password1}
+            return 0
+        fi
+        
+        echo "Please confirm:"
+        read -s password2
+        echo ""
+        if [[ "$password1" == "$password2" ]]; then break ; fi
+        write_error "Passwords do not match!\n"
+        let counter=counter+1 
+    done
+    if [[ $counter -eq 3 ]]; then
+        fatal_error "Too many failed attempts to set passphrase"
+    fi
+    
+    USERINPUT=${password1}
+    return 0
+}
+
+#
+# Generate a configuration file
+#
+# Input Parameters:
+#   $1 - Path to write the new configuration file
+#
+# Global Variables Used:
+#   DEFAULT_CONFIG_FILE
+#   DEFAULT_HPVS_NAME
+#   DEFAULT_LOCATION
+#   DEFAULT_REGISTRATION_FILE
+#   DEFAULT_RESOURCE_PLAN_ID
+#   DIRNAME
+#
+# Return Values:
+#   Successful
+#       RC = 0
+#
+#   Error
+#       A "FATAL" message is written to STDERR, then execution terminates with
+#       RC=1.  The CWD will be set to the value it was on program
+#       invocation.
+#
+config_file_wizard(){
+    local APIKey
+    local cwd=$(pwd)
+    local dockerUser
+    local gpgVendorKeyName
+    local hpvsName
+    local usingICR=false
+    local whoami=$(whoami)
+    
+    # Attempt to create the configuration file from our template
+    run_command "cp ${DIRNAME}/${DEFAULT_CONFIG_FILE} ${1}"
+    if [[ $? != 0 ]]; then
+        fatal_error "Unable to create configuration file '${1}'"
+    fi
+    
+    #--------------------------------------------------------------------------#
+    # Config variable: APIKey                                                  #
+    #--------------------------------------------------------------------------#
+    PROMPT_USER_READARGS="-s"
+    prompt_user "Enter an IAM key (platform API key) for your IBM Cloud account" false
+    unset PROMPT_USER_READARGS
+    change_config_var ${1} "delegationkeyName" "${USERINPUT}"
+    APIKey=${USERINPUT}
+    change_config_var ${1} "APIKey" "${APIKey}"
+    
+    #--------------------------------------------------------------------------#
+    # Config variable: registryURL                                             #
+    #--------------------------------------------------------------------------#
+    prompt_user "Enter URL of container repository" false "docker.io"
+    registryURL=$(echo "${USERINPUT}" | tr '[:upper:]' '[:lower:]') # Make lowercase
+    
+    # Strip "http://" or "https://" from string
+    registryURL=${registryURL#"https://"}
+    registryURL=${registryURL#"http://"}
+    
+    change_config_var ${1} "registryURL" "${registryURL}"
+    
+    # If registryURL ends with "*.icr.io", we know that we're using the IBM
+    # Cloud Container Registru
+    if [[ ${registryURL%%:*} == *.icr.io ]]; then usingICR=true; fi
+    
+    #--------------------------------------------------------------------------#
+    # Config variable: dockerUser and dockerPW                                 #
+    #--------------------------------------------------------------------------#
+    
+    # If using IBM Cloud with the platform API key, the dockerUser is 
+    # 'iamapikey' and the dockerPW is your API key. 
+    if [[ "$usingICR" == true ]]; then
+        dockerUser="iamapikey"
+        change_config_var ${1} "dockerUser" "${dockerUser}"
+        change_config_var ${1} "dockerPW" "${APIKey}"
+    else
+        prompt_user "Enter your cloud repository userid" true "${whoami}"
+        dockerUser=${USERINPUT}
+        change_config_var ${1} "dockerUser" "${dockerUser}"
+        
+        prompt_for_passphrase "Enter your cloud repository password" false
+        change_config_var ${1} "dockerPW" "${USERINPUT}"
+    fi
+    
+    #--------------------------------------------------------------------------#
+    # Config variable: namespace                                               #
+    #--------------------------------------------------------------------------#
+    
+    # This code will use the value of dockerUser as the default value if the
+    # user just hits ENTER.  For IBM Cloud users, it guesses your system userid
+    # as a default.
+    if [[ "$usingICR" == true ]]; then
+        prompt_user "Enter target namespace" true "${whoami}"
+    else
+        prompt_user "Enter target namespace" true "${dockerUser}"
+    fi
+    change_config_var ${1} "namespace" "${USERINPUT}"
+    
+    #--------------------------------------------------------------------------#
+    # Config variable: DCTServer                                               #
+    #--------------------------------------------------------------------------#
+    
+    # Strip any port number off the end of registryURL
+    registryURL=${registryURL%%:*}
+    
+    # If the user is using DockerHub, we must keep this field empty.
+    #
+    # If the user is using IBM Cloud, we already know the value.  Otherwise,
+    # use the registryURL as the basis for a good guess.
+    USERINPUT=""
+    if [[ "$usingICR" == true ]]; then
+        USERINPUT="https://${registryURL}:4443"
+    elif [[ "${registryURL}" != "docker.io" ]]; then
+        prompt_user "Enter the URL of your notary server" true "https://notary.${registryURL}:4443"
+    fi
+    change_config_var ${1} "DCTServer" "${USERINPUT}"
+    
+    #--------------------------------------------------------------------------#
+    # Config variable: rootPassphrase                                          #
+    #--------------------------------------------------------------------------#
+    prompt_for_passphrase "Enter passphrase for the root signing key" true
+    change_config_var ${1} "rootPassphrase" "${USERINPUT}"
+    
+    #--------------------------------------------------------------------------#
+    # Config variable: repoPassphrase                                          #
+    #--------------------------------------------------------------------------#
+    prompt_for_passphrase "Enter passphrase for the repository signing key" true
+    change_config_var ${1} "repoPassphrase" "${USERINPUT}"
+    
+    #--------------------------------------------------------------------------#
+    # Vendor key configuration                                                 #
+    #--------------------------------------------------------------------------#
+    write_info "Configuring the vendor key"
+    
+    while [ true ]; do
+        prompt_user "Do you have an existing GPG key that you would like to use? (Y/N)" false
+        if [[ -n "$USERINPUT" ]]; then
+            USERINPUT=$(echo "$USERINPUT" | tr '[:upper:]' '[:lower:]')
+            
+            if [[ "$USERINPUT" == "y" ]] || [[ "$USERINPUT" == "yes" ]]; then
+                
+                # Locate private keyfile
+                prompt_for_path "Path to private keyfile"
+                change_config_var ${1} "gpgVendorPriFile" "${USERINPUT}"
+                        
+                # Locate public keyfile
+                prompt_for_path "Path to public keyfile"
+                change_config_var ${1} "gpgVendorPubFile" "${USERINPUT}"
+                
+                # Get vendor key name
+                prompt_user "Vendor key name" false
+                gpgVendorKeyName=${USERINPUT}
+                change_config_var ${1} "gpgVendorKeyName" "${USERINPUT}"
+                
+                # Get vendor key passphrase
+                prompt_for_passphrase "Vendor key passphrase" false
+                change_config_var ${1} "gpgVendorKeyPassphrase" "${USERINPUT}"
+                
+                # Leave the loop
+                break
+                
+            elif [[ "$USERINPUT" == "n" ]] || [[ "$USERINPUT" == "no" ]]; then
+            
+                # Get vendor key name
+                prompt_user "Vendor key name" false
+                gpgVendorKeyName=${USERINPUT}
+                change_config_var ${1} "gpgVendorKeyName" "${gpgVendorKeyName}"
+                
+                # Get vendor key passphrase
+                prompt_for_passphrase "Vendor key passphrase" true
+                change_config_var ${1} "gpgVendorKeyPassphrase" "${USERINPUT}"
+                
+                # Generate the GPG key
+                $(echo -e "%echo Generating registration definition key
+Key-Type: RSA
+Key-Length: 4096
+Subkey-Type: RSA
+Subkey-Length: 4096
+Name-Real: ${gpgVendorKeyName}
+Expire-Date: 0
+Passphrase: ${USERINPUT}
+%echo done" | gpg -a --batch --generate-key )
+                if [[ $? != 0 ]]; then
+                    fatal_error "Failed to generate new vendor key '${gpgVendorKeyName}'"
+                fi
+                
+                # Export the public part of the key
+                run_command "gpg --armor --export ${gpgVendorKeyName} > ${gpgVendorKeyName}.pub"
+                if [[ $? != 0 ]]; then
+                    fatal_error "Unable to export public key for '${gpgVendorKeyName}'"
+                fi
+                
+                # Locate public key
+                change_config_var ${1} "gpgVendorPubFile" "${cwd}/${gpgVendorKeyName}.pub"
+                
+                # Locate private key
+                run_command "gpg --export-secret-keys ${gpgVendorKeyName} > ${gpgVendorKeyName}.key"
+                if [[ $? != 0 ]]; then
+                    fatal_error "Unable to export private key for '${gpgVendorKeyName}'"
+                fi
+                change_config_var ${1} "gpgVendorPriFile" "${cwd}/${gpgVendorKeyName}.key"
+                
+                # Leave the loop
+                break
+            fi
+        fi
+    done
+    
+    #--------------------------------------------------------------------------#
+    # Delegation key configuration                                             #
+    #--------------------------------------------------------------------------#
+    local configure_delegation_key=false
+    while [ true ]; do
+        prompt_user "Optional: Would you like to configure a delegation key? (Y/N)" false
+        if [[ -n "$USERINPUT" ]]; then
+            USERINPUT=$(echo "$USERINPUT" | tr '[:upper:]' '[:lower:]')
+            if [[ "$USERINPUT" == "y" ]] || [[ "$USERINPUT" == "yes" ]]; then
+                configure_delegation_key=true
+                break
+            elif [[ "$USERINPUT" == "n" ]] || [[ "$USERINPUT" == "no" ]]; then
+                write_info "No delegation key will be configured"
+                break
+            fi
+        fi
+    done
+    change_config_var ${1} "delegationkey" "$configure_delegation_key"
+    
+    if [ "$configure_delegation_key" == true ]; then
+        write_info "Configuring the delegation key"
+        
+        while [ true ]; do
+            prompt_user "Do you have an existing key that you would like to use? (Y/N)" false
+            if [[ -n "$USERINPUT" ]]; then
+                USERINPUT=$(echo "$USERINPUT" | tr '[:upper:]' '[:lower:]')
+                if [[ "$USERINPUT" == "y" ]] || [[ "$USERINPUT" == "yes" ]]; then
+                
+                    # Prompt for path to private keyfile
+                    echo "Leave private keyfile path empty if already in local Docker trust store"
+                    prompt_for_path "Path to private keyfile" true
+                    change_config_var ${1} "delegationPriFile" "${USERINPUT}"
+                    
+                    # Prompt for path to public keyfile
+                    prompt_for_path "Path to public keyfile" false
+                    change_config_var ${1} "delegationPubFile" "${USERINPUT}"
+                    
+                    # Prompt for delegation key name; cannot be empty
+                    prompt_user "Delegation key name" false
+                    change_config_var ${1} "delegationkeyName" "${USERINPUT}"
+                    
+                    # Prompt for delegation key passphrase
+                    prompt_for_passphrase "Delegation key passphrase" false
+                    change_config_var ${1} "delegationPassphrase" "${USERINPUT}"
+                    
+                    # Leave the loop
+                    break
+                    
+                elif [[ "$USERINPUT" == "n" ]] || [[ "$USERINPUT" == "no" ]]; then
+                
+                    # Prompt for delegation key name; cannot be empty
+                    prompt_user "Delegation key name" false
+                    delegationkeyName=${USERINPUT}
+                    change_config_var ${1} "delegationkeyName" "${delegationkeyName}"
+                    
+                    # Prompt for delegation key passphrase
+                    prompt_for_passphrase "Delegation key passphrase" true
+                    change_config_var ${1} "delegationPassphrase" "${USERINPUT}"
+                    
+                    # Generate the delegation key
+                    DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE=${USERINPUT} docker trust key generate ${delegationkeyName}
+                    
+                    # Locate public key
+                    change_config_var ${1} "delegationPubFile" "${cwd}/${delegationkeyName}.pub"
+                    
+                    # Private key is already in the local Docker trust store
+                    change_config_var ${1} "delegationPriFile" ""
+                    
+                    # Leave the loop
+                    break
+                fi
+            fi
+        done
+    fi
+    
+    #--------------------------------------------------------------------------#
+    # Config variable: registrationFile                                        #
+    #--------------------------------------------------------------------------#
+    prompt_user "Name to use for HPVS registration file" true "${DEFAULT_REGISTRATION_FILE}"
+    change_config_var ${1} "registrationFile" "${USERINPUT}"
+    
+    #--------------------------------------------------------------------------#
+    # Config variable: location                                                #
+    #--------------------------------------------------------------------------#
+    echo "Possible HPVS instance deployment locations:"
+    echo "   dal10 - Dallas, TX, USA"
+    echo "   dal12 - Dallas, TX, USA"
+    echo "   dal13 - Dallas, TX, USA"
+    echo "   fra02 - Frankfurt, HE, DE"
+    echo "   fra04 - Frankfurt, HE, DE"
+    echo "   fra05 - Frankfurt, HE, DE"
+    echo "   syd01 - Sydney, NSW, AU"
+    echo "   syd04 - Sydney, NSW, AU"
+    echo "   syd05 - Sydney, NSW, AU"
+    echo "   wdc04 - Washington, DC, USA"
+    echo "   wdc06 - Washington, DC, USA"
+    echo "   wdc07 - Washington, DC, USA"
+    echo ""
+    prompt_user "HPVS deployment location" true "${DEFAULT_LOCATION}"
+    change_config_var ${1} "location" "${USERINPUT}"
+    
+    #--------------------------------------------------------------------------#
+    # Config variable: hpvsName                                                #
+    #--------------------------------------------------------------------------#
+    prompt_user "Name to give your new HPVS instance" true "${DEFAULT_HPVS_NAME}"
+    hpvsName=${USERINPUT}
+    change_config_var ${1} "hpvsName" "${hpvsName}"
+    
+    #--------------------------------------------------------------------------#
+    # Config variable: resource_group                                          #
+    #--------------------------------------------------------------------------#
+    prompt_user "IBM Cloud Resource Group" true "default"
+    change_config_var ${1} "resource_group" "${USERINPUT}"
+    
+    #--------------------------------------------------------------------------#
+    # Config variable: resource_plan_id                                        #
+    #--------------------------------------------------------------------------#
+    prompt_user "IBM Cloud Resource Plan ID" true "default"
+    change_config_var ${1} "resource_plan_id" "${USERINPUT}"
+    
+    write_success "Configuration file '${1}' created"
+    
+    return 0
+}
+
+#
+# Read the configuration file
+#
+# Input Parameters:
+#   $1 - Path to the configuration file
+#
+# Global Variables Used:
+#   None.
+#
+# Return Values:
+#   Successful
+#       RC = 0
+#       The following global variables have been set:
+#           APIKey
+#           DCTServer
+#           delegationkey
+#           delegationkeyName
+#           delegationPassphrase
+#           delegationPriFile
+#           delegationPubFile
+#           dockerPW
+#           dockerUser
+#           gpgVendorKeyName
+#           gpgVendorKeyPassphrase
+#           gpgVendorPriFile
+#           gpgVendorPubFile
+#           hpvsName
+#           namespace
+#           registrationFile
+#           registryURL
+#           repoPassphrase
+#           resource_group
+#           resource_plan_id
+#           rootPassphrase
+#
+#   Error
+#       A "FATAL" message is written to STDERR, then execution terminates with
+#       RC=1.  The CWD will be set to the value it was on program
+#       invocation.
+#
+read_config() {
+    configFile=$1
+
+    #judge whether config file exists or not.
+    if [ ! -f "$configFile" ];then
+        fatal_error "No such configuration file: '${configFile}'"
+    fi
+
+    #save the old IFS
+    OLDIFS=$IFS
+
+    #set the IFS which is used to split the key-value
+    IFS="="
+    
+    while read -r key value
+    do
+    # The docker related configure in the config file can be overwritten
+    if [[ "$key"x = "registryURL"x && "$registryURL"x = ""x ]]; then
+        registryURL=$value
+    elif [[ "$key"x = "namespace"x && "$namespace"x = ""x ]];then
+        namespace=$value
+    elif [[ "$key"x = "dockerUser"x && "$dockerUser"x = ""x ]];then
+        dockerUser=$value
+    elif [[ "$key"x = "dockerPW"x && "$dockerPW"x = ""x ]];then
+        dockerPW=$value
+    elif [[ "$key"x = "DCTServer"x && "$DCTServer"x = ""x ]];then
+        DCTServer=$value
+    elif [[ "$key"x = "resource_group"x && "$resource_group"x = ""x ]];then
+        resource_group=$value
+    elif [[ "$key"x = "resource_plan_id"x && "$resource_plan_id"x = ""x ]];then
+        resource_plan_id=$value
+
+    # delagation key configure for Docker Content Trust
+    elif [[ "$key"x = "delegationkey"x ]];then
+        case ${value^^} in
+            TRUE )
+                delegationkey=true
+                ;;
+            FALSE )
+                delegationkey=false
+                ;;
+            *)
+                write_error "Invalid value specified for 'delegationkey', ignoring"
+                ;;
+        esac
+    elif [[ "$key"x = "delegationPriFile"x ]];then
+        delegationPriFile=$value
+    elif [[ "$key"x = "delegationPubFile"x ]];then
+        delegationPubFile=$value
+    elif [[ "$key"x = "delegationkeyName"x ]];then
+        delegationkeyName=$value
+    elif [[ "$key"x = "delegationPassphrase"x ]];then
+        delegationPassphrase=$value
+    
+    # Root key passphrase and repository key passphrase
+    elif [[ "$key"x = "rootPassphrase"x ]];then
+        rootPassphrase=$value
+    elif [[ "$key"x = "repoPassphrase"x ]];then
+        repoPassphrase=$value
+    
+    # gpg key configure
+    elif [[ "$key"x = "gpgVendorPubFile"x ]];then
+        gpgVendorPubFile=$value
+    elif [[ "$key"x = "gpgVendorPriFile"x ]];then
+        gpgVendorPriFile=$value
+    elif [[ "$key"x = "gpgVendorKeyName"x ]];then
+        gpgVendorKeyName=$value
+    elif [[ "$key"x = "gpgVendorKeyPassphrase"x ]];then
+        gpgVendorKeyPassphrase=$value
+    
+
+    # APIKey
+    # HPVS instance registration file, deployment location, name
+    elif [[ "$key"x = "APIKey"x ]];then
+        APIKey=$value
+    elif [[ "$key"x = "registrationFile"x ]];then
+        registrationFile=$value
+    elif [[ "$key"x = "location"x ]];then
+        location=$value
+    elif [[ "$key"x = "hpvsName"x ]];then
+        hpvsName=$value
+    fi
+
+    done < $configFile
+
+    #reset the IFS
+    IFS=$OLDIFS
+    
+    # Get a list of all variables currently set
+    for i in _ {a..z} {A..Z}; do
+        for var in `eval echo "\\${!$i@}"`; do
+            if [[ -n ${all_vars} ]]; then
+                all_vars="${all_vars} ${var}"
+            else
+                all_vars="${var}"
+            fi
+        done 
+    done
+    
+    required_params=("registryURL" "dockerUser" "dockerPW" "namespace"
+                     "rootPassphrase" "repoPassphrase" "gpgVendorPubFile"
+                     "gpgVendorPriFile" "gpgVendorKeyName"
+                     "gpgVendorKeyPassphrase")
+    if [[ "$delegationkey" == true ]]; then
+        required_params=(${required_params[@]} "delegationPubFile"
+                         "delegationkeyName" "delegationPassphrase")
+    fi
+    
+    # Make sure that all required parameters (at least, those which do not have
+    # an automatically-known default value) have been read in
+    for i in "${required_params[@]}"; do
+        if [ -z "`echo ${all_vars} | xargs -n1 echo | grep -e \"^${i}\$\"`" ]; then
+            if [[ -n ${missing_vars} ]]; then
+                missing_vars="${missing_vars} ${i}"
+            else
+                missing_vars="${i}"
+            fi
+        fi
+    done
+    if [[ -n ${missing_vars} ]]; then
+        fatal_error "Missing one or more required configuration settings: ${missing_vars}"
+    fi
+    
+    unset all_vars
+    return 0
+}
+
+#
+# Write the program usage message to STDOUT
+#
+# Input Parameters:
+#   $1 - Path to manpage file
+#
+# Global Variables Used:
+#   None.
+#
+# Return Values:
+#   Successful
+#       RC = 0
+#
+#   Error
+#       This routine will not fail
+#
+# Notes:
+#   1. The program usage message is pulled from the "SYNOPSIS" and "OPTIONS"
+#      sections of the program's manpage.  If the usage information needs to
+#      change, you must change it there.
+#
+print_usage(){
+    
+    # Write the program syntax and option sections from the manpage file
+    echo "$(man $1 | sed -n '/^SYNOPSIS/,/^DESCRIPTION/{p;/^DESCRIPTION/q}' | head -n -1)"
+    echo ""
+    echo "$(man $1 | sed -n '/^OPTIONS/,/^EXAMPLES/{p;/^EXAMPLES/q}' | head -n -1)"
+    
+    return 0
+}
+
+#
+# Silently run a command (except for when DEPLOY_TO_HPVS_DEBUG is set)
+#
+# Input Parameters:
+#   $1 - Command to execute
+#
+# Global Variables Used:
+#   None.
+#
+# Return Values:
+#   Successful
+#       RC = 0
+#
+#   Error
+#       RC != 0
+#       The return value is that of the failing command.  The failing command
+#       output has been logged to the terminal.
+#
+run_command(){
+
+    # If we are debugging, write the command to STDOUT
+    if [[ -n "${DEPLOY_TO_HPVS_DEBUG}" ]]; then
+        echo -e "\n--[ DEBUG START ]----------------------------------------"
+        echo "COMMAND: $1"
+    fi
+    
+    output=$(eval $1 2>&1)
+    rc=$?
+    
+    if [[ -n "${DEPLOY_TO_HPVS_DEBUG}" ]]; then
+        echo "$output"
+        echo -e "--[ DEBUG END ]------------------------------------------\n"
+    fi
+    
+    if [[ $rc != 0 ]]; then     
+        outstr="Command exited with RC=${rc}"
+        
+        # To make our logging actually look pretty, indent each line of the
+        # program output and print it as one giant log message.  Only do this if
+        # we're not printing debugging output.
+        if [[ -z "${DEPLOY_TO_HPVS_DEBUG}" ]]; then
+            outstr="${outstr}:\n\t   ${output//$'\n'/'\n\t   '}"
+        fi
+        
+        write_log "$outstr"
+    fi
+    
+    return $rc
+}
+
+#
+# Login to a Docker container registry or cloud backend
+#
+# Global Variables Used:
+#   dockerUser (optional)
+#       Name of Docker user to login as.  If unspecified, will prompt for user.
+#
+#   dockerPW (optional)
+#       Password for Docker user.  If unspecified, will prompt for password.
+#
+# Input Parameters:
+#   $1 - URL of the Docker registry
+#
+# Return Values:
+#   Successful
+#       RC = 0
+#
+#   Error
+#       A "FATAL" message is written to STDERR, then execution terminates with
+#       RC=1.  The CWD will be set to the value it was on program
+#       invocation.
+#
+docker_login(){
+    dockerloginCMD="docker login"
+    
+    if [[ -n $dockerUser ]]; then
+        dockerloginCMD="$dockerloginCMD -u $dockerUser"
+    fi
+    
+    if [[ -n $dockerPW ]];then
+        dockerloginCMD="echo \"$dockerPW\" | $dockerloginCMD --password-stdin"
+    fi
+    
+    run_command "$dockerloginCMD $1"
+    if [[ $? != 0 ]]; then
+        fatal_error "Failed to log in to container registry '$1'"
+    else
+        write_success "Logged in to the container registry at '$1'"
+    fi
+    
+    return 0
+}
+
+#
+# Log out of a Docker container registry or cloud backend
+#
+# Global Variables Used:
+#   registryURL - URL of the Docker registry
+#
+# Input Parameters:
+#   None
+#
+# Return Values:
+#   Successful
+#       RC = 0
+#
+#   Error
+#       This routine will not fail
+#
+docker_logout(){
+    
+    # Perform Docker logout
+    if [[ -n $registryURL ]]; then
+        run_command "docker logout $registryURL"
+    else
+        run_command "docker logout"
+    fi
+    
+    return 0
+}
+
+#
+# Load a Docker content trust key
+#
+# Global Variables Used:
+#   None.
+#
+# Input Parameters:
+#   $1 - Passphrase for delegation key
+#   $2 - Path to delegation key private file
+#   $3 - Name of delegation key
+#
+# Return Values:
+#   Successful
+#       RC = 0
+#       A new DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE value has been
+#       exported, the delegation private key file's permissions have been set to
+#       600, and the key has been successfully loaded by docker trust.
+#
+#   Error
+#       A "FATAL" message is written to STDERR, then execution terminates with
+#       RC=1.  The CWD will be set to the value it was on program
+#       invocation.
+#
+# Notes:
+#   1. For more information about automation with content trust, see:
+#           https://docs.docker.com/engine/security/trust/trust_automation/
+#
+load_trust_key(){
+
+    # Set the private key's permession to 600 if they're not already
+    chmod 600 ${2}
+    
+    # Load the delegation private key using docker trust.
+    #
+    # The 'docker trust key load' command uses the repositry passphrase, 
+    # so set the DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE to that of the
+    # delegation private key
+    run_command "DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE=${1} docker trust key load ${2} --name ${3}"
+    if [[ $? != 0 ]]; then
+        fatal_error "Failed to load the delegation private key '${3}'"
+    else
+        write_success "Loaded the delegation private key '${3}' from private key file '${2}'"
+    fi
+    
+    return 0
+}
+
+#
+# Initialize a repo for Docker Trust and upload the first key to a delegation
+#
+# Global Variables Used:
+#   None.
+#
+# Input Parameters:
+#   $1 - Root signing certificate passphrase
+#   $2 - Repository signing certificate passphrase
+#   $3 - Delegation key public file
+#   $4 - Delegation key name
+#   $5 - Target OCI name
+#   $6 - Notary server URL
+#
+# Return Values:
+#   Successful
+#     RC = 0
+#       The public key has been addded as a signer to the target OCI on the
+#       notary server (either indicated by ${6}, or the default DockerHub
+#       notary server if ${6} was not specified).
+#
+#   Error
+#       A "FATAL" message is written to STDERR, then execution terminates with
+#       RC=1.  The CWD will be set to the value it was on program
+#       invocation.
+#
+# Notes:
+#   1. If no Docker Notary server is specified, the default Docker Notary server
+#      (https://notary.docker.io) will be assumed
+#
+#   2. This will add the public key ${3} to the "targets/releases" delegation,
+#      and will create a second "targets/${4}" delegation.
+#
+#   3. Delegations in Docker Content Trust (DCT) allow you to control who can
+#      and cannot sign an image tag. A delegation will have a pair of private
+#      and public delegation keys. A delegation could contain multiple pairs of
+#      keys and contributors in order to a) allow multiple users to be part of a
+#      delegation, and b) to support key rotation.  For more information, see:
+#           https://docs.docker.com/engine/security/trust/trust_delegation/
+#
+init_repo_for_notary_server(){
+    
+    # If a notary server was specified, set DOCKER_CONTENT_TRUST_SERVER
+    # accordingly
+    if [[ -n ${6} ]]; then
+        runcmd="DOCKER_CONTENT_TRUST_SERVER=${6}"
+    fi
+
+    # Set the root signing certificate passphrase
+    if [[ -n ${runcmd} ]]; then
+        runcmd="${runcmd} DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE=${1}"
+    else
+        runcmd="DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE=${1}"
+    fi
+    
+    # The `docker trust singer add` command requires the repositry passphrase
+    runcmd="${runcmd} DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE=${2}"
+    
+    # Assemble the rest of the run command
+    runcmd="${runcmd} docker trust signer add --key ${3} ${4} ${5}"
+    
+    # Initiate repository in remote notary push delegation key
+    run_command "${runcmd}"
+    if [[ $? != 0 ]]; then
+        fatal_error "Failed to initiate repository '${5}' in notary"
+    else
+        write_success "Initiated repository '${5}' in notary, and added '${4}' as a delegation key"
+    fi
+    
+    unset runcmd
+    return 0
+}
+
+#
+# Sign a repository (OCI) in a notary and push it to a container registry
+#
+# Global Variables Used:
+#   None.
+#
+# Input Parameters:
+#   $1 - Root signing certificate passphrase
+#   $2 - Delegation key passphrase
+#   $3 - Target OCI name
+#   $4 - Target OCI tag value
+#   $5 - Notary server URL
+#
+# Return Values:
+#   Successful
+#       RC = 0
+#       The OCI repository has been signed with the delegation key in the
+#       notary, and the OCI has been pushed to the container registry.
+#
+#   Error
+#       A "FATAL" message is written to STDERR, then execution terminates with
+#       RC=1.  The CWD will be set to the value it was on program
+#       invocation.
+#
+# Notes:
+#   1. For more information about automation with content trust, see:
+#           https://docs.docker.com/engine/security/trust/trust_automation/
+#
+sign_and_push_oci(){
+
+    # If a notary server was specified, set DOCKER_CONTENT_TRUST_SERVER
+    # accordingly
+    if [[ -n ${5} ]]; then
+        runcmd="DOCKER_CONTENT_TRUST_SERVER=${5}"
+    fi
+
+    # Set the root certificate passphrase
+    if [[ -n ${runcmd} ]]; then
+        runcmd="${runcmd} DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE=${1}"
+    else
+        runcmd="DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE=${1}"
+    fi
+
+    # Set the delegation key passphrase
+    runcmd="${runcmd} DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE=${2}"
+    
+    # Complete the run command
+    runcmd="${runcmd} DOCKER_CONTENT_TRUST=1 docker push ${3}:${4}"
+    
+    # Sign and push the image
+    run_command "${runcmd}"
+    if [[ $? != 0 ]]; then
+        fatal_error "Failed to sign and push the image '${3}:${4}'"
+    else
+        write_success "Signed and pushed the image '${3}:${4}'"
+    fi
+    
+    unset runcmd
+    return 0
+}
+
+#
+# Load a GPG public key
+#
+# Global Variables Used:
+#   None.
+#
+# Input Parameters:
+#   $1 - GPG public key name
+#   $2 - Path to GPG public keyfile
+#
+# Return Values:
+#   Successful
+#       RC = 0
+#
+#   Error
+#       A "FATAL" message is written to STDERR, then execution terminates with
+#       RC=1.  The CWD will be set to the value it was on program
+#       invocation.
+#
+gpg_load_public_key(){
+
+    run_command "gpg --import ${2}"
+    if [[ $? != 0 ]]; then
+    
+        # If failure, check whether it has been imported even though RC != 0
+        run_command "gpg --list-key ${1}"
+        if [[ $? != 0 ]]; then
+            fatal_error "Failed to import the public key '${1}' from the key file '${2}'"
+        fi
+    fi
+    
+    write_success "Imported the public key '${1}' from the key file '${2}'"
+    return 0
+}
+
+#
+# Load a GPG private key
+#
+# Global Variables Used:
+#   None.
+#
+# Input Parameters:
+#   $1 - Name of GPG private key
+#   $2 - Path to GPG private keyfile
+#   $3 - Passphrase for GPG private key
+#
+# Return Values:
+#   Successful
+#       RC = 0
+#
+#   Error
+#       A "FATAL" message is written to STDERR, then execution terminates with
+#       RC=1.  The CWD will be set to the value it was on program
+#       invocation.
+#
+gpg_load_private_key(){
+    
+    # Check whether the private key is imported or not
+    run_command "gpg --list-secret-key ${1}"
+    if [[ $? != 0 ]]; then
+    
+        # If failure, check whether it has been imported even though RC != 0
+        run_command "gpg --import --batch --pinentry-mode loopback --passphrase ${3} ${2}"
+        if [[ $? != 0 ]]; then
+            # The private key may exist, check the output again
+            fatal_error "Failed to import the private key '${1}' from the key file '${2}'"
+        fi
+    fi
+    
+    write_success "Imported the private key '${1}' from the key file '${2}'"
+    return 0
+}
+
+#
+# Load the (hardcoded) GPG public key needed to encrypt the HPVS registration
+# definition file
+#
+# Global Variables Used:
+#   None.
+#
+# Input Parameters:
+#   None
+#
+# Return Values:
+#   Successful
+#       String containing the name of the public encryption key for the HPVS
+#       registration definition file.
+#
+#   Error
+#       A "FATAL" message is written to STDERR, then execution terminates with
+#       RC=1.  The CWD will be set to the value it was on program
+#       invocation.
+#
+gpg_load_public_key_for_regfile_encryption(){
+    keyname="rtoa_destination"
+    output=$(echo -e '-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+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
+mae7WLtydkQnM7Shc1l2CmBCHH8ClSJN
+=DsnN
+-----END PGP PUBLIC KEY BLOCK-----' | gpg --import 2>&1)
+    if [[ $? != 0 ]]; then
+    
+        # If failure, check whether it has been imported even though RC != 0
+        run_command "gpg --list-key ${keyname}"
+        if [[ $? != 0 ]]; then
+            fatal_error "Failed to import the public key '${keyname}'"
+        fi
+    fi
+    
+    echo ${keyname}
+}
+
+#
+# Encrypt and sign a file
+#
+# Global Variables Used:
+#   None.
+#
+# Input Parameters:
+#   $1 - Path of file to encrypt
+#   $2 - User ID on whose behalf we are encrypting the file
+#   $3 - User ID that is signing the file
+#   $4 - Passphrase to sign the file with
+#
+# Return Values:
+#   Successful
+#       RC = 0
+#
+#   Error
+#       A "FATAL" message is written to STDERR, then execution terminates with
+#       RC=1.  The CWD will be set to the value it was on program
+#       invocation.
+#
+encrypt_and_sign(){
+    
+    # Build the gpg command
+    gpg_command="gpg --encrypt --sign --local-user ${3} --armor"
+    gpg_command="${gpg_command} --recipient ${2} --passphrase ${4}"
+    gpg_command="${gpg_command} --trust-model always -o ${1}.asc --yes --batch"
+    gpg_command="${gpg_command} --pinentry-mode loopback ${1}"
+    
+    # Run the gpg command
+    run_command "${gpg_command}"
+    if [[ $? != 0 ]]; then
+        fatal_error "Failed to encrypt and sign '${1}'"
+    else
+        write_success "Encrypted and signed file '${1}'"
+    fi
+    
+    return 0
+}
+
+#
+# Call Python BuildRegistrationDefinition to generate the registration json file
+#
+# Global Variables Used:
+#   None.
+#
+# Input Parameters:
+#   $1 - Path to registration definition file
+#   $2 - Path to vendor public GPG keyfile
+#   $3 - Docker username
+#   $4 - Docker password
+#   $5 - OCI namespace
+#   $6 - OCI repository
+#   $7 - Container registry URL
+#
+# Return Values:
+#   Successful
+#       RC = 0
+#
+#   Error
+#       A "FATAL" message is written to STDERR, then execution terminates with
+#       RC=1.  The CWD will be set to the value it was on program
+#       invocation.
+#
+build_registration_definition_file(){
+    working_dir=$(pwd) ; cd $(dirname $1) 
+    
+    run_command "make init"
+    if [[ $? != 0 ]]; then
+        fatal_error "Unable to setup the Python environment for BuildRegistrationDefinition"
+    fi
+    
+    # Build the command
+    python_command="pipenv run python3 -m BuildRegistrationDefinition"
+    python_command="${python_command} --dockerid ${3} --dockerpass ${4} --outputfile ${1}"
+    python_command="${python_command} ${7} ${5} ${6} ${2}"
+    
+    # Run the command
+    run_command "${python_command}"
+    if [[ $? != 0 ]]; then
+        fatal_error "Unable to generate the registration definition file"
+    else
+        write_success "Created registration definition file '${1}'"
+    fi
+    
+    cd ${working_dir}
+    return 0
+}
+
+#
+# Get an IAM token using an IBM Cloud API key
+#
+# Global Variables Used:
+#   None.
+#
+# Input Parameters:
+#   $1 - API key value for IBM Cloud account
+#
+# Return Values:
+#   Successful
+#       String value of the IAM token associated with this IBM Cloud account
+#
+#   Error
+#       A "FATAL" message is written to STDERR, then execution terminates with
+#       RC=1.  The CWD will be set to the value it was on program
+#       invocation.
+#
+get_iam_token(){
+    response=`curl -sX POST https://iam.cloud.ibm.com/identity/token \
+          -H "Content-Type: application/x-www-form-urlencoded" \
+          -H "Accept: application/json" \
+          -d "grant_type=urn%3Aibm%3Aparams%3Aoauth%3Agrant-type%3Aapikey&apikey=$1"`
+    
+    # Check errorCode
+    ret=$(echo $response | grep "errorCode")
+    if [[ "$ret" != "" ]];then
+        # Log the error info of the command above
+        write_log $response
+        fatal_error "Failed to get the IAM Token"
+    fi
+    
+    # Extract IAM Token from response
+    jsonCode="import sys, json
+print(json.load(sys.stdin)['access_token'])"
+    echo $(echo $response | python3 -c "${jsonCode}")
+}
+
+#
+# Get the IBM Cloud account ID associated with an IAM token
+#
+# Global Variables Used:
+#   None.
+#
+# Input Parameters:
+#   $1 - String value of IAM token
+#   $2 - API key value for IBM Cloud account
+#
+# Return Values:
+#   Successful
+#       String value of the IBM Cloud account ID associated with this IAM token
+#
+#   Error
+#       A "FATAL" message is written to STDERR, then execution terminates with
+#       RC=1.  The CWD will be set to the value it was on program
+#       invocation.
+#
+get_ibm_cloud_id(){
+    
+    keyDetailsResult=`curl -sX GET https://iam.cloud.ibm.com/v1/apikeys/details \
+        -H "Authorization: Bearer $1" \
+        -H "IAM-Apikey: $2" \
+        -H "Content-Type: application/json"`
+    ret=`echo $keyDetailsResult | grep -E "error_code|status_code"`
+    if [[ "$ret" != "" ]];then
+        # Use echo to print the error info of the command above
+        write_log "$keyDetailsResult"
+        fatal_error "Unable to determine IBM Cloud account ID"
+    fi
+    jsonCode="import sys, json
+print(json.load(sys.stdin)['account_id'])"
+    echo $(echo $keyDetailsResult | python3 -c "${jsonCode}")
+}
+
+#
+# Get the ID of the default resource group associated with an IBM Cloud account
+#
+# Global Variables Used:
+#   None.
+#
+# Input Parameters:
+#   $1 - String value of the IBM Cloud account ID
+#   $2 - String value of the IAM token
+#
+# Return Values:
+#   Successful
+#       String value of the default resource group ID associated with the
+#       specified IBM Cloud account
+#
+#   Error
+#       A "FATAL" message is written to STDERR, then execution terminates with
+#       RC=1.  The CWD will be set to the value it was on program
+#       invocation.
+#
+get_default_resource_group_id(){
+    
+    # Get a list of all resource groups in the account
+    resourceGroups=`curl -sX GET \
+        https://resource-controller.cloud.ibm.com/v2/resource_groups?account_id=$1 \
+        -H "Authorization: Bearer $2"`
+    ret=`echo $resourceGroups | grep -E "error_code|status_code"`
+    if [[ "$ret" != "" ]];then
+        write_log "$resourceGroups"
+        fatal_error "Unable to determine resource groups for account $1"
+    fi
+    
+    # Determine the ID of the default resource group
+    jsonCode="import sys, json
+for resource in json.load(sys.stdin)['resources']:
+    if resource['default'] is True:
+        print(resource['id'])
+        sys.exit(0)"
+    echo $(echo $resourceGroups | python3 -c "${jsonCode}")
+}
+
+#
+# Provision a new Hyper Protect Virtual Server (HPVS) instance
+#
+# Global Variables Used:
+#   None.
+#
+# Input Parameters:
+#   $1 - Path to registration definition file
+#   $2 - Name of the new HPVS instance
+#   $3 - IBM Cloud deployment location for new HPVS instance
+#   $4 - ID of IBM Cloud resource group to use in deployment
+#   $5 - ID of HPVS resource plan to use in deployment
+#   $6 - Tag for HPVS image
+#
+# Return Values:
+#   Successful
+#       ID of the newly-provisioned HPVS instance
+#
+#   Error
+#       A "FATAL" message is written to STDERR, then execution terminates with
+#       RC=1.  The CWD will be set to the value it was on program
+#       invocation.
+#
+provision_hpvs_instance(){
+    
+    registrationDefinition=`sed s/$/"\\\\\n"/ ${1}.asc | tr -d '\n'`
+    provisionResult=`curl -sX POST https://resource-controller.cloud.ibm.com/v2/resource_instances \
+         -H "Authorization: Bearer $token" -H "Content-Type: application/json"  \
+         -d "{  
+             \"name\": \"$2\", 
+             \"target\": \"$3\",
+             \"resource_group\": \"$4\", 
+             \"resource_plan_id\": \"$5\",
+             \"parameters\":{
+                 \"imageTag\":\"$6\",
+                 \"registrationDefinition\": \"$registrationDefinition\"}}"`
+    
+    # Check error_code
+    ret=`echo $provisionResult | grep -E "error_code|status_code"`
+    if [[ "$ret" != "" ]];then
+        error_message=`echo $provisionResult | sed 's/{"message":"\(.*\)",\(.*\)/\1/'`
+        if [[ "$error_message" != "" ]];then
+            write_log "$error_message"
+        fi
+        fatal_error "Failed to provision a Hyper Protect Virtual Server instance"
+    fi
+    
+    # Extract the instance id and print log
+    jsonCode="import sys, json
+print(json.load(sys.stdin)['id'])"
+    echo $(echo $provisionResult | python3 -c "${jsonCode}")
+}
