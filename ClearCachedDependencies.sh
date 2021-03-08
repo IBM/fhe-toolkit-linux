@@ -22,9 +22,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-source ConfigConstants.sh
+. ./ConfigConstants.sh
 
-pushd DEPENDENCIES
+cd DEPENDENCIES
 
 if [ -f "ntl-$NTL_version.tar.gz" ]; then 
   echo "Removing"
@@ -43,7 +43,7 @@ else
    echo " NO HELib found, nothing to remove"
 fi
 
-popd
+cd ../
 
 if [ -d "FHE-Toolkit-Workspace" ]; then 
   rm -rf "FHE-Toolkit-Workspace"
