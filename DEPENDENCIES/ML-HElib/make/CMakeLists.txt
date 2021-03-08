@@ -49,7 +49,7 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
 set(CMAKE_BUILD_TYPE Release)
 
 set(CMAKE_VERBOSE_MAKEFILE TRUE)
-set( CMAKE_CXX_FLAGS "-Werror -fopenmp" )
+set( CMAKE_CXX_FLAGS "-fopenmp" )
 
 # Import Boost
 find_package(Boost ${Boost_version} EXACT REQUIRED COMPONENTS filesystem system thread)

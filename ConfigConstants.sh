@@ -27,8 +27,8 @@
 # NTL Library 
 NTL_version='11.4.3'
 #HELib Library
-HElib_version='v2.0.0'
-HElib_cmake_lists_version='2.0.0'
+HElib_version='v2.1.0'
+HElib_cmake_lists_version='2.1.0'
 # Boost Library
 Boost_version='1.72.0'
 Boost_filename='1_72_0'
