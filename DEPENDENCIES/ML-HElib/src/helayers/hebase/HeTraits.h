@@ -1,26 +1,26 @@
 /*
-* MIT License
-*
-* Copyright (c) 2020 International Business Machines
-*
-* Permission is hereby granted, free of charge, to any person obtaining a copy
-* of this software and associated documentation files (the "Software"), to deal
-* in the Software without restriction, including without limitation the rights
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the Software is
-* furnished to do so, subject to the following conditions:
-*
-* The above copyright notice and this permission notice shall be included in all
-* copies or substantial portions of the Software.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-* SOFTWARE.
-*/
+ * MIT License
+ *
+ * Copyright (c) 2020 International Business Machines
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
 #ifndef SRC_HELAYERS_HETRAITS_H_
 #define SRC_HELAYERS_HETRAITS_H_
@@ -30,7 +30,7 @@ namespace helayers {
 /// A set of flags characterizing the underyling HE scheme.
 class HeTraits
 {
-
+  bool supportsBootstrapUtils = false;
   bool supportsBootstrapping = false;
   bool supportsExplicitRescale = false;
   bool automaticallyManagesChainIndices = false;
@@ -47,8 +47,10 @@ class HeTraits
 public:
   void intersect(const HeTraits& other);
 
-/// A class currently lacking information
-/// This has no information
+  inline void setSupportsBootstrapUtils(bool val)
+  {
+    supportsBootstrapUtils = val;
+  }
   inline void setSupportsBootstrapping(bool val)
   {
     supportsBootstrapping = val;
@@ -93,6 +95,12 @@ public:
   }
 
   inline bool getSupportsBootstrapping() const { return supportsBootstrapping; }
+
+  inline bool getSupportsBootstrapUtils() const
+  {
+    return supportsBootstrapUtils;
+  }
+
   inline bool getSupportsExplicitRescale() const
   {
     return supportsExplicitRescale;
@@ -132,6 +140,6 @@ public:
     return supportsDecryptAddedNoise;
   }
 };
-}
+} // namespace helayers
 
 #endif /* SRC_HELAYERS_HETRAITS_H_ */

@@ -213,6 +213,6 @@ public:
   /// @param[in] c1,c2 To evaluate c1 <= c2 on.
   CTile isLessEqual(const CTile& c1, const CTile& c2) const;
 };
-}
+} // namespace helayers
 
 #endif /* SRC_HELAYERS_BITWISEEVALUATOR_H */

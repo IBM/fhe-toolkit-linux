@@ -1,26 +1,26 @@
 /*
-* MIT License
-*
-* Copyright (c) 2020 International Business Machines
-*
-* Permission is hereby granted, free of charge, to any person obtaining a copy
-* of this software and associated documentation files (the "Software"), to deal
-* in the Software without restriction, including without limitation the rights
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the Software is
-* furnished to do so, subject to the following conditions:
-*
-* The above copyright notice and this permission notice shall be included in all
-* copies or substantial portions of the Software.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-* SOFTWARE.
-*/
+ * MIT License
+ *
+ * Copyright (c) 2020 International Business Machines
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
 #include <NTL/ZZ.h>
 #include "HelibCkksCiphertext.h"
@@ -44,7 +44,7 @@ void HelibCkksCiphertext::addPlainRaw(const AbstractPlaintext& p)
   HELAYERS_TIMER("HelibCkksCiphertext::addPlainRaw");
   const HelibCkksPlaintext& castedOther =
       dynamic_cast<const HelibCkksPlaintext&>(p);
-  ctxt.addConstantCKKS(castedOther.getPlaintext());
+  ctxt += castedOther.getPlaintext();
 }
 
 void HelibCkksCiphertext::subPlainRaw(const AbstractPlaintext& p)
@@ -52,8 +52,7 @@ void HelibCkksCiphertext::subPlainRaw(const AbstractPlaintext& p)
   HELAYERS_TIMER_SECTION("HelibCkksCiphertext::subPlainRaw");
   const HelibCkksPlaintext& castedOther =
       dynamic_cast<const HelibCkksPlaintext&>(p);
-  helib::Ptxt<helib::CKKS> ptxtCopy(castedOther.getPlaintext());
-  ctxt.addConstantCKKS(ptxtCopy.negate());
+  ctxt -= castedOther.getPlaintext();
 }
 
 void HelibCkksCiphertext::multiplyPlainRaw(const AbstractPlaintext& p)
@@ -61,19 +60,19 @@ void HelibCkksCiphertext::multiplyPlainRaw(const AbstractPlaintext& p)
   HELAYERS_TIMER("HelibCkksCiphertext::multiplyPlainRaw");
   const HelibCkksPlaintext& castedOther =
       dynamic_cast<const HelibCkksPlaintext&>(p);
-  ctxt.multByConstantCKKS(castedOther.getPlaintext());
+  ctxt *= castedOther.getPlaintext();
 }
 
 void HelibCkksCiphertext::addScalar(int scalar)
 {
   HELAYERS_TIMER("HelibCkksCiphertext::addScalar(int)");
-  ctxt.addConstantCKKS(NTL::ZZ(scalar));
+  ctxt += NTL::ZZ(scalar);
 }
 
 void HelibCkksCiphertext::addScalar(double scalar)
 {
   HELAYERS_TIMER("HelibCkksCiphertext::addScalar(double)");
-  ctxt.addConstantCKKS(scalar);
+  ctxt += scalar;
 }
 
 void HelibCkksCiphertext::multiplyScalar(int scalar)
@@ -85,7 +84,7 @@ void HelibCkksCiphertext::multiplyScalar(int scalar)
 void HelibCkksCiphertext::multiplyScalar(double scalar)
 {
   HELAYERS_TIMER("HelibCkksCiphertext::multiplyScalar(double)");
-  ctxt.multByConstantCKKS(scalar);
+  ctxt *= scalar;
 }
 
 void HelibCkksCiphertext::multiplyByChangingScale(double factor)
@@ -137,4 +136,4 @@ void HelibCkksCiphertext::negate()
 }
 
 int HelibCkksCiphertext::slotCount() const { return he.slotCount(); }
-}
+} // namespace helayers

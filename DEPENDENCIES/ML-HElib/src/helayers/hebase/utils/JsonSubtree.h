@@ -1,26 +1,26 @@
 /*
-* MIT License
-*
-* Copyright (c) 2020 International Business Machines
-*
-* Permission is hereby granted, free of charge, to any person obtaining a copy
-* of this software and associated documentation files (the "Software"), to deal
-* in the Software without restriction, including without limitation the rights
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the Software is
-* furnished to do so, subject to the following conditions:
-*
-* The above copyright notice and this permission notice shall be included in all
-* copies or substantial portions of the Software.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-* SOFTWARE.
-*/
+ * MIT License
+ *
+ * Copyright (c) 2020 International Business Machines
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
 #ifndef SRC_HELAYERS_JSONSUBTREE_H
 #define SRC_HELAYERS_JSONSUBTREE_H
@@ -56,11 +56,17 @@ public:
   /// @param[in] key key name or path delimited by .
   std::vector<JsonSubtree> getArrayChild(const std::string& key) const;
 
-  /// For a chile node that's an array, get an array with all the integer
+  /// For a child node that's an array, get an array with all the integer
   /// elements within the child array. If the array contains elements other than
   /// integers these elements will be ignored
   /// @param[in] key key name or path delimited by .
   std::vector<int> getIntArray(const std::string& key) const;
+
+  /// For a child node that's an array, get an array with all the double
+  /// elements within the child array. If the array contains elements other than
+  /// doubles these elements will be ignored
+  /// @param[in] key key name or path delimited by .
+  std::vector<double> getDoubleArray(const std::string& key) const;
 
   /// Retrieves a string value by key name, or a path containing
   /// several keys delimited by .
@@ -97,5 +103,5 @@ public:
   /// @param[in] key key name or path delimited by .
   bool doesDoubleExist(const std::string& key = "") const;
 };
-}
+} // namespace helayers
 #endif // SRC_HELAYERS_JSONSUBTREE_H

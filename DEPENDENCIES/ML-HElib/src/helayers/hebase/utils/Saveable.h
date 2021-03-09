@@ -22,35 +22,38 @@
  * SOFTWARE.
  */
 
-#include "HelibBgvNativeFunctionEvaluator.h"
-using namespace std;
+#ifndef SRC_HELAYERS_SAVEABLE_H
+#define SRC_HELAYERS_SAVEABLE_H
 
-namespace helayers {
-HelibBgvNativeFunctionEvaluator::HelibBgvNativeFunctionEvaluator(HeContext& he)
-    : AbstractFunctionEvaluator(he)
-{}
+#include <iostream>
+#include <fstream>
+#include <string>
 
-void HelibBgvNativeFunctionEvaluator::powerInPlace(AbstractCiphertext& absCtxt,
-                                                   int p) const
+class Saveable
 {
-  HelibBgvCiphertext& c = dynamic_cast<HelibBgvCiphertext&>(absCtxt);
-  c.ctxt.power(p);
-}
+public:
+  static std::ofstream openOfstream(const std::string& fileName);
+  static std::ifstream openIfstream(const std::string& fileName);
 
-void HelibBgvNativeFunctionEvaluator::totalProduct(
-    AbstractCiphertext& result,
-    const vector<shared_ptr<AbstractCiphertext>>& absMultiplicands) const
-{
-  size_t size = absMultiplicands.size();
-  std::vector<helib::Ctxt> heLibMultiplicands;
-  heLibMultiplicands.reserve(size);
-  for (size_t i = 0; i < size; i++) {
-    HelibBgvCiphertext& bgvMultiplicands =
-        dynamic_cast<HelibBgvCiphertext&>(*absMultiplicands[i]);
-    heLibMultiplicands.push_back(bgvMultiplicands.ctxt);
-  }
-  HelibBgvCiphertext& resultBgv = dynamic_cast<HelibBgvCiphertext&>(result);
-  helib::totalProduct(resultBgv.ctxt, heLibMultiplicands);
-}
+  ///  Saves this Saveable object to a file in binary form.
+  ///
+  ///  @param[in] fileName name of file to write to
+  std::streamoff saveToFile(const std::string& fileName) const;
 
-} // namespace helayers
+  ///  Loads this Saveable object from a file saved by saveToFile()
+  ///
+  ///  @param[in] fileName name of file to read from
+  std::streamoff loadFromFile(const std::string& fileName);
+
+  ///  Saves this Saveable object to a stream in binary form.
+  ///
+  ///  @param[in] stream output stream to write to
+  virtual std::streamoff save(std::ostream& stream) const = 0;
+
+  ///  Loads this Saveable object from a file saved by save()
+  ///
+  ///  @param[in] stream input stream to read from
+  virtual std::streamoff load(std::istream& stream) = 0;
+};
+
+#endif
