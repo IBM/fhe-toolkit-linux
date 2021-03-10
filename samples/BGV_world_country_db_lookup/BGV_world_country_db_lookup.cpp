@@ -32,6 +32,10 @@
 // The original example code ships with HElib and can be found at
 // https://github.com/homenc/HElib/tree/master/examples/BGV_database_lookup
 
+// INFO: The API used to create these examples can be found online.
+// ML-HElib: https://ibm.github.io/fhe-toolkit-linux
+// HElib: https://ibm.github.io/fhe-toolkit-linux/html/helib/index.html
+
 #include <iostream>
 
 #include "helayers/hebase/hebase.h"
