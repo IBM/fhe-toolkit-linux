@@ -1,32 +1,33 @@
 /*
-* MIT License
-*
-* Copyright (c) 2020 International Business Machines
-*
-* Permission is hereby granted, free of charge, to any person obtaining a copy
-* of this software and associated documentation files (the "Software"), to deal
-* in the Software without restriction, including without limitation the rights
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the Software is
-* furnished to do so, subject to the following conditions:
-*
-* The above copyright notice and this permission notice shall be included in all
-* copies or substantial portions of the Software.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-* SOFTWARE.
-*/
+ * MIT License
+ *
+ * Copyright (c) 2020 International Business Machines
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
 #ifndef SRC_HELAYERS_PTILE_H
 #define SRC_HELAYERS_PTILE_H
 
 #include "HeContext.h"
 #include "impl/AbstractPlaintext.h"
+#include "utils/Saveable.h"
 
 namespace helayers {
 
@@ -35,7 +36,7 @@ namespace helayers {
 /// It's called a PTile because from a high-level point of view
 /// we'll usually use several of these combined for holding a more complicated
 /// object such as a matrix.
-class PTile
+class PTile : public Saveable
 {
 
   std::shared_ptr<AbstractPlaintext> impl;
@@ -88,25 +89,15 @@ public:
   /// This method returns the number of slots in this object.
   int slotCount() const;
 
-  ///  Saves this PTile to a file in binary form.
-  ///
-  ///  @param[in] fileName name of file to write to
-  void saveToFile(const std::string& fileName) const;
-
-  ///  Loads this PTile from a file saved by saveToFile()
-  ///
-  ///  @param[in] fileName name of file to read from
-  void loadFromFile(const std::string& fileName);
-
   ///  Saves this PTile to a stream in binary form.
   ///
   ///  @param[in] stream output stream to write to
-  std::streamoff save(std::ostream& stream) const;
+  std::streamoff save(std::ostream& stream) const override;
 
   ///  Loads this PTile from a file saved by save()
   ///
   ///  @param[in] stream input stream to read from
-  std::streamoff load(std::istream& stream);
+  std::streamoff load(std::istream& stream) override;
 
   /// Prints information regarding this object for debug purposes.
   /// @param[in] title A title to be included in the printing.
@@ -122,6 +113,6 @@ public:
   /// Reserved for debugging and internal use.
   const AbstractPlaintext& getImpl() const { return *impl; };
 };
-}
+} // namespace helayers
 
 #endif /* SRC_HELAYERS_PTILE_H */

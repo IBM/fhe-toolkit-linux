@@ -1,26 +1,26 @@
 /*
-* MIT License
-*
-* Copyright (c) 2020 International Business Machines
-*
-* Permission is hereby granted, free of charge, to any person obtaining a copy
-* of this software and associated documentation files (the "Software"), to deal
-* in the Software without restriction, including without limitation the rights
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the Software is
-* furnished to do so, subject to the following conditions:
-*
-* The above copyright notice and this permission notice shall be included in all
-* copies or substantial portions of the Software.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-* SOFTWARE.
-*/
+ * MIT License
+ *
+ * Copyright (c) 2020 International Business Machines
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
 #ifndef STRAINER_DOUBLEMATRIXARRAY_H_
 #define STRAINER_DOUBLEMATRIXARRAY_H_
@@ -270,52 +270,104 @@ public:
   ///@brief Elementwise square all elements
   void square();
 
+  ///@brief Elementwise addition
+  ///
+  ///@param other Matrix array to add
   void add(const DoubleMatrixArray& other);
 
-  // add a value to given position
+  ///@brief Add at a specific index
+  ///
+  ///@param val Value to add
+  ///@param row Row index of element to add to
+  ///@param col Column index of element to add to
   void addAt(double val, int row, int col);
-  // add a smaller matrix other at position startRow,startCol
+
+  ///@brief Adds a smaller matrix array other at specified position.
+  ///
+  ///@param other  Matrix array to add
+  ///@param startRow First row index where other matrix should be placed
+  ///@param startCol First column index where other matrix should be placed
   void addAt(const DoubleMatrixArray& other, int startRow, int startCol);
+
+  ///@brief Elementwise subtraction
+  ///
+  ///@param other Matrix array to subtract
   void sub(const DoubleMatrixArray& other);
+
+  ///@brief Elementwise multiplication.
+  ///
+  ///@param other matrix array to multiply with
   void elementMultiply(const DoubleMatrixArray& other);
 
-  // multiplies elementwise the smaller matrix 'other' starting at
-  // position startRow,startCol
+  ///@brief Multiplies with a smaller matrix array other at specified position.
+  ///
+  ///@param other  Matrix array to multiply with
+  ///@param startRow First row index where other matrix should be placed
+  ///@param startCol First column index where other matrix should be placed
   void elementMultiplyAt(const DoubleMatrixArray& other,
                          int startRow,
                          int startCol);
+
+  ///@brief Scalar multiplication
+  ///
+  ///@param scalar Scalar value
   void multiplyByScalar(double scalar);
 
-  // sums across the depth dimension, and copies result to all elements in this
-  // dimension
+  ///@brief Sums across the depth dimension, and copies result to all elements
+  /// in this
+  // dimension.
   void innerSum();
 
-  // reduces the rows to a single row by calculating the mean of each column
+  ///@brief Reduces the rows to a single row by calculating the mean of each
+  /// column
   void meanAlongRows();
-  // reduces the columns to a single column by calculating the mean of each row
+
+  ///@brief Reduces the columns to a single column by calculating the mean of
+  /// each row
   void meanAlongCols();
-  // reduces the matrices to a single matrix containing the mean of all matrices
+
+  ///@brief Reduces the matrix array to a single matrix containing the mean of
+  /// all matrices
   void meanInDepth();
-  // reduces the rows to a single row by calculating the sum of each column
+
+  ///@brief Reduces the rows to a single row by calculating the sum of each
+  /// column
   void sumAlongRows();
-  // reduces the cols to a single col by calculating the sum of each row
+
+  ///@brief Reduces the cols to a single col by calculating the sum of each row
   void sumAlongCols();
-  // reduces the matrices to a signle matrix containing the sum of all matrices
+
+  ///@brief Reduces the matrix array to a single matrix containing the sum of
+  /// all matrices
   void sumInDepth();
 
+  ///@brief Fills array with random values
   void initRandom();
-  void initRandomSame();
-  void initConst(double v);
-  void initHotel();
 
+  ///@brief Fills array with random values, duplicated across the depth
+  /// dimension
+  void initRandomSame();
+
+  ///@brief  Fills array with a constant value.
+  ///
+  ///@param v Value to fill
+  void initConst(double v);
+
+  ///@brief Print content of matrix array
+  ///
+  ///@param out Output stream to print to.
+  ///@param title Title printed as header.
+  ///@param verboseLevel Determines how detailed the output is.
   void debugPrint(std::ostream& out,
                   const std::string& title,
                   int verboseLevel = 1) const;
 
-  // Makes sure that all elements in this DoubleMatrixArray are equal to the
-  // elements of "other",
-  // up to difference which is less than "eps".
-  // This function fails in case the matrix arrays are not equal.
+  ///@brief Makes sure that all elements in this DoubleMatrixArray are equal to the
+  // elements of other array.
+  ///
+  ///@param title Title to be printed in case of error.
+  ///@param other Other array to compare with.
+  ///@param eps Tolerance.
   double testEquals(const std::string& title,
                     const DoubleMatrixArray& other,
                     double eps = 1e-6) const;
@@ -381,6 +433,6 @@ public:
 };
 
 std::ostream& operator<<(std::ostream&, const DoubleMatrixArray& dma);
-}
+} // namespace helayers
 
 #endif /* STRAINER_DOUBLEMATRIXARRAY_H_ */

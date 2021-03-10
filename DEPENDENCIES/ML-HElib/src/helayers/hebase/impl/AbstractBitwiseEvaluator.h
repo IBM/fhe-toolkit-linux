@@ -164,6 +164,6 @@ public:
       const AbstractCiphertext& c1,
       const AbstractCiphertext& c2) const = 0;
 };
-}
+} // namespace helayers
 
 #endif

@@ -1,26 +1,26 @@
 /*
-* MIT License
-*
-* Copyright (c) 2020 International Business Machines
-*
-* Permission is hereby granted, free of charge, to any person obtaining a copy
-* of this software and associated documentation files (the "Software"), to deal
-* in the Software without restriction, including without limitation the rights
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the Software is
-* furnished to do so, subject to the following conditions:
-*
-* The above copyright notice and this permission notice shall be included in all
-* copies or substantial portions of the Software.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-* SOFTWARE.
-*/
+ * MIT License
+ *
+ * Copyright (c) 2020 International Business Machines
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
 #include <iostream>
 #include <queue>
@@ -47,14 +47,14 @@ bool H5Parser::objectExists(const string& name) const
   }
 }
 
-H5Parser::H5Parser(string f) : file_name(f)
+H5Parser::H5Parser(const string& f) : file_name(f)
 {
   // test file exists, for a nicer error message
   ifstream test(f);
   if (!test.good())
     throw invalid_argument("File " + f + " doesn't exist or unreadable");
 
-  file = H5File(f, H5F_ACC_RDWR);
+  file = H5File(f, H5F_ACC_RDONLY);
 }
 
 H5Parser::~H5Parser() { file.close(); }
@@ -162,7 +162,7 @@ void H5Parser::readData(const std::string& path,
   delete[] dd;
 }
 
-std::vector<double> H5Parser::parseBias(string path) const
+std::vector<double> H5Parser::parseBias(const string& path) const
 {
   string var = path + "/bias:0";
 
@@ -204,7 +204,7 @@ std::vector<double> H5Parser::parseBias(string path) const
   return out;
 }
 
-std::vector<std::vector<double>> H5Parser::parseFC(string path) const
+std::vector<std::vector<double>> H5Parser::parseFC(const string& path) const
 {
   string var = path + "/kernel:0";
 
@@ -255,7 +255,7 @@ std::vector<std::vector<double>> H5Parser::parseFC(string path) const
 }
 
 std::vector<std::vector<std::vector<double>>> H5Parser::parseFilters(
-    string path) const
+    const string& path) const
 {
   string var = path + "/kernel:0";
 
@@ -342,4 +342,4 @@ std::vector<std::vector<std::vector<double>>> H5Parser::parseFilters(
  other.file.getHDFObjType(thisStat, otherStat);
  }
  }*/
-}
+} // namespace helayers

@@ -76,6 +76,7 @@ set(HEBASE_SOURCES ${IMPL_SOURCES}
 ../src/helayers/hebase/utils/BinIoUtils.cpp
 ../src/helayers/hebase/utils/JsonSubtree.cpp
 ../src/helayers/hebase/utils/HelayersConfig.cpp
+../src/helayers/hebase/utils/Saveable.cpp
 )
 
 set(HEBASE_HELIB_SOURCES 

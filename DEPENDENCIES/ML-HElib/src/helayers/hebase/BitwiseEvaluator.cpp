@@ -212,4 +212,4 @@ CTile BitwiseEvaluator::isLessEqual(const CTile& c1, const CTile& c2) const
   res.impl = impl->isLessEqual(*c1.impl, *c2.impl);
   return res;
 }
-}
+} // namespace helayers

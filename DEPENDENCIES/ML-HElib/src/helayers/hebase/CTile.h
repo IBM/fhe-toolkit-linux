@@ -1,32 +1,33 @@
 /*
-* MIT License
-*
-* Copyright (c) 2020 International Business Machines
-*
-* Permission is hereby granted, free of charge, to any person obtaining a copy
-* of this software and associated documentation files (the "Software"), to deal
-* in the Software without restriction, including without limitation the rights
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the Software is
-* furnished to do so, subject to the following conditions:
-*
-* The above copyright notice and this permission notice shall be included in all
-* copies or substantial portions of the Software.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-* SOFTWARE.
-*/
+ * MIT License
+ *
+ * Copyright (c) 2020 International Business Machines
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
 #ifndef SRC_HELAYERS_CTILE_H
 #define SRC_HELAYERS_CTILE_H
 
 #include "HeContext.h"
 #include "impl/AbstractCiphertext.h"
+#include "utils/Saveable.h"
 #include "PTile.h"
 
 namespace helayers {
@@ -40,7 +41,7 @@ namespace helayers {
 /// For a lower level documentation of different functionalities (such as the
 /// effect on chainIndex), see documentation of the underlying encryption
 /// scheme.
-class CTile
+class CTile : public Saveable
 {
 
   std::shared_ptr<AbstractCiphertext> impl;
@@ -66,25 +67,15 @@ public:
   /// @param[in] src Object to copy.
   CTile& operator=(const CTile& src);
 
-  ///  Saves this CTile to a file in binary form.
-  ///
-  ///  @param[in] fileName name of file to write to
-  void saveToFile(const std::string& fileName) const;
-
-  ///  Loads this CTile from a file saved by saveToFile()
-  ///
-  ///  @param[in] fileName name of file to read from
-  void loadFromFile(const std::string& fileName);
-
   ///  Saves this CTile to a stream in binary form.
   ///
   ///  @param[in] stream output stream to write to
-  std::streamoff save(std::ostream& stream) const;
+  std::streamoff save(std::ostream& stream) const override;
 
   ///  Loads this CTile from a file saved by save()
   ///
   ///  @param[in] stream input stream to read from
-  std::streamoff load(std::istream& stream);
+  std::streamoff load(std::istream& stream) override;
 
   ///  Conjugates contents of this CTile in place, elementwise.
   ///  For non-complex numbers this has no effect.
@@ -321,7 +312,10 @@ public:
 
   /// Reserved for debugging and internal use.
   const AbstractCiphertext& getImpl() const { return *impl; };
+
+  /// Reserved for debugging and internal use.
+  AbstractCiphertext& getImpl() { return *impl; };
 };
-}
+} // namespace helayers
 
 #endif /* SRC_HELAYERS_CTILE_H */

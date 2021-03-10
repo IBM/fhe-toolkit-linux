@@ -22,35 +22,43 @@
  * SOFTWARE.
  */
 
-#include "HelibBgvNativeFunctionEvaluator.h"
+#include <fstream>
+#include "Saveable.h"
+
 using namespace std;
 
-namespace helayers {
-HelibBgvNativeFunctionEvaluator::HelibBgvNativeFunctionEvaluator(HeContext& he)
-    : AbstractFunctionEvaluator(he)
-{}
-
-void HelibBgvNativeFunctionEvaluator::powerInPlace(AbstractCiphertext& absCtxt,
-                                                   int p) const
+std::ofstream Saveable::openOfstream(const std::string& fileName)
 {
-  HelibBgvCiphertext& c = dynamic_cast<HelibBgvCiphertext&>(absCtxt);
-  c.ctxt.power(p);
+  ofstream out;
+  out.open(fileName, ofstream::out | ofstream::binary);
+  if (out.fail())
+    throw runtime_error("Failed to open file " + fileName);
+  out.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+  return out;
 }
 
-void HelibBgvNativeFunctionEvaluator::totalProduct(
-    AbstractCiphertext& result,
-    const vector<shared_ptr<AbstractCiphertext>>& absMultiplicands) const
+std::streamoff Saveable::saveToFile(const std::string& fileName) const
 {
-  size_t size = absMultiplicands.size();
-  std::vector<helib::Ctxt> heLibMultiplicands;
-  heLibMultiplicands.reserve(size);
-  for (size_t i = 0; i < size; i++) {
-    HelibBgvCiphertext& bgvMultiplicands =
-        dynamic_cast<HelibBgvCiphertext&>(*absMultiplicands[i]);
-    heLibMultiplicands.push_back(bgvMultiplicands.ctxt);
-  }
-  HelibBgvCiphertext& resultBgv = dynamic_cast<HelibBgvCiphertext&>(result);
-  helib::totalProduct(resultBgv.ctxt, heLibMultiplicands);
+  ofstream out = openOfstream(fileName);
+  streamoff offset = save(out);
+  out.close();
+  return offset;
 }
 
-} // namespace helayers
+std::ifstream Saveable::openIfstream(const std::string& fileName)
+{
+  ifstream in;
+  in.open(fileName);
+  if (in.fail())
+    throw runtime_error("Failed to open file " + fileName);
+  in.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+  return in;
+}
+
+std::streamoff Saveable::loadFromFile(const std::string& fileName)
+{
+  ifstream in = openIfstream(fileName);
+  streamoff offset = load(in);
+  in.close();
+  return offset;
+}
