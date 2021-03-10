@@ -23,7 +23,7 @@ Type in a Country name. For example Sweden, Germany, Czech Republic. For countri
 Please note: there is no fuzzy matching, the spelling of the country name has to be exact.
 
 ## Acknowledgement
-This country lookup example is derived from the BGV database demo code originally written by Jack Crawford for a lunch and learn session at IBM Research (Hursley) in 2019. The original demo code ships with HElib and can be found [here](https://github.com/homenc/HElib/tree/master/examples/BGV_database_lookup).
+This country lookup example is derived from the BGV database demo code originally written by Jack Crawford for a lunch and learn session at IBM Research (Hursley) in 2019. The original demo code ships with HElib and can be found [here](https://github.com/IBM-HElib/HElib/tree/master/examples).
 
 ## Appendix - Full List of Countries
 To view the options available for this demo, see the [dataset](countries_dataset.csv).

@@ -30,7 +30,7 @@
 // code originally writte by Jack Crawford for a lunch and learn
 // session at IBM Research (Hursley) in 2019.
 // The original example code ships with HElib and can be found at
-// https://github.com/homenc/HElib/tree/master/examples/BGV_database_lookup
+// https://github.com/IBM-HElib/HElib/tree/master/examples/BGV_database_lookup
 //
 // INFO: The API used to create these examples can be found online 
 // ML-HElib: https://ibm.github.io/fhe-toolkit-linux”
