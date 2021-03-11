@@ -1,26 +1,26 @@
 /*
-* MIT License
-*
-* Copyright (c) 2020 International Business Machines
-*
-* Permission is hereby granted, free of charge, to any person obtaining a copy
-* of this software and associated documentation files (the "Software"), to deal
-* in the Software without restriction, including without limitation the rights
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the Software is
-* furnished to do so, subject to the following conditions:
-*
-* The above copyright notice and this permission notice shall be included in all
-* copies or substantial portions of the Software.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-* SOFTWARE.
-*/
+ * MIT License
+ *
+ * Copyright (c) 2020 International Business Machines
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
 #ifndef SRC_HELAYERS_CIPHERMATRIX_H
 #define SRC_HELAYERS_CIPHERMATRIX_H
@@ -28,11 +28,12 @@
 #define BOOST_UBLAS_INLINE
 #include <boost/numeric/ublas/tensor.hpp>
 #include "helayers/hebase/hebase.h"
+#include "helayers/hebase/utils/Saveable.h"
 
 namespace helayers {
 
 /// A class for holding a matrix of ciphertexts.
-class CipherMatrix
+class CipherMatrix : public Saveable
 {
 
   HeContext* he;
@@ -58,11 +59,11 @@ public:
 
   /// Save object to binary stream.
   /// @param[in] stream output stream to write to
-  std::streamoff save(std::ostream& stream) const;
+  std::streamoff save(std::ostream& stream) const override;
 
   /// Load object from binary stream.
   /// @param[in] stream output stream to read from
-  std::streamoff load(std::istream& stream);
+  std::streamoff load(std::istream& stream) override;
 
   /// Elementwise add other matrix.
   /// @param[in] other matrix to add to
@@ -87,6 +88,6 @@ public:
   /// Returns the current chain index of ciphertexts.
   int getChainIndex() const;
 };
-}
+} // namespace helayers
 
 #endif /* SRC_HELAYERS_CIPHERMATRIX_H */

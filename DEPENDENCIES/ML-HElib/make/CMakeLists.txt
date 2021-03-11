@@ -49,7 +49,7 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
 set(CMAKE_BUILD_TYPE Release)
 
 set(CMAKE_VERBOSE_MAKEFILE TRUE)
-set( CMAKE_CXX_FLAGS "-fopenmp" )
+set( CMAKE_CXX_FLAGS "-Werror -fopenmp" )
 
 # Import Boost
 find_package(Boost ${Boost_version} EXACT REQUIRED COMPONENTS filesystem system thread)
@@ -76,6 +76,7 @@ set(HEBASE_SOURCES ${IMPL_SOURCES}
 ../src/helayers/hebase/utils/BinIoUtils.cpp
 ../src/helayers/hebase/utils/JsonSubtree.cpp
 ../src/helayers/hebase/utils/HelayersConfig.cpp
+../src/helayers/hebase/utils/Saveable.cpp
 )
 
 set(HEBASE_HELIB_SOURCES 

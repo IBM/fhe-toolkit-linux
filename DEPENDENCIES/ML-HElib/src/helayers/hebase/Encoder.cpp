@@ -1,26 +1,26 @@
 /*
-* MIT License
-*
-* Copyright (c) 2020 International Business Machines
-*
-* Permission is hereby granted, free of charge, to any person obtaining a copy
-* of this software and associated documentation files (the "Software"), to deal
-* in the Software without restriction, including without limitation the rights
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the Software is
-* furnished to do so, subject to the following conditions:
-*
-* The above copyright notice and this permission notice shall be included in all
-* copies or substantial portions of the Software.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-* SOFTWARE.
-*/
+ * MIT License
+ *
+ * Copyright (c) 2020 International Business Machines
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
 #include "Encoder.h"
 
@@ -38,8 +38,8 @@ int Encoder::validateChainIndex(int chainIndex) const
     return 0; // not relevant and will not be used
   else if (chainIndex < -1 || chainIndex > he.getTopChainIndex())
     throw invalid_argument("Illegal chain index value " +
-                           to_string(chainIndex) + " where max=" +
-                           to_string(he.getTopChainIndex()));
+                           to_string(chainIndex) +
+                           " where max=" + to_string(he.getTopChainIndex()));
   else if (chainIndex == -1)
     return he.getTopChainIndex();
   else
@@ -47,19 +47,22 @@ int Encoder::validateChainIndex(int chainIndex) const
 }
 
 template <typename T>
-vector<T> Encoder::verifyEncodeVecSize(const vector<T>& vec) const
+bool Encoder::checkEncodeVectorSize(const vector<T>& vec) const
 {
-  if (vec.size() > he.slotCount()) {
-    throw runtime_error("Can not encode a vector with more than he.slotCount()"
-                        " slots.");
-  }
-  if (vec.size() < he.slotCount()) {
-    vector<T> vecCopy(vec);
-    vecCopy.resize(he.slotCount(), 0);
-    return vecCopy;
-  }
+  if (vec.size() > he.slotCount())
+    throw runtime_error(
+        "Can not encode a vector with more than he.slotCount() slots");
+  if ((vec.size() < he.slotCount()) && !he.getTraits().getIsDebugEmpty())
+    return false;
+  return true;
+}
 
-  return vec;
+template <typename T>
+vector<T> Encoder::adjustEncodeVectorSize(const vector<T>& vec) const
+{
+  vector<T> vecCopy(vec);
+  vecCopy.resize(he.slotCount(), 0);
+  return vecCopy;
 }
 
 void Encoder::setDefaultScale(double scale) { impl->setDefaultScale(scale); }
@@ -101,14 +104,16 @@ void Encoder::encode(PTile& res, double val, int chainIndex) const
 void Encoder::encode(PTile& res, const vector<int>& vals, int chainIndex) const
 {
   impl->encode(*res.impl,
-               verifyEncodeVecSize<int>(vals),
+               checkEncodeVectorSize(vals) ? vals
+                                           : adjustEncodeVectorSize(vals),
                validateChainIndex(chainIndex));
 }
 
 void Encoder::encode(PTile& res, const vector<long>& vals, int chainIndex) const
 {
   impl->encode(*res.impl,
-               verifyEncodeVecSize<long>(vals),
+               checkEncodeVectorSize(vals) ? vals
+                                           : adjustEncodeVectorSize(vals),
                validateChainIndex(chainIndex));
 }
 
@@ -117,7 +122,8 @@ void Encoder::encode(PTile& res,
                      int chainIndex) const
 {
   impl->encode(*res.impl,
-               verifyEncodeVecSize<double>(vals),
+               checkEncodeVectorSize(vals) ? vals
+                                           : adjustEncodeVectorSize(vals),
                validateChainIndex(chainIndex));
 }
 
@@ -126,7 +132,8 @@ void Encoder::encode(PTile& res,
                      int chainIndex) const
 {
   impl->encode(*res.impl,
-               verifyEncodeVecSize<complex<double>>(vals),
+               checkEncodeVectorSize(vals) ? vals
+                                           : adjustEncodeVectorSize(vals),
                validateChainIndex(chainIndex));
 }
 
@@ -164,36 +171,40 @@ void Encoder::encodeEncrypt(CTile& res,
                             const vector<int>& vals,
                             int chainIndex) const
 {
-  impl->encodeEncrypt(*res.impl,
-                      verifyEncodeVecSize<int>(vals),
-                      validateChainIndex(chainIndex));
+  impl->encodeEncrypt(
+      *res.impl,
+      checkEncodeVectorSize(vals) ? vals : adjustEncodeVectorSize(vals),
+      validateChainIndex(chainIndex));
 }
 
 void Encoder::encodeEncrypt(CTile& res,
                             const vector<long>& vals,
                             int chainIndex) const
 {
-  impl->encodeEncrypt(*res.impl,
-                      verifyEncodeVecSize<long>(vals),
-                      validateChainIndex(chainIndex));
+  impl->encodeEncrypt(
+      *res.impl,
+      checkEncodeVectorSize(vals) ? vals : adjustEncodeVectorSize(vals),
+      validateChainIndex(chainIndex));
 }
 
 void Encoder::encodeEncrypt(CTile& res,
                             const vector<double>& vals,
                             int chainIndex) const
 {
-  impl->encodeEncrypt(*res.impl,
-                      verifyEncodeVecSize<double>(vals),
-                      validateChainIndex(chainIndex));
+  impl->encodeEncrypt(
+      *res.impl,
+      checkEncodeVectorSize(vals) ? vals : adjustEncodeVectorSize(vals),
+      validateChainIndex(chainIndex));
 }
 
 void Encoder::encodeEncrypt(CTile& res,
                             const vector<complex<double>>& vals,
                             int chainIndex) const
 {
-  impl->encodeEncrypt(*res.impl,
-                      verifyEncodeVecSize<complex<double>>(vals),
-                      validateChainIndex(chainIndex));
+  impl->encodeEncrypt(
+      *res.impl,
+      checkEncodeVectorSize(vals) ? vals : adjustEncodeVectorSize(vals),
+      validateChainIndex(chainIndex));
 }
 
 vector<int> Encoder::decryptDecodeInt(const CTile& src) const
@@ -273,8 +284,9 @@ void Encoder::printErrorStats(CTile& actualC,
     out << "STD diff  :"
         << " diff="
         << sqrt(abs((sumDiffSqr / SC) - ((sumDiff / SC) * (sumDiff / SC))))
-        << " diff%= " << sqrt(abs((sumRelDiffSqr / SC) -
-                                  ((sumRelDiff / SC) * (sumRelDiff / SC))))
+        << " diff%= "
+        << sqrt(abs((sumRelDiffSqr / SC) -
+                    ((sumRelDiff / SC) * (sumRelDiff / SC))))
         << endl;
   }
 }
@@ -314,4 +326,4 @@ double Encoder::assertEquals(const CTile& c,
 {
   return impl->assertEquals(*c.impl, title, expectedVals, eps, percent);
 }
-}
+} // namespace helayers
