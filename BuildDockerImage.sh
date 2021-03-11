@@ -84,9 +84,9 @@ get_HElib(){
   echo "Checking for cached HElib download..."
   if [ ! -f HElib-$1.tar.gz ]; then  
       echo "INFO: Attempting to download HElib $1 with the curl command..."
-      if ! curl $CURL_FIX_ZCX -Lo HElib-$1.tar.gz https://github.com/homenc/HElib/archive/$1.tar.gz
+      if ! curl $CURL_FIX_ZCX -Lo HElib-$1.tar.gz https://github.com/IBM-HElib/HElib/archive/$1.tar.gz
       then
-        echo " FATAL: There was an issue downloading HElib $1 from https://github.com/homenc/HElib ."
+        echo " FATAL: There was an issue downloading HElib $1 from https://github.com/IBM-HElib/HElib ."
       fi
   fi
   # Now we untar whatever we fetched...

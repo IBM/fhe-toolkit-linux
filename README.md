@@ -68,7 +68,7 @@ The demo application source code is copied from `HElib/examples` into a workspac
 
    [1]: https://www.docker.com/                                  "Docker Container"
    [2]: https://en.wikipedia.org/wiki/Homomorphic_encryption     "Homomorphic Encryption"
-   [3]: https://github.com/homenc/HElib/                         "HElib"
+   [3]: https://github.com/IBM-HElib/HElib/                         "HElib"
    [4]: https://code.visualstudio.com/                           "Visual Studio Code"
    [5]: https://www.centos.org/                                  "CentOS"
    [6]: https://getfedora.org/                                   "Fedora"
