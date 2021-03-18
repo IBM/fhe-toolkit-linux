@@ -187,11 +187,16 @@ write_info "HPVS deployment of ${hpvsName} will now begin"
 ################################################################################
 ########             Prepare the image for HPVS deployment              ########
 ################################################################################
-
+#If you said local, inside the IF block, if you said local, and you on intel, you can't do this hyere, exit out, use the pre-built one
 # Check for local vs. DockerHub build choice
 if [ ${CONTAINER_MODE}x == "local"x ]; then
   FHEkit_image_name=local/fhe-toolkit-${platform}-s390x
+  #if you're on intel bail out
 elif [ ${CONTAINER_MODE}x == "ibmcom"x ]; then
+  #image name is supposed ot be s390x, if this imahge is not in the local file system, do the docker fetch to pull it for you
+  #we know we need the s390 image, if we don't find the list of images that match tha pull it and do it
+  # check here ot make sure its there, and then delete it when its done
+  #if we don't see any ecxact match fr the the imaghe name, then docker pull and grab the latest
   FHEkit_image_name=ibmcom/fhe-toolkit-${platform}-s390x
 else
   print_fatal_and_usage "Container mode $CONTAINER_MODE is invalid"
@@ -209,6 +214,8 @@ target_image_name=${registryURL}/${target_image_name}
 # Tag the image for HPVS deployment
 write_info "Tag the image '$FHEkit_image_name' with '${target_image_name}:${tag}'"
 docker tag $FHEkit_image_name ${target_image_name}:${tag}
+#Delete the one that we fetched here
+
 if [[ $? != 0 ]]; then
     fatal_error "Failed to tag the image"
 fi
