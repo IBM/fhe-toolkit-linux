@@ -824,6 +824,7 @@ read_config() {
     #set the IFS which is used to split the key-value
     IFS="="
     
+    echo "READ CONFIG FILE $configFile"
     while read -r key value
     do
     # The docker related configure in the config file can be overwritten
@@ -844,11 +845,11 @@ read_config() {
 
     # delagation key configure for Docker Content Trust
     elif [[ "$key"x = "delegationkey"x ]];then
-        case ${value^^} in
-            TRUE )
+        case ${value} in
+            true )
                 delegationkey=true
                 ;;
-            FALSE )
+            false )
                 delegationkey=false
                 ;;
             *)
@@ -961,7 +962,9 @@ read_config() {
 print_usage(){
     
     # Write the program syntax and option sections from the manpage file
-    echo "$(man $1 | sed -n '/^SYNOPSIS/,/^DESCRIPTION/{p;/^DESCRIPTION/q}' | head -n -1)"
+    echo "$(man $1)"
+    echo "$(uname -a)"
+    #echo "$(man $1 | sed -n '/^SYNOPSIS/,/^DESCRIPTION/{p;/^DESCRIPTION/q}' | head -n -1)"
     echo ""
     echo "$(man $1 | sed -n '/^OPTIONS/,/^EXAMPLES/{p;/^EXAMPLES/q}' | head -n -1)"
     
