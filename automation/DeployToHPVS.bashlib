@@ -234,10 +234,13 @@ write_debug(){
 #
 change_config_var(){
     
+    echo "What file ${1}"
     # Escape forward slashes so they don't foul up sed
     escaped=$(echo "${3}" | sed -e 's/\//\\&/g')
     
-    run_command "sed --in-place 's/^\#\?"${2}"\=.*$/"${2}"\="${escaped}"/' "${1}
+    echo run_command "sed -i '' 's/^"${2}"\=.*$/"${2}"\="${escaped}"/' "${1}
+    run_command "sed -i '' 's/^"${2}"\=.*$/"${2}"\="${escaped}"/' "${1}
+   # run_command "sed -i '' 's/"${2}"\=$/"${2}"\="${escaped}"/' "${1}
     if [[ $? != 0 ]]; then
         fatal_error "Error writing to configuration file '${1}'"
     fi
@@ -482,7 +485,7 @@ config_file_wizard(){
     PROMPT_USER_READARGS="-s"
     prompt_user "Enter an IAM key (platform API key) for your IBM Cloud account" false
     unset PROMPT_USER_READARGS
-    change_config_var ${1} "delegationkeyName" "${USERINPUT}"
+    #change_config_var ${1} "delegationkeyName" "${USERINPUT}"
     APIKey=${USERINPUT}
     change_config_var ${1} "APIKey" "${APIKey}"
     
@@ -1658,7 +1661,7 @@ for resource in json.load(sys.stdin)['resources']:
 #       invocation.
 #
 provision_hpvs_instance(){
-    
+    echo "PROVISIONING THE INSTANCE"
     registrationDefinition=`sed s/$/"\\\\\n"/ ${1}.asc | tr -d '\n'`
     provisionResult=`curl -sX POST https://resource-controller.cloud.ibm.com/v2/resource_instances \
          -H "Authorization: Bearer $token" -H "Content-Type: application/json"  \
