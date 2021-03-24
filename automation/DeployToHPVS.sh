@@ -223,7 +223,7 @@ target_image_name=${registryURL}/${target_image_name}
 write_info "Tag the image '$FHEkit_image_name' with '${target_image_name}:${tag}'"
 docker tag $FHEkit_image_name ${target_image_name}:${tag}
 #Delete the one that we fetched here
-docker rmi -f $(docker images $FHEkit_image_name -a -q)
+#docker rmi -f $(docker images $FHEkit_image_name -a -q)
 if [[ $? != 0 ]]; then
     fatal_error "Failed to tag the image"
 fi

@@ -963,14 +963,16 @@ read_config() {
 #      change, you must change it there.
 #
 print_usage(){
-    
-    # Write the program syntax and option sections from the manpage file
-    echo "$(man $1)"
-    echo "$(uname -a)"
-    #echo "$(man $1 | sed -n '/^SYNOPSIS/,/^DESCRIPTION/{p;/^DESCRIPTION/q}' | head -n -1)"
-    echo ""
-    echo "$(man $1 | sed -n '/^OPTIONS/,/^EXAMPLES/{p;/^EXAMPLES/q}' | head -n -1)"
-    
+    TYPE=$(uname -s)
+    if [[ "$TYPE" == "Linux" ]]; then
+        # Write the program syntax and option sections from the manpage file
+        echo "$(man $1 | sed -n '/^SYNOPSIS/,/^DESCRIPTION/{p;/^DESCRIPTION/q}' | head -n -1)"
+        echo ""
+        echo "$(man $1 | sed -n '/^OPTIONS/,/^EXAMPLES/{p;/^EXAMPLES/q}' | head -n -1)"
+    else
+       # Print out the whole man page for mac
+       echo "$(man $1)"
+    fi
     return 0
 }
 
