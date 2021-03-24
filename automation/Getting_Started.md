@@ -97,7 +97,15 @@ Space:
     my resource group is : `super_secret`
     
     Login to cloud.ibm.com -> `Manage -> Account -> Account Resources -> Resource Groups -> Create`
-    
+   
+* Install gpg on the system on which you will run the HPVS Deploy script 
+
+     MacOS: `brew install gpg`
+
+* Install pyenv on the system on which you will run the HPVS Deploy script 
+
+     MacOS: `brew install pyenv`
+
  * Login onto the S390x machine (see greg for credentials if you dont have them)
 
  * Clone the fhe-toolkit repo `https://github.com/IBM/fhe-toolkit-linux.git`
