@@ -238,9 +238,8 @@ change_config_var(){
     # Escape forward slashes so they don't foul up sed
     escaped=$(echo "${3}" | sed -e 's/\//\\&/g')
     
-    echo run_command "sed -i '' 's/^"${2}"\=.*$/"${2}"\="${escaped}"/' "${1}
+    #echo run_command "sed -i '' 's/^"${2}"\=.*$/"${2}"\="${escaped}"/' "${1}
     run_command "sed -i '' 's/^"${2}"\=.*$/"${2}"\="${escaped}"/' "${1}
-   # run_command "sed -i '' 's/"${2}"\=$/"${2}"\="${escaped}"/' "${1}
     if [[ $? != 0 ]]; then
         fatal_error "Error writing to configuration file '${1}'"
     fi
