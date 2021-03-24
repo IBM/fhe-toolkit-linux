@@ -3,3 +3,5 @@
 /keys/
 /hpvs-fhe-registration.txt
 /hpvs-fhe-registration.txt.asc
+/*.pub
+/*.conf

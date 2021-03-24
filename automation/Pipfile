@@ -14,4 +14,4 @@ pipenv-setup = "*"     # Sync dependencies in Pipfile/Pipfile.lock to setup.py
 xar = "*"              # Build self-contained Python executable, used by `make build`
 
 [requires]
-python_version = "3.6" # Minimum Python version requirement
+python_version = "3.8" # Minimum Python version requirement
