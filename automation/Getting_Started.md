@@ -4,24 +4,85 @@ The following is how to get a pre-built fhe-toolkit docker image into a Hyper Pr
 
 ###Preparing my system to handle a HPVS connection
 
-* Create an IBM Cloud account `cloud.ibm.com`
+* Create an IBM Cloud account if you have never done so. To do this, go to [https://cloud.ibm.com/login](https://cloud.ibm.com/login) in your web browser. 
 
-* Make an API Key in your ibm cloud account 
+ If you don't have an account, select the "Create an account" link. [https://cloud.ibm.com/registration](https://cloud.ibm.com/registration)
 
-     * Go to Manage > Access (IAM) > API keys.  
+* Once you have made an account or logged into your existing account,  you must then make an API Key in your ibm cloud account 
+
+     * At the top of the screen navigate the menus from Manage  > Access (IAM). From the screen shown select the *My IBM Cloud API keys* tile. .  
+     
 	 * Click Create an IBM Cloud API key.  
-	 * Enter a helpful a name, and useful description so when you look back at it 6 months from now it'll help you remember what its for. 
+     
+	 * Enter a helpful a name, and useful description so when you look back at it 6 months from now it'll help you remember what its for.  
+     
 	 * Click Create.   
-	 * Click Show.  Once you have that key, copy and save it somewhere that you won't forget or delete it.  
+     
+	 * Click Show.  Once you have that key, copy and save it somewhere that you won't forget or delete it.  Alternatively you can download it as a JSON file from the prompt on screen. 
 
 * Update or install `ibmcloud` CLI on local machine & on the S390 machine you will be using.  Its good to have  it working on another non-S390x machine because there are some things that you can't do 
- 		[https://cloud.ibm.com/docs/Registry?topic=Registry-getting-started](https://cloud.ibm.com/docs/Registry?topic=Registry-getting-started)
+ 		[https://cloud.ibm.com/docs/cli?topic=cli-getting-started](https://cloud.ibm.com/docs/cli?topic=cli-getting-started)
+ 		
+ 		NOTE: If you have a mac, you can just open a terminal and issue the following command: 
+        curl -sL https://raw.githubusercontent.com/IBM-Cloud/ibm-cloud-developer-tools/master/linux-installer/idt-installer | bash
+
+To check this step is complete, you should now have an `ibmcloud cli` command available in your shell.
+
 
 * Login to ibmcloud `ibmcloud login --apikey <USE_API_KEY>`
+
+
+Example output follows. If you are logging into the console for the first time you will need to select the region closest to you for best cloud performance. 
+
+```
+$ ibmcloud login --apikey *********************************************************************
+API endpoint: https://cloud.ibm.com
+Authenticating...
+OK
+
+Targeted account (10566a6bd5a545b288d656709c528802)
+
+
+Select a region (or press enter to skip):
+1. au-syd
+2. in-che
+3. jp-osa
+4. jp-tok
+5. kr-seo
+6. eu-de
+7. eu-gb
+8. ca-tor
+9. us-south
+10. us-east
+Enter a number> 10
+Targeted region us-east
+
+                      
+API endpoint:      https://cloud.ibm.com   
+Region:            us-east   
+User:              XXXXXXX@gmail.com   
+Account:           XXXX Account (**************************************************)
+Resource group:    No resource group targeted, use 'ibmcloud target -g RESOURCE_GROUP'   
+CF API endpoint:      
+Org:                  
+Space:                
+```
 	
 * Setup a namespace:
 	
 	`ibmcloud cr namespace-add <my_namespace>`
+	
+ ```
+    $ ibmcloud cr namespace-add fhe-hpvs-demo
+    No resource group is targeted. Therefore, the default resource group for the account ('Default') is targeted.
+
+    Adding namespace 'fhe-hpvs-demo' in resource group 'Default' for account Eli Dow's Account in registry us.icr.io...
+
+    Successfully added namespace 'fhe-hpvs-demo'
+
+    OK
+```
+
 	
 * Update to the latest container plugin (not sure this is available on S390)
 	
@@ -50,11 +111,11 @@ The following is how to get a pre-built fhe-toolkit docker image into a Hyper Pr
  * Run the HPVS script.  The first time running the script, you will most likely not have any keys or settings setup so you can use the wizard.
 
 
- 	    `./DeployToHPVS.sh -l ubuntu -c [name of config file (to save)]`
+ 	    `./DeployToHPVS.sh -c [name of config file (to save)] [name of linux image ubuntu or fedora]`
  	    
  Once you have a saved configure file, you can then re-run it using your file like this
  
-      `./DeployToHPVS.sh -l ubuntu -f DeployToHPVS.conf.boland(this is the name of my file)` 
+      `./DeployToHPVS.sh -f DeployToHPVS_configure_file.conf (this is the name of my file)` 
       
 Everything should run from here.  Please note where the script gets stuck and errors out (if it does)
 
