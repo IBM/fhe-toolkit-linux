@@ -368,12 +368,15 @@ if [[ -z $resource_plan_id ]] || [[ "$resource_plan_id" == "" ]]; then
 fi
 
 # Provision our new HPVS instance
-instanceID=$(provision_hpvs_instance $registrationFile \
-                                     $hpvsName \
-                                     $location \
-                                     $resource_group \
-                                     $resource_plan_id \
-                                     $tag)
+echo "Provisiton instance"
+#provision_hpvs_instance $registrationFile $hpvsName $location $resource_group $resource_plan_id $tag
+#instanceID=12345
+instanceID=$(provision_hpvs_instance $registrationFile $hpvsName $location $resource_group $resource_plan_id $tag)
+#while instanceID == -1 keep trying
+#sleep for a few seconds and go again
+# if it continuously fails then fail for good
+#Failed to privision to ibm cloud trying again in 1 second
+#tried multiple times but no worky
 write_info "Provisioning request for service instance '${instanceID}' was accepted"
 write_info "To check the provisioning status run:"
 write_info "    ibmcloud hpvs instance ${instanceID}"

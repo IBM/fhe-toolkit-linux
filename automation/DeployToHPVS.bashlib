@@ -234,12 +234,17 @@ write_debug(){
 #
 change_config_var(){
     
-    echo "What file ${1}"
     # Escape forward slashes so they don't foul up sed
     escaped=$(echo "${3}" | sed -e 's/\//\\&/g')
     
     #echo run_command "sed -i '' 's/^"${2}"\=.*$/"${2}"\="${escaped}"/' "${1}
-    run_command "sed -i '' 's/^"${2}"\=.*$/"${2}"\="${escaped}"/' "${1}
+    TYPE=$(uname -s)
+    if [[ $TYPE == "Darwin" ]]; then
+        run_command "sed -i '' 's/^"${2}"\=.*$/"${2}"\="${escaped}"/' "${1}
+    else
+        run_command "sed -i 's/^"${2}"\=.*$/"${2}"\="${escaped}"/' "${1}
+    fi
+    
     if [[ $? != 0 ]]; then
         fatal_error "Error writing to configuration file '${1}'"
     fi
@@ -484,7 +489,6 @@ config_file_wizard(){
     PROMPT_USER_READARGS="-s"
     prompt_user "Enter an IAM key (platform API key) for your IBM Cloud account" false
     unset PROMPT_USER_READARGS
-    #change_config_var ${1} "delegationkeyName" "${USERINPUT}"
     APIKey=${USERINPUT}
     change_config_var ${1} "APIKey" "${APIKey}"
     
@@ -674,7 +678,6 @@ Passphrase: ${USERINPUT}
             if [[ -n "$USERINPUT" ]]; then
                 USERINPUT=$(echo "$USERINPUT" | tr '[:upper:]' '[:lower:]')
                 if [[ "$USERINPUT" == "y" ]] || [[ "$USERINPUT" == "yes" ]]; then
-                
                     # Prompt for path to private keyfile
                     echo "Leave private keyfile path empty if already in local Docker trust store"
                     prompt_for_path "Path to private keyfile" true
@@ -720,6 +723,10 @@ Passphrase: ${USERINPUT}
                 fi
             fi
         done
+    else 
+        # Private key is already in the local Docker trust store
+        # We need to clear out the placeholder info so it doesn't try to load it
+        change_config_var ${1} "delegationPriFile" ""
     fi
     
     #--------------------------------------------------------------------------#
@@ -1662,7 +1669,7 @@ for resource in json.load(sys.stdin)['resources']:
 #       invocation.
 #
 provision_hpvs_instance(){
-    echo "PROVISIONING THE INSTANCE"
+    write_log "PROVISIONING THE INSTANCE"
     registrationDefinition=`sed s/$/"\\\\\n"/ ${1}.asc | tr -d '\n'`
     provisionResult=`curl -sX POST https://resource-controller.cloud.ibm.com/v2/resource_instances \
          -H "Authorization: Bearer $token" -H "Content-Type: application/json"  \
@@ -1683,6 +1690,7 @@ provision_hpvs_instance(){
             write_log "$error_message"
         fi
         fatal_error "Failed to provision a Hyper Protect Virtual Server instance"
+        return -1
     fi
     
     # Extract the instance id and print log
