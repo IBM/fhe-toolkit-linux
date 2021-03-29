@@ -1,6 +1,6 @@
 # FHE Toolkit - Hyper Protect Deployment Automation
 
-IBM Cloud Hyper Protect Virtual Servers (HPVS) make it possible to sign and deploy applications built on the FHE Toolkit into a product-grade hardened environment and runtime.  However, the manual process for deploying the FHE Toolkit and its' derivatives into an HPVS environment are complex and time-consuming.  Automating this process can help to close the technical gaps that prevent enterprise adaptation of production FHE solutions.
+[IBM Cloud Hyper Protect Virtual Servers](https://www.ibm.com/cloud/hyper-protect-virtual-servers) (HPVS) make it possible to sign and deploy applications built on the FHE Toolkit into a product-grade hardened environment and runtime.  However, the manual process for deploying the FHE Toolkit and its' derivatives into an HPVS environment are complex and time-consuming.  Automating this process can help to close the technical gaps that prevent enterprise adaptation of production FHE solutions.
 
 <!--
     To update the Table of Contents, you should clone the github-markdown-toc
