@@ -57,7 +57,7 @@ Usage
         
 #### registry ####
  * Name of target container registry
- * Acceptable values are `hub`, `docker.io`, or the registry's URL
+ * Acceptable values are `hub`, `docker.io`, or the registry's URL.  If using ibm's its `us.icr.io`
 
 #### namespace ####
  * Target namespace within container repository
