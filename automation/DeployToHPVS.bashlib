@@ -1689,7 +1689,7 @@ provision_hpvs_instance(){
         if [[ "$error_message" != "" ]];then
             write_log "$error_message"
         fi
-        fatal_error "Failed to provision a Hyper Protect Virtual Server instance"
+        #fatal_error "Failed to provision a Hyper Protect Virtual Server instance"
         return -1
     fi
     

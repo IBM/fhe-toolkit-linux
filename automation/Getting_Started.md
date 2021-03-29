@@ -98,17 +98,6 @@ Space:
     
     Login to cloud.ibm.com -> `Manage -> Account -> Account Resources -> Resource Groups -> Create`
     
-* If the deploy script will be run on MacOS:
-     * Requires a `python` installation
-     * Install `gpg`
-          * MacOS with homebrew: `brew install gpg`
-               * To install homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
-          * MasOS without homebrew: download from https://gpgtools.org/
-
-     * Install `pyenv`
-          * MacOS with homebrew: `brew install pyenv`
-          * MacOS without homebrew: `curl https://pyenv.run | bash`
-
  * Login onto the S390x machine (see greg for credentials if you dont have them)
 
  * Clone the fhe-toolkit repo `https://github.com/IBM/fhe-toolkit-linux.git`
@@ -124,11 +113,12 @@ Space:
 
  	    `./DeployToHPVS.sh -c [name of config file (to save)] [name of linux image ubuntu or fedora]`
  	    
- Once you have a saved configure file, you can then re-run it using your file like this
+ * NOTE: Once you have a saved configure file, you can then re-run it using your file like this
  
       `./DeployToHPVS.sh -f DeployToHPVS_configure_file.conf (this is the name of my file)` 
       
 Everything should run from here.  Please note where the script gets stuck and errors out (if it does)
+
 
 
 ### Debug Mode
@@ -138,9 +128,9 @@ To generate more info like a verbose/debug mode when the `./DeployToHPVS` script
     export DEPLOY_TO_HPVS_DEBUG=1
        
  
-### How to delete everything that we have and start over again
+### How to Delete Everything and start over again
  
- IF you have a virtual server app already running in the ibm cloud, you can remove it.  Depending on what type of account that you are subscribed to, you might need to remove it, as only 1 app is allowed with the free account.
+ If you have a virtual server app already running in the ibm cloud, you can remove it.  Depending on what type of account that you are subscribed to, you might need to remove it, as only one app is allowed with the free account.
  
  - Log into `cloud.ibm.com` and then go to `Dashboard -> Services`.  if anything is running, or there click on `Actions`, then `Delete Service`.
 
@@ -154,19 +144,21 @@ To generate more info like a verbose/debug mode when the `./DeployToHPVS` script
 
     docker image rmi -f [docker image id in this example it was 86c15e968f8b]
     
+Everytime a new image is signed there are a few keys that are made and become associated with that image.  If you wish to push that image up to the virtual server again, you will need those keys to sign and verify.  This is the key pair in the config file that is called the delegation key.  It is signed using a repo key that is stored in `~/.docker/trust/private`.  The name of the key is a random string that is generated.  You will need to hang onto this key to re-sign this image and others.  You can remove the delegation key if you no longer need it, but leave the repo key unless you are going to create a new one.
+    
  - delete the docker trust info (this needs to be done on an non-s390 machine, acutally not sure about this one, should be able to use s390) that has the proper ibmcloud cli installed
 
-      notary delete us.icr.io/boland_super_secure/fhe-toolkit-ubuntu-s390x --remote -s https://us.icr.io:4443
+      notary delete us.icr.io/super_secure/fhe-toolkit-ubuntu-s390x --remote -s https://us.icr.io:4443
       
 - then delete it locally (this I think should be done on the s390 machine
 
-     notary delete us.icr.io/boland_super_secure/fhe-toolkit-ubuntu-s390x
+     notary delete us.icr.io/super_secure/fhe-toolkit-ubuntu-s390x
 
 Not Sure we need these steps.  After we get this far, we should be able to re-run the script, but if you run into an error that says something like "Can't Find the key" and says its looking for a specific id you will need to remove the existing signer
 
 - Remove any existing signer
 
-     DOCKER_CONTENT_TRUST_SERVER=https://us.icr.io:4443 docker trust signer remove fhe_sample_delegation  us.icr.io/boland_super_secure/fhe-toolkit-fedora-s390x
+     DOCKER_CONTENT_TRUST_SERVER=https://us.icr.io:4443 docker trust signer remove fhe_sample_delegation  us.icr.io/super_secure/fhe-toolkit-fedora-s390x
 
 After these steps are done, it should be cleared out and you can re-run the script
 
