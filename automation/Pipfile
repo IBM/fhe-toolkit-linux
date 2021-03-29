@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+click = "*"            # Required for the CLI parser
+
+[dev-packages]
+black = "==19.10b0"    # Python code formatter, used by `make tidy`
+isort = "*"            # Sort imports alphabetically, used by `make tidy`
+pdoc3 = ">=0.8.0"      # Builds documentation from PyDoc, used by `make doc`
+pipenv-setup = "*"     # Sync dependencies in Pipfile/Pipfile.lock to setup.py
+xar = "*"              # Build self-contained Python executable, used by `make build`
+
+[requires]
+python_version = "3.8" # Minimum Python version requirement

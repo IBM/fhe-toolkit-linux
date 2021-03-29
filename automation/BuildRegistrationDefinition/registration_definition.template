@@ -1,0 +1,21 @@
+{
+   "repository_name": "",
+   "docker_username": "",
+   "docker_password": "",
+   "envs_whitelist": [
+      "RUNQ_ROOTDISK",
+      "RUNQ_RUNQENV",
+      "RUNQ_SYSTEMD",
+      "IMAGE_TAG",
+      "REGION",
+      "PHASE",
+      "LPAR_NAME",
+      "CPC",
+      "RUNQ_CPU",
+      "RUNQ_MEM",
+      "POD"
+   ],
+   "public_key_id": "",
+   "public_key": "",
+   "vendor_key": ""
+}
