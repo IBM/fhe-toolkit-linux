@@ -2,6 +2,11 @@
 
 [IBM Cloud Hyper Protect Virtual Servers](https://www.ibm.com/cloud/hyper-protect-virtual-servers) (HPVS) make it possible to sign and deploy applications built on the FHE Toolkit into a product-grade hardened environment and runtime.  However, the manual process for deploying the FHE Toolkit and its' derivatives into an HPVS environment are complex and time-consuming.  Automating this process can help to close the technical gaps that prevent enterprise adaptation of production FHE solutions.
 
+# Why use FHE With IBM Hyper Protect?
+
+If you are using the IBM FHE toolkit you priobably know that it is now possible for sensitive data to remain in an encrypted state even during processing. This concept relates to data confidentiality. However, FHE is inherently designed to be cryptographically malleabile. This means that while a nefarious actor (on some remote system hosting your FHE application) would not be be able to read your privately encrypted data, they might still be able to to tamper with your data using your public key, and thus cause havoc with any outsourced computation on a public cloud runtime. Confidentiality does not ensure data and application integrity. One way to overcome the issues of malleability that are inherent in FHE is to host our FHE applicaitons/runtimes on an IBM Hyper Protect Virtual Server (HPVS) instance. Doing so relies on the HPVS trusted execution environment. The combination of FHE to protect the data, at all times in conjunction with HPVS ensures data and application integrity. Using these tools you can further protect encrypted data from numerous threat vectors. 
+
+
 <!--
     To update the Table of Contents, you should clone the github-markdown-toc
     repository (https://github.com/ekalinin/github-markdown-toc), and then
