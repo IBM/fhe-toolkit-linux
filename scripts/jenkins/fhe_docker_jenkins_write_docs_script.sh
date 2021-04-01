@@ -46,6 +46,9 @@ GIT_LOG=$(git log --since="24 hours ago" --name-only)
 echo $GIT_LOG
 COMMIT_NUMBER=$(git log -1 --pretty=format:"%h")
 
+source ConfigConstants.sh
+VERSION="$HElib_version.$TOOLKIT_VERSION"
+
 #Check to see if the .h files or the .cpp files were changed recently otherwise do nothing
 if [[ "$GIT_LOG" == *"$H_FILES"* || "$GIT_LOG" == *"$CPP_FILES"* ]]; then 
     echo "CHANGES WERE MADE SO RE-GENERATE THE DOCS"
@@ -54,8 +57,8 @@ if [[ "$GIT_LOG" == *"$H_FILES"* || "$GIT_LOG" == *"$CPP_FILES"* ]]; then
     #CD into the new Toolkit linux directory
     cd fhe-toolkit-linux
     #Call Write ML Helib Api Docs script so we generate docs and write them to the html folder
-    ./RenderMLhelibAPI.sh local/fhe-toolkit-ubuntu html
-    ./RenderHELibDocs.sh local/fhe-toolkit-ubuntu html
+    ./RenderMLhelibAPI.sh local/fhe-toolkit-ubuntu html $VERSION
+    ./RenderHELibDocs.sh local/fhe-toolkit-ubuntu html $VERSION
 
     echo `git add -A && git commit -m "Re-Generated Docs from this commit {$COMMIT_NUMBER}"`
     echo `git push origin gh-pages`
