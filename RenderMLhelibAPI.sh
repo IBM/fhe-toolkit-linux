@@ -25,6 +25,30 @@
 
 # The purpose of this script is to create documentation local on the host where FHE toolkit
 # source code and IDe configuration can stored for quick reference.
+SOURCE_VERSION=$1
+echo $SOURCE_VERSION
+source version.conf
+FILENAME="version.conf"
+if [ $SOURCE_VERSION == $CURRENT_VERSION ];then
+  echo "Current Toolkit versions are the same so we will not update.  Ending now."
+  exit -1
+else 
+  echo "Newly Built Version of Toolkit is different than Current so we update."
+   # Escape forward slashes so they don't foul up sed
+    escaped=$(echo "${SOURCE_VERSION}" | sed -e 's/\//\\&/g')
+    echo $  escaped
+    #echo run_command "sed -i '' 's/^"${2}"\=.*$/"${2}"\="${escaped}"/' "${1}
+    TYPE=$(uname -s)
+    if [[ $TYPE == "Darwin" ]]; then
+       #if you do this on a mac, you have a different sed call because of its BSD origins
+        sed -i '' 's/'${CURRENT_VERSION}'/'${SOURCE_VERSION}'/' ${FILENAME}
+    else
+       #replacing the current version that we store with the docs so next time we have this new version to compare
+        sed -i '' 's/'${CURRENT_VERSION}'/'${SOURCE_VERSION}'/' ${FILENAME}
+    fi
+fi
+
+exit -1
 
 # Initialize the container image name and id as empty for further consistency checks
 ToolkitImageName=""
