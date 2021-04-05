@@ -31,6 +31,11 @@ If you are looking for Documentation to our APIs or more information about indiv
 * [ML-HElib API Docs](https://ibm.github.io/fhe-toolkit-linux/)
 * [HELib API Docs](https://ibm.github.io/fhe-toolkit-linux/html/helib/index.html)
 
+## Deploying to IBM Hyper Protect
+
+If you are looking to build and deploy your FHE image to Hyper Protect Virtual Server, please see [Deploy To Hyper Protect Document](https://github.com/IBM/fhe-toolkit-linux/blob/master/automation/DeployToHyperProtect.md)
+
+
 ## Feedback Survey
  
 "IBM invites you to participate in our Advanced Security and Encryption Survey. This survey is designed to gather insights around the security challenges you or your organization face and better understand our users and serve you better. We will only use your feedback to improve the FHE Toolkit experience and inform future IBM security-focused products and services. IBM will not share your response data with any third parties. We look forward to your valuable feedback to improve the IBM Fully Homomorphic Encryption Toolkit for macOS, iOS, and Linux."
