@@ -44,7 +44,7 @@ RUN chown -R fhe:fhe /opt/IBM/IDE-Data
 
 # Create a directory to hold the user FHE workspace to contain project/sample code
 RUN mkdir -p /opt/IBM/FHE-Workspace
-RUN chown -R fhe:fhe /opt/IBM/FHE-Workspace
+RUN chown -R 5000:5000 /opt/IBM/FHE-Workspace
 
 # Set fhe user for the remaining of the installation
 USER fhe
