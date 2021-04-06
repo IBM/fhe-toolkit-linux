@@ -257,3 +257,6 @@ then
         echo "Failed to setup workspace"
         exit -1
 fi
+
+RUN chown -R fhe:fhe /opt/IBM/FHE-Workspace
+
