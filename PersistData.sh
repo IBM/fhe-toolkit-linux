@@ -258,5 +258,8 @@ then
         exit -1
 fi
 
+USER root
 RUN chown -R fhe:fhe /opt/IBM/FHE-Workspace
+USER fhe
+RUN mkdir -p /opt/IBM/FHE-Workspace1
 
