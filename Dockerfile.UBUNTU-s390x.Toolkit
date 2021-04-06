@@ -47,7 +47,7 @@ RUN mkdir -p /opt/IBM/FHE-Workspace
 RUN chown -R fhe:fhe /opt/IBM/FHE-Workspace
 
 # Set fhe user for the remaining of the installation
-USER fhe
+
 WORKDIR /home/fhe
 
 RUN mkdir /opt/IBM/FHE-Workspace/.vscode
@@ -57,6 +57,8 @@ RUN cp -rp /opt/IBM/FHE-distro/HElib/examples /opt/IBM/FHE-Workspace
 
 # Copy over additional  examples into the FHE-Workspace from the github checkout on this host
 COPY --chown=fhe:fhe ./samples/ /opt/IBM/FHE-Workspace/examples/
+
+USER fhe
 
 ENV HELAYERS_DATA_SETS_DIR="/opt/IBM/FHE-Workspace/examples/data/"
 ENV HELAYERS_EXAMPLES_DIR="/opt/IBM/FHE-Workspace/examples/"
