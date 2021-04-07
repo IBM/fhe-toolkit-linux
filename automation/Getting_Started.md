@@ -99,18 +99,12 @@ Space:
     my resource group is : `super_secret`
     
     Login to cloud.ibm.com -> `Manage -> Account -> Account Resources -> Resource Groups -> Create`
-    
- * Login onto the S390x machine (see greg for credentials if you dont have them)
 
  * Clone the fhe-toolkit repo `https://github.com/IBM/fhe-toolkit-linux.git`
 
- * Checkout the hpvs_work_integration branch `git checkout hpvs_work_integration`
-
- * cd into the main folder `cd fhe-toolkit-linux` and build a local image `./BuildDockerImage ubuntu` If you want to test with fedora change `ubuntu` to `fedora` in the command
-
  * cd into the automation folder `cd fhe-toolkit-linux/automation`
 
- * Run the HPVS script.  The first time running the script, you will most likely not have any keys or settings setup so you can use the wizard.
+ * Run the HPVS script.  The first time running the script, you will most likely not have any keys or settings setup so you can use the wizard.  The option -c triggers the interactive wizard.  It asks for a bunch of information that will be needed in order to deploy successfully.
 
 
  	    `./DeployToHPVS.sh -c [name of config file (to save)] [name of linux image ubuntu or fedora]`
@@ -119,7 +113,7 @@ Space:
  
       `./DeployToHPVS.sh -f DeployToHPVS_configure_file.conf (this is the name of my file)` 
       
-Everything should run from here.  Please note where the script gets stuck and errors out (if it does)
+Everything should run from here.  Please note where the script gets stuck and errors out (if it does), and notify us if there is an issue
 
 
 
