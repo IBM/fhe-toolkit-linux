@@ -1,8 +1,10 @@
 ## Getting Started with FHE on Hyper Protect Virtual Servers
 
-The following is how to get a pre-built fhe-toolkit docker image into a Hyper Protect Server container.
+The following steps walk you through how to get a pre-built fhe-toolkit docker image into a Hyper Protect Server container.
 
-###Preparing my system to handle a HPVS connection
+### Preparing my system to handle a HPVS connection
+
+* You can use any Linux or Unix based (Mac will work) computer that the ibm cloud supports
 
 * Create an IBM Cloud account if you have never done so. To do this, go to [https://cloud.ibm.com/login](https://cloud.ibm.com/login) in your web browser. 
 
@@ -130,31 +132,34 @@ To generate more info like a verbose/debug mode when the `./DeployToHPVS` script
  
 ### How to Delete Everything and start over again
  
- If you have a virtual server app already running in the ibm cloud, you can remove it.  Depending on what type of account that you are subscribed to, you might need to remove it, as only one app is allowed with the free account.
+ If you have a virtual server app already running in the ibm cloud, you can remove it.  Depending on what type of account that you are subscribed to, you might need to remove it, as only one app is allowed at a time with the free account.
  
  - Log into `cloud.ibm.com` and then go to `Dashboard -> Services`.  if anything is running, or there click on `Actions`, then `Delete Service`.
 
- - Then you need to reclaim the resource in the ibmcloud cli (command line interface)
+ - Then, reclaim the resource in the ibmcloud cli (command line interface)
       
         ibmcloud resource reclamations
+
+Find the reclamation id of the running resource and use that in the next command to actually delete the resource
+
         ibmcloud resource reclamation-delete RECLAMATION_ID
 
 
- - Delete the local image too, cause why not
+ - Delete the local image too, if no longer needed
 
     docker image rmi -f [docker image id in this example it was 86c15e968f8b]
     
-Everytime a new image is signed there are a few keys that are made and become associated with that image.  If you wish to push that image up to the virtual server again, you will need those keys to sign and verify.  This is the key pair in the config file that is called the delegation key.  It is signed using a repo key that is stored in `~/.docker/trust/private`.  The name of the key is a random string that is generated.  You will need to hang onto this key to re-sign this image and others.  You can remove the delegation key if you no longer need it, but leave the repo key unless you are going to create a new one.
+When a new image is signed there are a few keys that are created and become associated with that image.  If you wish to push that image to the virtual server again, you will need those keys to sign and verify.  This is the key pair in the config file called the delegation key.  It is signed using a repo key that is stored in `~/.docker/trust/private`.  The name of the key is a random string that is generated.  You will need to hang onto this key to re-sign this image and any others associated with it.  You can remove the delegation key if you no longer need it, but leave the repo key unless you are going to create a new one.
     
- - delete the docker trust info (this needs to be done on an non-s390 machine, acutally not sure about this one, should be able to use s390) that has the proper ibmcloud cli installed
+ - delete the docker trust info
 
       notary delete us.icr.io/super_secure/fhe-toolkit-ubuntu-s390x --remote -s https://us.icr.io:4443
       
-- then delete it locally (this I think should be done on the s390 machine
+- then delete it locally
 
      notary delete us.icr.io/super_secure/fhe-toolkit-ubuntu-s390x
 
-Not Sure we need these steps.  After we get this far, we should be able to re-run the script, but if you run into an error that says something like "Can't Find the key" and says its looking for a specific id you will need to remove the existing signer
+After these steps are complete, the script should re-run successfully, but if an error is thrown that says something akin to "Can't Find the key" and its looking for a specific id you will need to remove the existing signer
 
 - Remove any existing signer
 
