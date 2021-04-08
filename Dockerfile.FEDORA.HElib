@@ -3,6 +3,7 @@ FROM $PlatformRelease
 ENV container docker
 LABEL maintainer="Flavio Bergamaschi <flavio@uk.ibm.com>"
 
+ARG USER_ID
 # Docker Container for FEDORA HElib Base
 
 USER root
@@ -75,7 +76,7 @@ RUN doxygen Doxyfile
 
 
 # Create user fhe:fhe with no login,
-RUN adduser --uid 5000  --comment "FHE Toolkit User" fhe
+RUN adduser --uid ${USER_ID}  --comment "FHE Toolkit User" fhe
 RUN usermod -L fhe
 
 WORKDIR /home/fhe

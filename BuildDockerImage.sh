@@ -319,7 +319,7 @@ FHEKit_latest=local/fhe-toolkit-${platform}
 # Change to $BASEDIR directory and build an HElib Docker image
 #
 cd $BASEDIR
-if ! docker build -f ./Dockerfile.$build.HElib -t $HElib_tag --build-arg PlatformRelease=$PlatformRelease . $flags
+if ! docker build -f ./Dockerfile.$build.HElib -t $HElib_tag --build-arg PlatformRelease=$PlatformRelease --build-arg USER_ID=$(id -u ${USER}) . $flags
 then
   echo " "
   echo " FATAL: Failure building HElib base container. Please check that you have a working Docker installation"
