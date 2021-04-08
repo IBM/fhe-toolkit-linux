@@ -100,6 +100,17 @@ Space:
     
     Login to cloud.ibm.com -> `Manage -> Account -> Account Resources -> Resource Groups -> Create`
     
+* If the deploy script will be run on MacOS:
+     * Requires a `python` installation
+     * Install `gpg`
+          * MacOS with homebrew: `brew install gpg`
+               * To install homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+          * MasOS without homebrew: download from https://gpgtools.org/
+
+     * Install `pyenv`
+          * MacOS with homebrew: `brew install pyenv`
+          * MacOS without homebrew: `curl https://pyenv.run | bash`
+
  * Login onto the S390x machine (see greg for credentials if you dont have them)
 
  * Clone the fhe-toolkit repo `https://github.com/IBM/fhe-toolkit-linux.git`
