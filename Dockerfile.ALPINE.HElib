@@ -3,6 +3,7 @@ FROM $PlatformRelease
 ENV container docker
 LABEL maintainer="Liz Maple <liz@uk.ibm.com>"
 
+ARG USER_ID
 # Docker Container for Alpine HElib Base
 
 USER root
@@ -76,7 +77,7 @@ RUN doxygen Doxyfile
 
 
 # Create user fhe:fhe with no login
-RUN adduser --uid 5000 --disabled-password fhe
+RUN adduser --uid ${USER_ID} --disabled-password fhe
 WORKDIR /home/fhe
 RUN mkdir -p /home/fhe/FHE_Examples
 RUN cp -pr /opt/IBM/FHE-distro/HElib/examples /home/fhe/FHE_Examples

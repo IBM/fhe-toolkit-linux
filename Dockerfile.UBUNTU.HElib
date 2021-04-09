@@ -3,6 +3,7 @@ FROM $PlatformRelease
 ENV container docker
 LABEL maintainer="Flavio Bergamaschi <flavio@uk.ibm.com>"
 
+ARG USER_ID
 # Docker Container for Ubuntu HElib Base
 
 USER root
@@ -101,7 +102,7 @@ WORKDIR /opt/IBM/FHE-distro/ML-HElib/documentation
 RUN doxygen Doxyfile
 
 # Create user fhe:fhe with no login,
-RUN adduser --uid 5000  --gecos "FHE Toolkit User" --disabled-login fhe
+RUN adduser --uid ${USER_ID}  --gecos "FHE Toolkit User" --disabled-login fhe
 
 WORKDIR /home/fhe
 USER fhe
