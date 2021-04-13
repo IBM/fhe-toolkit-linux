@@ -24,7 +24,7 @@
 
 cmake_minimum_required(VERSION 3.10)
 
-project(CKKS_credit_card_fraud VERSION 0.0.1 LANGUAGES CXX)
+project(2-CreditCardFraudDetectionInferencing-CKKS VERSION 0.0.1 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_BUILD_TYPE Release)
 set(CMAKE_CXX_FLAGS "-Werror -fopenmp -Wfatal-errors")
@@ -37,5 +37,5 @@ find_package(Boost 1.72.0 EXACT REQUIRED COMPONENTS filesystem system thread)
 find_package(HDF5 REQUIRED COMPONENTS CXX)
 include_directories(${HDF5_INCLUDE_DIR})
 
-add_executable(CKKS_credit_card_fraud CKKS_credit_card_fraud_helib.cpp ClientServer.cpp)
-target_link_libraries(CKKS_credit_card_fraud mlhelib helib ${HDF5_LIBRARIES} ${Boost_LIBRARIES})
+add_executable(2-CreditCardFraudDetectionInferencing-CKKS CKKS_credit_card_fraud_helib.cpp ClientServer.cpp)
+target_link_libraries(2-CreditCardFraudDetectionInferencing-CKKS mlhelib helib ${HDF5_LIBRARIES} ${Boost_LIBRARIES})

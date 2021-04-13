@@ -18,7 +18,9 @@ WORKDIR /root
 RUN export DEBIAN_FRONTEND=noninteractive
 
 # Install code-server so we can access the IDE from a container context...
-RUN curl -fsSL https://code-server.dev/install.sh | sh
+#RUN curl -fsSL https://code-server.dev/install.sh | sh
+RUN curl -fsSL https://code-server.dev/install.sh | sh -s -- --version 3.9.1
+
 #Install cpptools from the latest vsix version which we are pinning to becuase we have issues getting it to install normally - 12.03.2020 - greg
 ADD https://github.com/microsoft/vscode-cpptools/releases/download/1.1.2/cpptools-linux.vsix /opt/IBM/FHE-Workspace/
 
