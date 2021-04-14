@@ -87,9 +87,23 @@ Click "Build" in the CMake Tools status bar to build the selected target.
 
 ## Step 7: Running the HElib Example (Point and Click)
 
-When the build has finished, click "Launch" in the CMake Tools status bar to launch the selected target in the terminal window.  A dropdown will animate on screen with different demos to choose from to run.  Select one, click enter, and it will run that program.
+When the build has finished, if there is nothing already selected (if this is the first time runing the toolkit, there won't be), click "Launch".  It will cause a dropdown to animate on screen with the list of available demos.  Select one, and it will start running that program.
+
+
+![Step seven image](/Documentation/Images/Step_7A_3.png?raw=true "no demo selected")
+
+
+
+If something has been previously selected it's title will be displayed to the right of the "Launch" button.  To change the selected demo click on the title and the dropdown will animate on screen with the list of available demos. 
+
 
 ![Step seven image](/Documentation/Images/Step_7A_2.png?raw=true "dropdown menu choose")
+
+
+Select one, then click "Launch", and it will run that program.
+
+![Step seven image](/Documentation/Images/Step_7A_2A.png?raw=true "dropdown menu choose")
+
 
 Each demonstration application is in a self contained directory in the examples folder in the IDE. Each demo application directory contains a *README.md* that explains how to run the demo and what you should
 expect for results. For instance, the <a href="samples/BGV_world_country_db_lookup/README.md" target="_blank">BGV World Country Database Lookup Example Documentation</a> contains the information to run a complete example of a privacy preserving search against an encrypted database. The database is a key value store prepopulated with the english names of countries and their capital cities from around the world. Selecting the country will perform a search of the matching capital. 
