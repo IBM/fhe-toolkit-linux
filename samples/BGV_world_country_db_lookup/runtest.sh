@@ -32,7 +32,7 @@ for country_capital in "${country_capitals[@]}"; do
   query="${country_capital%:*}"
   
   echo "Looking up $query . . . "
-  capital=$( $PWD/build/BGV_world_country_db_lookup <<< $query | awk '/Query result:/{ print $3 }' )
+  capital=$( $PWD/build/1-PrivacyPreservingKeyValueSearch-BGV <<< $query | awk '/Query result:/{ print $3 }' )
 
   echo "    . . .  capital is '$capital'"
   if [ "$capital" = "${country_capital#*:}" ]; then 
