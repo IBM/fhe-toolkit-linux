@@ -83,20 +83,22 @@ If you are not automatically prompted to select a kit after a few seconds of loa
 
 Click "Build" in the CMake Tools status bar to build the selected target.
 
-![Step five image](/Documentation/Images/Step_6.png?raw=true "Build")
+![Step six image](/Documentation/Images/Step_6.png?raw=true "Build")
 
 ## Step 7: Running the HElib Example (Point and Click)
 
-When the build has finished, click "Launch" in the CMake Tools status bar to launch the selected target in the terminal window.
+When the build has finished, click "Launch" in the CMake Tools status bar to launch the selected target in the terminal window.  A dropdown will animate on screen with different demos to choose from to run.  Select one, click enter, and it will run that program.
+
+![Step seven image](/Documentation/Images/Step_7A_2.png?raw=true "dropdown menu choose")
 
 Each demonstration application is in a self contained directory in the examples folder in the IDE. Each demo application directory contains a *README.md* that explains how to run the demo and what you should
-expect for results. For instance, the <a href="samples/BGV_world_country_db_lookup/README.md" target="_blank">BGV World Country Database Lookup Example Documentation</a> contains the information to run a complete example of a privacy preserving search against an encrypted database. The database is a key value store prepopulated with the english names of countries and their capital cities from the continent of Europe. Selecting the country will perform a search of the matching capital. 
+expect for results. For instance, the <a href="samples/BGV_world_country_db_lookup/README.md" target="_blank">BGV World Country Database Lookup Example Documentation</a> contains the information to run a complete example of a privacy preserving search against an encrypted database. The database is a key value store prepopulated with the english names of countries and their capital cities from around the world. Selecting the country will perform a search of the matching capital. 
 
-![Step six image](/Documentation/Images/Step_7A.png?raw=true "example running")
+![Step seven image](/Documentation/Images/Step_7A.png?raw=true "example running")
 
-Follow the text in the demo specific documentation you have chosen. For example, if using the privacy preserving country database search, enter a European country as input to find out its capital city. In the image below, the example used is `Sweden`. 
+Follow the text in the demo specific documentation you have chosen. For example, if using the privacy preserving country database search, enter a country as input to find out its capital city. In the image below, the example used is `Sweden`. 
 
-![Step six image](/Documentation/Images/Step_7B.png?raw=true "example running")
+![Step seven image](/Documentation/Images/Step_7B.png?raw=true "example running")
 
 Congratulations, you are running an example program using HElib!
 
