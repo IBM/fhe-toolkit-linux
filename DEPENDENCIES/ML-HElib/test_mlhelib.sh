@@ -33,6 +33,6 @@ mkdir -p build
 cd build
 cmake ..
 make
-./CKKS_credit_card_fraud
+./2-CreditCardFraudDetectionInferencing-CKKS
 
 echo "ML-HElib tests done"
