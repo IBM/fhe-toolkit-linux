@@ -20,7 +20,11 @@ RUN apk add --no-cache openssl python3 pkgconfig xterm libx11-dev libxkbfile-dev
 # Install code-server so we can access vscode from a container context...
 RUN yarn global add node-gyp 
 RUN yarn global add node-pty 
-RUN yarn global add code-server
+#RUN yarn global add code-server
+
+# Install code-server so we can access vscode from a container context...
+#RUN curl -fsSL https://code-server.dev/install.sh | sh 2>&1
+RUN curl -fsSL https://code-server.dev/install.sh | sh -s -- --version 3.9.1 2>&1
 
 # Create a directory to hold the VSCode user data when running as root
 RUN mkdir -p /opt/IBM/IDE-Data
@@ -45,17 +49,13 @@ COPY --chown=fhe:fhe ./samples/ /opt/IBM/FHE-Workspace/examples/
 ENV HELAYERS_DATA_SETS_DIR="/opt/IBM/FHE-Workspace/examples/data/"
 ENV HELAYERS_EXAMPLES_DIR="/opt/IBM/FHE-Workspace/examples/"
 
-
-# Install VSCode extensions
-RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension ms-vscode.cpptools --force
+# Install code-server extensions
+#RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension ms-vscode.cpptools --force
 RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension ms-vscode.cmake-tools --force
 RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension twxs.cmake --force
-
 # set code-server to create a self signed cert
 RUN sed -i.bak 's/cert: false/cert: true/' /home/fhe/.config/code-server/config.yaml
-
-# Update VSCode user settings
-RUN echo "{\"extensions.autoUpdate\": false}" > /opt/IBM/IDE-Data/User/settings.json
+# Update code-server user settings
 RUN echo "{\"extensions.autoUpdate\": false,\n\"workbench.colorTheme\": \"Dark\"}" > /opt/IBM/IDE-Data/User/settings.json
 
 # Set the default command to launch the VS Project as a web application

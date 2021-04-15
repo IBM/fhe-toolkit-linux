@@ -20,9 +20,14 @@ RUN apk add --no-cache openssl python3 pkgconfig xterm libx11-dev libxkbfile-dev
 # Install code-server so we can access vscode from a container context...
 RUN yarn global add node-gyp 
 RUN yarn global add node-pty 
-RUN yarn global add code-server
+#RUN yarn global add code-server
+
 #Install cpptools from the latest vsix version which we are pinning to becuase we have issues getting it to install normally - 12.03.2020 - greg
 ADD https://github.com/microsoft/vscode-cpptools/releases/download/1.1.2/cpptools-linux.vsix /opt/IBM/FHE-Workspace/
+
+# Install code-server so we can access vscode from a container context...
+#RUN curl -fsSL https://code-server.dev/install.sh | sh 2>&1
+RUN curl -fsSL https://code-server.dev/install.sh | sh -s -- --version 3.9.1 2>&1
 
 # Create a directory to hold the VSCode user data when running as root
 RUN mkdir -p /opt/IBM/IDE-Data
