@@ -7,6 +7,11 @@ If you are using the IBM FHE toolkit you probably know that it is now possible f
 
 [IBM Cloud Hyper Protect Virtual Servers](https://www.ibm.com/cloud/hyper-protect-virtual-servers) (HPVS) make it possible to sign and deploy applications built on the FHE Toolkit into a product-grade hardened environment and runtime.  However, the manual process for deploying the FHE Toolkit and its' derivatives into an HPVS environment are complex and time-consuming.  Automating this process can help to close the technical gaps that prevent enterprise adaptation of production FHE solutions.
 
+**Note:** An IBM Cloud account type of either `pay-as-you-go` or `subscription` is necessary to provision a free instance of Hyper Protect Virtual Servers. HPVS offers up to two free instances of the service per Cloud account, but requires an account upgrade from `lite` to access the free plans. Although a credit card is necessary in order for an account upgrade, no costs will incur during this process, as only free HPVS plans are utilized! 
+
+For detailed instructions on how to upgrade from a `lite` IBM Cloud account type, please follow the directions illustrated in this [link](https://cloud.ibm.com/docs/account?topic=account-upgrading-account).
+
+
 <!--
     To update the Table of Contents, you should clone the github-markdown-toc
     repository (https://github.com/ekalinin/github-markdown-toc), and then
