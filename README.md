@@ -13,7 +13,7 @@ At this time, the toolkits support many <a href="https://www.docker.com/resource
 
 ## Need Help to Get Started?
 
-<a href="https://www.ibm.com/security/services/homomorphic-encryption" target="_blank">IBM Security Homomorphic Encryption Services</a> can help you unlock the value of your sensitive data without decrypting it to help maintain your privacy and compliance controls. Our trusted advisors will offer education, expert support and testing environments to build your prototype applications.
+Corporate clients can email fhestart@us.ibm.com to request a design thinking workshop about building FHE solutions for your business use cases at no cost for applicants accepted to our sponsor user program. For corporate support outside of our sponsor user program, <a href="https://www.ibm.com/security/services/homomorphic-encryption" target="_blank">IBM Security Homomorphic Encryption Services</a> can help unlock the value of your sensitive data without decrypting it to help maintain your privacy and compliance controls. Our trusted advisors offer commercial education, expert support and testing environments to build your prototype applications. 
 
 
 ## Running the Toolkit
