@@ -132,7 +132,11 @@ get_Boost(){
   #rm boost-$1.tar.gz
 }
 
-
+# Check to see if the user is running the script as root/with sudo
+if [ $EUID -eq 0 ]; then
+  echo "FATAL: Aborting. Run this script as a non-root user without sudo"
+  exit -1
+fi
 
 # First we determine which architecture we are running on... AMD64 or s390x
 ARCH=`uname -m`
