@@ -234,9 +234,12 @@ write_debug(){
 #
 change_config_var(){
     
+    echo "${1} ${2} ${3}"
     # Escape forward slashes so they don't foul up sed
     escaped=$(echo "${3}" | sed -e 's/\//\\&/g')
     
+    echo "${escaped}"
+
     #echo run_command "sed -i '' 's/^"${2}"\=.*$/"${2}"\="${escaped}"/' "${1}
     TYPE=$(uname -s)
     if [[ $TYPE == "Darwin" ]]; then
@@ -482,6 +485,9 @@ config_file_wizard(){
     if [[ $? != 0 ]]; then
         fatal_error "Unable to create configuration file '${1}'"
     fi
+
+    prompt_user "IBM Cloud Resource Plan ID" true "default"
+    change_config_var ${1} "resource_plan_id" "${USERINPUT}"
     
     #--------------------------------------------------------------------------#
     # Config variable: APIKey                                                  #
@@ -539,7 +545,7 @@ config_file_wizard(){
     else
         prompt_user "Enter target namespace" true "${dockerUser}"
     fi
-    change_config_var ${1} "namespace" "${USERINPUT}"
+   change_config_var ${1} "namespace" "${USERINPUT}"
     
     #--------------------------------------------------------------------------#
     # Config variable: DCTServer                                               #
