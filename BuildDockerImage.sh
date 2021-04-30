@@ -132,9 +132,15 @@ get_Boost(){
   #rm boost-$1.tar.gz
 }
 
-# Check to see if the user is running the script as root/with sudo
+# Check to see if the user is running the script as root/with sudo. 
+# We need the script to be running as non-sudo because we map volumes from the host machine into the 
+# container for data persistence, and we need a non-root id on the host side so we can map the permissions
+# properly across the container and host as needed
+#
 if [ $EUID -eq 0 ]; then
-  echo "FATAL: Aborting. Run this script as a non-root user without sudo"
+  echo " "
+  echo "FATAL: Aborting. Sorry but we need to run this script as a non-root user without sudo so we can properly map ids in the container.  Please re-run without sudo."
+  echo " "
   exit -1
 fi
 
