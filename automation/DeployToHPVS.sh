@@ -368,7 +368,7 @@ if [[ -z $resource_plan_id ]] || [[ "$resource_plan_id" == "" ]]; then
 fi
 
 # Provision our new HPVS instance
-echo "Provisiton instance"
+echo "Provisioning the instance, this will take a few moments..."
 #provision_hpvs_instance $registrationFile $hpvsName $location $resource_group $resource_plan_id $tag
 #instanceID=12345
 instanceID=$(provision_hpvs_instance $registrationFile $hpvsName $location $resource_group $resource_plan_id $tag)
