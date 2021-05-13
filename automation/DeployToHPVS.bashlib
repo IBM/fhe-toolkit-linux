@@ -1216,7 +1216,7 @@ init_repo_for_notary_server(){
     # Initiate repository in remote notary push delegation key
     run_command "${runcmd}"
     if [[ $? != 0 ]]; then
-        fatal_error "Failed to initiate repository '${5}' in notary"
+        fatal_error "Failed to initiate repository '${5}' in notary \nYou will get this message if your cloud plan is over the alloted storage space in the container registry. \nPlease check using 'ibmcloud cr images' command in the cli to verify you are still under your quota."
     else
         write_success "Initiated repository '${5}' in notary, and added '${4}' as a delegation key"
     fi
