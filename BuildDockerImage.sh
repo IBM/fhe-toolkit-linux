@@ -112,9 +112,9 @@ get_Boost(){
   echo "Checking for cached Boost download..."
   if [ ! -f boost-${Boost_version}.tar.gz ]; then
     echo "INFO: Attempting to download Boost with the curl command..." 
-    if ! curl -fL $CURL_FIX_ZCX -o  boost-$1.tar.gz https://dl.bintray.com/boostorg/release/$1/source/boost_$2.tar.gz
+    if ! curl -fL $CURL_FIX_ZCX -o boost-$1.tar.gz https://boostorg.jfrog.io/artifactory/main/release/$1/source/boost_$2.tar.gz
     then
-      echo " FATAL: There was an issue downloading boost_$2 from dl.bintray.com."
+      echo " FATAL: There was an issue downloading boost_$2 from boostorg.jfrog.io."
     fi
 
     # Now we untar whatever we fetched...
