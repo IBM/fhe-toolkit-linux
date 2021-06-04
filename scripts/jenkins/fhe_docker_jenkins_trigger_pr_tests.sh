@@ -71,8 +71,9 @@ if [[ "$BUILD_TYPE" == "S390" ]]; then
 else 
      test_toolkit "ubuntu"
      test_toolkit "fedora"
-     test_toolkit "alpine"
-     test_toolkit "centos"
+     ## Commenting these out for now b/c the kubernetes can't handle it all at once
+    # test_toolkit "alpine"
+    # test_toolkit "centos"
 fi
 
  
