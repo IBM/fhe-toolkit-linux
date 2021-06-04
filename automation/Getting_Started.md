@@ -7,7 +7,7 @@ The following steps walk you through how to get a pre-built fhe-toolkit docker i
 * You can use any Linux or Unix based (Mac will work) computer that the ibm cloud supports
 
 * If the deploy script will be run on MacOS:
-     * Requires a `python` installation
+     * Requires a `python` installation, python 3.6+
      * Install `gpg`
           * MacOS with homebrew: `brew install gpg`
                * To install homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
@@ -16,6 +16,7 @@ The following steps walk you through how to get a pre-built fhe-toolkit docker i
      * Install `pyenv`
           * MacOS with homebrew: `brew install pyenv`
           * MacOS without homebrew: `curl https://pyenv.run | bash`
+          
 * Otherwise, install these dependencies with your Linux distro's package manager
 
 ### Creating an IBM Cloud account
@@ -23,7 +24,7 @@ The following steps walk you through how to get a pre-built fhe-toolkit docker i
 
  If you don't have an account, select the "Create an account" link. [https://cloud.ibm.com/registration](https://cloud.ibm.com/registration)
 
-* Once you have made an account or logged into your existing account,  you must then make an API Key in your ibm cloud account 
+* Once you have made an account or logged into your existing account,  you must then make an API Key in your IBM Cloud account 
 
      * At the top of the screen navigate the menus from Manage  > Access (IAM). From the screen shown select the *My IBM Cloud API keys* tile. .  
      
@@ -40,6 +41,7 @@ The following steps walk you through how to get a pre-built fhe-toolkit docker i
 
 
 * Update or install `ibmcloud` CLI on the machine you will be using. 
+
  		[https://cloud.ibm.com/docs/cli?topic=cli-getting-started](https://cloud.ibm.com/docs/cli?topic=cli-getting-started)
  		
  		NOTE: If you have a mac, you can just open a terminal and issue the following command: 
@@ -113,7 +115,7 @@ Space:
 	
 * Create a Resource Group in your account 
     
-    my resource group is : `super_secret`
+    my resource group is called : `super_secret`
     
     Login to cloud.ibm.com -> `Manage -> Account -> Account Resources -> Resource Groups -> Create`
     
@@ -134,7 +136,7 @@ Before you can run `DeployToHPVS.sh`, you must tell it:
 ##### Automatic key generation
 If `DeployToHPVS.sh` called with the `-c` option, the interactive wizard will walk you through the process of key generation.
 
-The root and repository keys are generated automatically by `docker trust`, which is invoked by `DeployToHPVS.sh`.  The HPVS registration encryption key is hardcoded into `DeployToHPVS.sh`.  The other keys (the vendor and delegation keys) must be generated ahead of time.
+The root and repository keys are generated automatically by `docker trust`, which is invoked by `DeployToHPVS.sh`.  The HPVS registration encryption key is hardcoded into `DeployToHPVS.sh`.  The other keys (the vendor and delegation keys) the interactive wizard will prompt if you want to generate them.  If you want to do it manually, follow the next two steps.  If you want the interactive wizard to do it for you, skip ahead to "Running the HPVS Deploy script" section.
 
 ##### Vendor key
 
@@ -232,7 +234,7 @@ Find the reclamation id of the running resource and use that in the next command
 
     docker image rmi -f [docker image id in this example it was 86c15e968f8b]
     
-When a new image is signed there are a few keys that are created and become associated with that image.  If you wish to push that image to the virtual server again, you will need those keys to sign and verify.  This is the key pair in the config file called the delegation key.  It is signed using a repo key that is stored in `~/.docker/trust/private`.  The name of the key is a random string that is generated.  You will need to hang onto this key to re-sign this image and any others associated with it.  You can remove the delegation key if you no longer need it, but leave the repo key unless you are going to create a new one.
+When a new image is signed, there are a few keys that are created and become associated with that image.  If you wish to push that image to the virtual server again, you will need those keys to sign and verify.  This is the key pair in the config file called the delegation key.  It is signed using a repo key that is stored in `~/.docker/trust/private`.  The name of the key is a random string that is generated.  You will need to hang onto this key to re-sign this image and any others associated with it.  You can remove the delegation key if you no longer need it, but leave the repo key unless you are going to create a new one.
     
  - delete the docker trust info
 
