@@ -7,7 +7,10 @@ This repository contains all the scripts required to install and run the pre-pac
 
 If you are instead looking for the IBM Fully Homomorphic Encryption Tookit for macOS/iOS that provide a native toolkit for Apple developers, it can be found <a href="https://github.com/IBM/fhe-toolkit-macos" target="_blank">here</a>.
 
+[![Fully Homomorphic Encryption](http://img.youtube.com/vi/5Mhbaeuv5fk/0.jpg)](http://www.youtube.com/watch?v=5Mhbaeuv5fk "Intro to FHE")
+
 To learn more about FHE in general, and what it can be used for, you can check out our [FAQ/Content Solutions page][13].
+
 
 ## Supported Configurations
 
