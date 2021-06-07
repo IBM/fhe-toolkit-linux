@@ -9,6 +9,8 @@ If you are instead looking for the IBM Fully Homomorphic Encryption Tookit for m
 
 To learn more about FHE in general, and what it can be used for, you can check out our [FAQ/Content Solutions page][13].
 
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/5Mhbaeuv5fk/0.jpg)](http://www.youtube.com/watch?v=5Mhbaeuv5fk "Intro to FHE")
+
 ## Supported Configurations
 
 At this time, the toolkits support many <a href="https://www.docker.com/resources/what-container" target="_blank">Docker</a> capable hosts such as most modern Linux distributions, macOS, <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10" target="_blank">Windows 10 Subsystem for Linux</a> and <a href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.izso100/izso100_whatisintro.htm" target="_blank">z/OS Container Extensions</a>. Other host operating systems with recent Docker software may work as well but are untested. On x86-64 based systems, we support all three operating system editions of the toolkit. For the s390x architecture, the toolkit presently supports the Ubuntu and Fedora Editions. We hope to offer other s390x operating system options for the toolkits soon. 
