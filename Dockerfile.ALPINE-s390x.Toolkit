@@ -47,7 +47,7 @@ ENV HELAYERS_EXAMPLES_DIR="/opt/IBM/FHE-Workspace/examples/"
 
 
 # Install VSCode extensions
-RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension ms-vscode.cpptools --force
+#RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension ms-vscode.cpptools --force
 RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension ms-vscode.cmake-tools --force
 RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension twxs.cmake --force
 
@@ -55,7 +55,7 @@ RUN code-server --user-data-dir=/opt/IBM/IDE-Data/ --install-extension twxs.cmak
 RUN sed -i.bak 's/cert: false/cert: true/' /home/fhe/.config/code-server/config.yaml
 
 # Update VSCode user settings
-RUN echo "{\"extensions.autoUpdate\": false}" > /opt/IBM/IDE-Data/User/settings.json
+#RUN echo "{\"extensions.autoUpdate\": false}" > /opt/IBM/IDE-Data/User/settings.json
 RUN echo "{\"extensions.autoUpdate\": false,\n\"workbench.colorTheme\": \"Dark\"}" > /opt/IBM/IDE-Data/User/settings.json
 
 # Set the default command to launch the VS Project as a web application
