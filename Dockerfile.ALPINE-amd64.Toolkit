@@ -3,7 +3,7 @@ FROM $HElib_tag
 ARG HElib_cmake_lists_version
 ENV container docker
 ENV HELIB_CMAKE_LISTS_VERSON=$HElib_cmake_lists_version
-LABEL maintainer="Liz Maple <liz@uk.ibm.com>"
+LABEL maintainer="Gregory Boland <boland@us.ibm.com>"
 
 # Docker Container for Alpine FHE IDE and Example Code Toolkit
 
@@ -22,8 +22,9 @@ RUN yarn global add node-gyp
 RUN yarn global add node-pty 
 RUN yarn global add code-server
 #Install cpptools from the latest vsix version which we are pinning to because we have issues getting it to install normally - 12.03.2020 - greg
-#Previously this was version 1.1.2 and we update to 1.4.0 - 06.02.2021 - greg
-ADD https://github.com/microsoft/vscode-cpptools/releases/download/1.4.0/cpptools-linux.vsix /opt/IBM/FHE-Workspace/
+#Previously this was version 1.1.2 and we update to 1.3.1 - 06.02.2021 - greg
+#Note that when I try to update to 1.4.0 or 1.4.1 the cpptools plugin does not load, and there's an error on setup - 06.09.21
+ADD https://github.com/microsoft/vscode-cpptools/releases/download/1.3.1/cpptools-linux.vsix /opt/IBM/FHE-Workspace/
 
 # Create a directory to hold the VSCode user data when running as root
 RUN mkdir -p /opt/IBM/IDE-Data
