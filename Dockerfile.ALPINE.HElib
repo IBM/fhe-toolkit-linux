@@ -1,7 +1,7 @@
 ARG PlatformRelease
 FROM $PlatformRelease
 ENV container docker
-LABEL maintainer="Liz Maple <liz@uk.ibm.com>"
+LABEL maintainer="Gregory Boland <boland@us.ibm.com>"
 
 ARG USER_ID
 # Docker Container for Alpine HElib Base
