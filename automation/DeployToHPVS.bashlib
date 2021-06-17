@@ -489,7 +489,8 @@ config_file_wizard(){
     # Config variable: APIKey                                                  #
     #--------------------------------------------------------------------------#
     PROMPT_USER_READARGS="-s"
-    prompt_user "Enter an IAM key (platform API key) for your IBM Cloud account. An example API key looks like this k-y2lsNxfeKbaidcCG6kQVypLDR_WjmDPe-2Uuq_PTYx" false
+    prompt_user "Enter an IAM key (platform API key) for your IBM Cloud account. An example API key looks like this k-y2lsNxfeKbaidcCG6kQVypLDR_WjmDPe-2Uuq_PTYx
+Login to your IBM Cloud account and navigate to Manage > Access (IAM) > API keys for more information." false
     unset PROMPT_USER_READARGS
     APIKey=${USERINPUT}
     change_config_var ${1} "APIKey" "${APIKey}"
@@ -497,7 +498,8 @@ config_file_wizard(){
     #--------------------------------------------------------------------------#
     # Config variable: registryURL                                             #
     #--------------------------------------------------------------------------#
-    prompt_user "Enter URL of container repository. For example, docker.io for Dockerhub or us.ibm.cr for IBM Cloud Container Registry" false "docker.io"
+    prompt_user "Enter URL of container registry. For example, us.icr.io for IBM Cloud Container Registry
+For more information about creating a container registry in IBM Cloud see here https://cloud.ibm.com/apidocs/container-registry" false "docker.io"
     registryURL=$(echo "${USERINPUT}" | tr '[:upper:]' '[:lower:]') # Make lowercase
     
     # Strip "http://" or "https://" from string
@@ -537,7 +539,7 @@ config_file_wizard(){
     # user just hits ENTER.  For IBM Cloud users, it guesses your system userid
     # as a default.
     if [[ "$usingICR" == true ]]; then
-        prompt_user "Enter target namespace. If using IBM Cloud Container Registry, a new namespace must first be created via the web UI, or using the IBM Cloud CLI command: ibmcloud cr namespace-add YOURNAMESPACE. " true "${whoami}"
+        prompt_user "Enter target namespace. If using IBM Cloud Container Registry, a new namespace must first be created via the web UI, or using the IBM Cloud CLI command: ibmcloud cr namespace-add YOURNAMESPACE." true "${whoami}"
     else
         prompt_user "Enter target namespace. If using DockerHub, you can default to the name of your DockerHub account." true "${dockerUser}"
     fi
@@ -565,7 +567,10 @@ config_file_wizard(){
     #--------------------------------------------------------------------------#
     # Config variable: rootPassphrase                                          #
     #--------------------------------------------------------------------------#
-    prompt_for_passphrase "Enter passphrase for the root signing key" true
+    prompt_for_passphrase "Now we'll need to generate some keys, a Root key which is the root key of the docker content trust to store a tagged image,
+a repository key (aka "target key"); allows you to sign image tags and manage delegations (including delegated keys or permitted delegation paths),
+an Encryption key for the HPVS registration definition file (generated automatically in the background) and a Vendor key, required for signing the HPVS registration definition file
+Enter passphrase for the root signing key" true
     change_config_var ${1} "rootPassphrase" "${USERINPUT}"
     
     #--------------------------------------------------------------------------#
@@ -767,13 +772,15 @@ Passphrase: ${USERINPUT}
     #--------------------------------------------------------------------------#
     # Config variable: resource_group                                          #
     #--------------------------------------------------------------------------#
-    prompt_user "ID of IBM Cloud Resource Group to use for your deployment" true "default"
+    prompt_user "ID of IBM Cloud Resource Group to use for your deployment
+You can find out more information about resource groups here https://cloud.ibm.com/docs/account?topic=account-rgs. If you are unsure, leave this setting as default" true "default"
     change_config_var ${1} "resource_group" "${USERINPUT}"
     
     #--------------------------------------------------------------------------#
     # Config variable: resource_plan_id                                        #
     #--------------------------------------------------------------------------#
-    prompt_user "ID of the IBM Cloud Resource Plan to use for your deployment" true "default"
+    prompt_user "ID of the IBM Cloud Resource Plan to use for your deployment
+For more information on the appropriate id, use the following command: ibmcloud catalog service hpvs. If you are unsure, leave this setting as default" true "default"
     change_config_var ${1} "resource_plan_id" "${USERINPUT}"
     
     write_success "Configuration file '${1}' created"
