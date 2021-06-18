@@ -568,7 +568,7 @@ For more information about creating a container registry in IBM Cloud see here h
     # Config variable: rootPassphrase                                          #
     #--------------------------------------------------------------------------#
     prompt_for_passphrase "Now we'll need to generate some keys, a Root key which is the root key of the docker content trust to store a tagged image,
-a repository key (aka "target key"); allows you to sign image tags and manage delegations (including delegated keys or permitted delegation paths),
+a repository key (aka target key); allows you to sign image tags and manage delegations (including delegated keys or permitted delegation paths),
 an Encryption key for the HPVS registration definition file (generated automatically in the background) and a Vendor key, required for signing the HPVS registration definition file
 Enter passphrase for the root signing key" true
     change_config_var ${1} "rootPassphrase" "${USERINPUT}"
