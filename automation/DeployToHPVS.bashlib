@@ -489,7 +489,13 @@ config_file_wizard(){
     # Config variable: APIKey                                                  #
     #--------------------------------------------------------------------------#
     PROMPT_USER_READARGS="-s"
-    prompt_user "Enter an IAM key (platform API key) for your IBM Cloud account. An example API key looks like this k-y2lsNxfeKbaidcCG6kQVypLDR_WjmDPe-2Uuq_PTYx
+    prompt_user "
+===============================================================
+Enter an IAM key (platform API key) for your IBM Cloud account. 
+An example API key looks like this:
+
+    k-y2lsNxfeKbaidcCG6kQVypLDR_WjmDPe-2Uuq_PTYx
+
 Login to your IBM Cloud account and navigate to Manage > Access (IAM) > API keys for more information." false
     unset PROMPT_USER_READARGS
     APIKey=${USERINPUT}
@@ -498,8 +504,12 @@ Login to your IBM Cloud account and navigate to Manage > Access (IAM) > API keys
     #--------------------------------------------------------------------------#
     # Config variable: registryURL                                             #
     #--------------------------------------------------------------------------#
-    prompt_user "Enter URL of container registry. For example, us.icr.io for IBM Cloud Container Registry
-For more information about creating a container registry in IBM Cloud see here https://cloud.ibm.com/apidocs/container-registry" false "docker.io"
+    prompt_user "
+===============================================================
+Enter URL of container registry. For example, us.icr.io for IBM Cloud Container Registry
+For more information about creating a container registry in IBM Cloud see here:
+
+    https://cloud.ibm.com/apidocs/container-registry" false "docker.io"
     registryURL=$(echo "${USERINPUT}" | tr '[:upper:]' '[:lower:]') # Make lowercase
     
     # Strip "http://" or "https://" from string
@@ -539,7 +549,11 @@ For more information about creating a container registry in IBM Cloud see here h
     # user just hits ENTER.  For IBM Cloud users, it guesses your system userid
     # as a default.
     if [[ "$usingICR" == true ]]; then
-        prompt_user "Enter target namespace. If using IBM Cloud Container Registry, a new namespace must first be created via the web UI, or using the IBM Cloud CLI command: ibmcloud cr namespace-add YOURNAMESPACE." true "${whoami}"
+        prompt_user "
+===============================================================
+Enter target namespace. 
+If using IBM Cloud Container Registry, a new namespace must first be created via the web UI, or using the IBM Cloud CLI command: 
+    ibmcloud cr namespace-add YOURNAMESPACE." true "${whoami}"
     else
         prompt_user "Enter target namespace. If using DockerHub, you can default to the name of your DockerHub account." true "${dockerUser}"
     fi
@@ -567,9 +581,15 @@ For more information about creating a container registry in IBM Cloud see here h
     #--------------------------------------------------------------------------#
     # Config variable: rootPassphrase                                          #
     #--------------------------------------------------------------------------#
-    prompt_for_passphrase "Now we'll need to generate some keys, a Root key which is the root key of the docker content trust to store a tagged image,
-a repository key (aka target key); allows you to sign image tags and manage delegations (including delegated keys or permitted delegation paths),
-an Encryption key for the HPVS registration definition file (generated automatically in the background) and a Vendor key, required for signing the HPVS registration definition file
+    prompt_for_passphrase "
+===============================================================
+Now we'll need to generate some keys,
+
+1. a Root key which is the root key of the docker content trust to store a tagged image,
+2. a repository key (aka target key); allows you to sign image tags and manage delegations (including delegated keys or permitted delegation paths),
+3. an Encryption key for the HPVS registration definition file (generated automatically in the background),
+4. a Vendor key, required for signing the HPVS registration definition file
+
 Enter passphrase for the root signing key" true
     change_config_var ${1} "rootPassphrase" "${USERINPUT}"
     
