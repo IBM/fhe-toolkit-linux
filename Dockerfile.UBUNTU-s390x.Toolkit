@@ -35,6 +35,7 @@ RUN cp -pr ./node-v14.17.3-linux-s390x/bin     \
            ./node-v14.17.3-linux-s390x/share   \
            /usr/local
 
+RUN npm install --global yarn
 # Install code-server so we can access vscode from a container context...
 #RUN curl -fsSL https://code-server.dev/install.sh | sh 2>&1
 RUN curl -fsSL https://code-server.dev/install.sh | sh -s -- --version 3.9.1 2>&1
