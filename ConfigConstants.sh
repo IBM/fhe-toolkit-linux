@@ -25,7 +25,7 @@
 #Current versions we build against
 #
 # NTL Library 
-NTL_version='11.4.3'
+NTL_version='11.5.1'
 #HELib Library
 HElib_version='v2.1.0'
 HElib_cmake_lists_version='2.1.0'

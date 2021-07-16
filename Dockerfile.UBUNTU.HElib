@@ -64,7 +64,7 @@ RUN mkdir -p /opt/IBM/FHE-distro
 COPY ./DEPENDENCIES/NTL                /opt/IBM/FHE-distro/NTL
 WORKDIR /opt/IBM/FHE-distro/NTL
 RUN cd ./src && \
-    ./configure SHARED=on NTL_GMP_LIP=on NTL_THREADS=on NTL_THREAD_BOOST=on && \
+    ./configure SHARED=on NTL_GMP_LIP=on NTL_THREADS=on NTL_THREAD_BOOST=on NTL_RANDOM_AES256CTR=on && \
     make -j4 && \
     make install && \
     ldconfig && \

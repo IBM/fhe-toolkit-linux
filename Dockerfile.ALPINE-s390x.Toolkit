@@ -15,13 +15,15 @@ USER root
 WORKDIR /root
 
 # Install pre-reqs for building code-server
-RUN apk add --no-cache openssl python3 pkgconfig xterm libx11-dev libxkbfile-dev libsecret-dev nodejs yarn
+RUN apk add --no-cache openssl python3 pkgconfig xterm libx11-dev libxkbfile-dev libsecret-dev 
+RUN apk add nodejs yarn
 
 # Install code-server so we can access vscode from a container context...
 RUN yarn global add node-gyp 
 RUN yarn global add node-pty 
-RUN yarn global add code-server
+#RUN yarn global add code-server
 
+RUN curl -fsSL https://code-server.dev/install.sh | sh -s -- --version 3.9.1
 # Create a directory to hold the VSCode user data when running as root
 RUN mkdir -p /opt/IBM/IDE-Data
 RUN chown -R fhe:fhe /opt/IBM/IDE-Data

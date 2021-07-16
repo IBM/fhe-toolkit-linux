@@ -11,7 +11,7 @@ FHE-Workspace
 
 # Block dependencies that are automatically fetched in the build script
 DEPENDENCIES/NTL
-DEPENDENCIES/ntl-11.4.3.tar.gz
+DEPENDENCIES/ntl-*.tar.gz
 
 DEPENDENCIES/HElib
 DEPENDENCIES/HElib-v1.0.2.tar.gz
