@@ -16,7 +16,7 @@ WORKDIR /root
 
 # Install pre-reqs for building code-server
 RUN apk add --no-cache openssl python3 pkgconfig xterm libx11-dev libxkbfile-dev libsecret-dev 
-RUN apk nodejs yarn
+RUN apk add nodejs yarn
 
 # Install code-server so we can access vscode from a container context...
 RUN yarn global add node-gyp 
