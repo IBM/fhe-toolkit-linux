@@ -66,7 +66,7 @@ if [[ "$BUILD_TYPE" == "S390" ]]; then
      echo 'S390 Stuff $BUILD_TYPE'
      test_toolkit "ubuntu"
      test_toolkit "fedora"
-     test_toolkit "alpine"
+     #test_toolkit "alpine"
    
 else 
      test_toolkit "ubuntu"
