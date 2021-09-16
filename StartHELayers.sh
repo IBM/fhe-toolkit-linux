@@ -43,8 +43,8 @@ print_usage(){
   ${bold}LAB_TYPE${normal}   Selects the type of lab to
                  download the HELayers container from Docker Hub.
                  Available lab types are:
-                 x86_64/amd64: {lab, python}
-                 s390x:        {lab, python}
+                 x86_64/amd64: {cpp, python}
+                 s390x:        {cpp, python}
 
   ${bold}OPTIONS:${normal}
   -h             Displays this help information.
@@ -118,7 +118,7 @@ then
   if [[ "$labtype" = "python" ]]
   then
       imagesuffix="pylab-s390x"
-  elif [[ "$labtype" = "lab" ]]
+  elif [[ "$labtype" = "cpp" ]]
   then
       imagesuffix="lab-s390x"
   else
@@ -134,7 +134,7 @@ else
       then
       imagesuffix="pylab"
       labport="8888"
-    elif [[ "$labtype" = "lab" ]]
+    elif [[ "$labtype" = "cpp" ]]
     then
       imagesuffix="lab"
       labport="8443"
@@ -174,7 +174,7 @@ echo ""
 echo "==============================================================="
 
 docker pull ibmcom/helayers-$imagesuffix
-docker tag ibmcom/helayers-$imagesuffix ibmcom/helayers-$labtype
+docker tag ibmcom/helayers-$imagesuffix ibmcom/helayers-$imagesuffix
 if [ $? -ne 0 ]; then
   echo " "
   echo " FATAL: Aborting. There was an issue pulling the image ibmcom/helayers-$imagesuffix "
@@ -182,7 +182,7 @@ if [ $? -ne 0 ]; then
   exit -1
 fi
 
-docker run -p $labport:$labport -d --rm --name helayers-$labtype ibmcom/helayers-$labtype:latest
+docker run -p $labport:$labport -d --rm --name helayers-$imagesuffix ibmcom/helayers-$imagesuffix:latest
 if [ $? -ne 0 ]; then
   echo " "
   echo " FATAL: Aborting. There was an issue running the image ibmcom/helayers-$imagesuffix "
@@ -195,7 +195,7 @@ then
   echo " "
   echo " Container started. Navigate to: http://127.0.0.1:8888/lab/?token=demo-experience-with-fhe-and-python  "
   echo " "
-elif [[ "$labtype" = "lab" ]]
+elif [[ "$labtype" = "cpp" ]]
 then
   echo " "
   echo " Container started. Navigate to: http://127.0.0.1:8443/ "
