@@ -51,14 +51,6 @@ At this time, the SDK supports many <a href="https://www.docker.com/resources/wh
 
 This image is provided under a community edition license for non-commercial use. Customers who want to work directly with IBM Research, access advanced features, and plan for commercial-grade deployment using HElayers can engage through the Premium Edition Program by contacting the IBM FHE team at FHEstart@us.ibm.com.
 
-## Documentation
-
-If you are looking for Documentation to our APIs or more information about individual classes or methods, that can be found here 
-
-* [ML-HElib API Docs](https://ibm.github.io/fhe-toolkit-linux/)
-* [HELib API Docs](https://ibm.github.io/fhe-toolkit-linux/html/helib/index.html)
-
-
 ## Feedback Survey
  
 "IBM invites you to participate in our Advanced Security and Encryption Survey. This survey is designed to gather insights around the security challenges you or your organization face and better understand our users and serve you better. We will only use your feedback to improve the HELayers experience and inform future IBM security-focused products and services. IBM will not share your response data with any third parties. We look forward to your valuable feedback to improve the IBM FHE experience."
