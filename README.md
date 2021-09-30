@@ -1,6 +1,8 @@
 ---
 # IBM Fully Homomorphic Encryption (HELayers) SDK for Linux
 
+![HELayers](Documentation/Images/fhe.jpg)
+
 Last year, we introduced FHE to Linux with our FHE Toolkit. Today, we are announcing the next evolution of the FHE Toolkit called IBM HElayers, a software development kit (SDK) for the practical and efficient execution of encrypted workloads using fully homomorphic encrypted data. HElayers enables application developers and data scientists to seamlessly use advanced privacy preserving techniques without having to be a specialist in cryptography - all while working in a newly integrated Python environment. 
 
 HELayers is packaged as Docker containers that make it easier to get started and experimenting with FHE.  It is written in C++ and includes a Python API that enables data scientists and application developers to easily use the power of FHE by supporting a wide array of analytics such as linear regression, logistic regression, and neural networks.  
@@ -25,16 +27,16 @@ For the C++ version:
 
      ./StartHELayers.sh cpp
 
-The script will pull & download the latest version that works on your machine's architecture. It will run locally in its own container for you to view in your web browser.  The script will tell you where to point your browser to in the Terminal after completing the setup. The c++ version uses VSCode integrated into the browser for an IDE, and the python relies on a self-contained jupyter notebook.
+The script will pull & download the latest version that works on your machine's architecture. It will run locally in its own container for you to view in your web browser.  The script will tell you where to point your browser to in the Terminal after completing the setup. The c++ version uses VSCode integrated into the browser for an IDE, using port 8443, and the python relies on a self-contained jupyter notebook on port 8888.
 
 To try HELayers out from Dockerhub directly, you can use these links below:
 
 * Python
-   [HELayers Python x86](https://hub.docker.com/r/ibmcom/helayers-pylab)
-   [HELayers Python s390x](https://hub.docker.com/r/ibmcom/helayers-pylab-s390x)
+   * [HELayers Python x86](https://hub.docker.com/r/ibmcom/helayers-pylab)
+   * [HELayers Python s390x](https://hub.docker.com/r/ibmcom/helayers-pylab-s390x)
 * C++
-   [HELayers C++ x86](https://hub.docker.com/r/ibmcom/helayers-lab)
-   [HELayers C++ s390x](https://hub.docker.com/r/ibmcom/helayers-lab-s390x)
+   * [HELayers C++ x86](https://hub.docker.com/r/ibmcom/helayers-lab)
+   * [HELayers C++ s390x](https://hub.docker.com/r/ibmcom/helayers-lab-s390x)
 
 ### Take a look at our in-depth walkthrough video on how to download and get started with HElayers.
 
@@ -42,10 +44,14 @@ To try HELayers out from Dockerhub directly, you can use these links below:
 
 To learn more about FHE in general, and what it can be used for, you can check out our [FAQ/Content Solutions page](https://www.ibm.com/support/z-content-solutions/fully-homomorphic-encryption/ ).
 
+## System Requirements
 
-## Supported Configurations
+HElayers is a Linux based Docker container and can be implemented entirely in software; there is no hardware dependency. The only software that is required is Docker version 19 or higher with the necessary user privileges to run `docker` commands. It is also assumed you have a working internet connection. 
 
-At this time, the SDK supports many <a href="https://www.docker.com/resources/what-container" target="_blank">Docker</a> capable hosts such as most modern Linux distributions, macOS, <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10" target="_blank">Windows 10 Subsystem for Linux</a> and <a href="https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.4.0/com.ibm.zos.v2r4.izso100/izso100_whatisintro.htm" target="_blank">z/OS Container Extensions</a>. Other host operating systems with recent Docker software may work as well but are untested.
+Runtimes tested include Linux, Linux on IBM Z (z15 and LinuxONE III and later), z/OS Container Extensions (v2.4 & v2.5), Windows 10 subsystem for Linux and MacOS. Today, the only distribution we support is Ubuntu 20.04 which is included as the base image. 
+
+Older versions have not been thoroughly tested and there are no plans to support older versions in the future.
+
 
 ## License
 
