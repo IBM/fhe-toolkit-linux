@@ -13,7 +13,7 @@ In this repository is a script that you can run to install and run the pre-packa
 
      ./StartHELayers.sh 
 
-If you are instead looking for the IBM Fully Homomorphic Encryption Toolkit for Linux README, it can be found [here](https://github.com/IBM/fhe-toolkit-linux/README_TOOLKIT.md).
+If you are instead looking for the IBM Fully Homomorphic Encryption Toolkit for Linux README, it can be found [here](README_TOOLKIT.md).
 
 
 ### Try it for yourself
