@@ -30,14 +30,14 @@ For the C++ version:
 
 The script will pull & download the latest version that works on your machine's architecture. It will run locally in its own container for you to view in your web browser.  The script will tell you where to point your browser to in the Terminal after completing the setup. The c++ version uses VSCode integrated into the browser for an IDE, using port 8443, and the python relies on a self-contained jupyter notebook on port 8888.
 
-To try HELayers out from Dockerhub directly, you can use these links below:
+To try HELayers out from the IBM Container Registry directly, follow the instructions below:
 
 * Python
-   * [HELayers Python x86](https://hub.docker.com/r/ibmcom/helayers-pylab)
-   * [HELayers Python s390x](https://hub.docker.com/r/ibmcom/helayers-pylab-s390x)
+   * [HELayers Python x86](https://ibm.github.io/helayers/pylab/)
+   * [HELayers Python s390x](https://ibm.github.io/helayers/pylab-s390x/)
 * C++
-   * [HELayers C++ x86](https://hub.docker.com/r/ibmcom/helayers-lab)
-   * [HELayers C++ s390x](https://hub.docker.com/r/ibmcom/helayers-lab-s390x)
+   * [HELayers C++ x86](https://ibm.github.io/helayers/lab/)
+   * [HELayers C++ s390x](https://ibm.github.io/helayers/lab-s390x/)
 
 ### Take a look at our in-depth walkthrough video on how to download and get started with HElayers.
 
