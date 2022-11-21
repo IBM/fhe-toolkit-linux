@@ -41,7 +41,7 @@ print_usage(){
   ${bold}Usage: $SCRIPTNAME [options] LAB_TYPE${normal}
 
   ${bold}LAB_TYPE${normal}   Selects the type of lab to
-                 download the HELayers container from Docker Hub.
+                 download the HELayers container from IBM Container Registry.
                  Available lab types are:
                  x86_64/amd64: {cpp, python}
                  s390x:        {cpp, python}
@@ -148,6 +148,7 @@ else
   fi
 fi
 
+image="icr.io/helayers/helayers-$imagesuffix:latest"
 
 ################################################################
 # The script has the following arguments:
@@ -173,19 +174,18 @@ echo " Lab: $labtype "
 echo ""
 echo "==============================================================="
 
-docker pull ibmcom/helayers-$imagesuffix
-docker tag ibmcom/helayers-$imagesuffix ibmcom/helayers-$imagesuffix
+docker pull "$image"
 if [ $? -ne 0 ]; then
   echo " "
-  echo " FATAL: Aborting. There was an issue pulling the image ibmcom/helayers-$imagesuffix "
+  echo " FATAL: Aborting. There was an issue pulling the image $image"
   echo " "
   exit -1
 fi
 
-docker run -p $labport:$labport -d --rm --name helayers-$imagesuffix ibmcom/helayers-$imagesuffix:latest
+docker run -p $labport:$labport -d --rm --name helayers-$imagesuffix "$image"
 if [ $? -ne 0 ]; then
   echo " "
-  echo " FATAL: Aborting. There was an issue running the image ibmcom/helayers-$imagesuffix "
+  echo " FATAL: Aborting. There was an issue running the image $image"
   echo " "
   exit -1
 fi
