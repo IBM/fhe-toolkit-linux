@@ -155,7 +155,7 @@ elif [[ $ARCH == "s390x" ]]; then
   # echo "Determined s390x Architecture"
   architecture="s390x"
   ARCH="s390x"
-  # Ony on s390x arch is a situation where we might be running in a zOS Container extensions Docker host. 
+  # Only on s390x arch is a situation where we might be running in a zOS Container extensions Docker host.
   # z/OS Container Extensions platform CURL implementation does not work as expected. If zCX platform detected, add flag to adjust.
   zPlatform= docker system info | grep platform
   echo $zPlatform
@@ -166,7 +166,7 @@ elif [[ $ARCH == "s390x" ]]; then
   fi
 else
   echo " "
-  echo " FATAL: Aborting. $ARCH is not a suppported platform for building the FHE Toolkit."
+  echo " FATAL: Aborting. $ARCH is not a supported platform for building the FHE Toolkit."
   echo " "
   exit -1
 fi
@@ -340,7 +340,7 @@ fi
 
 
 #
-# Build FHE Tookit Docker image
+# Build FHE Toolkit Docker image
 #
 cd $BASEDIR
 if ! docker build -f ./Dockerfile.$build-$ARCH.Toolkit -t $FHEKit_tag --build-arg HElib_tag=$HElib_tag . $flags
@@ -348,7 +348,7 @@ then
   echo " "
   echo " FATAL: Failure building Toolkit container. Please check that you have a working Docker installation"
   echo " in your system and the necessary user privileges to run docker commands, and that the HElib base "
-  echo " container built correctly. This check can be done by issueing the command `docker images`"
+  echo " container built correctly. This check can be done by issuing the command `docker images`"
   echo " "
   exit -11
 else
