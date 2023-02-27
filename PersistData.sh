@@ -98,7 +98,7 @@ elif [[ $ARCH == "s390x" ]]; then
   architecture="s390x"
 else
   echo " "
-  echo " FATAL: Aborting. $ARCH is not a suppported platform for hosting or building the FHE Toolkit."
+  echo " FATAL: Aborting. $ARCH is not a supported platform for hosting or building the FHE Toolkit."
   echo " "
   exit -1
 fi
@@ -192,7 +192,7 @@ then
   fi
 else
   echo " "
-  echo " FATAL: Aborting. $ARCH is not a suppported platform for hosting or building the FHE Toolkit."
+  echo " FATAL: Aborting. $ARCH is not a supported platform for hosting or building the FHE Toolkit."
   echo " "
   exit -7
 fi

@@ -5,7 +5,7 @@ The IBM Fully Homomorphic Encryption (FHE) Toolkit for Linux is packaged as [Doc
 
 This repository contains all the scripts required to install and run the pre-packaged toolkits as a docker container. The toolkits comprise the [IBM Homomorphic Encryption Library - HElib][3], an [Integrated Development Environment (IDE)][4], and the corresponding workspace containing the ready-to-run example code in a variety of supported toolkit editions. The editions supported are based on [Centos][5], [Fedora][6], or [Ubuntu][7], or [Alpine][8]. Each toolkit edition provides access to the built-in IDE via a web browser on your host. For the more adventurous users, instructions to build and package the toolkit locally are also provided.
 
-If you are instead looking for the IBM Fully Homomorphic Encryption Tookit for macOS/iOS that provide a native toolkit for Apple developers, it can be found <a href="https://github.com/IBM/fhe-toolkit-macos" target="_blank">here</a>.
+If you are instead looking for the IBM Fully Homomorphic Encryption Toolkit for macOS/iOS that provide a native toolkit for Apple developers, it can be found <a href="https://github.com/IBM/fhe-toolkit-macos" target="_blank">here</a>.
 
 [![Fully Homomorphic Encryption](http://img.youtube.com/vi/5Mhbaeuv5fk/0.jpg)](http://www.youtube.com/watch?v=5Mhbaeuv5fk "Intro to FHE")
 

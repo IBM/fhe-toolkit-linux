@@ -250,7 +250,7 @@ if [ ! "${CID}" ]; then
   
   cmd="docker run -d --name $FHEkit_container_name  $DOCKER_PERSISTENT_VOLUME_ARGS -p $PORT:8443 $FHEkit_image_name"
 
-  echo "INFO:    Launching FHE tookit: "
+  echo "INFO:    Launching FHE toolkit: "
   echo ""
   echo ""
   echo "         $cmd"
