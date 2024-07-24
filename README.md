@@ -1,9 +1,11 @@
 ---
+We are archiving this exiting repository.  Its been a few years since we've had any support for the FHE Toolkit.  Please see below for HElayers which is supported and in active development.
+
 # IBM Fully Homomorphic Encryption (HELayers) SDK for Linux
 
 ![HELayers](Documentation/Images/fhe.jpg)
 
-Last year, we introduced FHE to Linux with our FHE Toolkit. Today, we are announcing the next evolution of the FHE Toolkit called IBM HElayers, a software development kit (SDK) for the practical and efficient execution of encrypted workloads using fully homomorphic encrypted data. HElayers enables application developers and data scientists to seamlessly use advanced privacy preserving techniques without having to be a specialist in cryptography - all while working in a newly integrated Python environment. 
+In 2020, we introduced FHE to Linux with our FHE Toolkit. In 2021, we made the next evolution of the FHE Toolkit called IBM HElayers, a software development kit (SDK) for the practical and efficient execution of encrypted workloads using fully homomorphic encrypted data. HElayers enables application developers and data scientists to seamlessly use advanced privacy preserving techniques without having to be a specialist in cryptography - all while working in a newly integrated Python environment. 
 
 HELayers is packaged as Docker containers that make it easier to get started and experimenting with FHE.  It is written in C++ and includes a Python API that enables data scientists and application developers to easily use the power of FHE by supporting a wide array of analytics such as linear regression, logistic regression, and neural networks.  
 
