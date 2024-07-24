@@ -137,7 +137,8 @@ else
     elif [[ "$labtype" = "cpp" ]]
     then
       imagesuffix="lab"
-      labport="8443"
+      # This was switched to be port 8888 no matter which one was started
+      labport="8888"
     else
       echo " "
       echo "  Invalid lab type: $labtype Please specify a valid lab type"
@@ -198,7 +199,7 @@ then
 elif [[ "$labtype" = "cpp" ]]
 then
   echo " "
-  echo " Container started. Navigate to: http://127.0.0.1:8443/ "
+  echo " Container started. Navigate to: http://127.0.0.1:8888/ "
   echo " "
 fi
 

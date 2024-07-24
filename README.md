@@ -34,12 +34,9 @@ The script will pull & download the latest version that works on your machine's 
 
 To try HELayers out from the IBM Container Registry directly, follow the instructions below:
 
-* Python
-   * [HELayers Python x86](https://ibm.github.io/helayers/pylab/)
-   * [HELayers Python s390x](https://ibm.github.io/helayers/pylab-s390x/)
-* C++
-   * [HELayers C++ x86](https://ibm.github.io/helayers/lab/)
-   * [HELayers C++ s390x](https://ibm.github.io/helayers/lab-s390x/)
+* [Python Package](https://ibm.github.io/helayers/user/installation.html#importing-the-pyhelayers-python-packge)
+
+* [Docker Images](https://ibm.github.io/helayers/user/installation.html#docker-image-installation)
 
 ### Take a look at our in-depth walkthrough video on how to download and get started with HElayers.
 
